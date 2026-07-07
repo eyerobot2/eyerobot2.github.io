@@ -1,0 +1,957 @@
+<html>
+
+<head>
+
+    <!-- ===================================================================
+         Google Analytics (gtag.js)
+         TODO: replace G-XXXXXXXXXX with your Measurement ID, or delete this block.
+    ==================================================================== -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+
+    <meta charset="utf-8" />
+    <title>EyeRobot 2.0: Active Visual Fixation for Precise Manipulation without Wrist Cameras</title>
+
+    <!-- ===================================================================
+         Website Metadata — TODO: update every field below.
+         og:image / twitter:image should be an absolute URL to a preview card
+         (e.g. https://your-domain/data/previewcard.jpg, ~1200x630).
+    ==================================================================== -->
+    <meta content="[ONE-LINE DESCRIPTION OF THE PAPER]" name="description" />
+    <meta content="EyeRobot 2.0: Active Visual Fixation for Precise Manipulation without Wrist Cameras" property="og:title" />
+    <meta content="[ONE-LINE DESCRIPTION OF THE PAPER]" property="og:description" />
+    <meta content="https://[YOUR-DOMAIN]/data/previewcard.jpg" property="og:image" />
+    <meta content="EyeRobot 2.0: Active Visual Fixation for Precise Manipulation without Wrist Cameras" property="twitter:title" />
+    <meta content="[ONE-LINE DESCRIPTION OF THE PAPER]" property="twitter:description" />
+    <meta content="https://[YOUR-DOMAIN]/data/previewcard.jpg" property="twitter:image" />
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script
+        type="text/javascript">WebFont.load({ google: { families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic", "Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic", "Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic", "Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic", "Changa One:400,400italic", "Varela Round:400", "Bungee Shade:regular", "Roboto:300,regular,500", "Bungee Outline:regular"] } });</script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+
+    <!-- JQuery, scripts etc -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="script.js" type="text/javascript"></script>
+
+    <!-- Stylesheets; tabler icons, font-awesome, fonts, ...-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <!-- Carousel + separator styles -->
+    <style>
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .carousel-track-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .carousel-button:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-button--left {
+            left: 10px;
+        }
+
+        .carousel-button--right {
+            right: 10px;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background: #ccc;
+            cursor: pointer;
+        }
+
+        .carousel-indicator.current-slide {
+            background: #333;
+        }
+
+        .video-caption {
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Placeholder box shown wherever real media has not been dropped in yet.
+           Delete .media-placeholder usages once data/ is populated. */
+        .media-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: repeating-linear-gradient(45deg, #f0f0f0, #f0f0f0 12px, #e8e8e8 12px, #e8e8e8 24px);
+            border: 2px dashed #bbb;
+            border-radius: 12px;
+            color: #888;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+            text-align: center;
+            padding: 1em;
+            box-sizing: border-box;
+        }
+
+        /* Icon Separator Styles */
+        .icon-separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin: 2rem 0;
+            color: #bbb;
+        }
+
+        .icon-separator i {
+            font-size: 22px;
+            opacity: 0.7;
+        }
+
+        .icon-separator img {
+            height: 36px;
+            width: auto;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="data/favicon.png?v=2" />
+    <link rel="apple-touch-icon" href="data/apple-touch-icon.png?v=2" />
+</head>
+
+<body>
+    <div>
+        <!-- ===========================================================
+             Title, Subtitle, Authors
+        ============================================================ -->
+        <div>
+            <h1 class="title">
+                <span style="text-wrap: nowrap">EyeRobot 2.0</span>
+            </h1>
+            <h1 class="subheader">Active Visual Fixation for Precise Manipulation without Wrist Cameras</h1>
+
+            <!-- Author list. Duplicate an <a> + spacer to add authors; wrap to a
+                 second inner <div> for a second visual row (as below). -->
+            <div class="base-row">
+                <div style="display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center;">
+                    <div>
+                        <a href="#" target="_blank" class="author-text" id="author-kush">Kush Hari<sup>&lowast;1</sup></a>
+                        <div style="width: 1.25em; display: inline-block"></div>
+                        <a href="#" target="_blank" class="author-text" id="author-justin">Justin Kerr<sup>&lowast;1,2</sup></a>
+                        <div style="width: 1.25em; display: inline-block"></div>
+                        <a href="#" target="_blank" class="author-text">Nidhya Shivakumar<sup>1</sup></a>
+                        <div style="width: 1.25em; display: inline-block"></div>
+                        <a href="#" target="_blank" class="author-text">Samarth Mahapatra<sup>1</sup></a>
+                        <div style="width: 1.25em; display: inline-block"></div>
+                        <a href="#" target="_blank" class="author-text">Carmelo Sferrazza<sup>2</sup></a>
+                    </div>
+                    <div>
+                        <a href="#" target="_blank" class="author-text">Jiahui Lei<sup>1</sup></a>
+                        <div style="width: 1.25em; display: inline-block"></div>
+                        <a href="#" target="_blank" class="author-text">C. Karen Liu<sup>2,3</sup></a>
+                        <div style="width: 1.25em; display: inline-block"></div>
+                        <a href="#" target="_blank" class="author-text">Jitendra Malik<sup>1,2</sup></a>
+                        <div style="width: 1.25em; display: inline-block"></div>
+                        <a href="#" target="_blank" class="author-text">Ken Goldberg<sup>1</sup></a>
+                        <div style="width: 1.25em; display: inline-block"></div>
+                        <a href="#" target="_blank" class="author-text">Angjoo Kanazawa<sup>1,2</sup></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center">
+            <h1 id="uc-berkeley"><sup>1</sup>UC Berkeley&nbsp;&nbsp;&nbsp;<sup>2</sup>Amazon FAR&nbsp;&nbsp;&nbsp;<sup>3</sup>Stanford University</h1>
+            <p style="margin-top: 0.25em;"><sup>&lowast;</sup>Equal contribution, random order</p>
+        </div>
+
+        <!-- Submission status / venue -->
+        <div class="title-row">
+            <h2 class="subheader" style="font-size: 28px;">arXiv 2026</h2>
+        </div>
+
+        <!-- ===========================================================
+             Paper / Code / Data links — TODO: update every href.
+        ============================================================ -->
+        <div class="base-row add-top-padding">
+            <!-- Paper -->
+            <a href="#" target="_blank" class="link-block">
+                <figure>
+                    <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png"
+                        alt="paper"
+                        srcset="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png"
+                        style="max-height: 4em" />
+                </figure>
+                <figcaption>
+                    <strong class="link-labels-text">Paper</strong>
+                </figcaption>
+            </a>
+            <!-- Code -->
+            <a href="#" target="_blank" class="link-block">
+                <figure>
+                    <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png"
+                        alt="code" style="max-height: 4em" />
+                </figure>
+                <figcaption>
+                    <strong class="link-labels-text">&lt;/Code&gt;</strong>
+                </figcaption>
+            </a>
+            <!-- Data -->
+            <a href="#" target="_blank" class="link-block">
+                <figure>
+                    <i class="ti ti-database" style="font-size: 4.4em; line-height: 0.91; color: #4d4d4d; display: inline-block;"></i>
+                </figure>
+                <figcaption>
+                    <strong class="link-labels-text">Data</strong>
+                </figcaption>
+            </a>
+        </div>
+
+        <!-- ===========================================================
+             TL;DR + Teaser video
+        ============================================================ -->
+        <div class="section base-row add-top-padding">
+            <h1 class="tldr">
+                <b>TL;DR</b>: Active Visual Fixation (AVF) with only a single stereo camera for fine-grained bimanual manipulation
+            </h1>
+            <!-- TODO: drop teaser clip at data/teaser.mp4 -->
+            <!-- Hidden until a real video loads, so the missing-source video doesn't
+                 reserve empty space. Auto-reveals once data/teaser.mp4 is present. -->
+            <video id="main-video" autobuffer muted autoplay loop playsinline
+                   style="display: none;" onloadeddata="this.style.display=''">
+                <source id="mp4" src="data/teaser.mp4" type="video/mp4">
+            </video>
+            <div class="media-placeholder">data/teaser.mp4 &mdash; teaser video goes here</div>
+        </div>
+
+        <!-- ===========================================================
+             Framework / method figure
+        ============================================================ -->
+        <div class="section base-row add-top-padding">
+            <h1 class="tldr">
+                We train a <b>low-level gaze policy</b> with RL to swivel two eye viewpoints onto a <b>3D fixation point</b> conditioned on a target object. We then co-train a <b>high-level target selector</b> to emit fixation goals based on task progress. The selector is trained with RL and rewarded by the <b>BC gripper policy</b>'s accuracy.
+            </h1>
+        </div>
+
+        <!-- ===========================================================
+             Results section with a video carousel.
+             To add a slide: copy a .carousel-slide block AND add one more
+             <button class="carousel-indicator" data-slide="N"></button> below.
+        ============================================================ -->
+        <div class="section base-row add-top-padding">
+            <div style="width: 100%;">
+                <h1>Active Visual Fixation for Manipulation</h1>
+                <p class="tldr"><b>7 Real Tasks</b></p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="results-carousel">
+                        <!-- Marker -->
+                        <div class="carousel-slide current-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_02_marker.jpg">
+                                <source data-src="data/result_02_marker.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Toaster -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_06_toaster.jpg">
+                                <source data-src="data/result_06_toaster.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Wrench -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_07_wrench.jpg">
+                                <source data-src="data/result_07_wrench.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Boba -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_01_boba.jpg">
+                                <source data-src="data/result_01_boba.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Tea -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_05_tea.jpg">
+                                <source data-src="data/result_05_tea.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Tape -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_04_tape.jpg">
+                                <source data-src="data/result_04_tape.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Pot -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_03_pot.jpg">
+                                <source data-src="data/result_03_pot.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button carousel-button--left" data-carousel="results-carousel">
+                    <i class="ti ti-chevron-left"></i>
+                </button>
+                <button class="carousel-button carousel-button--right" data-carousel="results-carousel">
+                    <i class="ti ti-chevron-right"></i>
+                </button>
+                <div class="carousel-nav">
+                    <button class="carousel-indicator current-slide" data-slide="0"></button>
+                    <button class="carousel-indicator" data-slide="1"></button>
+                    <button class="carousel-indicator" data-slide="2"></button>
+                    <button class="carousel-indicator" data-slide="3"></button>
+                    <button class="carousel-indicator" data-slide="4"></button>
+                    <button class="carousel-indicator" data-slide="5"></button>
+                    <button class="carousel-indicator" data-slide="6"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===========================================================
+             Simulation results — "6 Sim Tasks" carousel
+        ============================================================ -->
+        <div class="section base-row add-top-padding">
+            <div style="width: 100%;">
+                <p class="tldr"><b>6 Sim Tasks</b></p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="sim-carousel">
+                        <!-- Hang spoon -->
+                        <div class="carousel-slide current-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/sim_6_spoon.jpg">
+                                <source data-src="data/sim_6_spoon.mp4?v=3" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Medical tray -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/sim_4_tray.jpg">
+                                <source data-src="data/sim_4_tray.mp4?v=2" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Plate in rack -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/sim_5_plate.jpg">
+                                <source data-src="data/sim_5_plate.mp4?v=2" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Tape handover -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/sim_1_tape.jpg">
+                                <source data-src="data/sim_1_tape.mp4?v=2" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Pot lid -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/sim_2_pot.jpg">
+                                <source data-src="data/sim_2_pot.mp4?v=2" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Tiger pick-up -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/sim_3_tiger.jpg">
+                                <source data-src="data/sim_3_tiger.mp4?v=2" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button carousel-button--left" data-carousel="sim-carousel">
+                    <i class="ti ti-chevron-left"></i>
+                </button>
+                <button class="carousel-button carousel-button--right" data-carousel="sim-carousel">
+                    <i class="ti ti-chevron-right"></i>
+                </button>
+                <div class="carousel-nav">
+                    <button class="carousel-indicator current-slide" data-slide="0"></button>
+                    <button class="carousel-indicator" data-slide="1"></button>
+                    <button class="carousel-indicator" data-slide="2"></button>
+                    <button class="carousel-indicator" data-slide="3"></button>
+                    <button class="carousel-indicator" data-slide="4"></button>
+                    <button class="carousel-indicator" data-slide="5"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===========================================================
+             Experiment Trials — unified per-task success-rate figure
+        ============================================================ -->
+        <div class="section base-row add-top-padding">
+            <div style="width: 100%;">
+                <p class="tldr"><b>Experiment Trials</b></p>
+            </div>
+            <!-- Results figure, converted from images/figure_unified.pdf -->
+            <img src="images/figure_unified.svg" alt="Per-task success rates for No Gaze (Stereo Only), Ego+Wrist (3 Cameras), and AVF (Stereo Only) across real (640 trials) and sim (1800 trials) tasks"
+                 style="width: 100%; height: auto; border-radius: 12px;" />
+        </div>
+
+        <div class="icon-separator">
+            <img src="data/favicon.png?v=2" alt="" />
+            <img src="data/favicon.png?v=2" alt="" />
+            <img src="data/favicon.png?v=2" alt="" />
+        </div>
+
+        <!-- ===========================================================
+             "How it works" — single video + a before/after comparison
+        ============================================================ -->
+        <div class="section base-row add-top-padding">
+            <h1>How it works</h1>
+
+            <div class="separator"></div>
+            <p class="tldr"><b>Gaze Fixation Policy</b></p>
+            <p class="paragraph">
+                We first train a gaze policy that continously servos the 2 eyes to fixate on a target object in 3D. We use RL, with the reward coming by estimating the 3D centroid of the target with object detection (SAM3) and stereo depth (FoundationStereo).
+            </p>
+            <!-- Gaze policy pipeline figure, converted from images/3d.pdf -->
+            <img src="images/3d.svg" alt="Gaze policy pipeline: fixation rendering (raw stereo RGB, spherical projection, fixated view), ground-truth fixation via SAM3 object detection and FoundationStereo depth, and the gaze policy outputs"
+                 style="width: 100%; height: auto; border-radius: 12px; margin: 10px auto;" />
+            <!-- TODO: drop clip at data/pretraining.mp4 -->
+            <!-- Hidden until a real video loads, so the missing-source video doesn't
+                 reserve empty space. Auto-reveals once data/pretraining.mp4 is present. -->
+            <video loop autoplay muted playsinline style="width: 100%; display: none;"
+                   preload="none" onloadeddata="this.style.display=''">
+                <source data-src="data/pretraining.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="media-placeholder">Video showing gaze policy of trajectory rollout for yellow tape vs grey tape in viser</div>
+
+            <div class="separator"></div>
+            <p class="tldr"><b>BC Gripper Policy with Target Selector</b></p>
+            <p class="paragraph">
+                We freeze the gaze policy and train a target selector with RL to select which object to look at during rollout. The target selector is co-trained with the BC gripper policy and rewarded to best improve the gripper policy performance.
+            </p>
+            <!-- Framework figure, converted from images/arch.pdf -->
+            <img src="images/arch.svg" alt="AVF framework / method overview"
+                 style="width: 100%; height: auto; border-radius: 12px;" />
+
+            <!-- Policy-viewpoint carousel: high-res stereo fixation view w/ foveated-crop boxes -->
+            <p class="tldr" style="margin-top: 24px;"><b>Gaze + Gripper Policy Rollouts</b></p>
+            <div class="carousel-container" style="margin-top: 12px;">
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="policy-carousel">
+                        <!-- Marker -->
+                        <div class="carousel-slide current-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_marker.jpg">
+                                <source data-src="data/policy_marker.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Toaster -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_toaster.jpg">
+                                <source data-src="data/policy_toaster.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Wrench -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_wrench.jpg">
+                                <source data-src="data/policy_wrench.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Boba -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_boba.jpg">
+                                <source data-src="data/policy_boba.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Tea -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tea.jpg">
+                                <source data-src="data/policy_tea.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Tape -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tape.jpg">
+                                <source data-src="data/policy_tape.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Pot -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_pot.jpg">
+                                <source data-src="data/policy_pot.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button carousel-button--left" data-carousel="policy-carousel">
+                    <i class="ti ti-chevron-left"></i>
+                </button>
+                <button class="carousel-button carousel-button--right" data-carousel="policy-carousel">
+                    <i class="ti ti-chevron-right"></i>
+                </button>
+                <div class="carousel-nav">
+                    <button class="carousel-indicator current-slide" data-slide="0"></button>
+                    <button class="carousel-indicator" data-slide="1"></button>
+                    <button class="carousel-indicator" data-slide="2"></button>
+                    <button class="carousel-indicator" data-slide="3"></button>
+                    <button class="carousel-indicator" data-slide="4"></button>
+                    <button class="carousel-indicator" data-slide="5"></button>
+                    <button class="carousel-indicator" data-slide="6"></button>
+                </div>
+            </div>
+
+            <!-- Carousel: policy rollouts w/ target-selector (gaze) probability strip -->
+            <p class="tldr" style="margin-top: 24px;"><b>Policy Rollouts with Gaze Probabilities</b></p>
+            <div class="carousel-container" style="margin-top: 12px;">
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="gaze-probs-carousel">
+                        <!-- Marker -->
+                        <div class="carousel-slide current-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_marker.jpg">
+                                <source data-src="data/gaze_probs_marker.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Toaster -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_toaster.jpg">
+                                <source data-src="data/gaze_probs_toaster.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Wrench -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_wrench.jpg">
+                                <source data-src="data/gaze_probs_wrench.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Boba -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_boba.jpg">
+                                <source data-src="data/gaze_probs_boba.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Tea -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_tea.jpg">
+                                <source data-src="data/gaze_probs_tea.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Tape -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_tape.jpg">
+                                <source data-src="data/gaze_probs_tape.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Pot -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_pot.jpg">
+                                <source data-src="data/gaze_probs_pot.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button carousel-button--left" data-carousel="gaze-probs-carousel">
+                    <i class="ti ti-chevron-left"></i>
+                </button>
+                <button class="carousel-button carousel-button--right" data-carousel="gaze-probs-carousel">
+                    <i class="ti ti-chevron-right"></i>
+                </button>
+                <div class="carousel-nav">
+                    <button class="carousel-indicator current-slide" data-slide="0"></button>
+                    <button class="carousel-indicator" data-slide="1"></button>
+                    <button class="carousel-indicator" data-slide="2"></button>
+                    <button class="carousel-indicator" data-slide="3"></button>
+                    <button class="carousel-indicator" data-slide="4"></button>
+                    <button class="carousel-indicator" data-slide="5"></button>
+                    <button class="carousel-indicator" data-slide="6"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="icon-separator">
+            <img src="data/favicon.png?v=2" alt="" />
+            <img src="data/favicon.png?v=2" alt="" />
+            <img src="data/favicon.png?v=2" alt="" />
+        </div>
+
+        <!-- ===========================================================
+             Generic content section (e.g. Hardware / Architecture / Analysis)
+        ============================================================ -->
+        <div class="section base-row add-top-padding">
+            <h1>Additional Experiments</h1>
+            <p class="tldr"><b>Robustness to Distractors</b></p>
+            <p class="paragraph">
+                We evaluate AVF with colorful distractor objects randomly scattered on the table. AVF retains significantly more of its original performance than gaze-free stereo baselines (AVF 27%, ego-only 0%). AVF and ego+wrist policies for the tea and wrench tasks degrade by the same amount (AVF 23%, ego+wrist 22%) while on the tape task ego+wrist performance craters (AVF 34%, ego+wrist 0%).
+            </p>
+            <!-- Distractor-robustness carousel: one success per task w/ distractor objects on the table -->
+            <div class="carousel-container">
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="distractor-carousel">
+                        <!-- Tape -->
+                        <div class="carousel-slide current-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/distractor_tape.jpg">
+                                <source data-src="data/distractor_tape.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Tea -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/distractor_tea.jpg">
+                                <source data-src="data/distractor_tea.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Wrench -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/distractor_wrench.jpg">
+                                <source data-src="data/distractor_wrench.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button carousel-button--left" data-carousel="distractor-carousel">
+                    <i class="ti ti-chevron-left"></i>
+                </button>
+                <button class="carousel-button carousel-button--right" data-carousel="distractor-carousel">
+                    <i class="ti ti-chevron-right"></i>
+                </button>
+                <div class="carousel-nav">
+                    <button class="carousel-indicator current-slide" data-slide="0"></button>
+                    <button class="carousel-indicator" data-slide="1"></button>
+                    <button class="carousel-indicator" data-slide="2"></button>
+                </div>
+            </div>
+
+            <p class="tldr" style="margin-top: 32px;"><b>Foveation and Stereo Ablations</b></p>
+            <p class="paragraph">
+                We run ablations with AVF without the foveated architecture and AVF without the stereo camera (just mono), and find that both are important for AVF performance.
+            </p>
+            <img src="images/ablation_table.png" alt="Ablation table: per-task success rates for AVF, AVF without foveation, and AVF without stereo (mono)"
+                 style="width: 100%; height: auto; margin-top: 12px;" />
+        </div>
+
+        <div class="icon-separator">
+            <img src="data/favicon.png?v=2" alt="" />
+            <img src="data/favicon.png?v=2" alt="" />
+            <img src="data/favicon.png?v=2" alt="" />
+        </div>
+
+        <!-- ===========================================================
+             Failures — placeholder carousel (drop failure clips into
+             data/failure_*.mp4 and replace each .media-placeholder with a
+             <video> block like the other carousels).
+        ============================================================ -->
+        <div class="section base-row add-top-padding">
+            <div style="width: 100%;">
+                <h1>Failures</h1>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="failures-carousel">
+                        <div class="carousel-slide current-slide">
+                            <div class="media-placeholder">data/failure_1.mp4 &mdash; failure video goes here</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="media-placeholder">data/failure_2.mp4 &mdash; failure video goes here</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="media-placeholder">data/failure_3.mp4 &mdash; failure video goes here</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button carousel-button--left" data-carousel="failures-carousel">
+                    <i class="ti ti-chevron-left"></i>
+                </button>
+                <button class="carousel-button carousel-button--right" data-carousel="failures-carousel">
+                    <i class="ti ti-chevron-right"></i>
+                </button>
+                <div class="carousel-nav">
+                    <button class="carousel-indicator current-slide" data-slide="0"></button>
+                    <button class="carousel-indicator" data-slide="1"></button>
+                    <button class="carousel-indicator" data-slide="2"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===========================================================
+             Citation
+        ============================================================ -->
+        <div class="section citation" style="margin-top: 50px">
+            <h1 id="abstract">Citation</h1>
+            <p class="paragraph"> If you use this work or find it helpful, please consider citing: (bibtex) </p>
+            <pre id="codecell0" style="white-space: pre-wrap; word-wrap: break-word; max-width: 100%; overflow-x: auto; padding: 1em; background: #f5f5f5; border-radius: 4px;">@inproceedings{[CITEKEY],
+  title={[PAPER FULL TITLE]},
+  author={[Author One and Author Two and ...]},
+  booktitle={[Venue]},
+  year={[Year]},
+  url={[Paper URL]}
+}</pre>
+        </div>
+
+        <footer>
+            <div class="section" style="margin-top: 40px;">
+                <p class="paragraph">
+                    The website template is adapted from the
+                    <a class="author-text" href="https://eyerobot.net/">Eye, Robot</a> and
+                    <a class="author-text" href="https://robot-see-robot-do.github.io/">RSRD</a>
+                    project pages.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ===========================================================
+         Carousel JavaScript (lazy-loads videos, handles nav/dots).
+         Generic: drives every .carousel-container on the page.
+    ============================================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const initializeCarousel = (carouselContainer) => {
+                const track = carouselContainer.querySelector('.carousel-track');
+                if (!track) return;
+
+                const slides = Array.from(track.children);
+                const nextButton = carouselContainer.querySelector('.carousel-button--right');
+                const prevButton = carouselContainer.querySelector('.carousel-button--left');
+                const dotsNav = carouselContainer.querySelector('.carousel-nav');
+                const dots = dotsNav ? Array.from(dotsNav.children) : [];
+
+                let currentSlideIndex = 0;
+
+                const loadVideo = (video) => {
+                    const sources = video.querySelectorAll('source[data-src]');
+                    if (sources.length > 0) {
+                        sources.forEach(source => {
+                            source.src = source.dataset.src;
+                            source.removeAttribute('data-src');
+                        });
+                        video.load();
+                    }
+                };
+
+                // Function to move to a specific slide
+                const moveToSlide = (targetIndex) => {
+                    if (targetIndex < 0 || targetIndex >= slides.length) return;
+
+                    // Pause current videos
+                    if (slides[currentSlideIndex]) {
+                        const currentVideos = slides[currentSlideIndex].querySelectorAll('video');
+                        currentVideos.forEach(video => {
+                            video.pause();
+                        });
+                    }
+
+                    const targetSlide = slides[targetIndex];
+
+                    // Load video for target slide
+                    const newVideos = targetSlide.querySelectorAll('video');
+                    newVideos.forEach(video => {
+                        loadVideo(video);
+                        video.play().catch(e => {
+                            // Autoplay was prevented.
+                            console.log('Autoplay was prevented:', e);
+                        });
+                    });
+
+                    // Update current slide
+                    if (slides[currentSlideIndex]) {
+                        slides[currentSlideIndex].classList.remove('current-slide');
+                    }
+                    targetSlide.classList.add('current-slide');
+
+                    // Update dots
+                    if (dots.length > 0 && dots[currentSlideIndex]) {
+                        dots[currentSlideIndex].classList.remove('current-slide');
+                        dots[targetIndex].classList.add('current-slide');
+                    }
+
+                    // Move the track
+                    const slideWidth = slides[0].getBoundingClientRect().width;
+                    track.style.transform = `translateX(-${slideWidth * targetIndex}px)`;
+
+                    currentSlideIndex = targetIndex;
+                };
+
+                // Next button functionality
+                if (nextButton) {
+                    nextButton.addEventListener('click', () => {
+                        const nextIndex = (currentSlideIndex + 1) % slides.length;
+                        moveToSlide(nextIndex);
+                    });
+                }
+
+                // Previous button functionality
+                if (prevButton) {
+                    prevButton.addEventListener('click', () => {
+                        const prevIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+                        moveToSlide(prevIndex);
+                    });
+                }
+
+                // Dot navigation functionality
+                if (dots.length > 0) {
+                    dots.forEach((dot, index) => {
+                        dot.addEventListener('click', () => {
+                            moveToSlide(index);
+                        });
+                    });
+                }
+
+                // Pause other videos when one starts playing
+                slides.forEach((slide, index) => {
+                    const videos = slide.querySelectorAll('video');
+                    videos.forEach(video => {
+                        video.addEventListener('play', () => {
+                            // Pause all other videos in this carousel
+                            slides.forEach((otherSlide, otherIndex) => {
+                                if (otherIndex !== index) {
+                                    const otherVideos = otherSlide.querySelectorAll('video');
+                                    otherVideos.forEach(otherVideo => {
+                                        otherVideo.pause();
+                                    });
+                                }
+                            });
+                        });
+                    });
+                });
+
+                // Play the CURRENT slide's video only while this carousel is on-screen.
+                // With several carousels on the page, autoplaying them all at once
+                // exhausts the browser's video-decoder budget and some stall / don't
+                // play. Gating on visibility keeps only the visible carousel decoding.
+                const playCurrent = () => {
+                    const s = slides[currentSlideIndex];
+                    if (!s) return;
+                    s.querySelectorAll('video').forEach(v => {
+                        loadVideo(v);
+                        v.play().catch(e => console.log('Autoplay was prevented:', e));
+                    });
+                };
+                const pauseCurrent = () => {
+                    const s = slides[currentSlideIndex];
+                    if (!s) return;
+                    s.querySelectorAll('video').forEach(v => v.pause());
+                };
+                if ('IntersectionObserver' in window) {
+                    const visObs = new IntersectionObserver((entries) => {
+                        entries.forEach(e => { e.isIntersecting ? playCurrent() : pauseCurrent(); });
+                    }, { threshold: 0.25 });
+                    visObs.observe(carouselContainer);
+                } else {
+                    playCurrent();  // no IO support → fall back to playing first slide
+                }
+            };
+
+            // Initialize all carousels on the page
+            const carousels = document.querySelectorAll('.carousel-container');
+            carousels.forEach(initializeCarousel);
+
+            // Lazy load videos that are not in a carousel
+            const lazyVideos = [].slice.call(document.querySelectorAll('video:not(.carousel-track video)'));
+
+            if ('IntersectionObserver' in window) {
+                let lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(videoEntry) {
+                    if (videoEntry.isIntersecting) {
+                    let video = videoEntry.target;
+                    let sources = video.querySelectorAll('source[data-src]');
+                    sources.forEach(source => {
+                        if (source.dataset.src) {
+                        source.src = source.dataset.src;
+                        source.removeAttribute('data-src');
+                        }
+                    });
+                    video.load();
+                    video.play().catch(e => console.log("Autoplay for non-carousel video prevented.", e));
+                    lazyVideoObserver.unobserve(video);
+                    }
+                });
+                });
+
+                lazyVideos.forEach(function(video) {
+                lazyVideoObserver.observe(video);
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
