@@ -1,0 +1,3 @@
+[submodule "viewer"]
+	path = viewer
+	url = https://github.com/smahapatra2718/eyeball-viewer.git
