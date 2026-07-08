@@ -11,6 +11,7 @@ Project page for **[PAPER SHORT TITLE]**. Static site (no build step) adapted fr
 | `style.css` | Design system, copied verbatim from eyerobot-website. |
 | `script.js` | jQuery helpers from the original template. The live carousels are driven by the inline script at the bottom of `index.html`; `script.js` only contains legacy object-viewer helpers (safe to trim/delete). |
 | `data/` | All media (videos, figures, favicon, preview card). Currently **empty** — drop assets here. |
+| `viewer/` | **Git submodule** → [`smahapatra2718/eyeball-viewer`](https://github.com/smahapatra2718/eyeball-viewer). Served at `/viewer`. See below. |
 
 ## Filling in the template
 
@@ -44,6 +45,28 @@ cd ~/eyerobot2-website && python -m http.server 8000
 ```
 
 Then open <http://localhost:8000>.
+
+## Data viewer (`/viewer`)
+
+The interactive eyeball-eval viewer is vendored as a **git submodule** at `viewer/`, pointing at
+the public repo [`smahapatra2718/eyeball-viewer`](https://github.com/smahapatra2718/eyeball-viewer).
+It's a self-contained static site (relative paths + hash routing), so it just works at
+`https://eyerobot2.github.io/viewer/` with no changes. The "Viewer" button in the link row links to it.
+
+- **Cloning this repo** now needs the submodule:
+  ```bash
+  git clone --recurse-submodules git@github.com:eyerobot2/eyerobot2.github.io.git
+  # or, if already cloned:
+  git submodule update --init
+  ```
+- **Updating the viewer** to eyeball-viewer's latest:
+  ```bash
+  git submodule update --remote viewer
+  git add viewer && git commit -m "Bump viewer submodule"
+  ```
+- **Keep `smahapatra2718/eyeball-viewer` public.** GitHub Pages only auto-checks-out submodules
+  over public `https` (which `.gitmodules` uses). If it goes private, `/viewer` will 404.
+- `.nojekyll` at the repo root disables Jekyll so the viewer's static assets publish untouched.
 
 ## Deploying (GitHub Pages)
 
