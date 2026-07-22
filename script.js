@@ -110,11 +110,13 @@ function randomizeCoFirstAuthors() {
   const justin = document.getElementById('author-justin');
   if (!kush || !justin) return;
   if (Math.random() < 0.5) {
-    // Swap the rendered content (name + affiliation superscript) so the
-    // surrounding spacer <div>s stay in place and the gap is preserved.
+    // Swap the rendered author and destination while preserving the spacer nodes.
     const tmp = kush.innerHTML;
+    const tmpHref = kush.getAttribute('href');
     kush.innerHTML = justin.innerHTML;
+    kush.setAttribute('href', justin.getAttribute('href'));
     justin.innerHTML = tmp;
+    justin.setAttribute('href', tmpHref);
   }
 }
 

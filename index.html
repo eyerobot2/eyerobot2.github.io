@@ -190,28 +190,20 @@
             <!-- Author list. Duplicate an <a> + spacer to add authors; wrap to a
                  second inner <div> for a second visual row (as below). -->
             <div class="base-row">
-                <div style="display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center;">
-                    <div>
-                        <a href="#" target="_blank" class="author-text" id="author-kush">Kush Hari<sup>&lowast;1</sup></a>
-                        <div style="width: 1.25em; display: inline-block"></div>
-                        <a href="#" target="_blank" class="author-text" id="author-justin">Justin Kerr<sup>&lowast;1,2</sup></a>
-                        <div style="width: 1.25em; display: inline-block"></div>
-                        <a href="#" target="_blank" class="author-text">Nidhya Shivakumar<sup>1</sup></a>
-                        <div style="width: 1.25em; display: inline-block"></div>
+                <div class="author-list">
+                    <div class="author-line">
+                        <a href="https://kushtimusprime.github.io/" target="_blank" rel="noopener" class="author-text" id="author-kush">Kush Hari<sup>&lowast;1</sup></a>
+                        <a href="https://kerrj.github.io/" target="_blank" rel="noopener" class="author-text" id="author-justin">Justin Kerr<sup>&lowast;1,2</sup></a>
+                        <a href="https://scholar.google.com/citations?user=pMQw-ncAAAAJ&amp;hl=en" target="_blank" rel="noopener" class="author-text">Nidhya Shivakumar<sup>1</sup></a>
                         <a href="#" target="_blank" class="author-text">Samarth Mahapatra<sup>1</sup></a>
-                        <div style="width: 1.25em; display: inline-block"></div>
-                        <a href="#" target="_blank" class="author-text">Carmelo Sferrazza<sup>2</sup></a>
+                        <a href="https://sferrazza.cc/" target="_blank" rel="noopener" class="author-text">Carmelo Sferrazza<sup>2</sup></a>
                     </div>
-                    <div>
-                        <a href="#" target="_blank" class="author-text">Jiahui Lei<sup>1</sup></a>
-                        <div style="width: 1.25em; display: inline-block"></div>
-                        <a href="#" target="_blank" class="author-text">C. Karen Liu<sup>2,3</sup></a>
-                        <div style="width: 1.25em; display: inline-block"></div>
-                        <a href="#" target="_blank" class="author-text">Jitendra Malik<sup>1,2</sup></a>
-                        <div style="width: 1.25em; display: inline-block"></div>
-                        <a href="#" target="_blank" class="author-text">Ken Goldberg<sup>1</sup></a>
-                        <div style="width: 1.25em; display: inline-block"></div>
-                        <a href="#" target="_blank" class="author-text">Angjoo Kanazawa<sup>1,2</sup></a>
+                    <div class="author-line">
+                        <a href="https://www.jiahuilei.com/" target="_blank" rel="noopener" class="author-text">Jiahui Lei<sup>1</sup></a>
+                        <a href="https://profiles.stanford.edu/c-karen-liu" target="_blank" rel="noopener" class="author-text">C. Karen Liu<sup>2,3</sup></a>
+                        <a href="https://people.eecs.berkeley.edu/~malik/" target="_blank" rel="noopener" class="author-text">Jitendra Malik<sup>1,2</sup></a>
+                        <a href="https://goldberg.berkeley.edu/" target="_blank" rel="noopener" class="author-text">Ken Goldberg<sup>1</sup></a>
+                        <a href="https://people.eecs.berkeley.edu/~kanazawa/" target="_blank" rel="noopener" class="author-text">Angjoo Kanazawa<sup>1,2</sup></a>
                     </div>
                 </div>
             </div>
@@ -222,54 +214,39 @@
             <p style="margin-top: 0.25em;"><sup>&lowast;</sup>Equal contribution, random order</p>
         </div>
 
-        <!-- Submission status / venue -->
-        <div class="title-row">
-            <h2 class="subheader" style="font-size: 28px;">arXiv 2026</h2>
-        </div>
-
         <!-- ===========================================================
              Paper / Code / Data links — TODO: update every href.
         ============================================================ -->
-        <div class="base-row add-top-padding">
+        <div class="base-row project-links add-top-padding">
             <!-- Paper -->
             <a href="#" target="_blank" class="link-block">
-                <figure>
-                    <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png"
-                        alt="paper"
-                        srcset="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png"
-                        style="max-height: 4em" />
-                </figure>
-                <figcaption>
-                    <strong class="link-labels-text">Paper</strong>
-                </figcaption>
+                <i class="ti ti-file-text project-link-icon" aria-hidden="true"></i>
+                <strong class="link-labels-text">Paper</strong>
             </a>
             <!-- Code -->
             <a href="#" target="_blank" class="link-block">
-                <figure>
-                    <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png"
-                        alt="code" style="max-height: 4em" />
-                </figure>
-                <figcaption>
-                    <strong class="link-labels-text">&lt;/Code&gt;</strong>
-                </figcaption>
+                <i class="ti ti-brand-github project-link-icon" aria-hidden="true"></i>
+                <strong class="link-labels-text">Code</strong>
             </a>
             <!-- Data -->
             <a href="#" target="_blank" class="link-block">
-                <figure>
-                    <i class="ti ti-database" style="font-size: 4.4em; line-height: 0.91; color: #4d4d4d; display: inline-block;"></i>
-                </figure>
-                <figcaption>
-                    <strong class="link-labels-text">Data</strong>
-                </figcaption>
+                <i class="ti ti-database project-link-icon" aria-hidden="true"></i>
+                <strong class="link-labels-text">Data</strong>
             </a>
-            <!-- Viewer -->
-            <a href="viewer/" class="link-block">
-                <figure>
-                    <i class="ti ti-chart-histogram" style="font-size: 4.4em; line-height: 0.91; color: #4d4d4d; display: inline-block;"></i>
-                </figure>
-                <figcaption>
-                    <strong class="link-labels-text">Viewer</strong>
-                </figcaption>
+        </div>
+
+        <div class="section viewer-cta-wrap">
+            <a class="viewer-cta" href="viewer/" aria-label="Open the EyeRobot 2.0 Eval Browser">
+                <span class="viewer-cta-icon">
+                    <i class="ti ti-chart-histogram" aria-hidden="true"></i>
+                </span>
+                <span class="viewer-cta-copy">
+                    <strong>Click to see all our eval trials!</strong>
+                </span>
+                <span class="viewer-cta-action">
+                    Open Eval Browser
+                    <i class="ti ti-arrow-right" aria-hidden="true"></i>
+                </span>
             </a>
         </div>
 
@@ -300,9 +277,7 @@
         </div>
 
         <!-- ===========================================================
-             Results section with a video carousel.
-             To add a slide: copy a .carousel-slide block AND add one more
-             <button class="carousel-indicator" data-slide="N"></button> below.
+             Real-world results grid
         ============================================================ -->
         <div class="section base-row add-top-padding">
             <div style="width: 100%;">
@@ -310,147 +285,97 @@
                 <p class="tldr"><b>7 Real Tasks</b></p>
             </div>
 
-            <div class="carousel-container">
-                <div class="carousel-track-container">
-                    <div class="carousel-track" id="results-carousel">
-                        <!-- Marker -->
-                        <div class="carousel-slide current-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_02_marker.jpg">
-                                <source data-src="data/result_02_marker.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Toaster -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_06_toaster.jpg">
-                                <source data-src="data/result_06_toaster.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Wrench -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_07_wrench.jpg">
-                                <source data-src="data/result_07_wrench.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Boba -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_01_boba.jpg">
-                                <source data-src="data/result_01_boba.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Tea -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_05_tea.jpg">
-                                <source data-src="data/result_05_tea.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Tape -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_04_tape.jpg">
-                                <source data-src="data/result_04_tape.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Pot -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/result_03_pot.jpg">
-                                <source data-src="data/result_03_pot.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-button carousel-button--left" data-carousel="results-carousel">
-                    <i class="ti ti-chevron-left"></i>
-                </button>
-                <button class="carousel-button carousel-button--right" data-carousel="results-carousel">
-                    <i class="ti ti-chevron-right"></i>
-                </button>
-                <div class="carousel-nav">
-                    <button class="carousel-indicator current-slide" data-slide="0"></button>
-                    <button class="carousel-indicator" data-slide="1"></button>
-                    <button class="carousel-indicator" data-slide="2"></button>
-                    <button class="carousel-indicator" data-slide="3"></button>
-                    <button class="carousel-indicator" data-slide="4"></button>
-                    <button class="carousel-indicator" data-slide="5"></button>
-                    <button class="carousel-indicator" data-slide="6"></button>
-                </div>
+            <div class="results-grid real-results-grid">
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/result_02_marker.jpg" aria-label="Marker task rollout">
+                        <source data-src="data/result_02_marker.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Marker</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/result_06_toaster.jpg" aria-label="Toaster task rollout">
+                        <source data-src="data/result_06_toaster.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Toaster</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/result_07_wrench.jpg" aria-label="Wrench task rollout">
+                        <source data-src="data/result_07_wrench.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Wrench</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/result_01_boba.jpg" aria-label="Boba task rollout">
+                        <source data-src="data/result_01_boba.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Boba</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/result_05_tea.jpg" aria-label="Tea task rollout">
+                        <source data-src="data/result_05_tea.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Tea</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/result_04_tape.jpg" aria-label="Tape task rollout">
+                        <source data-src="data/result_04_tape.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Tape</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/result_03_pot.jpg" aria-label="Pot task rollout">
+                        <source data-src="data/result_03_pot.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Pot</figcaption>
+                </figure>
             </div>
         </div>
 
         <!-- ===========================================================
-             Simulation results — "6 Sim Tasks" carousel
+             Simulation results grid
         ============================================================ -->
         <div class="section base-row add-top-padding">
             <div style="width: 100%;">
                 <p class="tldr"><b>6 Sim Tasks</b></p>
             </div>
 
-            <div class="carousel-container">
-                <div class="carousel-track-container">
-                    <div class="carousel-track" id="sim-carousel">
-                        <!-- Hang spoon -->
-                        <div class="carousel-slide current-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/sim_6_spoon.jpg">
-                                <source data-src="data/sim_6_spoon.mp4?v=3" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Medical tray -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/sim_4_tray.jpg">
-                                <source data-src="data/sim_4_tray.mp4?v=2" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Plate in rack -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/sim_5_plate.jpg">
-                                <source data-src="data/sim_5_plate.mp4?v=2" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Tape handover -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/sim_1_tape.jpg">
-                                <source data-src="data/sim_1_tape.mp4?v=2" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Pot lid -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/sim_2_pot.jpg">
-                                <source data-src="data/sim_2_pot.mp4?v=2" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Tiger pick-up -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/sim_3_tiger.jpg">
-                                <source data-src="data/sim_3_tiger.mp4?v=2" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-button carousel-button--left" data-carousel="sim-carousel">
-                    <i class="ti ti-chevron-left"></i>
-                </button>
-                <button class="carousel-button carousel-button--right" data-carousel="sim-carousel">
-                    <i class="ti ti-chevron-right"></i>
-                </button>
-                <div class="carousel-nav">
-                    <button class="carousel-indicator current-slide" data-slide="0"></button>
-                    <button class="carousel-indicator" data-slide="1"></button>
-                    <button class="carousel-indicator" data-slide="2"></button>
-                    <button class="carousel-indicator" data-slide="3"></button>
-                    <button class="carousel-indicator" data-slide="4"></button>
-                    <button class="carousel-indicator" data-slide="5"></button>
-                </div>
+            <div class="results-grid sim-results-grid">
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/sim_6_spoon.jpg" aria-label="Hang spoon simulation rollout">
+                        <source data-src="data/sim_6_spoon.mp4?v=3" type="video/mp4">
+                    </video>
+                    <figcaption>Hang Spoon</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/sim_4_tray.jpg" aria-label="Medical tray simulation rollout">
+                        <source data-src="data/sim_4_tray.mp4?v=2" type="video/mp4">
+                    </video>
+                    <figcaption>Medical Tray</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/sim_5_plate.jpg" aria-label="Plate in rack simulation rollout">
+                        <source data-src="data/sim_5_plate.mp4?v=2" type="video/mp4">
+                    </video>
+                    <figcaption>Plate in Rack</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/sim_1_tape.jpg" aria-label="Tape handover simulation rollout">
+                        <source data-src="data/sim_1_tape.mp4?v=2" type="video/mp4">
+                    </video>
+                    <figcaption>Tape Handover</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/sim_2_pot.jpg" aria-label="Pot lid simulation rollout">
+                        <source data-src="data/sim_2_pot.mp4?v=2" type="video/mp4">
+                    </video>
+                    <figcaption>Pot Lid</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/sim_3_tiger.jpg" aria-label="Tiger pickup simulation rollout">
+                        <source data-src="data/sim_3_tiger.mp4?v=2" type="video/mp4">
+                    </video>
+                    <figcaption>Tiger Pickup</figcaption>
+                </figure>
             </div>
         </div>
 
@@ -937,25 +862,28 @@
 
             if ('IntersectionObserver' in window) {
                 let lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(function(videoEntry) {
-                    if (videoEntry.isIntersecting) {
-                    let video = videoEntry.target;
-                    let sources = video.querySelectorAll('source[data-src]');
-                    sources.forEach(source => {
-                        if (source.dataset.src) {
-                        source.src = source.dataset.src;
-                        source.removeAttribute('data-src');
+                    entries.forEach(function(videoEntry) {
+                        if (videoEntry.isIntersecting) {
+                            let video = videoEntry.target;
+                            let sources = video.querySelectorAll('source[data-src]');
+                            let loadedSource = false;
+                            sources.forEach(source => {
+                                if (source.dataset.src) {
+                                    source.src = source.dataset.src;
+                                    source.removeAttribute('data-src');
+                                    loadedSource = true;
+                                }
+                            });
+                            if (loadedSource) video.load();
+                            video.play().catch(e => console.log("Autoplay for non-carousel video prevented.", e));
+                        } else {
+                            videoEntry.target.pause();
                         }
                     });
-                    video.load();
-                    video.play().catch(e => console.log("Autoplay for non-carousel video prevented.", e));
-                    lazyVideoObserver.unobserve(video);
-                    }
-                });
                 });
 
                 lazyVideos.forEach(function(video) {
-                lazyVideoObserver.observe(video);
+                    lazyVideoObserver.observe(video);
                 });
             }
         });
