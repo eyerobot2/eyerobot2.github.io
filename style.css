@@ -143,10 +143,10 @@ display: none;
 .title {
     margin-top: 0px;
     margin-bottom: 0px;
-    font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
-    color: #000;
-    font-size: 60px;
-    line-height: 80px;
+    font-family: 'Ubuntu', 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+    color: #1a1a1a;
+    font-size: 54px;
+    line-height: 74px;
     font-weight: 700;
     letter-spacing: 0;
     text-align: center;
@@ -201,7 +201,7 @@ h1.tldr {
 .author-text {
     font-family: 'Open Sans',sans-serif;
     color: #488af3;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     text-decoration: none;
     text-wrap: nowrap;
@@ -234,7 +234,7 @@ h1.tldr {
     padding-top: 10px;
     font-family: 'Open Sans',sans-serif;
     color: #333;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     margin: 0px;
     letter-spacing: 0;

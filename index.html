@@ -191,7 +191,7 @@
 
         <div style="text-align: center">
             <h1 id="uc-berkeley"><sup>1</sup>UC Berkeley&nbsp;&nbsp;&nbsp;<sup>2</sup>Amazon FAR&nbsp;&nbsp;&nbsp;<sup>3</sup>Stanford University</h1>
-            <p style="margin-top: 0.25em;"><sup>&lowast;</sup>Equal contribution, random order</p>
+            <p style="margin-top: 0.25em; font-size: 13px;"><sup>&lowast;</sup>Equal contribution, random order</p>
         </div>
 
         <!-- ===========================================================
@@ -215,27 +215,12 @@
             </a>
         </div>
 
-        <div class="section viewer-cta-wrap">
-            <a class="viewer-cta" href="viewer/" aria-label="Open the EyeRobot 2.0 Eval Browser">
-                <span class="viewer-cta-icon">
-                    <i class="ti ti-chart-histogram" aria-hidden="true"></i>
-                </span>
-                <span class="viewer-cta-copy">
-                    <strong>Click to see all our eval trials!</strong>
-                </span>
-                <span class="viewer-cta-action">
-                    Open Eval Browser
-                    <i class="ti ti-arrow-right" aria-hidden="true"></i>
-                </span>
-            </a>
-        </div>
-
         <!-- ===========================================================
              TL;DR + Teaser video
         ============================================================ -->
         <div class="section base-row add-top-padding">
             <h1 class="tldr">
-                <b>TL;DR</b>: Active Visual Fixation (AVF) with only a single stereo camera for fine-grained bimanual manipulation
+                <b>TL;DR</b>: Fine-grained bimanual manipulation using an ego-mounted stereo camera with actively fixating eyes
             </h1>
             <video id="main-video" muted autoplay loop playsinline preload="metadata">
                 <source id="mp4" src="data/teaser.mp4" type="video/mp4">
@@ -307,61 +292,30 @@
             </div>
         </div>
 
-        <!-- ===========================================================
-             Simulation results grid
-        ============================================================ -->
-        <div class="section base-row add-top-padding">
-            <div style="width: 100%;">
-                <p class="tldr"><b>6 Sim Tasks</b></p>
-            </div>
-
-            <div class="results-grid sim-results-grid">
-                <figure class="results-grid-item">
-                    <video loop muted playsinline preload="none" poster="data/posters/sim_6_spoon.jpg" aria-label="Hang spoon simulation rollout">
-                        <source data-src="data/sim_6_spoon.mp4?v=3" type="video/mp4">
-                    </video>
-                    <figcaption>Hang Spoon</figcaption>
-                </figure>
-                <figure class="results-grid-item">
-                    <video loop muted playsinline preload="none" poster="data/posters/sim_4_tray.jpg" aria-label="Medical tray simulation rollout">
-                        <source data-src="data/sim_4_tray.mp4?v=2" type="video/mp4">
-                    </video>
-                    <figcaption>Medical Tray</figcaption>
-                </figure>
-                <figure class="results-grid-item">
-                    <video loop muted playsinline preload="none" poster="data/posters/sim_5_plate.jpg" aria-label="Plate in rack simulation rollout">
-                        <source data-src="data/sim_5_plate.mp4?v=2" type="video/mp4">
-                    </video>
-                    <figcaption>Plate in Rack</figcaption>
-                </figure>
-                <figure class="results-grid-item">
-                    <video loop muted playsinline preload="none" poster="data/posters/sim_1_tape.jpg" aria-label="Tape handover simulation rollout">
-                        <source data-src="data/sim_1_tape.mp4?v=2" type="video/mp4">
-                    </video>
-                    <figcaption>Tape Handover</figcaption>
-                </figure>
-                <figure class="results-grid-item">
-                    <video loop muted playsinline preload="none" poster="data/posters/sim_2_pot.jpg" aria-label="Pot lid simulation rollout">
-                        <source data-src="data/sim_2_pot.mp4?v=2" type="video/mp4">
-                    </video>
-                    <figcaption>Pot Lid</figcaption>
-                </figure>
-                <figure class="results-grid-item">
-                    <video loop muted playsinline preload="none" poster="data/posters/sim_3_tiger.jpg" aria-label="Tiger pickup simulation rollout">
-                        <source data-src="data/sim_3_tiger.mp4?v=2" type="video/mp4">
-                    </video>
-                    <figcaption>Tiger Pickup</figcaption>
-                </figure>
-            </div>
-        </div>
 
         <!-- ===========================================================
              Experiment Trials — unified per-task success-rate figure
         ============================================================ -->
         <div class="section base-row add-top-padding">
             <div style="width: 100%;">
-                <p class="tldr"><b>Experiment Trials</b></p>
+                <h1>Experiments</h1>
             </div>
+
+            <div class="viewer-cta-wrap">
+                <a class="viewer-cta" href="viewer/" aria-label="Open the EyeRobot 2.0 Eval Browser">
+                    <span class="viewer-cta-icon">
+                        <i class="ti ti-chart-histogram" aria-hidden="true"></i>
+                    </span>
+                    <span class="viewer-cta-copy">
+                        <strong>Click to see all our eval trials!</strong>
+                    </span>
+                    <span class="viewer-cta-action">
+                        Open Eval Browser
+                        <i class="ti ti-arrow-right" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+
             <!-- Results figure, converted from images/figure_unified.pdf -->
             <img src="images/figure_unified.svg" alt="Per-task success rates for No Gaze (Stereo Only), Ego+Wrist (3 Cameras), and AVF (Stereo Only) across real (640 trials) and sim (1800 trials) tasks"
                  style="width: 100%; height: auto; border-radius: 12px;" />
@@ -372,6 +326,7 @@
         ============================================================ -->
         <div class="section base-row add-top-padding">
             <h1>How it works</h1>
+            <p style="width: 100%; color: red; font-size: 13px; font-weight: 700; margin: 2px 0 0;">TODO: describe stereo virtual eye rendering</p>
 
             <div class="separator"></div>
             <p class="tldr"><b>Gaze Fixation Policy</b></p>
@@ -399,79 +354,6 @@
             <!-- Framework figure, converted from images/arch.pdf -->
             <img src="images/arch.svg" alt="AVF framework / method overview"
                  style="width: 100%; height: auto; border-radius: 12px;" />
-
-            <!-- Policy-viewpoint carousel: high-res stereo fixation view w/ foveated-crop boxes -->
-            <p class="tldr" style="margin-top: 24px;"><b>Gaze + Gripper Policy Rollouts</b></p>
-            <div class="carousel-container" style="margin-top: 12px;">
-                <div class="carousel-track-container">
-                    <div class="carousel-track" id="policy-carousel">
-                        <!-- Marker -->
-                        <div class="carousel-slide current-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_marker.jpg">
-                                <source data-src="data/policy_marker.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Toaster -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_toaster.jpg">
-                                <source data-src="data/policy_toaster.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Wrench -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_wrench.jpg">
-                                <source data-src="data/policy_wrench.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Boba -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_boba.jpg">
-                                <source data-src="data/policy_boba.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Tea -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tea.jpg">
-                                <source data-src="data/policy_tea.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Tape -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tape.jpg">
-                                <source data-src="data/policy_tape.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Pot -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_pot.jpg">
-                                <source data-src="data/policy_pot.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-button carousel-button--left" data-carousel="policy-carousel">
-                    <i class="ti ti-chevron-left"></i>
-                </button>
-                <button class="carousel-button carousel-button--right" data-carousel="policy-carousel">
-                    <i class="ti ti-chevron-right"></i>
-                </button>
-                <div class="carousel-nav">
-                    <button class="carousel-indicator current-slide" data-slide="0"></button>
-                    <button class="carousel-indicator" data-slide="1"></button>
-                    <button class="carousel-indicator" data-slide="2"></button>
-                    <button class="carousel-indicator" data-slide="3"></button>
-                    <button class="carousel-indicator" data-slide="4"></button>
-                    <button class="carousel-indicator" data-slide="5"></button>
-                    <button class="carousel-indicator" data-slide="6"></button>
-                </div>
-            </div>
 
             <!-- Carousel: policy rollouts w/ target-selector (gaze) probability strip -->
             <p class="tldr" style="margin-top: 24px;"><b>Policy Rollouts with Gaze Probabilities</b></p>
@@ -551,8 +433,7 @@
              Generic content section (e.g. Hardware / Architecture / Analysis)
         ============================================================ -->
         <div class="section base-row add-top-padding">
-            <h1>Additional Experiments</h1>
-            <p class="tldr"><b>Robustness to Distractors</b></p>
+            <h1>Robustness to Distractors</h1>
             <p class="paragraph">
                 We evaluate AVF with colorful distractor objects randomly scattered on the table. AVF retains significantly more of its original performance than gaze-free stereo baselines (AVF 27%, ego-only 0%). AVF and ego+wrist policies for the tea and wrench tasks degrade by the same amount (AVF 23%, ego+wrist 22%) while on the tape task ego+wrist performance craters (AVF 34%, ego+wrist 0%).
             </p>
@@ -596,12 +477,65 @@
                 </div>
             </div>
 
-            <p class="tldr" style="margin-top: 32px;"><b>Foveation and Stereo Ablations</b></p>
+            <h1 style="margin-top: 32px;">Foveation and Stereo Ablations</h1>
             <p class="paragraph">
                 We run ablations with AVF without the foveated architecture and AVF without the stereo camera (just mono), and find that both are important for AVF performance.
             </p>
             <img src="images/ablation_table.png" alt="Ablation table: per-task success rates for AVF, AVF without foveation, and AVF without stereo (mono)"
                  style="width: 100%; height: auto; margin-top: 12px;" />
+        </div>
+
+        <!-- ===========================================================
+             Simulation results grid
+        ============================================================ -->
+        <div class="section base-row add-top-padding">
+            <div style="width: 100%;">
+                <h1>Simulation</h1>
+                <p class="tldr"><b>6 Sim Tasks</b></p>
+            </div>
+
+            <div style="width: 100%; text-align: center; color: red; font-size: 28px; font-weight: 900; margin-bottom: 8px;">
+                TODO: TELEOPERATED — REPLACE WITH AUTONOMOUS ROLLOUTS
+            </div>
+
+            <div class="results-grid sim-results-grid">
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/sim_6_spoon.jpg" aria-label="Hang spoon simulation rollout">
+                        <source data-src="data/sim_6_spoon.mp4?v=3" type="video/mp4">
+                    </video>
+                    <figcaption>Hang Spoon</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/sim_4_tray.jpg" aria-label="Medical tray simulation rollout">
+                        <source data-src="data/sim_4_tray.mp4?v=2" type="video/mp4">
+                    </video>
+                    <figcaption>Medical Tray</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/sim_5_plate.jpg" aria-label="Plate in rack simulation rollout">
+                        <source data-src="data/sim_5_plate.mp4?v=2" type="video/mp4">
+                    </video>
+                    <figcaption>Plate in Rack</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/sim_1_tape.jpg" aria-label="Tape handover simulation rollout">
+                        <source data-src="data/sim_1_tape.mp4?v=2" type="video/mp4">
+                    </video>
+                    <figcaption>Tape Handover</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/sim_2_pot.jpg" aria-label="Pot lid simulation rollout">
+                        <source data-src="data/sim_2_pot.mp4?v=2" type="video/mp4">
+                    </video>
+                    <figcaption>Pot Lid</figcaption>
+                </figure>
+                <figure class="results-grid-item">
+                    <video loop muted playsinline preload="none" poster="data/posters/sim_3_tiger.jpg" aria-label="Tiger pickup simulation rollout">
+                        <source data-src="data/sim_3_tiger.mp4?v=2" type="video/mp4">
+                    </video>
+                    <figcaption>Tiger Pickup</figcaption>
+                </figure>
+            </div>
         </div>
 
         <!-- ===========================================================
