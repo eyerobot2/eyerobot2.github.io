@@ -152,28 +152,8 @@
             box-sizing: border-box;
         }
 
-        /* Icon Separator Styles */
-        .icon-separator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            margin: 2rem 0;
-            color: #bbb;
-        }
-
-        .icon-separator i {
-            font-size: 22px;
-            opacity: 0.7;
-        }
-
-        .icon-separator img {
-            height: 36px;
-            width: auto;
-        }
     </style>
-    <link rel="icon" type="image/png" href="data/favicon.png?v=2" />
-    <link rel="apple-touch-icon" href="data/apple-touch-icon.png?v=2" />
+    <link rel="icon" type="image/svg+xml" href="data/favicon-eyes.svg" />
 </head>
 
 <body>
@@ -257,14 +237,10 @@
             <h1 class="tldr">
                 <b>TL;DR</b>: Active Visual Fixation (AVF) with only a single stereo camera for fine-grained bimanual manipulation
             </h1>
-            <!-- TODO: drop teaser clip at data/teaser.mp4 -->
-            <!-- Hidden until a real video loads, so the missing-source video doesn't
-                 reserve empty space. Auto-reveals once data/teaser.mp4 is present. -->
-            <video id="main-video" autobuffer muted autoplay loop playsinline
-                   style="display: none;" onloadeddata="this.style.display=''">
+            <video id="main-video" muted autoplay loop playsinline preload="metadata">
                 <source id="mp4" src="data/teaser.mp4" type="video/mp4">
+                Your browser does not support the video tag.
             </video>
-            <div class="media-placeholder">data/teaser.mp4 &mdash; teaser video goes here</div>
         </div>
 
         <!-- ===========================================================
@@ -288,43 +264,43 @@
             <div class="results-grid real-results-grid">
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_02_marker.jpg" aria-label="Marker task rollout">
-                        <source data-src="data/result_02_marker.mp4" type="video/mp4">
+                        <source data-src="data/results-sdr/result_02_marker.mp4?v=3" type="video/mp4">
                     </video>
                     <figcaption>Marker</figcaption>
                 </figure>
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_06_toaster.jpg" aria-label="Toaster task rollout">
-                        <source data-src="data/result_06_toaster.mp4" type="video/mp4">
+                        <source data-src="data/results-sdr/result_06_toaster.mp4?v=3" type="video/mp4">
                     </video>
                     <figcaption>Toaster</figcaption>
                 </figure>
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_07_wrench.jpg" aria-label="Wrench task rollout">
-                        <source data-src="data/result_07_wrench.mp4" type="video/mp4">
+                        <source data-src="data/results-sdr/result_07_wrench.mp4?v=3" type="video/mp4">
                     </video>
                     <figcaption>Wrench</figcaption>
                 </figure>
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_01_boba.jpg" aria-label="Boba task rollout">
-                        <source data-src="data/result_01_boba.mp4" type="video/mp4">
+                        <source data-src="data/results-sdr/result_01_boba.mp4?v=3" type="video/mp4">
                     </video>
                     <figcaption>Boba</figcaption>
                 </figure>
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_05_tea.jpg" aria-label="Tea task rollout">
-                        <source data-src="data/result_05_tea.mp4" type="video/mp4">
+                        <source data-src="data/results-sdr/result_05_tea.mp4?v=3" type="video/mp4">
                     </video>
                     <figcaption>Tea</figcaption>
                 </figure>
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_04_tape.jpg" aria-label="Tape task rollout">
-                        <source data-src="data/result_04_tape.mp4" type="video/mp4">
+                        <source data-src="data/results-sdr/result_04_tape.mp4?v=3" type="video/mp4">
                     </video>
                     <figcaption>Tape</figcaption>
                 </figure>
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_03_pot.jpg" aria-label="Pot task rollout">
-                        <source data-src="data/result_03_pot.mp4" type="video/mp4">
+                        <source data-src="data/results-sdr/result_03_pot.mp4?v=3" type="video/mp4">
                     </video>
                     <figcaption>Pot</figcaption>
                 </figure>
@@ -389,12 +365,6 @@
             <!-- Results figure, converted from images/figure_unified.pdf -->
             <img src="images/figure_unified.svg" alt="Per-task success rates for No Gaze (Stereo Only), Ego+Wrist (3 Cameras), and AVF (Stereo Only) across real (640 trials) and sim (1800 trials) tasks"
                  style="width: 100%; height: auto; border-radius: 12px;" />
-        </div>
-
-        <div class="icon-separator">
-            <img src="data/favicon.png?v=2" alt="" />
-            <img src="data/favicon.png?v=2" alt="" />
-            <img src="data/favicon.png?v=2" alt="" />
         </div>
 
         <!-- ===========================================================
@@ -577,12 +547,6 @@
             </div>
         </div>
 
-        <div class="icon-separator">
-            <img src="data/favicon.png?v=2" alt="" />
-            <img src="data/favicon.png?v=2" alt="" />
-            <img src="data/favicon.png?v=2" alt="" />
-        </div>
-
         <!-- ===========================================================
              Generic content section (e.g. Hardware / Architecture / Analysis)
         ============================================================ -->
@@ -638,12 +602,6 @@
             </p>
             <img src="images/ablation_table.png" alt="Ablation table: per-task success rates for AVF, AVF without foveation, and AVF without stereo (mono)"
                  style="width: 100%; height: auto; margin-top: 12px;" />
-        </div>
-
-        <div class="icon-separator">
-            <img src="data/favicon.png?v=2" alt="" />
-            <img src="data/favicon.png?v=2" alt="" />
-            <img src="data/favicon.png?v=2" alt="" />
         </div>
 
         <!-- ===========================================================
