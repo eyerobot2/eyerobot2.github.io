@@ -110,21 +110,42 @@
         .carousel-nav {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 2px;
+            margin-top: 12px;
         }
 
         .carousel-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: grid;
+            place-items: center;
+            padding: 0;
             border: none;
-            background: #ccc;
+            background: transparent;
             cursor: pointer;
         }
 
-        .carousel-indicator.current-slide {
-            background: #333;
+        .carousel-indicator::before {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #d0d0d0;
+            content: "";
+            transition: background-color 0.15s ease, transform 0.15s ease;
+        }
+
+        .carousel-indicator:hover::before {
+            background: #aaa;
+        }
+
+        .carousel-indicator.current-slide::before {
+            background: #777;
+            transform: scale(1.1);
+        }
+
+        .carousel-indicator:focus-visible {
+            outline: 1px solid #777;
+            outline-offset: 1px;
         }
 
         .video-caption {
@@ -220,30 +241,35 @@
         ============================================================ -->
         <div class="section base-row add-top-padding">
             <h1 class="tldr">
-                <b>TL;DR</b>: Fine-grained bimanual manipulation using an ego-mounted stereo camera with actively fixating eyes
+                <b>TL;DR</b>: EyeRobot 2.0 matches the performance of ego + wrist BC policies with only a stereo camera.
             </h1>
             <video id="main-video" muted autoplay loop playsinline preload="metadata">
                 <source id="mp4" src="data/teaser.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
-
-        <!-- ===========================================================
-             Framework / method figure
-        ============================================================ -->
-        <div class="section base-row add-top-padding">
-            <h1 class="tldr">
-                We train a <b>low-level gaze policy</b> with RL to swivel two eye viewpoints onto a <b>3D fixation point</b> conditioned on a target object. We then co-train a <b>high-level target selector</b> to emit fixation goals based on task progress. The selector is trained with RL and rewarded by the <b>BC gripper policy</b>'s accuracy.
-            </h1>
-        </div>
-
         <!-- ===========================================================
              Real-world results grid
         ============================================================ -->
         <div class="section base-row add-top-padding">
             <div style="width: 100%;">
-                <h1>Active Visual Fixation for Manipulation</h1>
-                <p class="tldr"><b>7 Real Tasks</b></p>
+                <h2>Fine-grained manipulation with visual fixation</h2>
+                <div class="paragraph-with-sidenote">
+                    <p class="paragraph">
+                        Behavior cloning systems overwhelmingly rely on wrist cameras for fine-grained manipulation. Why? Their high-resolution gripper-centric observations
+                        improve precision and spatial reasoning via a sort of "physical attention" where it matters. We hypothesize that such benefits can be obtained
+                        <sup><a class="footnote-ref" id="hypothesis-ref" href="#hypothesis-note" aria-label="Footnote">1</a></sup>
+                         from a human-inspired physical attention system: one using <i>Active Visual Fixation</i> to control two foveated eyes to focus on areas of interest.
+                    </p>
+                    <p class="paragraph">
+                        All policies below are single-task and trained from scratch on less than an hour of teleop data, using only a fixed stereo camera for vision inputs.
+                    </p>
+                    <aside class="sidenote" id="hypothesis-note" role="note">
+                        <a class="sidenote-number" href="#hypothesis-ref" aria-label="Back to footnote">1</a>
+                        Wrist cameras have additional benefits like embodiment-agnosticity, which allows handheld capture devices.
+                        This work focuses on the manipulation capabilities of policies given the same high-quality demonstrations.
+                    </aside>
+                </div>
             </div>
 
             <div class="results-grid real-results-grid">
@@ -251,54 +277,127 @@
                     <video loop muted playsinline preload="none" poster="data/posters/result_02_marker.jpg" aria-label="Marker task rollout">
                         <source data-src="data/results-hlg/result_02_marker.mp4?v=8" type="video/mp4">
                     </video>
-                    <figcaption>Marker</figcaption>
+                    <figcaption>Cap marker, place in bag, zip bag</figcaption>
                 </figure>
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_06_toaster.jpg" aria-label="Toaster task rollout">
                         <source data-src="data/results-hlg/result_06_toaster.mp4?v=8" type="video/mp4">
                     </video>
-                    <figcaption>Toaster</figcaption>
+                    <figcaption>Open toaster, extract pan, close toaster</figcaption>
                 </figure>
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_07_wrench.jpg" aria-label="Wrench task rollout">
                         <source data-src="data/results-hlg/result_07_wrench.mp4?v=8" type="video/mp4">
                     </video>
-                    <figcaption>Wrench</figcaption>
+                    <figcaption>Open toolbox, extract wrench</figcaption>
                 </figure>
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_01_boba.jpg" aria-label="Boba task rollout">
                         <source data-src="data/results-hlg/result_01_boba.mp4?v=8" type="video/mp4">
                     </video>
-                    <figcaption>Boba</figcaption>
+                    <figcaption>Insert boba straw, place on coaster</figcaption>
                 </figure>
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_05_tea.jpg" aria-label="Tea task rollout">
                         <source data-src="data/results-hlg/result_05_tea.mp4?v=8" type="video/mp4">
                     </video>
-                    <figcaption>Tea</figcaption>
+                    <figcaption>Pick up teabag, put in cup</figcaption>
                 </figure>
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_04_tape.jpg" aria-label="Tape task rollout">
                         <source data-src="data/results-hlg/result_04_tape.mp4?v=8" type="video/mp4">
                     </video>
-                    <figcaption>Tape</figcaption>
+                    <figcaption>Pick tape, handover, place tape</figcaption>
                 </figure>
                 <figure class="results-grid-item">
                     <video loop muted playsinline preload="none" poster="data/posters/result_03_pot.jpg" aria-label="Pot task rollout">
                         <source data-src="data/results-hlg/result_03_pot.mp4?v=8" type="video/mp4">
                     </video>
-                    <figcaption>Pot</figcaption>
+                    <figcaption>Pick pot lid, place on pot</figcaption>
                 </figure>
+            </div>
+
+            <div style="width: 100%;">
+                <div class="paragraph-with-sidenote policy-rollout-intro">
+                    <p class="paragraph">
+                        EyeRobot 2.0 learns to coordinate its two eyes depending on the state of the task with RL, no gaze supervision required. Take a look at the same rollouts from the policy's perspective!
+                        The eye motion you see was exactly the motion the policy used during execution. Concentric rectangles illustrate the different levels of the foveated image pyramid used as inputs.
+                    </p>
+                </div>
+
+                <div class="carousel-container" style="margin-top: 12px;">
+                    <div class="carousel-track-container">
+                        <div class="carousel-track" id="policy-carousel">
+                            <div class="carousel-slide current-slide">
+                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_marker.jpg">
+                                    <source data-src="data/policy_marker.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="carousel-slide">
+                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_toaster.jpg">
+                                    <source data-src="data/policy_toaster.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="carousel-slide">
+                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_wrench.jpg">
+                                    <source data-src="data/policy_wrench.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="carousel-slide">
+                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_boba.jpg">
+                                    <source data-src="data/policy_boba.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="carousel-slide">
+                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tea.jpg">
+                                    <source data-src="data/policy_tea.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="carousel-slide">
+                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tape.jpg">
+                                    <source data-src="data/policy_tape.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="carousel-slide">
+                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_pot.jpg">
+                                    <source data-src="data/policy_pot.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-button carousel-button--left" data-carousel="policy-carousel" aria-label="Previous policy rollout">
+                        <i class="ti ti-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <button class="carousel-button carousel-button--right" data-carousel="policy-carousel" aria-label="Next policy rollout">
+                        <i class="ti ti-chevron-right" aria-hidden="true"></i>
+                    </button>
+                    <div class="carousel-nav">
+                        <button class="carousel-indicator current-slide" data-slide="0" aria-label="Show policy rollout 1"></button>
+                        <button class="carousel-indicator" data-slide="1" aria-label="Show policy rollout 2"></button>
+                        <button class="carousel-indicator" data-slide="2" aria-label="Show policy rollout 3"></button>
+                        <button class="carousel-indicator" data-slide="3" aria-label="Show policy rollout 4"></button>
+                        <button class="carousel-indicator" data-slide="4" aria-label="Show policy rollout 5"></button>
+                        <button class="carousel-indicator" data-slide="5" aria-label="Show policy rollout 6"></button>
+                        <button class="carousel-indicator" data-slide="6" aria-label="Show policy rollout 7"></button>
+                    </div>
+                </div>
             </div>
         </div>
 
 
         <!-- ===========================================================
-             Experiment Trials — unified per-task success-rate figure
+             Experiment Trials — real and simulation success-rate figures
         ============================================================ -->
         <div class="section base-row add-top-padding">
             <div style="width: 100%;">
-                <h1>Experiments</h1>
+                <h2>Camera comparisons</h2>
             </div>
 
             <div class="viewer-cta-wrap">
@@ -316,9 +415,9 @@
                 </a>
             </div>
 
-            <!-- Results figure, converted from images/figure_unified.pdf -->
-            <img src="images/figure_unified.svg" alt="Per-task success rates for No Gaze (Stereo Only), Ego+Wrist (3 Cameras), and AVF (Stereo Only) across real (640 trials) and sim (1800 trials) tasks"
-                 style="width: 100%; height: auto; border-radius: 12px;" />
+            <div class="experiment-figures">
+                <img src="images/figure_real.svg" alt="Real average and per-task success rates for No Gaze, Ego plus Wrist, and AVF across 640 real-world trials" />
+            </div>
         </div>
 
         <!-- ===========================================================
@@ -433,7 +532,7 @@
              Generic content section (e.g. Hardware / Architecture / Analysis)
         ============================================================ -->
         <div class="section base-row add-top-padding">
-            <h1>Robustness to Distractors</h1>
+            <h2>Robustness to Distractors</h2>
             <p class="paragraph">
                 We evaluate AVF with colorful distractor objects randomly scattered on the table. AVF retains significantly more of its original performance than gaze-free stereo baselines (AVF 27%, ego-only 0%). AVF and ego+wrist policies for the tea and wrench tasks degrade by the same amount (AVF 23%, ego+wrist 22%) while on the tape task ego+wrist performance craters (AVF 34%, ego+wrist 0%).
             </p>
@@ -477,7 +576,7 @@
                 </div>
             </div>
 
-            <h1 style="margin-top: 32px;">Foveation and Stereo Ablations</h1>
+            <h2 style="margin-top: 32px;">Ablating foveation and stereo inputs</h2>
             <p class="paragraph">
                 We run ablations with AVF without the foveated architecture and AVF without the stereo camera (just mono), and find that both are important for AVF performance.
             </p>
@@ -535,6 +634,10 @@
                     </video>
                     <figcaption>Tiger Pickup</figcaption>
                 </figure>
+            </div>
+
+            <div class="experiment-figures">
+                <img src="images/figure_sim.svg" alt="Simulation average and per-task success rates for No Gaze, Ego plus Wrist, and AVF across 1800 simulation trials" />
             </div>
         </div>
 

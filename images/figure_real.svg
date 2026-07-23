@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="250" viewBox="0 0 760 250" role="img" aria-labelledby="title desc">
+  <title id="title">Real-world evaluation success rates</title>
+  <desc id="desc">Real average and seven real-world task success rates for No Gaze, Ego plus Wrist, and AVF.</desc>
+  <defs>
+    <pattern id="avf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="8" height="8" fill="#f2986f"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#fff" stroke-width="1.2"/>
+    </pattern>
+    <style>
+      text { font-family: "Avenir Next", Avenir, "Open Sans", sans-serif; fill: #171717; letter-spacing: 0; }
+      .legend { font-size: 13px; }
+      .section-label { font-size: 14px; fill: #555; }
+      .axis-label { font-size: 12px; }
+      .task-label { font-size: 13px; }
+      .value { font-size: 11px; text-anchor: middle; }
+      .grid { stroke: #e9e9e9; stroke-width: 1; }
+      .axis { stroke: #222; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="760" height="250" fill="#fff"/>
+
+  <g class="legend">
+    <rect x="150" y="7" width="12" height="12" fill="#7fc0a3"/>
+    <text x="170" y="18">No Gaze (Stereo Only)</text>
+    <rect x="339" y="7" width="12" height="12" fill="#5c8fc5"/>
+    <text x="359" y="18">Ego + Wrist (3 Cameras)</text>
+    <rect x="550" y="7" width="12" height="12" fill="url(#avf-hatch)"/>
+    <text x="570" y="18">AVF (Stereo Only)</text>
+  </g>
+
+  <text class="section-label" x="96" y="43" text-anchor="middle">Average</text>
+  <text class="section-label" x="444" y="43" text-anchor="middle">640 trials</text>
+
+  <g class="grid">
+    <line x1="48" y1="60" x2="742" y2="60"/>
+    <line x1="48" y1="96" x2="742" y2="96"/>
+    <line x1="48" y1="132" x2="742" y2="132"/>
+    <line x1="48" y1="168" x2="742" y2="168"/>
+  </g>
+  <g class="axis">
+    <line x1="48" y1="60" x2="48" y2="204"/>
+    <line x1="48" y1="204" x2="742" y2="204"/>
+    <line x1="166" y1="35" x2="166" y2="204" stroke="#888" stroke-width="2"/>
+  </g>
+  <g class="axis-label" text-anchor="end">
+    <text x="42" y="64">100%</text>
+    <text x="42" y="100">75%</text>
+    <text x="42" y="136">50%</text>
+    <text x="42" y="172">25%</text>
+    <text x="42" y="208">0%</text>
+  </g>
+  <text class="axis-label" transform="translate(13 158) rotate(-90)">Success Rate</text>
+
+  <!-- Real average: 27, 52, 67 -->
+  <g>
+    <rect x="75" y="165.12" width="18" height="38.88" fill="#7fc0a3"/>
+    <rect x="93" y="129.12" width="18" height="74.88" fill="#5c8fc5"/>
+    <rect x="111" y="107.52" width="18" height="96.48" fill="url(#avf-hatch)"/>
+    <text class="value" x="84" y="160">27</text>
+    <text class="value" x="102" y="124">52</text>
+    <text class="value" x="120" y="102">67</text>
+    <text class="task-label" x="102" y="225" text-anchor="middle">Avg.</text>
+  </g>
+
+  <!-- Real tasks: boba, marker, pot, tea, toaster, tape, wrench -->
+  <g>
+    <rect x="181" y="192.48" width="16" height="11.52" fill="#7fc0a3"/>
+    <rect x="197" y="186.72" width="16" height="17.28" fill="#5c8fc5"/>
+    <rect x="213" y="140.64" width="16" height="63.36" fill="url(#avf-hatch)"/>
+    <text class="value" x="189" y="187">8</text><text class="value" x="205" y="181">12</text><text class="value" x="221" y="135">44</text>
+    <text class="task-label" x="205" y="225" text-anchor="middle">boba</text>
+
+    <rect x="257" y="198.24" width="16" height="5.76" fill="#7fc0a3"/>
+    <rect x="273" y="123.36" width="16" height="80.64" fill="#5c8fc5"/>
+    <rect x="289" y="106.08" width="16" height="97.92" fill="url(#avf-hatch)"/>
+    <text class="value" x="265" y="193">4</text><text class="value" x="281" y="118">56</text><text class="value" x="297" y="101">68</text>
+    <text class="task-label" x="281" y="225" text-anchor="middle">marker</text>
+
+    <rect x="333" y="163.68" width="16" height="40.32" fill="#7fc0a3"/>
+    <rect x="349" y="157.92" width="16" height="46.08" fill="#5c8fc5"/>
+    <rect x="365" y="129.12" width="16" height="74.88" fill="url(#avf-hatch)"/>
+    <text class="value" x="341" y="158">28</text><text class="value" x="357" y="152">32</text><text class="value" x="373" y="124">52</text>
+    <text class="task-label" x="357" y="225" text-anchor="middle">pot</text>
+
+    <rect x="409" y="163.68" width="16" height="40.32" fill="#7fc0a3"/>
+    <rect x="425" y="88.8" width="16" height="115.2" fill="#5c8fc5"/>
+    <rect x="441" y="88.8" width="16" height="115.2" fill="url(#avf-hatch)"/>
+    <text class="value" x="417" y="158">28</text><text class="value" x="433" y="83">80</text><text class="value" x="449" y="83">80</text>
+    <text class="task-label" x="433" y="225" text-anchor="middle">tea</text>
+
+    <rect x="485" y="152.16" width="16" height="51.84" fill="#7fc0a3"/>
+    <rect x="501" y="129.12" width="16" height="74.88" fill="#5c8fc5"/>
+    <rect x="517" y="129.12" width="16" height="74.88" fill="url(#avf-hatch)"/>
+    <text class="value" x="493" y="147">36</text><text class="value" x="509" y="124">52</text><text class="value" x="525" y="124">52</text>
+    <text class="task-label" x="509" y="225" text-anchor="middle">toaster</text>
+
+    <rect x="561" y="127.68" width="16" height="76.32" fill="#7fc0a3"/>
+    <rect x="577" y="108.96" width="16" height="95.04" fill="#5c8fc5"/>
+    <rect x="593" y="68.64" width="16" height="135.36" fill="url(#avf-hatch)"/>
+    <text class="value" x="569" y="122">53</text><text class="value" x="585" y="103">66</text><text class="value" x="601" y="63">94</text>
+    <text class="task-label" x="585" y="225" text-anchor="middle">tape</text>
+
+    <rect x="637" y="157.92" width="16" height="46.08" fill="#7fc0a3"/>
+    <rect x="653" y="106.08" width="16" height="97.92" fill="#5c8fc5"/>
+    <rect x="669" y="94.56" width="16" height="109.44" fill="url(#avf-hatch)"/>
+    <text class="value" x="645" y="152">32</text><text class="value" x="661" y="101">68</text><text class="value" x="677" y="89">76</text>
+    <text class="task-label" x="661" y="225" text-anchor="middle">wrench</text>
+  </g>
+</svg>
