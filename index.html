@@ -148,6 +148,23 @@
             outline-offset: 1px;
         }
 
+        .carousel-caption {
+            margin: 10px 0 0;
+            padding-top: 8px;
+            border-top: 1px solid #d7dadd;
+            color: #666;
+            font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.4;
+            letter-spacing: 0;
+            text-align: left;
+        }
+
+        .policy-carousel-container .carousel-button {
+            top: calc(50% - 24px);
+        }
+
         .video-caption {
             margin-top: 10px;
             font-weight: bold;
@@ -239,9 +256,9 @@
         <!-- ===========================================================
              TL;DR + Teaser video
         ============================================================ -->
-        <div class="section base-row add-top-padding">
+        <div class="section base-row add-top-padding teaser-section">
             <h1 class="tldr">
-                <b>TL;DR</b>: EyeRobot 2.0 matches the performance of ego + wrist BC policies with only a stereo camera.
+                <b>TL;DR</b>: EyeRobot 2.0 matches the performance of ego + wrist BC policies with only a stereo camera by coordinating two active eyes.
             </h1>
             <video id="main-video" muted autoplay loop playsinline preload="metadata">
                 <source id="mp4" src="data/teaser.mp4" type="video/mp4">
@@ -257,9 +274,8 @@
                 <div class="paragraph-with-sidenote">
                     <p class="paragraph">
                         Behavior cloning systems overwhelmingly rely on wrist cameras for fine-grained manipulation. Why? Their high-resolution gripper-centric observations
-                        improve precision and spatial reasoning via a sort of "physical attention" where it matters. We hypothesize that such benefits can be obtained
-                        <sup><a class="footnote-ref" id="hypothesis-ref" href="#hypothesis-note" aria-label="Footnote">1</a></sup>
-                         from a human-inspired physical attention system: one using <i>Active Visual Fixation</i> to control two foveated eyes to focus on areas of interest.
+                        improve precision and spatial reasoning via a sort of "physical attention" where it matters. We hypothesize that such benefits<sup class="footnote-marker"><a class="footnote-ref" id="hypothesis-ref" href="#hypothesis-note" aria-label="Footnote">1</a></sup>
+                        can be obtained from a human-inspired physical attention system: one using <i>Active Visual Fixation</i> to control two foveated eyes to focus on areas of interest.
                     </p>
                     <p class="paragraph">
                         All policies below are single-task and trained from scratch on less than an hour of teleop data, using only a fixed stereo camera for vision inputs.
@@ -321,11 +337,11 @@
                 <div class="paragraph-with-sidenote policy-rollout-intro">
                     <p class="paragraph">
                         EyeRobot 2.0 learns to coordinate its two eyes depending on the state of the task with RL, no gaze supervision required. Take a look at the same rollouts from the policy's perspective!
-                        The eye motion you see was exactly the motion the policy used during execution. Concentric rectangles illustrate the different levels of the foveated image pyramid used as inputs.
+                        The eye motion you see was exactly what policy looked at during execution. Concentric rectangles illustrate the different levels of the foveated image pyramid used as inputs.
                     </p>
                 </div>
 
-                <div class="carousel-container" style="margin-top: 12px;">
+                <div class="carousel-container policy-carousel-container" style="margin-top: 12px;">
                     <div class="carousel-track-container">
                         <div class="carousel-track" id="policy-carousel">
                             <div class="carousel-slide current-slide">
@@ -387,6 +403,7 @@
                         <button class="carousel-indicator" data-slide="5" aria-label="Show policy rollout 6"></button>
                         <button class="carousel-indicator" data-slide="6" aria-label="Show policy rollout 7"></button>
                     </div>
+                    <p class="carousel-caption">Example eye fixations during autonomous execution</p>
                 </div>
             </div>
         </div>
@@ -397,7 +414,7 @@
         ============================================================ -->
         <div class="section base-row add-top-padding">
             <div style="width: 100%;">
-                <h2>Camera comparisons</h2>
+                <h2>Physical trials</h2>
             </div>
 
             <div class="experiment-figures">
@@ -409,7 +426,7 @@
                         <i class="ti ti-chart-histogram" aria-hidden="true"></i>
                     </span>
                     <span class="viewer-cta-copy">
-                        <strong>Click to see all our eval trials!</strong>
+                        <strong>Click to see videos of all eval trials!</strong>
                     </span>
                     <span class="viewer-cta-action">
                         Open Eval Browser

@@ -479,10 +479,18 @@ h1.tldr {
 }
 
 #main-video {
+    flex: 0 0 104%;
+    width: 104%;
+    margin: 0;
+    border-radius: 10px;
+}
+
+.teaser-section::after {
     width: 100%;
-    margin-top: 0px;
-    margin-bottom: 10px;
-    border-radius: 15px;
+    height: 1px;
+    margin-top: 12px;
+    background: #d7dadd;
+    content: "";
 }
 
 #addtl-video {
@@ -567,6 +575,10 @@ h1.tldr {
 
 .policy-rollout-intro {
     margin-top: 0.5em;
+}
+
+.footnote-marker {
+    line-height: 0;
 }
 
 .footnote-ref {

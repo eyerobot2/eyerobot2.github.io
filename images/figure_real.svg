@@ -21,18 +21,7 @@
 
   <rect width="760" height="250" fill="#fff"/>
 
-  <g class="legend">
-    <rect x="150" y="7" width="12" height="12" fill="#7fc0a3"/>
-    <text x="170" y="18">No Gaze (Stereo Only)</text>
-    <rect x="339" y="7" width="12" height="12" fill="#5c8fc5"/>
-    <text x="359" y="18">Ego + Wrist (3 Cameras)</text>
-    <rect x="550" y="7" width="12" height="12" fill="url(#avf-hatch)"/>
-    <text x="570" y="18">AVF (Stereo Only)</text>
-  </g>
-
-  <text class="section-label" x="96" y="43" text-anchor="middle">Average</text>
-  <text class="section-label" x="444" y="43" text-anchor="middle">640 trials</text>
-
+  <g transform="translate(0 -24)">
   <g class="grid">
     <line x1="48" y1="60" x2="742" y2="60"/>
     <line x1="48" y1="96" x2="742" y2="96"/>
@@ -42,7 +31,7 @@
   <g class="axis">
     <line x1="48" y1="60" x2="48" y2="204"/>
     <line x1="48" y1="204" x2="742" y2="204"/>
-    <line x1="166" y1="35" x2="166" y2="204" stroke="#888" stroke-width="2"/>
+    <line x1="166" y1="58" x2="166" y2="194" stroke="#888" stroke-width="2"/>
   </g>
   <g class="axis-label" text-anchor="end">
     <text x="42" y="64">100%</text>
@@ -61,7 +50,7 @@
     <text class="value" x="84" y="160">27</text>
     <text class="value" x="102" y="124">52</text>
     <text class="value" x="120" y="102">67</text>
-    <text class="task-label" x="102" y="225" text-anchor="middle">Avg.</text>
+    <text class="task-label" x="102" y="225" text-anchor="middle">Average</text>
   </g>
 
   <!-- Real tasks: boba, marker, pot, tea, toaster, tape, wrench -->
@@ -107,5 +96,15 @@
     <rect x="669" y="94.56" width="16" height="109.44" fill="url(#avf-hatch)"/>
     <text class="value" x="645" y="152">32</text><text class="value" x="661" y="101">68</text><text class="value" x="677" y="89">76</text>
     <text class="task-label" x="661" y="225" text-anchor="middle">wrench</text>
+  </g>
+  </g>
+
+  <g class="legend">
+    <rect x="150" y="228" width="12" height="12" fill="#7fc0a3"/>
+    <text x="170" y="239">No Gaze (Stereo Only)</text>
+    <rect x="339" y="228" width="12" height="12" fill="#5c8fc5"/>
+    <text x="359" y="239">Ego + Wrist (3 Cameras)</text>
+    <rect x="550" y="228" width="12" height="12" fill="url(#avf-hatch)"/>
+    <text x="570" y="239">AVF (Stereo Only)</text>
   </g>
 </svg>
