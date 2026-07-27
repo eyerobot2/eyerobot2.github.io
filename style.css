@@ -35,6 +35,26 @@ h1, h2, h3, h4, h5, h6 {
     object-fit: cover;
     border-radius: 10px;
 }
+
+.gaze-trajectory-comparison {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin: 10px 0;
+}
+
+.gaze-trajectory-comparison video {
+    display: block;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1654 / 1470;
+    object-fit: cover;
+    background: #000;
+}
+
 @media (max-width: 768px) {
     .video-container {
         flex-direction: column;
@@ -399,6 +419,54 @@ h1.tldr {
     display: block;
     width: 100%;
     height: auto;
+}
+
+.spatial-distribution {
+    width: 100%;
+    margin: 18px 0 22px;
+}
+
+.spatial-distribution-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 4px;
+}
+
+.spatial-distribution-item {
+    position: relative;
+    min-width: 0;
+}
+
+.spatial-distribution-grid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 5 / 3;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.spatial-distribution-item span {
+    display: block;
+    margin-top: 3px;
+    color: #666;
+    font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.spatial-distribution figcaption {
+    margin: 10px 0 0;
+    padding-top: 8px;
+    border-top: 1px solid #d7dadd;
+    color: #666;
+    font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    text-align: left;
 }
 
 .results-grid {
@@ -1170,6 +1238,10 @@ input:checked + .slider:before {
 
     .results-grid {
         grid-template-columns: 1fr;
+    }
+
+    .spatial-distribution-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .real-results-grid .results-grid-item:last-child {
