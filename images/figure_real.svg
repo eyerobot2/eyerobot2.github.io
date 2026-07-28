@@ -31,7 +31,7 @@
   <g class="axis">
     <line x1="48" y1="60" x2="48" y2="204"/>
     <line x1="48" y1="204" x2="742" y2="204"/>
-    <line x1="166" y1="58" x2="166" y2="194" stroke="#888" stroke-width="2"/>
+    <line x1="166" y1="68" x2="166" y2="204" stroke="#888" stroke-width="2"/>
   </g>
   <g class="axis-label" text-anchor="end">
     <text x="42" y="64">100%</text>
@@ -40,7 +40,7 @@
     <text x="42" y="172">25%</text>
     <text x="42" y="208">0%</text>
   </g>
-  <text class="axis-label" transform="translate(13 158) rotate(-90)">Success Rate</text>
+  <text class="axis-label" text-anchor="middle" transform="translate(13 132) rotate(-90)">Success Rate</text>
 
   <!-- Real average: 27, 52, 67 -->
   <g>

@@ -120,9 +120,147 @@ function randomizeCoFirstAuthors() {
   }
 }
 
+function setupRealResultsMetricToggle() {
+  const toggle = document.querySelector('[data-real-plot-toggle]');
+  const chart = document.getElementById('real-results-chart');
+  if (!toggle || !chart) return;
+
+  const buttons = Array.from(toggle.querySelectorAll('button[data-plot-src]'));
+  buttons.forEach(button => {
+    const image = new Image();
+    image.src = button.dataset.plotSrc;
+
+    button.addEventListener('click', () => {
+      chart.src = button.dataset.plotSrc;
+      chart.alt = button.dataset.plotAlt;
+      buttons.forEach(option => {
+        const active = option === button;
+        option.classList.toggle('active', active);
+        option.setAttribute('aria-pressed', String(active));
+      });
+    });
+  });
+}
+
+function setupSectionIndex() {
+  const start = document.getElementById('section-index-start');
+  if (!start) return;
+
+  const headings = Array.from(document.querySelectorAll('.section h1:not(.tldr), .section h2'))
+    .filter(heading => start.compareDocumentPosition(heading) & Node.DOCUMENT_POSITION_FOLLOWING);
+  if (!headings.length) return;
+
+  const usedIds = new Set(Array.from(document.querySelectorAll('[id]'), element => element.id));
+  headings.forEach((heading, index) => {
+    if (heading.id) return;
+
+    const baseId = heading.textContent
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '') || `section-${index + 1}`;
+    let id = baseId;
+    let suffix = 2;
+    while (usedIds.has(id)) {
+      id = `${baseId}-${suffix}`;
+      suffix += 1;
+    }
+    heading.id = id;
+    usedIds.add(id);
+  });
+
+  const nav = document.createElement('nav');
+  nav.className = 'section-index';
+  nav.setAttribute('aria-label', 'Page sections');
+
+  const list = document.createElement('ol');
+  list.className = 'section-index-list';
+  const links = headings.map(heading => {
+    const item = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = `#${heading.id}`;
+    link.textContent = heading.textContent.trim();
+    link.dataset.headingLevel = heading.tagName.slice(1);
+    item.appendChild(link);
+    list.appendChild(item);
+    return link;
+  });
+  nav.appendChild(list);
+  document.body.appendChild(nav);
+
+  let updateQueued = false;
+  const updateIndex = () => {
+    updateQueued = false;
+    const firstHeadingTop = headings[0].getBoundingClientRect().top;
+    nav.style.top = `${Math.max(24, firstHeadingTop)}px`;
+
+    const activationLine = Math.min(180, window.innerHeight * 0.28);
+    let activeIndex = 0;
+    headings.forEach((heading, index) => {
+      if (heading.getBoundingClientRect().top <= activationLine) {
+        activeIndex = index;
+      }
+    });
+    links.forEach((link, index) => {
+      const active = index === activeIndex;
+      link.classList.toggle('is-active', active);
+      if (active) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  const queueIndexUpdate = () => {
+    if (updateQueued) return;
+    updateQueued = true;
+    window.requestAnimationFrame(updateIndex);
+  };
+
+  let scrollAnimationFrame = null;
+  const scrollToHeading = heading => {
+    if (scrollAnimationFrame !== null) {
+      window.cancelAnimationFrame(scrollAnimationFrame);
+    }
+
+    const startY = window.scrollY;
+    const targetY = startY + heading.getBoundingClientRect().top;
+    const distance = targetY - startY;
+    const duration = Math.min(300, Math.max(180, Math.abs(distance) * 0.12));
+    const startTime = performance.now();
+
+    const step = currentTime => {
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+      window.scrollTo(0, startY + distance * easedProgress);
+      if (progress < 1) {
+        scrollAnimationFrame = window.requestAnimationFrame(step);
+      } else {
+        scrollAnimationFrame = null;
+      }
+    };
+    scrollAnimationFrame = window.requestAnimationFrame(step);
+  };
+
+  links.forEach((link, index) => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      scrollToHeading(headings[index]);
+      history.replaceState(null, '', link.hash);
+    });
+  });
+
+  updateIndex();
+  window.addEventListener('scroll', queueIndexUpdate, { passive: true });
+  window.addEventListener('resize', queueIndexUpdate);
+}
+
 // Initialize the page
 function initializePage() {
   randomizeCoFirstAuthors();
+  setupRealResultsMetricToggle();
+  setupSectionIndex();
   setupThumbnailClickEvents();
 
   // Show the first iframe by default

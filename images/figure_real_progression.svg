@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="250" viewBox="0 0 760 250" role="img" aria-labelledby="title desc">
+  <title id="title">Real-world evaluation task progression</title>
+  <desc id="desc">Real average and seven real-world task progression rates for No Gaze, Ego plus Wrist, and AVF.</desc>
+  <defs>
+    <pattern id="avf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="8" height="8" fill="#f2986f"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#fff" stroke-width="1.2"/>
+    </pattern>
+    <style>
+      text { font-family: "Avenir Next", Avenir, "Open Sans", sans-serif; fill: #171717; letter-spacing: 0; }
+      .legend { font-size: 13px; }
+      .section-label { font-size: 14px; fill: #555; }
+      .axis-label { font-size: 12px; }
+      .task-label { font-size: 13px; }
+      .value { font-size: 11px; text-anchor: middle; }
+      .grid { stroke: #e9e9e9; stroke-width: 1; }
+      .axis { stroke: #222; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="760" height="250" fill="#fff"/>
+
+  <g transform="translate(0 -24)">
+  <g class="grid">
+    <line x1="48" y1="60" x2="742" y2="60"/>
+    <line x1="48" y1="96" x2="742" y2="96"/>
+    <line x1="48" y1="132" x2="742" y2="132"/>
+    <line x1="48" y1="168" x2="742" y2="168"/>
+  </g>
+  <g class="axis">
+    <line x1="48" y1="60" x2="48" y2="204"/>
+    <line x1="48" y1="204" x2="742" y2="204"/>
+    <line x1="166" y1="68" x2="166" y2="204" stroke="#888" stroke-width="2"/>
+  </g>
+  <g class="axis-label" text-anchor="end">
+    <text x="42" y="64">100%</text>
+    <text x="42" y="100">75%</text>
+    <text x="42" y="136">50%</text>
+    <text x="42" y="172">25%</text>
+    <text x="42" y="208">0%</text>
+  </g>
+  <text class="axis-label" text-anchor="middle" transform="translate(13 132) rotate(-90)">Task Progression</text>
+
+  <!-- Real average: 48, 73, 81 -->
+  <g>
+    <rect x="75" y="134.897143" width="18" height="69.102857" fill="#7fc0a3"/>
+    <rect x="93" y="98.721429" width="18" height="105.278571" fill="#5c8fc5"/>
+    <rect x="111" y="86.991429" width="18" height="117.008571" fill="url(#avf-hatch)"/>
+    <text class="value" x="84" y="129.897143">48</text>
+    <text class="value" x="102" y="93.721429">73</text>
+    <text class="value" x="120" y="81.991429">81</text>
+    <text class="task-label" x="102" y="225" text-anchor="middle">Average</text>
+  </g>
+
+  <!-- Real tasks: boba, marker, pot, tea, toaster, tape, wrench -->
+  <g>
+    <rect x="181" y="137.76" width="16" height="66.24" fill="#7fc0a3"/>
+    <rect x="197" y="123.36" width="16" height="80.64" fill="#5c8fc5"/>
+    <rect x="213" y="100.32" width="16" height="103.68" fill="url(#avf-hatch)"/>
+    <text class="value" x="189" y="132.76">46</text><text class="value" x="205" y="118.36">56</text><text class="value" x="221" y="95.32">72</text>
+    <text class="task-label" x="205" y="225" text-anchor="middle">boba</text>
+
+    <rect x="257" y="164.64" width="16" height="39.36" fill="#7fc0a3"/>
+    <rect x="273" y="96.48" width="16" height="107.52" fill="#5c8fc5"/>
+    <rect x="289" y="86.88" width="16" height="117.12" fill="url(#avf-hatch)"/>
+    <text class="value" x="265" y="159.64">27</text><text class="value" x="281" y="91.48">75</text><text class="value" x="297" y="81.88">81</text>
+    <text class="task-label" x="281" y="225" text-anchor="middle">marker</text>
+
+    <rect x="333" y="132" width="16" height="72" fill="#7fc0a3"/>
+    <rect x="349" y="108.96" width="16" height="95.04" fill="#5c8fc5"/>
+    <rect x="365" y="94.56" width="16" height="109.44" fill="url(#avf-hatch)"/>
+    <text class="value" x="341" y="127">50</text><text class="value" x="357" y="103.96">66</text><text class="value" x="373" y="89.56">76</text>
+    <text class="task-label" x="357" y="225" text-anchor="middle">pot</text>
+
+    <rect x="409" y="134.88" width="16" height="69.12" fill="#7fc0a3"/>
+    <rect x="425" y="77.28" width="16" height="126.72" fill="#5c8fc5"/>
+    <rect x="441" y="74.4" width="16" height="129.6" fill="url(#avf-hatch)"/>
+    <text class="value" x="417" y="129.88">48</text><text class="value" x="433" y="72.28">88</text><text class="value" x="449" y="69.4">90</text>
+    <text class="task-label" x="433" y="225" text-anchor="middle">tea</text>
+
+    <rect x="485" y="121.44" width="16" height="82.56" fill="#7fc0a3"/>
+    <rect x="501" y="108" width="16" height="96" fill="#5c8fc5"/>
+    <rect x="517" y="96.48" width="16" height="107.52" fill="url(#avf-hatch)"/>
+    <text class="value" x="493" y="116.44">57</text><text class="value" x="509" y="103">67</text><text class="value" x="525" y="91.48">75</text>
+    <text class="task-label" x="509" y="225" text-anchor="middle">toaster</text>
+
+    <rect x="561" y="111" width="16" height="93" fill="#7fc0a3"/>
+    <rect x="577" y="86.25" width="16" height="117.75" fill="#5c8fc5"/>
+    <rect x="593" y="67.5" width="16" height="136.5" fill="url(#avf-hatch)"/>
+    <text class="value" x="569" y="106">65</text><text class="value" x="585" y="81.25">82</text><text class="value" x="601" y="62.5">95</text>
+    <text class="task-label" x="585" y="225" text-anchor="middle">tape</text>
+
+    <rect x="637" y="142.56" width="16" height="61.44" fill="#7fc0a3"/>
+    <rect x="653" y="90.72" width="16" height="113.28" fill="#5c8fc5"/>
+    <rect x="669" y="88.8" width="16" height="115.2" fill="url(#avf-hatch)"/>
+    <text class="value" x="645" y="137.56">43</text><text class="value" x="661" y="85.72">79</text><text class="value" x="677" y="83.8">80</text>
+    <text class="task-label" x="661" y="225" text-anchor="middle">wrench</text>
+  </g>
+  </g>
+
+  <g class="legend">
+    <rect x="150" y="228" width="12" height="12" fill="#7fc0a3"/>
+    <text x="170" y="239">No Gaze (Stereo Only)</text>
+    <rect x="339" y="228" width="12" height="12" fill="#5c8fc5"/>
+    <text x="359" y="239">Ego + Wrist (3 Cameras)</text>
+    <rect x="550" y="228" width="12" height="12" fill="url(#avf-hatch)"/>
+    <text x="570" y="239">AVF (Stereo Only)</text>
+  </g>
+</svg>
