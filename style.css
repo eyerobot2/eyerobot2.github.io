@@ -105,9 +105,15 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     max-width: 100%;
     height: auto;
-    aspect-ratio: 1654 / 1470;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     background: #000;
+}
+
+.carousel-caption.gaze-trajectory-caption {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
 }
 
 @media (max-width: 768px) {
