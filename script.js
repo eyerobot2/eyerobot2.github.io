@@ -254,6 +254,20 @@ function setupSectionIndex() {
   updateIndex();
   window.addEventListener('scroll', queueIndexUpdate, { passive: true });
   window.addEventListener('resize', queueIndexUpdate);
+
+  const teaserSection = document.querySelector('.teaser-section');
+  const teaserVideo = document.getElementById('main-video');
+  if ('ResizeObserver' in window && teaserSection) {
+    const teaserObserver = new ResizeObserver(queueIndexUpdate);
+    teaserObserver.observe(teaserSection);
+  }
+  if (teaserVideo) {
+    teaserVideo.addEventListener('loadedmetadata', queueIndexUpdate);
+    teaserVideo.addEventListener('loadeddata', queueIndexUpdate);
+  }
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(queueIndexUpdate);
+  }
 }
 
 // Initialize the page

@@ -116,12 +116,64 @@ h1, h2, h3, h4, h5, h6 {
     text-align: left;
 }
 
+.wrist-view-comparison {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.wrist-view-comparison video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 8 / 3;
+    object-fit: cover;
+    background: #000;
+}
+
+.carousel-caption.wrist-view-caption {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.token-density-figure {
+    width: 100%;
+    margin: 18px 0 28px;
+}
+
+.token-density-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.token-density-figure figcaption {
+    margin-top: 2px;
+    padding-top: 8px;
+    border-top: 1px solid #d8d8d8;
+    color: #555;
+    font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+}
+
 @media (max-width: 768px) {
     .video-container {
         flex-direction: column;
     }
     .video-item {
         max-width: 100%;
+    }
+}
+
+@media (max-width: 550px) {
+    .wrist-view-comparison {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -733,7 +785,10 @@ h1.tldr {
 
 #main-video {
     flex: 0 0 104%;
+    display: block;
     width: 104%;
+    height: auto;
+    aspect-ratio: 2 / 1;
     margin: 0;
     border-radius: 10px;
 }

@@ -258,7 +258,7 @@
         ============================================================ -->
         <div class="section base-row add-top-padding teaser-section">
             <h1 class="tldr">
-                <b>TL;DR</b>: By coordinating two active eyes with RL, we match the behavior cloning performance of ego + wrist camera policies with one stereo camera.
+                <b>TL;DR</b>: Actively fixating stereo camera >= ego + wrist cameras
                 <!-- EyeRobot 2.0 matches the performance of ego + wrist camera policies with one stereo camera by coordinating two active eyes. -->
             </h1>
             <video id="main-video" muted autoplay loop playsinline preload="metadata">
@@ -273,15 +273,23 @@
         <div class="section base-row add-top-padding">
             <div style="width: 100%;">
                 <!-- <h1>Overview</h1> -->
-                <h2>Fine-grained manipulation with visual fixation</h2>
+                <h1>Do robots need wrist cameras?</h1>
                 <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        Behavior cloning systems overwhelmingly rely on wrist cameras for fine-grained manipulation. Why? Their high-resolution gripper-centric observations
-                        improve precision and spatial reasoning via a sort of "physical attention" where it matters. We believe that such benefits<sup class="footnote-marker"><a class="footnote-ref" id="hypothesis-ref" href="#hypothesis-note" aria-label="Footnote">1</a></sup>
-                        can be obtained from a human-inspired physical attention system: one using <i>Active Visual Fixation</i> to control two foveated eyes to focus on areas of interest.
+                        Behavior cloning systems today overwhelmingly rely on wrist cameras for fine-grained manipulation. Why? Their high-resolution gripper-centric observations
+                        improve precision and spatial reasoning via a sort of <b>physical attention</b> where it matters. We believe that these benefits<sup class="footnote-marker"><a class="footnote-ref" id="hypothesis-ref" href="#hypothesis-note" aria-label="Footnote">1</a></sup>
+                        can be obtained from a human-inspired physical attention system: one using two active eyes to focus on areas of interest.
                     </p>
+
                     <p class="paragraph">
-                        All policies shown are single-task and trained from scratch on less than an hour of teleop data, using only a fixed stereo camera for vision inputs.
+                        When most people think of active vision, they think of <b>information seeking</b> behaviors like moving your neck to get a better viewpoint.
+                        In this work we study a type of active vision more akin to <b>information filtering</b>.
+                        Given an already well-observable workspace, can active vision improve manipulation performance by focusing compute, attention, and representation capacity towards important parts of the scene?
+                         We borrow the biological term for this type of active vision: <i>fixation</i>.
+                    </p>
+
+                    <p class="paragraph">
+                        All policies below are single-task and trained from scratch on less than an hour of teleop data, using only a fixed stereo camera for vision.
                     </p>
                     <aside class="sidenote" id="hypothesis-note" role="note">
                         <a class="sidenote-number" href="#hypothesis-ref" aria-label="Back to footnote">1</a>
@@ -339,7 +347,7 @@
             <div style="width: 100%;">
                 <div class="paragraph-with-sidenote policy-rollout-intro">
                     <p class="paragraph">
-                        EyeRobot 2.0 learns to coordinate its two eyes with RL, no gaze supervision required. Take a look at the same rollouts from the policy's perspective!
+                        The robot learns to coordinate its eyes with reinforcement learning, no gaze supervision required! Take a look at the same rollouts from the policy's perspective.
                     </p>
                 </div>
 
@@ -409,25 +417,18 @@
                 </div>
                 <div class="paragraph-with-sidenote policy-rollout-intro">
                     <p class="paragraph">
-                        Eye motion shown here was exactly what the policy looked at during execution. Concentric rectangles illustrate levels of the foveated image pyramid used as inputs, which allocates
-                         high resolution image tokens towards the gaze direction. Notice how the robot's swivels its gaze to focus on regions requiring precise visual understanding
+                        Eye motion shown here was exactly what the policy looked at during execution. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">2</a></sup> image processing, which allocates
+                         high resolution image tokens towards the center. Notice how the policy's gaze swivels to focus this high-res patch towards directions requiring precise visual understanding
                          like inserting a straw. This behavior was <i>never supervised</i> and emerged through RL.
                          </p>
+                    <aside class="sidenote" id="foveation-note" role="note">
+                        <a class="sidenote-number" href="#foveation-ref" aria-label="Back to footnote">2</a> Foveation is a property prevalant in biological vision where organisms' retinas have very high
+                        angular resolution in the center, and very poor resolution in the periphery.
+                    </aside>
                 </div>
             </div>
         </div>
 
-        <div class="section base-row add-top-padding">
-            <h2>Two notions of active vision</h2>
-            <div class="paragraph-with-sidenote policy-rollout-intro">
-                <p class="paragraph">
-                When most people think of active vision, they think of <b>information seeking</b> behaviors like moving your neck to get a better viewpoint.
-                In this work we study a type of active vision more akin to <b>information filtering</b>.
-                Given an already well-observable workspace, can active vision improve manipulation performance by focusing compute, attention, and representation capacity towards important parts of the scene
-                while ignoring irrelevant ones?
-                </p>
-            </div>
-        </div>
 
 
         <!-- ===========================================================
@@ -452,15 +453,15 @@
             </p>
             <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        We compare against two strong baselines with the same architecture and trained on the exact same demonstrations as ER2<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">2</a></sup>.
+                        We compare against two strong baselines with the same architecture and trained on the exact same demonstrations as AVF<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
                         The first baseline uses the RGB stereo inputs directly ("No Gaze"), and the second uses one stereo image along with two wrist-mounted cameras ("Ego + Wrist").
-                        Note that <i>both baselines have a significant observability advantage</i>, since ER2's field of view is such that it cannot see the entire stereo image at once.
+                        Note that <i>both baselines have a significant observability advantage</i>, since AVF's field of view is such that it cannot see the entire stereo image at once.
                         Both baselines are provided a full coverage view of the table, and with wrist cameras two additional high-resolution viewpoints of the gripper.
 
                     </p>
                     <aside class="sidenote" id="demonstrations-note" role="note">
-                        <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">2</a> We collect all data with wrist cameras for even comparison,
-                         for the results above we actually took off the wrist cameras and ER2 could handle the visual difference.
+                        <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">3</a> We collect all data with wrist cameras for even comparison,
+                         for the results above we actually took off the wrist cameras and AVF could handle the visual difference.
                     </aside>
             </div>
             <div class="experiment-figures">
@@ -495,7 +496,7 @@
                             <span>Pot</span>
                         </div>
                     </div>
-                    <figcaption>We collected a set of 25 evaluation locations, then used these exact locations for all policies by aligning objects with an image overlay.</figcaption>
+                    <figcaption>Visualization of the 25 evaluation locations used for all policies. Objects are aligned with image overlays for consistent comparison.</figcaption>
                 </figure>
             </div>
 
@@ -520,6 +521,7 @@
             </div>
 
             <div class="viewer-cta-wrap">
+                <p style="width: 100%; color: red; font-size: 13px; font-weight: 700; margin: 2px 0 0;">TODO: fix pot success calculation based on optimal/suboptimal</p>
                 <a class="viewer-cta" href="viewer/" aria-label="Open the EyeRobot 2.0 Eval Browser">
                     <span class="viewer-cta-icon">
                         <i class="ti ti-chart-histogram" aria-hidden="true"></i>
@@ -534,18 +536,47 @@
                 </a>
             </div>
 
-            <h3>AVF significantly outperforms stereo</h3>
-            <p class="paragraph">AVF matches the performance of the canonical ego + wrist camera </p>
+            <h3>Significantly outperforms passive stereo</h3>
+            <div class="paragraph-with-sidenote">
+                <p class="paragraph">
+                    AVF beats passive stereo by a large margin, in aggregate <b>+40%</b> success rate. This is unsurprising, ego-only camera systems tend to
+                    provide weak performance for fine-grained manipulation. Interestingly, by using the <i>same input images</i> with active fixation, we can recover
+                    the performance gap between wrist-camera and wrist-free policies. Standard stereo lacks localized resolution necessary for precise tasks,
+                    particularly noticable in the near-0 performance on the marker task. It also struggles with spatial understanding on simpler tasks like tape handover; learning about 3D servoing is harder from a
+                    static perspective than from a gripper-centric perspective like wrist cameras or fixated eyeballs.
+                </p>
+            </div>
+            <figure class="token-density-figure">
+                <img src="images/token_density.svg" alt="Token grids comparing dense stereo images with EyeRobot 2.0's three-level foveated stereo pyramid" />
+                <figcaption>Achieving the same resolution as EyeRobot's foveated inputs with passive stereo would require a cumbersome amount of input tokens.
+                    This is even more problematic at higher resolutions; foveation requires only linear scaling, dense tokenization requires quadratic.</figcaption>
+            </figure>
 
+            <h3>AVF beats wrist cameras on occluded tasks</h3>
+            <p class="paragraph">
+                We intentionally collected some tasks which are hard to see from the YAM's wrist cameras. In these tasks, ego + wrist policies must rely
+                solely on the ego-centric camera for useful information, and so their performance collapses to about the same as static stereo. Different wrist camera designs like dual-cameras or fisheye views
+                 can alleviate these problems, but it's impossible to always maintain good observability. This also requires teleoperators to empathize with the robot policy in an unnatural way, one that sometimes harms
+                 data quality because of unintuitive strategies.
+            </p>
+            <div class="wrist-view-comparison">
+                <video loop muted playsinline preload="none" aria-label="Wrist camera viewpoints during the boba task">
+                    <source data-src="data/wrist_views_boba.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video loop muted playsinline preload="none" aria-label="Wrist camera viewpoints during the pot lid task">
+                    <source data-src="data/wrist_views_pot.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="carousel-caption wrist-view-caption">Wrist camera viewpoints during boba and pot lid tasks. Grasping tools poses significant visibility challenges for wrist cameras.</p>
 
             <h3>AVF matches wrist cameras in tasks without tool occlusions</h3>
 
-            <h3>AVF beats wrist cameras on occluded tasks</h3>
-
-
             <h2>Distractor objects</h2>
+            <p style="width: 100%; color: red; font-size: 13px; font-weight: 700; margin: 2px 0 0;">TODO: find distractor videos that are episode-id-paired b/w wrist and avf</p>
             <p class="paragraph">
-                We evaluate AVF with colorful distractor objects randomly scattered on the table. AVF retains significantly more of its original performance than gaze-free stereo baselines (AVF 27%, ego-only 0%). AVF and ego+wrist policies for the tea and wrench tasks degrade by the same amount (AVF 23%, ego+wrist 22%) while on the tape task ego+wrist performance craters (AVF 34%, ego+wrist 0%).
+
             </p>
             <!-- Distractor-robustness carousel: one success per task w/ distractor objects on the table -->
             <div class="carousel-container">
@@ -684,14 +715,32 @@
 
 
             <h2>Ablations</h2>
+            <p style="width: 100%; color: red; font-size: 13px; font-weight: 700; margin: 2px 0 0;">TODO: find videos demonstrating weaknesses of ablations (maybe just show sankey?)</p>
             <p class="paragraph">
-                We run ablations with AVF without the foveated architecture and AVF without the stereo camera (just mono), and find that both are important for AVF performance.
+            <h3>Stereo and foveated vision</h3>
             </p>
             <img src="images/ablation_table.png" alt="Ablation table: per-task success rates for AVF, AVF without foveation, and AVF without stereo (mono)"
                  style="width: 100%; height: auto; margin-top: 12px;" />
 
 
+            <h3>Gaze-centric actions</h3>
             <h2>Gaze analysis</h2>
+            <p class="paragraph">
+                What type of gaze patterns does AVF learn, and do they matter over naive baselines? To answer this,
+            </p>
+
+            <p style="width: 100%; color: red; font-size: 13px; font-weight: 700; margin: 2px 0 0;">TODO: generate gaze aggregate analysis plots somehow...</p>
+
+
+            <h3>Implicit task segmentation</h3>
+            <p class="paragraph">
+                By analyzing gaze, in some tasks we can obtain task segmentation from the RL policy!
+            </p>
+
+            <h3>Does learned gaze beat naive baselines?</h3>
+            <p class="paragraph">
+                (idk if i like this necessarily since its sim only) but we have results showing learned gaze outperforms static gaze for any one object in the sim tasks
+            </p>
         </div>
 
         <!-- ===========================================================
@@ -702,10 +751,10 @@
 
             <div class="separator"></div>
             <h1>How it works</h1>
-            <h2>Goal-conditioned gaze</h2>
+            <h2>Step 1: Goal-conditioned gaze</h2>
             <p style="width: 100%; color: red; font-size: 13px; font-weight: 700; margin: 2px 0 0;">TODO: describe stereo virtual eye rendering</p>
             <p class="paragraph">
-                We first train a gaze policy that continously servos the 2 eyes to fixate on a target object in 3D. We use RL, with the reward coming by estimating the 3D centroid of the target with object detection (SAM3) and stereo depth (FoundationStereo).
+                We first train a gaze policy that continously servos the 2 eyes to fixate on a target object in 3D.
             </p>
             <!-- Gaze policy pipeline figure, converted from images/3d.pdf -->
             <img src="images/3d.svg" alt="Gaze policy pipeline: fixation rendering (raw stereo RGB, spherical projection, fixated view), ground-truth fixation via SAM3 object detection and FoundationStereo depth, and the gaze policy outputs"
@@ -731,7 +780,7 @@
             <p class="carousel-caption gaze-trajectory-caption">Gaze induced by conditioning on yellow vs gray tape. The fixation point (yellow) is controlled by the RL policy, and the two eyes converge on this 3D point to provide the model high-resolution stereo inputs.</p>
 
             <div class="separator"></div>
-            <h2>Sequencing gaze with BC-RL</h2>
+            <h2>Step 2: Sequencing gaze for manipulation</h2>
             <p class="paragraph">
                 We freeze the gaze policy and train a target selector with RL to select which object to look at during rollout. The target selector is co-trained with the BC gripper policy and rewarded to best improve the gripper policy performance.
             </p>
@@ -811,6 +860,10 @@
                 </div>
                 <p class="carousel-caption">Policy rollouts with target probabilities, the raw output of the RL agent</p>
             </div>
+
+
+            <h2>Condensing the action manifold with gaze-centric actions</h2>
+
         </div>
 
         <!-- ===========================================================
@@ -822,6 +875,9 @@
             <div style="width: 100%;">
                 <h1>Failures</h1>
             </div>
+            <p class="paragraph">
+                See our eval browser to view all failures, we've picked some interesting ones here.
+            </p>
             <div class="carousel-container">
                 <div class="carousel-track-container">
                     <div class="carousel-track" id="failures-carousel">
