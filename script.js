@@ -270,11 +270,121 @@ function setupSectionIndex() {
   }
 }
 
+function formatPlaybackTime(seconds) {
+  if (!Number.isFinite(seconds)) return "--:--";
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60);
+  return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
+}
+
+function setupDistractorPlaybackControls() {
+  document.querySelectorAll(".distractor-comparison").forEach(figure => {
+    const video = figure.querySelector("video");
+    if (!video || figure.querySelector(".distractor-playback-controls")) return;
+
+    const controls = document.createElement("div");
+    controls.className = "distractor-playback-controls";
+
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "distractor-play-toggle";
+    toggle.title = "Play";
+    toggle.setAttribute("aria-label", "Play comparison");
+
+    const scrubber = document.createElement("input");
+    scrubber.type = "range";
+    scrubber.className = "distractor-scrubber";
+    scrubber.min = "0";
+    scrubber.max = "1000";
+    scrubber.step = "1";
+    scrubber.value = "0";
+    scrubber.disabled = true;
+    scrubber.setAttribute("aria-label", "Seek comparison video");
+
+    const time = document.createElement("span");
+    time.className = "distractor-playback-time";
+    time.textContent = "0:00 / --:--";
+
+    controls.append(toggle, scrubber, time);
+    figure.appendChild(controls);
+    video.controls = false;
+
+    let scrubbing = false;
+    const updateToggle = () => {
+      const paused = video.paused;
+      toggle.innerHTML = `<i class="ti ${paused ? "ti-player-play" : "ti-player-pause"}" aria-hidden="true"></i>`;
+      toggle.title = paused ? "Play" : "Pause";
+      toggle.setAttribute("aria-label", `${paused ? "Play" : "Pause"} comparison`);
+    };
+
+    const updateProgress = () => {
+      const duration = video.duration;
+      const current = Number.isFinite(video.currentTime) ? video.currentTime : 0;
+      if (Number.isFinite(duration) && duration > 0) {
+        scrubber.disabled = false;
+        if (!scrubbing) scrubber.value = String(Math.round((current / duration) * 1000));
+        scrubber.style.setProperty("--seek-progress", `${Math.min((current / duration) * 100, 100)}%`);
+      }
+      time.textContent = `${formatPlaybackTime(current)} / ${formatPlaybackTime(duration)}`;
+    };
+
+    const togglePlayback = () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    };
+
+    const seekFromScrubber = () => {
+      if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+      video.currentTime = (Number(scrubber.value) / 1000) * video.duration;
+      updateProgress();
+    };
+
+    const beginScrub = () => {
+      scrubbing = true;
+    };
+
+    const endScrub = () => {
+      if (!scrubbing) return;
+      scrubbing = false;
+      seekFromScrubber();
+      updateProgress();
+    };
+
+    toggle.addEventListener("click", togglePlayback);
+    video.addEventListener("play", updateToggle);
+    video.addEventListener("pause", updateToggle);
+    video.addEventListener("loadedmetadata", updateProgress);
+    video.addEventListener("durationchange", updateProgress);
+    video.addEventListener("timeupdate", updateProgress);
+    scrubber.addEventListener("pointerdown", beginScrub);
+    scrubber.addEventListener("input", seekFromScrubber);
+    scrubber.addEventListener("pointerup", endScrub);
+    scrubber.addEventListener("pointercancel", endScrub);
+    scrubber.addEventListener("change", endScrub);
+    scrubber.addEventListener("wheel", event => {
+      if (!Number.isFinite(video.duration)) return;
+      event.preventDefault();
+      video.currentTime = Math.min(
+        Math.max(video.currentTime + (event.deltaY > 0 ? 0.5 : -0.5), 0),
+        video.duration
+      );
+      updateProgress();
+    }, { passive: false });
+
+    updateToggle();
+    updateProgress();
+  });
+}
+
 // Initialize the page
 function initializePage() {
   randomizeCoFirstAuthors();
   setupRealResultsMetricToggle();
   setupSectionIndex();
+  setupDistractorPlaybackControls();
   setupThumbnailClickEvents();
 
   // Show the first iframe by default
