@@ -929,6 +929,23 @@ h1.tldr {
     -webkit-backdrop-filter: blur(4px);
 }
 
+.real-results-grid .results-grid-item figcaption {
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    max-width: calc(100% - 16px);
+    padding: 4px 7px;
+    border-radius: 0;
+    transform: none;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-align: left;
+    text-transform: none;
+    white-space: nowrap;
+}
+
 .results-grid-item::after {
     content: "1x speed, autonomous";
     position: absolute;
