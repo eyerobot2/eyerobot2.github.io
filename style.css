@@ -105,8 +105,10 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     max-width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+    /* Matches the native 1046x648 of images/yellow.mp4 + gray.mp4. `contain` so a
+       future clip of a different shape letterboxes instead of getting cropped. */
+    aspect-ratio: 1046 / 648;
+    object-fit: contain;
     background: #000;
 }
 
