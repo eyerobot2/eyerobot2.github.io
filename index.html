@@ -958,9 +958,8 @@
         </div>
 
         <!-- ===========================================================
-             Failures — placeholder carousel (drop failure clips into
-             data/failure_*.mp4 and replace each .media-placeholder with a
-             <video> block like the other carousels).
+             Failures — clips copied from eyeball eval episodes in viewer/.
+             Each slide is commented with the episode it came from.
         ============================================================ -->
         <div class="section base-row add-top-padding">
             <div style="width: 100%;">
@@ -972,14 +971,33 @@
             <div class="carousel-container">
                 <div class="carousel-track-container">
                     <div class="carousel-track" id="failures-carousel">
+                        <!-- Ambiguity collapse — boba, episode_005 -->
                         <div class="carousel-slide current-slide">
-                            <div class="media-placeholder">data/failure_1.mp4 &mdash; failure video goes here</div>
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/failure_ambiguity_boba.jpg">
+                                <source data-src="data/failure_ambiguity_boba.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
+                        <!-- Thrashing — marker, episode_004 -->
                         <div class="carousel-slide">
-                            <div class="media-placeholder">data/failure_2.mp4 &mdash; failure video goes here</div>
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/failure_thrashing_marker.jpg">
+                                <source data-src="data/failure_thrashing_marker.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
+                        <!-- pot-place, episode_014 -->
                         <div class="carousel-slide">
-                            <div class="media-placeholder">data/failure_3.mp4 &mdash; failure video goes here</div>
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/failure_pot_014.jpg">
+                                <source data-src="data/failure_pot_014.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- wrench, episode_006 -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/failure_wrench_006.jpg">
+                                <source data-src="data/failure_wrench_006.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -993,6 +1011,7 @@
                     <button class="carousel-indicator current-slide" data-slide="0"></button>
                     <button class="carousel-indicator" data-slide="1"></button>
                     <button class="carousel-indicator" data-slide="2"></button>
+                    <button class="carousel-indicator" data-slide="3"></button>
                 </div>
             </div>
         </div>
