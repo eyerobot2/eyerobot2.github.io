@@ -475,8 +475,24 @@
                 </aside>
             </div>
 
-            <h2>Step 1: Goal-conditioned gaze</h2>
-            <p style="width: 100%; color: red; font-size: 13px; font-weight: 700; margin: 2px 0 0;">TODO: describe stereo virtual eye rendering</p>
+            <h2>Goal-conditioned gaze</h2>
+            <div class="gaze-trajectory-comparison">
+                <div class="gaze-trajectory-item">
+                    <video loop autoplay muted playsinline preload="metadata" aria-label="Gaze policy trajectory rollout for yellow tape">
+                        <source src="images/yellow_scene.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <span class="gaze-trajectory-label">Conditioned on yellow tape</span>
+                </div>
+                <div class="gaze-trajectory-item">
+                    <video loop autoplay muted playsinline preload="metadata" aria-label="Gaze policy trajectory rollout for gray tape">
+                        <source src="images/gray_scene.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <span class="gaze-trajectory-label">Conditioned on gray tape</span>
+                </div>
+            </div>
+            <p class="carousel-caption gaze-trajectory-caption">Gaze induced by conditioning on yellow vs gray tape. The fixation point is controlled by the RL policy, and the two eyes converge on this 3D point to provide the model high-resolution stereo inputs.</p>
             <p class="paragraph">
                 We first train a gaze policy that continously servos the 2 eyes to fixate on a target object in 3D.
             </p>
@@ -491,20 +507,9 @@
                 <source data-src="data/pretraining.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="gaze-trajectory-comparison">
-                <video loop autoplay muted playsinline preload="metadata" aria-label="Gaze policy trajectory rollout for yellow tape">
-                    <source src="images/yellow.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <video loop autoplay muted playsinline preload="metadata" aria-label="Gaze policy trajectory rollout for gray tape">
-                    <source src="images/gray.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <p class="carousel-caption gaze-trajectory-caption">Gaze induced by conditioning on yellow vs gray tape. The fixation point is controlled by the RL policy, and the two eyes converge on this 3D point to provide the model high-resolution stereo inputs.</p>
 
             <div class="separator"></div>
-            <h2>Step 2: Sequencing gaze for manipulation</h2>
+            <h2>Sequencing gaze for manipulation</h2>
             <p class="paragraph">
                 We freeze the gaze policy and train a target selector with RL to select which object to look at during rollout. The target selector is co-trained with the BC gripper policy and rewarded to best improve the gripper policy performance.
             </p>

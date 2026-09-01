@@ -93,23 +93,47 @@ h1, h2, h3, h4, h5, h6 {
 
 .gaze-trajectory-comparison {
     width: 100%;
+    max-width: 680px;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px;
-    margin: 10px 0;
+    gap: 10px;
+    margin: 10px auto;
+}
+
+.gaze-trajectory-item {
+    position: relative;
+    width: 100%;
 }
 
 .gaze-trajectory-comparison video {
     display: block;
-    min-width: 0;
     width: 100%;
-    max-width: 100%;
     height: auto;
-    /* Matches the native 1046x648 of images/yellow.mp4 + gray.mp4. `contain` so a
-       future clip of a different shape letterboxes instead of getting cropped. */
-    aspect-ratio: 1046 / 648;
+    /* Matches the native 610x648 of images/yellow_scene.mp4 + gray_scene.mp4
+       (3D scene crop with the middle stereo pair inset top-left). */
+    aspect-ratio: 610 / 648;
     object-fit: contain;
-    background: #000;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+}
+
+.gaze-trajectory-label {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    z-index: 1;
+    padding: 3px 6px;
+    border-radius: 4px;
+    background: rgba(35, 35, 35, 0.48);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.2;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .carousel-caption.gaze-trajectory-caption {
