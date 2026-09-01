@@ -279,18 +279,13 @@
                 <div class="paragraph-with-sidenote">
                     <p class="paragraph">
                         Behavior cloning systems today overwhelmingly rely on wrist cameras for fine-grained manipulation. Why? Their high-resolution gripper-centric observations
-                        improve precision and spatial reasoning via a sort of <b>physical attention</b> where it matters. We believe that these benefits<sup class="footnote-marker"><a class="footnote-ref" id="hypothesis-ref" href="#hypothesis-note" aria-label="Footnote">1</a></sup>
+                        improve precision and spatial reasoning via a sort of <b>physical attention</b> where it matters. We believe that these benefits
                         can be obtained from a human-inspired physical attention system: one using two active eyes to focus on areas of interest.
                     </p>
 
                     <p class="paragraph">
                         All policies below are single-task and trained from scratch on less than an hour of teleop data, using only a fixed stereo camera for vision.
                     </p>
-                    <aside class="sidenote" id="hypothesis-note" role="note">
-                        <a class="sidenote-number" href="#hypothesis-ref" aria-label="Back to footnote">1</a>
-                        Wrist cameras have additional benefits like embodiment-agnosticity, which allows handheld capture devices.
-                        This work focuses on the manipulation capabilities of policies given the same high-quality demonstrations.
-                    </aside>
                 </div>
             </div>
 
@@ -419,12 +414,12 @@
                 </div>
                 <div class="paragraph-with-sidenote policy-rollout-intro">
                     <p class="paragraph">
-                        Eye motion shown here was exactly what the policy looked at during execution. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">2</a></sup> image processing, which allocates
+                        Eye motion shown here was exactly what the policy looked at during execution. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">1</a></sup> image processing, which allocates
                          high resolution image tokens towards the center. Notice how the policy's gaze swivels to focus this high-res patch towards directions requiring precise visual understanding
                          like inserting a straw. This behavior was <i>never supervised</i> and emerged through RL.
                          </p>
                     <aside class="sidenote" id="foveation-note" role="note">
-                        <a class="sidenote-number" href="#foveation-ref" aria-label="Back to footnote">2</a> Foveation is a property prevalant in biological vision where organisms' retinas have very high
+                        <a class="sidenote-number" href="#foveation-ref" aria-label="Back to footnote">1</a> Foveation is a property prevalant in biological vision where organisms' retinas have very high
                         angular resolution in the center, and very poor resolution in the periphery.
                     </aside>
                 </div>
@@ -470,11 +465,11 @@
                 <p class="paragraph">
                     Loosely speaking, there's only a few ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
                     3) increase data manifold coverage by making the manifold itself more compact. Of course this is extremely hand-wavey, but much of AVF's design is attempting the latter, reducing the complexity
-                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">3</a></sup>.
+                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">2</a></sup>.
 
                 </p>
                 <aside class="sidenote" id="fixation-relative-note" role="note">
-                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">3</a> Wrist cameras are an example of this too.
+                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">2</a> Wrist cameras are an example of this too.
                      Think about how easy it is to move left and right from an aligned wrist view, vs left and right from a distal fixed view.
                      Gripper-centric viewpoints make the servoing data manifold more compact.
                 </aside>
@@ -607,14 +602,14 @@
 
             <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        We compare against two strong baselines with the same architecture and trained on the exact same demonstrations as AVF<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">4</a></sup>.
+                        We compare against two strong baselines with the same architecture and trained on the exact same demonstrations as AVF<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
                         The first baseline uses the RGB stereo inputs directly ("No Gaze"), and the second uses one stereo image along with two wrist-mounted cameras ("Ego + Wrist").
                         Note that <i>both baselines have a significant observability advantage</i>, since AVF's field of view is such that it cannot see the entire stereo image at once.
                         Both baselines are provided a full coverage view of the table, and with wrist cameras two additional high-resolution viewpoints of the gripper.
 
                     </p>
                     <aside class="sidenote" id="demonstrations-note" role="note">
-                        <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">4</a> We collect all data with wrist cameras for even comparison,
+                        <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">3</a> We collect all data with wrist cameras for even comparison,
                          for the main video results we actually took off the wrist cameras and AVF could handle the visual difference.
                     </aside>
             </div>
