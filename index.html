@@ -203,7 +203,9 @@
             <h1 class="title">
                 <span style="text-wrap: nowrap">EyeRobot 2.0</span>
             </h1>
-            <h1 class="subheader">Active Visual Fixation for Precise Manipulation without Wrist Cameras</h1>
+            <h1 class="subheader">
+                Active Visual Fixation for Precise Manipulation without Wrist Cameras
+            </h1>
 
             <!-- Author list. Duplicate an <a> + spacer to add authors; wrap to a
                  second inner <div> for a second visual row (as below). -->
@@ -583,7 +585,9 @@
 
             <h2>Distractor objects</h2>
             <p class="paragraph">
-                We evaluated 3 tasks with unseen distractor objects scattered throughout the workspace. Again, all trials use the <i>exact same object positions</i> to ensure comparability.
+                We evaluated 3 tasks with unseen distractor objects scattered throughout the workspace. All comparisons use the <i>exact same object positions</i> to ensure comparability.
+                Notice how in these examples the wrist camera often reaches for the largest or most distinct object in its view. Once it begins reaching the policy cannot recover since the wrist camera loses sight
+                of the target. In contrast, AVF usually reaches for the correct object.
             </p>
             <div class="carousel-container distractor-carousel-container">
                 <div class="carousel-track-container">
@@ -690,6 +694,11 @@
                 </div>
                 <p class="carousel-caption">On eval trials with unseen distractors in the same configuration, ego + wrist policies often move towards the first object seen by the wrist cameras and get confused while AVF can ignore them.</p>
             </div>
+
+            <p class="paragraph">
+                 Even EyeRobot's failures tend to be much less catastrophic, take a look at these cases where the wrist policy beats AVF, and they tend to be more subtle manipulation misses.
+            </p>
+
 
         </div>
 
