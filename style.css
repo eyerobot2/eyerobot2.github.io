@@ -1895,3 +1895,88 @@ input:checked + .slider:before {
     width: 100%;
     cursor: pointer;
 } */
+
+/* Abridged takeaway callout at the end of the intro section */
+.takeaway-callout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 28px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 28px;
+    padding: 18px 22px;
+    border: 1px solid #e3e3e3;
+    border-radius: 12px;
+    background: #fafafa;
+    text-align: left;
+}
+
+.takeaway-text {
+    flex: 1 1 320px;
+    min-width: 0;
+}
+
+
+.takeaway-statement {
+    margin: 0 0 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 19px;
+    line-height: 26px;
+    font-weight: 600;
+    color: #222;
+}
+
+.takeaway-detail {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: #555;
+}
+
+.takeaway-detail a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.takeaway-figure {
+    flex: 0 0 260px;
+    margin: 0;
+}
+
+.takeaway-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 640px) {
+    .takeaway-figure {
+        flex-basis: 100%;
+    }
+}
+
+/* Camera comparison plot sticks to the top while scrolling its subsections.
+   Pure CSS (position: sticky), no scroll listeners. */
+.camera-comparison-scope {
+    width: 100%;
+}
+
+.camera-comparison-scope .real-results-figures {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #fff;
+    padding: 8px 0 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* On narrow or short screens the plot would eat too much of the viewport; let it scroll normally. */
+@media (max-width: 700px), (max-height: 640px) {
+    .camera-comparison-scope .real-results-figures {
+        position: static;
+        padding: 0;
+        border-bottom: none;
+    }
+}

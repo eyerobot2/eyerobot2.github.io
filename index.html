@@ -284,13 +284,6 @@
                     </p>
 
                     <p class="paragraph">
-                        When most people think of active vision, they think of <b>information seeking</b> behaviors like moving your neck to get a better viewpoint.
-                        In this work we study a type of active vision more akin to <b>information filtering</b>.
-                        Given an already well-observable workspace, can active vision improve manipulation performance by focusing compute, attention, and representation capacity towards important parts of the scene?
-                         We borrow the biological term for this type of active vision: <i>fixation</i>.
-                    </p>
-
-                    <p class="paragraph">
                         All policies below are single-task and trained from scratch on less than an hour of teleop data, using only a fixed stereo camera for vision.
                     </p>
                     <aside class="sidenote" id="hypothesis-note" role="note">
@@ -347,7 +340,14 @@
             </div>
 
             <div style="width: 100%;">
+                <h3>Gaze emerges from RL</h3>
                 <div class="paragraph-with-sidenote policy-rollout-intro">
+                    <p class="paragraph">
+                        When most people think of active vision, they think of <b>information seeking</b> behaviors like moving your neck to get a better viewpoint.
+                        In this work we study a type of active vision more akin to <b>information filtering</b>.
+                        Given an already well-observable workspace, can active vision improve manipulation performance by focusing compute, attention, and representation capacity towards important parts of the scene?
+                         We borrow the biological term for this type of active vision: <i>fixation</i>.
+                    </p>
                     <p class="paragraph">
                         The robot learns to coordinate its eyes with reinforcement learning, no gaze supervision required! Take a look at the same rollouts from the policy's perspective.
                     </p>
@@ -415,7 +415,7 @@
                         <button class="carousel-indicator" data-slide="5" aria-label="Show policy rollout 6"></button>
                         <button class="carousel-indicator" data-slide="6" aria-label="Show policy rollout 7"></button>
                     </div>
-                    <p class="carousel-caption">Example eye behavior during autonomous execution.</p>
+                    <p class="carousel-caption">Example eye behavior during autonomous execution. All videos 1x speed.</p>
                 </div>
                 <div class="paragraph-with-sidenote policy-rollout-intro">
                     <p class="paragraph">
@@ -428,42 +428,194 @@
                         angular resolution in the center, and very poor resolution in the periphery.
                     </aside>
                 </div>
+
+                <!-- Abridged takeaway before the method section; full results live in Experiments below -->
+                <aside class="takeaway-callout" aria-label="Key takeaway">
+                    <div class="takeaway-text">
+                        <p class="takeaway-statement">Active gaze from a single stereo camera matches or beats wrist cameras.</p>
+                        <p class="takeaway-detail">Across 640 real-world trials, AVF outperforms 3-camera policies and passive stereo policies trained on the same demonstrations. Full breakdown in <a href="#experiments">Experiments</a>.</p>
+                    </div>
+                    <figure class="takeaway-figure">
+                        <img src="images/figure_takeaway.svg" alt="Average real-world success rate: No Gaze 27%, Ego plus Wrist 52%, AVF 67%, over 640 trials" />
+                    </figure>
+                </aside>
+                <div class="success-scroll-wrap">
+                    <video class="success-scroll-video" loop muted playsinline preload="none" data-playback-rate="1.5"
+                           aria-label="Grid of successful EyeRobot 2.0 evaluation trials">
+                        <source data-src="data/er2_success_scroll.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <span class="success-scroll-label">1.5x speed, autonomous</span>
+                </div>
+                <p class="carousel-caption success-scroll-caption">
+                    Randomly sampled successful trials.
+                    <a href="viewer/">Click here to browse all trial videos.</a>
+                </p>
             </div>
         </div>
 
+
+        <!-- ===========================================================
+             "How it works" — single video + a before/after comparison
+        ============================================================ -->
+        <div class="section base-row add-top-padding">
+
+
+            <div class="separator"></div>
+            <h1>How it works</h1>
+
+
+            <h2>Compacting the data manifold with fixation</h2>
+            <div class="paragraph-with-sidenote">
+                <p class="paragraph">
+                    Loosely speaking, there's only a few ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
+                    3) increase data manifold coverage by making the manifold itself more compact. Of course this is extremely hand-wavey, but much of AVF's design is attempting the latter, reducing the complexity
+                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">3</a></sup>.
+
+                </p>
+                <aside class="sidenote" id="fixation-relative-note" role="note">
+                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">3</a> Wrist cameras are an example of this too.
+                     Think about how easy it is to move left and right from an aligned wrist view, vs left and right from a distal fixed view.
+                     Gripper-centric viewpoints make the servoing data manifold more compact.
+                </aside>
+            </div>
+
+            <h2>Step 1: Goal-conditioned gaze</h2>
+            <p style="width: 100%; color: red; font-size: 13px; font-weight: 700; margin: 2px 0 0;">TODO: describe stereo virtual eye rendering</p>
+            <p class="paragraph">
+                We first train a gaze policy that continously servos the 2 eyes to fixate on a target object in 3D.
+            </p>
+            <!-- Gaze policy pipeline figure, converted from images/3d.pdf -->
+            <img src="images/3d.svg" alt="Gaze policy pipeline: fixation rendering (raw stereo RGB, spherical projection, fixated view), ground-truth fixation via SAM3 object detection and FoundationStereo depth, and the gaze policy outputs"
+                 style="width: 100%; height: auto; border-radius: 12px; margin: 10px auto;" />
+            <!-- TODO: drop clip at data/pretraining.mp4 -->
+            <!-- Hidden until a real video loads, so the missing-source video doesn't
+                 reserve empty space. Auto-reveals once data/pretraining.mp4 is present. -->
+            <video loop autoplay muted playsinline style="width: 100%; display: none;"
+                   preload="none" onloadeddata="this.style.display=''">
+                <source data-src="data/pretraining.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="gaze-trajectory-comparison">
+                <video loop autoplay muted playsinline preload="metadata" aria-label="Gaze policy trajectory rollout for yellow tape">
+                    <source src="images/yellow.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video loop autoplay muted playsinline preload="metadata" aria-label="Gaze policy trajectory rollout for gray tape">
+                    <source src="images/gray.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="carousel-caption gaze-trajectory-caption">Gaze induced by conditioning on yellow vs gray tape. The fixation point is controlled by the RL policy, and the two eyes converge on this 3D point to provide the model high-resolution stereo inputs.</p>
+
+            <div class="separator"></div>
+            <h2>Step 2: Sequencing gaze for manipulation</h2>
+            <p class="paragraph">
+                We freeze the gaze policy and train a target selector with RL to select which object to look at during rollout. The target selector is co-trained with the BC gripper policy and rewarded to best improve the gripper policy performance.
+            </p>
+            <!-- Framework figure, converted from images/arch.pdf -->
+            <img src="images/arch.svg" alt="AVF framework / method overview"
+                 style="width: 100%; height: auto; border-radius: 12px;" />
+
+            <!-- Carousel: policy rollouts w/ target-selector (gaze) probability strip -->
+            <div class="carousel-container gaze-probs-carousel-container" style="margin-top: 12px;">
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="gaze-probs-carousel">
+                        <!-- Marker -->
+                        <div class="carousel-slide current-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_marker.jpg">
+                                <source data-src="data/gaze_probs_marker.mp4?v=20260729-friendly-probs" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Toaster -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_toaster.jpg">
+                                <source data-src="data/gaze_probs_toaster.mp4?v=20260729-friendly-probs" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Wrench -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_wrench.jpg">
+                                <source data-src="data/gaze_probs_wrench.mp4?v=20260729-friendly-probs" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Boba -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_boba.jpg">
+                                <source data-src="data/gaze_probs_boba.mp4?v=20260729-friendly-probs" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Tea -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_tea.jpg">
+                                <source data-src="data/gaze_probs_tea.mp4?v=20260729-friendly-probs" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Tape -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_tape.jpg">
+                                <source data-src="data/gaze_probs_tape.mp4?v=20260729-friendly-probs" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Pot -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_pot.jpg">
+                                <source data-src="data/gaze_probs_pot.mp4?v=20260729-friendly-probs" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button carousel-button--left" data-carousel="gaze-probs-carousel">
+                    <i class="ti ti-chevron-left"></i>
+                </button>
+                <button class="carousel-button carousel-button--right" data-carousel="gaze-probs-carousel">
+                    <i class="ti ti-chevron-right"></i>
+                </button>
+                <div class="carousel-nav">
+                    <button class="carousel-indicator current-slide" data-slide="0"></button>
+                    <button class="carousel-indicator" data-slide="1"></button>
+                    <button class="carousel-indicator" data-slide="2"></button>
+                    <button class="carousel-indicator" data-slide="3"></button>
+                    <button class="carousel-indicator" data-slide="4"></button>
+                    <button class="carousel-indicator" data-slide="5"></button>
+                    <button class="carousel-indicator" data-slide="6"></button>
+                </div>
+                <p class="carousel-caption">Policy rollouts for each task with target probabilities (the raw output of the RL agent)</p>
+            </div>
+
+
+
+
+
+        </div>
 
 
         <!-- ===========================================================
              Experiment Trials — real and simulation success-rate figures
         ============================================================ -->
         <div class="section base-row add-top-padding">
-            <div style="width: 100%;">
+            <div style="width: 100%;" id="experiments">
                 <h1>Experiments</h1>
             </div>
 
-            <div class="success-scroll-wrap">
-                <video class="success-scroll-video" loop muted playsinline preload="none" data-playback-rate="1.5"
-                       aria-label="Grid of successful EyeRobot 2.0 evaluation trials">
-                    <source data-src="data/er2_success_scroll.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <span class="success-scroll-label">1.5x speed, autonomous</span>
-            </div>
-            <p class="carousel-caption success-scroll-caption">
-                Randomly sampled successful trials.
-                <a href="viewer/">Click here to browse all trial videos.</a>
-            </p>
             <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        We compare against two strong baselines with the same architecture and trained on the exact same demonstrations as AVF<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
+                        We compare against two strong baselines with the same architecture and trained on the exact same demonstrations as AVF<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">4</a></sup>.
                         The first baseline uses the RGB stereo inputs directly ("No Gaze"), and the second uses one stereo image along with two wrist-mounted cameras ("Ego + Wrist").
                         Note that <i>both baselines have a significant observability advantage</i>, since AVF's field of view is such that it cannot see the entire stereo image at once.
                         Both baselines are provided a full coverage view of the table, and with wrist cameras two additional high-resolution viewpoints of the gripper.
 
                     </p>
                     <aside class="sidenote" id="demonstrations-note" role="note">
-                        <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">3</a> We collect all data with wrist cameras for even comparison,
-                         for the results above we actually took off the wrist cameras and AVF could handle the visual difference.
+                        <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">4</a> We collect all data with wrist cameras for even comparison,
+                         for the main video results we actually took off the wrist cameras and AVF could handle the visual difference.
                     </aside>
             </div>
             <div class="experiment-figures">
@@ -504,6 +656,9 @@
 
             <h2>Camera comparisons</h2>
 
+            <!-- Sticky scope: the results plot stays pinned to the top of the viewport
+                 while the reader scrolls through the subsections that discuss it. -->
+            <div class="camera-comparison-scope">
             <div class="experiment-figures real-results-figures">
                 <div class="plot-metric-toggle" data-real-plot-toggle role="group" aria-label="Real-world evaluation metric">
                     <button class="active" type="button" aria-pressed="true" aria-controls="real-results-chart"
@@ -537,7 +692,7 @@
                 </a>
             </div>
 
-            <h3>Significantly outperforms passive stereo</h3>
+            <h3>AVF significantly outperforms passive stereo</h3>
             <div class="paragraph-with-sidenote">
                 <p class="paragraph">
                     AVF beats passive stereo by a large margin, in aggregate <b>+40%</b> success rate. This is unsurprising, ego-only camera systems tend to
@@ -548,18 +703,19 @@
 
                 </p>
                 <p class="paragraph">
-                    It also lacks localized resolution necessary for precise tasks, particularly noticable in the near-0 performance on the marker task.
+                    Passive stereo also lacks localized resolution necessary for precise tasks, particularly noticable in the near-0 performance on the marker task.
                     Matching the resolution of AVF's fovea with uniform resolution would require over 10x the number of tokens.
                 </p>
             </div>
             <figure class="token-density-figure">
                 <img src="images/token_density.svg" alt="Token grids comparing dense stereo images with EyeRobot 2.0's three-level foveated stereo pyramid" />
                 <figcaption>Achieving the same resolution as EyeRobot's foveated inputs with passive stereo would require a cumbersome amount of input tokens.
-                    This is even more problematic at higher resolutions; foveation requires only linear scaling, dense tokenization requires quadratic.</figcaption>
+                    This is even more problematic at higher resolutions; foveation requires roughly linear scaling, dense tokenization requires quadratic.</figcaption>
             </figure>
 
-            <h3>AVF beats wrist cameras on occluded tasks</h3>
+            <h3>AVF matches wrist cameras, and beats them under tool occlusion</h3>
             <p class="paragraph">
+                When wrist cameras have a clear view, AVF matches the ego + wrist baseline. When they don't, the gap widens.
                 We intentionally collected some tasks which are hard to see from the YAM's wrist cameras. In these tasks (boba and pot lid), ego + wrist policies must rely
                 solely on the ego-centric camera for useful information and so their performance collapses to about the same as static stereo. Different wrist camera designs like dual-cameras or fisheye views
                  can alleviate these problems, but it's impossible to always maintain good observability. This also requires teleoperators to teleop the robot in an unnatural way, one that sometimes harms
@@ -576,11 +732,7 @@
                 </video>
             </div>
             <p class="carousel-caption wrist-view-caption">Wrist camera viewpoints during boba and pot lid tasks. Grasping tools poses significant visibility challenges for wrist cameras.</p>
-
-            <h3>AVF matches wrist cameras in tasks without tool occlusions</h3>
-            <p class="paragraph">
-                AVF matches or exceeds the performance of the wrist camera baseline even when their visibility is good.
-            </p>
+            </div>
 
 
             <h2>Distractor objects</h2>
@@ -694,10 +846,6 @@
                 </div>
                 <p class="carousel-caption">On eval trials with unseen distractors in the same configuration, ego + wrist policies often move towards the first object seen by the wrist cameras and get confused while AVF can ignore them.</p>
             </div>
-
-            <p class="paragraph">
-                 Even EyeRobot's failures tend to be much less catastrophic, take a look at these cases where the wrist policy beats AVF, and they tend to be more subtle manipulation misses.
-            </p>
 
 
         </div>
@@ -818,151 +966,6 @@
             <p class="paragraph">
                 By analyzing gaze, in some tasks we can obtain task segmentation from the RL policy!
             </p>
-
-            <h3>Does learned gaze beat naive baselines?</h3>
-            <p class="paragraph">
-                (idk if i like this necessarily since its sim only) but we have results showing learned gaze outperforms static gaze for any one object in the sim tasks
-            </p>
-        </div>
-
-        <!-- ===========================================================
-             "How it works" — single video + a before/after comparison
-        ============================================================ -->
-        <div class="section base-row add-top-padding">
-
-
-            <div class="separator"></div>
-            <h1>How it works</h1>
-
-
-            <h2>Compacting the action data manifold with fixation</h2>
-            <div class="paragraph-with-sidenote">
-                <p class="paragraph">
-                    Loosely speaking, there's only a few ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
-                    3) increase data manifold coverage by making the manifold itself more compact. Of course this is extremely hand-wavey, but much of AVF's design is attempting the latter, reducing the complexity
-                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">4</a></sup>.
-
-                </p>
-                <aside class="sidenote" id="fixation-relative-note" role="note">
-                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">4</a> Wrist cameras are an example of this too.
-                     Think about how easy it is to move left and right from an aligned wrist view, vs left and right from a distal fixed view.
-                     Gripper-centric viewpoints make the servoing data manifold more compact.
-                </aside>
-            </div>
-
-            <h2>Step 1: Goal-conditioned gaze</h2>
-            <p style="width: 100%; color: red; font-size: 13px; font-weight: 700; margin: 2px 0 0;">TODO: describe stereo virtual eye rendering</p>
-            <p class="paragraph">
-                We first train a gaze policy that continously servos the 2 eyes to fixate on a target object in 3D.
-            </p>
-            <!-- Gaze policy pipeline figure, converted from images/3d.pdf -->
-            <img src="images/3d.svg" alt="Gaze policy pipeline: fixation rendering (raw stereo RGB, spherical projection, fixated view), ground-truth fixation via SAM3 object detection and FoundationStereo depth, and the gaze policy outputs"
-                 style="width: 100%; height: auto; border-radius: 12px; margin: 10px auto;" />
-            <!-- TODO: drop clip at data/pretraining.mp4 -->
-            <!-- Hidden until a real video loads, so the missing-source video doesn't
-                 reserve empty space. Auto-reveals once data/pretraining.mp4 is present. -->
-            <video loop autoplay muted playsinline style="width: 100%; display: none;"
-                   preload="none" onloadeddata="this.style.display=''">
-                <source data-src="data/pretraining.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="gaze-trajectory-comparison">
-                <video loop autoplay muted playsinline preload="metadata" aria-label="Gaze policy trajectory rollout for yellow tape">
-                    <source src="images/yellow.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <video loop autoplay muted playsinline preload="metadata" aria-label="Gaze policy trajectory rollout for gray tape">
-                    <source src="images/gray.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <p class="carousel-caption gaze-trajectory-caption">Gaze induced by conditioning on yellow vs gray tape. The fixation point is controlled by the RL policy, and the two eyes converge on this 3D point to provide the model high-resolution stereo inputs.</p>
-
-            <div class="separator"></div>
-            <h2>Step 2: Sequencing gaze for manipulation</h2>
-            <p class="paragraph">
-                We freeze the gaze policy and train a target selector with RL to select which object to look at during rollout. The target selector is co-trained with the BC gripper policy and rewarded to best improve the gripper policy performance.
-            </p>
-            <!-- Framework figure, converted from images/arch.pdf -->
-            <img src="images/arch.svg" alt="AVF framework / method overview"
-                 style="width: 100%; height: auto; border-radius: 12px;" />
-
-            <!-- Carousel: policy rollouts w/ target-selector (gaze) probability strip -->
-            <div class="carousel-container gaze-probs-carousel-container" style="margin-top: 12px;">
-                <div class="carousel-track-container">
-                    <div class="carousel-track" id="gaze-probs-carousel">
-                        <!-- Marker -->
-                        <div class="carousel-slide current-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_marker.jpg">
-                                <source data-src="data/gaze_probs_marker.mp4?v=20260729-friendly-probs" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Toaster -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_toaster.jpg">
-                                <source data-src="data/gaze_probs_toaster.mp4?v=20260729-friendly-probs" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Wrench -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_wrench.jpg">
-                                <source data-src="data/gaze_probs_wrench.mp4?v=20260729-friendly-probs" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Boba -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_boba.jpg">
-                                <source data-src="data/gaze_probs_boba.mp4?v=20260729-friendly-probs" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Tea -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_tea.jpg">
-                                <source data-src="data/gaze_probs_tea.mp4?v=20260729-friendly-probs" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Tape -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_tape.jpg">
-                                <source data-src="data/gaze_probs_tape.mp4?v=20260729-friendly-probs" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Pot -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_pot.jpg">
-                                <source data-src="data/gaze_probs_pot.mp4?v=20260729-friendly-probs" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-button carousel-button--left" data-carousel="gaze-probs-carousel">
-                    <i class="ti ti-chevron-left"></i>
-                </button>
-                <button class="carousel-button carousel-button--right" data-carousel="gaze-probs-carousel">
-                    <i class="ti ti-chevron-right"></i>
-                </button>
-                <div class="carousel-nav">
-                    <button class="carousel-indicator current-slide" data-slide="0"></button>
-                    <button class="carousel-indicator" data-slide="1"></button>
-                    <button class="carousel-indicator" data-slide="2"></button>
-                    <button class="carousel-indicator" data-slide="3"></button>
-                    <button class="carousel-indicator" data-slide="4"></button>
-                    <button class="carousel-indicator" data-slide="5"></button>
-                    <button class="carousel-indicator" data-slide="6"></button>
-                </div>
-                <p class="carousel-caption">Policy rollouts for each task with target probabilities (the raw output of the RL agent)</p>
-            </div>
-
-
-
-
 
         </div>
 
