@@ -10,3 +10,30 @@ media_raw/
 # Local scratch / debug artifacts — not part of the site
 debug_images/
 _preview*.mp4
+
+# local preview harnesses (not part of the site)
+_devices.html
+_mprobe.html
+_type-preview.html
+_probe.html
+_a.html
+_b.html
+_c.html
+_d.html
+_type/
+_one.html
+_cpl.html
+_cap.html
+_e.html
+_f.html
+_ef.html
+_type/
+_hp.html
+_hp2.html
+_video-compare.html
+_preview/
+_pip.html
+_side.html
+_pip.html
+_bottom.html
+_stereo-layouts.html

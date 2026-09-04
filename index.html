@@ -165,6 +165,44 @@
             top: calc(50% - 24px);
         }
 
+        /* Small task label on each Stereo Eye View slide, so the reader knows
+           which grid video above the slide corresponds to. */
+        .slide-task-label {
+            align-self: flex-start;
+            font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 4px;
+        }
+
+        /* Left/Right camera labels overlaid on the stereo pair. The video is an
+           exact 50/50 split, so each label anchors to the top of its own half;
+           they land on the grey letterbox band and cover no scene content. */
+        .stereo-video-wrap {
+            position: relative;
+            width: 100%;
+        }
+        .eye-label {
+            position: absolute;
+            top: 8px;
+            z-index: 1;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+            font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+        .eye-label--left { left: 8px; }
+        .eye-label--right { left: calc(50% + 8px); }
+
         .video-caption {
             margin-top: 10px;
             font-weight: bold;
@@ -260,13 +298,15 @@
         ============================================================ -->
         <div class="section base-row add-top-padding teaser-section">
             <h1 class="tldr">
-                <b>TL;DR</b>: Actively fixating stereo camera >= ego + wrist cameras
-                <!-- EyeRobot 2.0 matches the performance of ego + wrist camera policies with one stereo camera by coordinating two active eyes. -->
+                <b>TL;DR</b>: Single actively-fixating stereo camera matches or exceeds ego + wrist camera policies
+                <!-- TL;DR</b>: Actively fixating stereo camera >= ego + wrist cameras -->
             </h1>
+            <p style="width: 100%; color: #2563eb; font-size: 13px; font-weight: 700; margin: 6px 0 0;">CMK: Fix the TL;DR</p>
             <video id="main-video" muted autoplay loop playsinline preload="metadata">
                 <source id="mp4" src="data/teaser.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <p style="width: 100%; color: #2563eb; font-size: 13px; font-weight: 700; margin: 6px 0 0;">KH, Improve the teaser video</p>
         </div>
         <!-- ===========================================================
              Real-world results grid
@@ -276,6 +316,7 @@
             <div style="width: 100%;">
                 <!-- <h1>Overview</h1> -->
                 <h1>Do robots need wrist cameras?</h1>
+                <p style="width: 100%; color: #2563eb; font-size: 13px; font-weight: 700; margin: 6px 0 0;">CMK: would be nice to have an answer to this</p>
                 <div class="paragraph-with-sidenote">
                     <p class="paragraph">
                         Behavior cloning systems today overwhelmingly rely on wrist cameras for fine-grained manipulation. Why? Their high-resolution gripper-centric observations
@@ -333,6 +374,7 @@
                     <figcaption>Pick pot lid, place on pot</figcaption>
                 </figure>
             </div>
+            <p style="width: 100%; color: #2563eb; font-size: 13px; font-weight: 700; margin: 6px 0 0;">KH, Fix the HDR because these videos are inconsistent brightnesses</p>
 
             <div style="width: 100%;">
                 <h3>Gaze emerges from RL</h3>
@@ -343,55 +385,90 @@
                         Given an already well-observable workspace, can active vision improve manipulation performance by focusing compute, attention, and representation capacity towards important parts of the scene?
                          We borrow the biological term for this type of active vision: <i>fixation</i>.
                     </p>
-                    <p class="paragraph">
-                        The robot learns to coordinate its eyes with reinforcement learning, no gaze supervision required! Take a look at the same rollouts from the policy's perspective.
-                    </p>
                 </div>
 
                 <div class="carousel-container policy-carousel-container" style="margin-top: 12px;">
                     <div class="carousel-track-container">
+                        <!-- Slide order must match the results grid above, so "the same
+                             rollouts from the policy's perspective" lines up task-for-task:
+                             marker, toaster, wrench, boba, tea, tape, pot. -->
                         <div class="carousel-track" id="policy-carousel">
                             <div class="carousel-slide current-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_boba.jpg">
-                                    <source data-src="data/policy_boba.mp4?v=20260728-color" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_toaster.jpg">
-                                    <source data-src="data/policy_toaster.mp4?v=20260728-color" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tea.jpg">
-                                    <source data-src="data/policy_tea.mp4?v=20260728-color-tea-ep001" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_marker.jpg">
+                                <div class="slide-task-label">Marker</div>
+                                <div class="stereo-video-wrap">
+                                    <span class="eye-label eye-label--left">Left Camera</span>
+                                    <span class="eye-label eye-label--right">Right Camera</span>
+<video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_marker.jpg">
                                     <source data-src="data/policy_marker.mp4?v=20260728-color" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
+                                </div>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tape.jpg">
-                                    <source data-src="data/policy_tape.mp4?v=20260728-color" type="video/mp4">
+                                <div class="slide-task-label">Toaster</div>
+                                <div class="stereo-video-wrap">
+                                    <span class="eye-label eye-label--left">Left Camera</span>
+                                    <span class="eye-label eye-label--right">Right Camera</span>
+<video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_toaster.jpg">
+                                    <source data-src="data/policy_toaster.mp4?v=20260728-color" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
+                                </div>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_wrench.jpg">
+                                <div class="slide-task-label">Wrench</div>
+                                <div class="stereo-video-wrap">
+                                    <span class="eye-label eye-label--left">Left Camera</span>
+                                    <span class="eye-label eye-label--right">Right Camera</span>
+<video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_wrench.jpg">
                                     <source data-src="data/policy_wrench.mp4?v=20260728-color" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
+                                </div>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_pot.jpg">
+                                <div class="slide-task-label">Boba</div>
+                                <div class="stereo-video-wrap">
+                                    <span class="eye-label eye-label--left">Left Camera</span>
+                                    <span class="eye-label eye-label--right">Right Camera</span>
+<video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_boba.jpg">
+                                    <source data-src="data/policy_boba.mp4?v=20260728-color" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="slide-task-label">Tea</div>
+                                <div class="stereo-video-wrap">
+                                    <span class="eye-label eye-label--left">Left Camera</span>
+                                    <span class="eye-label eye-label--right">Right Camera</span>
+<video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tea.jpg">
+                                    <source data-src="data/policy_tea.mp4?v=20260728-color-tea-ep001" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="slide-task-label">Tape</div>
+                                <div class="stereo-video-wrap">
+                                    <span class="eye-label eye-label--left">Left Camera</span>
+                                    <span class="eye-label eye-label--right">Right Camera</span>
+<video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tape.jpg">
+                                    <source data-src="data/policy_tape.mp4?v=20260728-color" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="slide-task-label">Pot</div>
+                                <div class="stereo-video-wrap">
+                                    <span class="eye-label eye-label--left">Left Camera</span>
+                                    <span class="eye-label eye-label--right">Right Camera</span>
+<video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_pot.jpg">
                                     <source data-src="data/policy_pot.mp4?v=20260728-color" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -412,12 +489,14 @@
                     </div>
                     <p class="carousel-caption">Example eye behavior during autonomous execution. All videos 1x speed.</p>
                 </div>
+
                 <div class="paragraph-with-sidenote policy-rollout-intro">
                     <p class="paragraph">
+                        Take a look at the same rollouts from the policy's perspective. The robot learns to coordinate its eyes with reinforcement learning, no gaze supervision required!
                         Eye motion shown here was exactly what the policy looked at during execution. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">1</a></sup> image processing, which allocates
-                         high resolution image tokens towards the center. Notice how the policy's gaze swivels to focus this high-res patch towards directions requiring precise visual understanding
-                         like inserting a straw. This behavior was <i>never supervised</i> and emerged through RL.
-                         </p>
+                        high resolution image tokens towards the center. Notice how the policy's gaze swivels to focus this high-res patch towards directions requiring precise visual understanding
+                        like inserting a straw. This behavior was <i>never supervised</i> and emerged through RL.
+                    </p>
                     <aside class="sidenote" id="foveation-note" role="note">
                         <a class="sidenote-number" href="#foveation-ref" aria-label="Back to footnote">1</a> Foveation is a property prevalant in biological vision where organisms' retinas have very high
                         angular resolution in the center, and very poor resolution in the periphery.
@@ -607,7 +686,7 @@
 
             <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        We compare against two strong baselines with the same architecture and trained on the exact same demonstrations as AVF<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
+                        We evaluate <b>over 1,000 real-world rollouts</b> across all tasks for AVF and its ablations. We compare against two strong baselines with the same architecture and trained on the exact same demonstrations as AVF<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
                         The first baseline uses the RGB stereo inputs directly ("No Gaze"), and the second uses one stereo image along with two wrist-mounted cameras ("Ego + Wrist").
                         Note that <i>both baselines have a significant observability advantage</i>, since AVF's field of view is such that it cannot see the entire stereo image at once.
                         Both baselines are provided a full coverage view of the table, and with wrist cameras two additional high-resolution viewpoints of the gripper.
@@ -651,6 +730,7 @@
                         </div>
                     </div>
                     <figcaption>Visualization of the 25 evaluation locations used for all policies. Objects are aligned with image overlays for consistent comparison.</figcaption>
+                    <p style="width: 100%; color: #2563eb; font-size: 13px; font-weight: 700; margin: 6px 0 0;">KH, The objects look smeared and confusing, maybe nice to draw the object ranges?</p>
                 </figure>
             </div>
 
@@ -676,6 +756,7 @@
                     <img id="real-results-chart" src="images/figure_real.svg" alt="Real average and per-task success rates for No Gaze, Ego plus Wrist, and AVF across 640 real-world trials" />
                 </figure>
             </div>
+            <p style="width: 100%; color: #2563eb; font-size: 13px; font-weight: 700; margin: 6px 0 0;">KH: Maybe in caption we can explain diff between task progression and success rate</p>
 
             <div class="viewer-cta-wrap">
                 <a class="viewer-cta" href="viewer/" aria-label="Open the EyeRobot 2.0 Eval Browser">
@@ -721,6 +802,7 @@
                  can alleviate these problems, but it's impossible to always maintain good observability. This also requires teleoperators to teleop the robot in an unnatural way, one that sometimes harms
                  data quality because of unintuitive manipulation strategies required for observability.
             </p>
+                    <p style="width: 100%; color: #2563eb; font-size: 13px; font-weight: 700; margin: 6px 0 0;">KH: Maybe show results graph for just boba and pot so you can see how low the success rates are. Also make sure boba and pot lid are specified along with left and right wrist camera</p>
             <div class="wrist-view-comparison">
                 <video loop muted playsinline preload="none" aria-label="Wrist camera viewpoints during the boba task">
                     <source data-src="data/wrist_views_boba.mp4" type="video/mp4">
@@ -732,6 +814,11 @@
                 </video>
             </div>
             <p class="carousel-caption wrist-view-caption">Wrist camera viewpoints during boba and pot lid tasks. Grasping tools poses significant visibility challenges for wrist cameras.</p>
+
+            <h3>AVF matches wrist cameras in precise tasks without tool occlusions</h3>
+            <p class="paragraph">
+                We also have data on tasks (marker, tea, toaster, wrench) with unoccluded wrist camera views. These tasks require precise dexterity and grasping so full visibility from the wrist cameras are really helpful. Even for these tasks, AVF matches or exceeds the performance of the wrist camera baselines.
+            </p>
             </div>
 
 

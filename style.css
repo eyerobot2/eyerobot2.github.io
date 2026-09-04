@@ -5,8 +5,12 @@ body {
     background-color: #fff;
     font-family: 'Open Sans',sans-serif;
     color: #333;
-    font-size: 16px;
-    line-height: 1.6;
+    /* 18px matches both pi.website and sunday.ai, and brings line length in the
+       800px column from ~113 characters down to ~101 (pi renders ~97). The
+       em-based UA heading defaults scale with this, so h1/h2/h3 become
+       36/27/21px without needing explicit sizes. */
+    font-size: 18px;
+    line-height: 1.45;
 }
 
 :root {
@@ -20,8 +24,8 @@ h1, h2, h3, h4, h5, h6 {
 .section-index {
     position: fixed;
     z-index: 20;
-    left: max(18px, calc(50vw - (var(--content-width) / 2) - 190px));
-    width: 150px;
+    left: max(18px, calc(50vw - (var(--content-width) / 2) - 224px));
+    width: 184px;
     padding: 2px 18px 2px 0;
     border-right: 1px solid #e2e2e2;
     box-sizing: border-box;
@@ -31,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-index-list {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 9px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -40,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-index a {
     display: block;
     color: #aaa;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 400;
     line-height: 1.3;
     letter-spacing: 0;
@@ -66,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #292929;
 }
 
-@media (max-width: 1179px) {
+@media (max-width: 1219px) {
     .section-index {
         display: none;
     }
@@ -219,12 +223,14 @@ h1, h2, h3, h4, h5, h6 {
     text-align: left;
 }
 
+/* The live carousels are the track-based ones styled in index.html; the
+   `overflow-x: auto; white-space: nowrap` here belonged to the old
+   .carousel-item implementation (no longer present in the markup) and was
+   being inherited by .carousel-caption, so long captions could not wrap. */
 .carousel-container {
     width: 100%;
     max-width: var(--content-width);
     margin: 0 auto;
-    overflow-x: auto;
-    white-space: nowrap;
 }
 .carousel-container .carousel-item video {
     width: 320px;
@@ -373,7 +379,9 @@ h1.tldr {
 
 .author-text {
     font-family: 'Open Sans',sans-serif;
-    color: #488af3;
+    /* 5.17:1 against white — passes WCAG AA for normal text. The previous
+       #488af3 was 3.38:1, which fails. */
+    color: #2563eb;
     font-size: 18px;
     font-weight: 400;
     text-decoration: none;
@@ -474,7 +482,7 @@ h1.tldr {
 .link-labels-text {
     font-family: 'Open Sans',sans-serif;
     color: inherit;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .viewer-cta-wrap {
@@ -529,7 +537,7 @@ h1.tldr {
 
 .viewer-cta-copy strong {
     font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.25;
     font-weight: 500;
     letter-spacing: 0;
@@ -542,7 +550,7 @@ h1.tldr {
     gap: 7px;
     color: #151719;
     font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
 }
@@ -695,7 +703,7 @@ h1.tldr {
     margin-top: 3px;
     color: #666;
     font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 1.2;
     text-align: left;
@@ -707,7 +715,7 @@ h1.tldr {
     border-top: 1px solid #d7dadd;
     color: #666;
     font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 1.4;
     letter-spacing: 0;
@@ -947,7 +955,7 @@ h1.tldr {
     background: rgba(35, 35, 35, 0.58);
     color: #fff;
     font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.2;
     font-weight: 400;
     text-align: left;
@@ -984,7 +992,7 @@ h1.tldr {
     background: rgba(35, 35, 35, 0.48);
     color: rgba(255, 255, 255, 0.9);
     font-family: 'Open Sans', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.2;
     font-weight: 400;
     pointer-events: none;
@@ -1073,11 +1081,13 @@ h1.tldr {
 }
 .paragraph {
     margin-top: 0px;
-    margin-bottom: 10px;
+    /* Tighter leading needs more space between paragraphs to keep them reading
+       as separate units. */
+    margin-bottom: 20px;
     font-family: 'Open Sans',sans-serif;
     color: #333;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 1.45;
     font-weight: 400;
     letter-spacing: 0;
     text-align: left;
@@ -1101,7 +1111,7 @@ h1.tldr {
 .footnote-ref {
     margin-left: 2px;
     color: #555;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     text-decoration: none;
 }
@@ -1676,7 +1686,7 @@ input:checked + .slider:before {
     }
 
     .viewer-cta-copy strong {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .viewer-cta-action {
