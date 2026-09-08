@@ -405,3 +405,17 @@ document.addEventListener('DOMContentLoaded', initializePage);
 //   const next_arr = document.getElementById('vid-slide-arrow-next');
 //   console.log("foo", prev_arr.style);
 // });
+
+// Compare the same task across AVF and both vision ablations.
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.ablation-sankeys').forEach(gallery => {
+    const buttons = [...gallery.querySelectorAll('[data-ablation-task]')];
+    const panels = [...gallery.querySelectorAll('.ablation-task-panel')];
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(option => option.setAttribute('aria-pressed', String(option === button)));
+        panels.forEach(panel => { panel.hidden = panel.id !== button.getAttribute('aria-controls'); });
+      });
+    });
+  });
+});

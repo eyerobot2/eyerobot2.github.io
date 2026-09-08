@@ -1,3 +1,24 @@
+/* Shared captions beneath videos and figures. */
+.carousel-caption,
+.video-caption,
+.token-density-figure figcaption,
+.spatial-distribution figcaption {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 10px 0 0;
+    padding: 0;
+    border: 0;
+    color: #777;
+    font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
 body {
     min-height: 100%;
     padding: 2em 2em;
@@ -154,6 +175,43 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 10px;
 }
 
+.wrist-view-task {
+    min-width: 0;
+    margin: 0;
+}
+
+.wrist-view-video-wrap {
+    position: relative;
+}
+
+.wrist-view-labels {
+    position: absolute;
+    inset: 6px 0 auto;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    pointer-events: none;
+}
+
+.wrist-view-labels span {
+    justify-self: start;
+    margin-left: 6px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.wrist-view-task-name {
+    text-align: center;
+    color: #444;
+    font-weight: 600;
+}
+
 .wrist-view-comparison video {
     display: block;
     width: 100%;
@@ -178,18 +236,6 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     width: 100%;
     height: auto;
-}
-
-.token-density-figure figcaption {
-    margin-top: 2px;
-    padding-top: 8px;
-    border-top: 1px solid #d8d8d8;
-    color: #555;
-    font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.4;
-    text-align: left;
 }
 
 @media (max-width: 768px) {
@@ -709,19 +755,6 @@ h1.tldr {
     text-align: left;
 }
 
-.spatial-distribution figcaption {
-    margin: 10px 0 0;
-    padding-top: 8px;
-    border-top: 1px solid #d7dadd;
-    color: #666;
-    font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.4;
-    letter-spacing: 0;
-    text-align: left;
-}
-
 .results-grid {
     width: 100%;
     display: grid;
@@ -735,16 +768,117 @@ h1.tldr {
     margin: 0;
 }
 
-.real-results-grid .results-grid-item:last-child {
-    width: calc((100% - 6px) / 2);
-    grid-column: 1 / -1;
-    justify-self: center;
-}
-
 .carousel-container.sim-carousel-container,
-.carousel-container.policy-carousel-container,
 .carousel-container.gaze-probs-carousel-container {
     width: 80%;
+}
+
+.carousel-container.policy-carousel-container {
+    width: 100%;
+    max-width: none;
+}
+
+/* A quiet screening area with all seven tasks visible in the filmstrip. */
+.carousel-container.real-results-carousel-container {
+    width: 100%;
+    max-width: none;
+    margin-top: 10px;
+}
+
+.real-results-carousel-container .carousel-track { gap: 0; }
+.real-results-carousel-container .carousel-slide { flex: 0 0 100%; min-width: 0; }
+.real-results-carousel-container .results-grid-item { width: 100%; }
+.real-results-carousel-container .carousel-track-container { border-radius: 8px; }
+
+.real-results-carousel-container .results-grid-item figcaption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.real-results-carousel-container .results-grid-item::after { content: none; }
+
+.results-gallery-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 10px 0 14px;
+}
+
+.results-gallery-footer .carousel-caption {
+    width: auto;
+    margin: 0;
+}
+
+.results-gallery-arrows { display: flex; gap: 6px; }
+.real-results-carousel-container .carousel-button {
+    position: static;
+    transform: none;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+    background: #fff;
+    color: #444;
+    font-size: 18px;
+}
+.real-results-carousel-container .carousel-button:hover { background: #f3f3f3; }
+
+.real-results-carousel-container .results-filmstrip {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 10px;
+    margin: 0;
+}
+.results-thumbnail {
+    min-width: 0;
+    padding: 0 0 8px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    background: transparent;
+    color: #777;
+    cursor: pointer;
+    font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+    transition: color 150ms ease, border-color 150ms ease;
+}
+.results-thumbnail img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 4px;
+    opacity: .65;
+    transition: opacity 150ms ease;
+}
+.results-thumbnail span { display: block; margin-top: 7px; }
+.results-thumbnail:hover img, .results-thumbnail.current-slide img { opacity: 1; }
+.results-thumbnail.current-slide { border-bottom-color: #333; color: #222; }
+.results-thumbnail:focus-visible,
+.real-results-carousel-container .carousel-button:focus-visible {
+    outline: 2px solid #555;
+    outline-offset: 3px;
+}
+@media (max-width: 550px) {
+    .real-results-carousel-container .results-filmstrip { gap: 5px; }
+    .results-thumbnail { font-size: 10px; }
+    .carousel-caption,
+    .video-caption,
+    .token-density-figure figcaption,
+    .spatial-distribution figcaption { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .real-results-carousel-container .carousel-track { transition: none; }
 }
 
 .carousel-container.sim-carousel-container {
@@ -760,6 +894,11 @@ h1.tldr {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px;
+}
+
+.carousel-container.sim-autonomous-carousel-container {
+    width: 100%;
+    max-width: none;
 }
 
 .sim-autonomous-carousel-container .results-grid-item video {
@@ -932,6 +1071,8 @@ h1.tldr {
     .carousel-container.gaze-probs-carousel-container {
         width: 100%;
     }
+
+
 }
 
 .results-grid-item video {
@@ -962,23 +1103,6 @@ h1.tldr {
     pointer-events: none;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-}
-
-.real-results-grid .results-grid-item figcaption {
-    top: 0;
-    right: auto;
-    bottom: auto;
-    left: 0;
-    max-width: calc(100% - 16px);
-    padding: 4px 7px;
-    border-radius: 0;
-    transform: none;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0;
-    text-align: left;
-    text-transform: none;
-    white-space: nowrap;
 }
 
 .results-grid-item::after {
@@ -1703,11 +1827,6 @@ input:checked + .slider:before {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .real-results-grid .results-grid-item:last-child {
-        width: 100%;
-        grid-column: auto;
-    }
-
     /* .author-text {
         font-size: 12px;
     }
@@ -2014,3 +2133,112 @@ input:checked + .slider:before {
         border-bottom: none;
     }
 }
+
+.gaze-rendering-figure {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 10px 0 24px;
+}
+
+.gaze-training-figures {
+    width: 80%;
+    margin: 8px auto 20px;
+}
+
+.gaze-training-figures figure {
+    min-width: 0;
+    margin: 0;
+}
+
+.gaze-training-figures img,
+.gaze-policy-wrap-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.goal-conditioned-intro {
+    margin-top: 20px;
+    display: flow-root;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.goal-conditioned-intro .paragraph {
+    margin-bottom: 0;
+}
+
+.gaze-policy-wrap-figure {
+    float: right;
+    width: 42%;
+    max-width: 360px;
+    margin: 0 0 0 24px;
+}
+
+@media (max-width: 640px) {
+    .goal-conditioned-intro { display: flex; flex-direction: column; }
+    .gaze-policy-wrap-figure {
+        float: none;
+        order: 1;
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto 12px;
+    }
+}
+
+.gaze-sequencing-heading {
+    margin: 28px 0 12px;
+}
+
+.gaze-sequencing-figure {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 0 20px;
+    border-radius: 12px;
+}
+
+.ablation-sankeys {
+    width: 100%;
+    margin: 24px 0;
+}
+.ablation-task-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+.ablation-task-picker button {
+    padding: 6px 12px;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+    background: #fff;
+    color: #666;
+    font: 12px 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+    cursor: pointer;
+}
+.ablation-task-picker button[aria-pressed="true"] {
+    background: #333;
+    border-color: #333;
+    color: #fff;
+}
+.ablation-task-picker button:focus-visible,
+.ablation-sankey a:focus-visible {
+    outline: 2px solid #555;
+    outline-offset: 3px;
+}
+.ablation-task-panel[hidden] { display: none; }
+.ablation-sankey { margin: 0 0 10px; }
+.ablation-sankey figcaption {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    margin-bottom: 2px;
+    color: #444;
+    font: 500 12px/1.4 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+}
+.ablation-sankey figcaption span:last-child { color: #777; }
+.ablation-sankey a { display: block; overflow-x: auto; }
+.ablation-sankey img { display: block; width: 100%; min-width: 580px; height: auto; }
