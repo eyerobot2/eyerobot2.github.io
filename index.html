@@ -567,21 +567,6 @@
             <h1>How it works</h1>
 
 
-            <h2>Compacting the data manifold with fixation</h2>
-            <div class="paragraph-with-sidenote">
-                <p class="paragraph">
-                    Loosely speaking, there's only a few ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
-                    3) increase data manifold coverage by making the manifold itself more compact. Of course this is extremely hand-wavey, but much of AVF's design is attempting the latter, reducing the complexity
-                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">2</a></sup>.
-
-                </p>
-                <aside class="sidenote" id="fixation-relative-note" role="note">
-                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">2</a> Wrist cameras are an example of this too.
-                     Think about how easy it is to move left and right from an aligned wrist view, vs left and right from a distal fixed view.
-                     Gripper-centric viewpoints make the servoing data manifold more compact.
-                </aside>
-            </div>
-
             <h2>Simulated gaze RL environment</h2>
             
             <img class="gaze-rendering-figure" src="images/simulated_gaze_rendering.svg"
@@ -725,6 +710,21 @@
                     <button class="carousel-indicator" data-slide="6"></button>
                 </div>
                 <p class="carousel-caption">Policy rollouts for each task with target probabilities (the raw output of the RL agent)</p>
+            </div>
+
+            <h2>Compacting the data manifold with fixation</h2>
+            <div class="paragraph-with-sidenote">
+                <p class="paragraph">
+                    Loosely speaking, there's only a few ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
+                    3) increase data manifold coverage by making the manifold itself more compact. Of course this is extremely hand-wavey, but much of AVF's design is attempting the latter, reducing the complexity
+                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">2</a></sup>.
+
+                </p>
+                <aside class="sidenote" id="fixation-relative-note" role="note">
+                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">2</a> Wrist cameras are an example of this too.
+                     Think about how easy it is to move left and right from an aligned wrist view, vs left and right from a distal fixed view.
+                     Gripper-centric viewpoints make the servoing data manifold more compact.
+                </aside>
             </div>
 
 
