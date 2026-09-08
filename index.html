@@ -152,30 +152,10 @@
             top: calc(50% - 24px);
         }
 
-        /* Left/Right camera labels overlaid on the stereo pair. The video is an
-           exact 50/50 split, so each label anchors to the top of its own half;
-           they land on the grey letterbox band and cover no scene content. */
         .stereo-video-wrap {
             position: relative;
             width: 100%;
         }
-        .eye-label {
-            position: absolute;
-            top: 8px;
-            z-index: 1;
-            padding: 3px 8px;
-            border-radius: 4px;
-            background: rgba(0, 0, 0, 0.45);
-            color: #fff;
-            font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            pointer-events: none;
-        }
-        .eye-label--left { left: 8px; }
-        .eye-label--right { left: calc(50% + 8px); }
 
         /* Placeholder box shown wherever real media has not been dropped in yet.
            Delete .media-placeholder usages once data/ is populated. */
@@ -432,8 +412,6 @@
                         <div class="carousel-track" id="policy-carousel">
                             <div class="carousel-slide current-slide">
                                 <div class="stereo-video-wrap">
-                                    <span class="eye-label eye-label--left">Left Camera</span>
-                                    <span class="eye-label eye-label--right">Right Camera</span>
 <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_marker.jpg">
                                     <source data-src="data/policy_marker.mp4?v=20260728-color" type="video/mp4">
                                     Your browser does not support the video tag.
@@ -442,8 +420,6 @@
                             </div>
                             <div class="carousel-slide">
                                 <div class="stereo-video-wrap">
-                                    <span class="eye-label eye-label--left">Left Camera</span>
-                                    <span class="eye-label eye-label--right">Right Camera</span>
 <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_toaster.jpg">
                                     <source data-src="data/policy_toaster.mp4?v=20260728-color" type="video/mp4">
                                     Your browser does not support the video tag.
@@ -452,8 +428,6 @@
                             </div>
                             <div class="carousel-slide">
                                 <div class="stereo-video-wrap">
-                                    <span class="eye-label eye-label--left">Left Camera</span>
-                                    <span class="eye-label eye-label--right">Right Camera</span>
 <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_wrench.jpg">
                                     <source data-src="data/policy_wrench.mp4?v=20260728-color" type="video/mp4">
                                     Your browser does not support the video tag.
@@ -462,8 +436,6 @@
                             </div>
                             <div class="carousel-slide">
                                 <div class="stereo-video-wrap">
-                                    <span class="eye-label eye-label--left">Left Camera</span>
-                                    <span class="eye-label eye-label--right">Right Camera</span>
 <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_boba.jpg">
                                     <source data-src="data/policy_boba.mp4?v=20260728-color" type="video/mp4">
                                     Your browser does not support the video tag.
@@ -472,8 +444,6 @@
                             </div>
                             <div class="carousel-slide">
                                 <div class="stereo-video-wrap">
-                                    <span class="eye-label eye-label--left">Left Camera</span>
-                                    <span class="eye-label eye-label--right">Right Camera</span>
 <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tea.jpg">
                                     <source data-src="data/policy_tea.mp4?v=20260728-color-tea-ep001" type="video/mp4">
                                     Your browser does not support the video tag.
@@ -482,8 +452,6 @@
                             </div>
                             <div class="carousel-slide">
                                 <div class="stereo-video-wrap">
-                                    <span class="eye-label eye-label--left">Left Camera</span>
-                                    <span class="eye-label eye-label--right">Right Camera</span>
 <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tape.jpg">
                                     <source data-src="data/policy_tape.mp4?v=20260728-color" type="video/mp4">
                                     Your browser does not support the video tag.
@@ -492,8 +460,6 @@
                             </div>
                             <div class="carousel-slide">
                                 <div class="stereo-video-wrap">
-                                    <span class="eye-label eye-label--left">Left Camera</span>
-                                    <span class="eye-label eye-label--right">Right Camera</span>
 <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_pot.jpg">
                                     <source data-src="data/policy_pot.mp4?v=20260728-color" type="video/mp4">
                                     Your browser does not support the video tag.
