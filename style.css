@@ -832,7 +832,8 @@ h1.tldr {
 }
 .real-results-carousel-container .carousel-button:hover { background: #f3f3f3; }
 
-.real-results-carousel-container .results-filmstrip {
+.real-results-carousel-container .results-filmstrip,
+.policy-carousel-container .results-filmstrip {
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 10px;
@@ -870,7 +871,8 @@ h1.tldr {
     outline-offset: 3px;
 }
 @media (max-width: 550px) {
-    .real-results-carousel-container .results-filmstrip { gap: 5px; }
+    .real-results-carousel-container .results-filmstrip,
+    .policy-carousel-container .results-filmstrip { gap: 5px; }
     .results-thumbnail { font-size: 10px; }
     .carousel-caption,
     .video-caption,

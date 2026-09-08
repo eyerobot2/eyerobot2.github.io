@@ -152,19 +152,6 @@
             top: calc(50% - 24px);
         }
 
-        /* Small task label on each Stereo Eye View slide, so the reader knows
-           which grid video above the slide corresponds to. */
-        .slide-task-label {
-            align-self: flex-start;
-            font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: #888;
-            margin-bottom: 4px;
-        }
-
         /* Left/Right camera labels overlaid on the stereo pair. The video is an
            exact 50/50 split, so each label anchors to the top of its own half;
            they land on the grey letterbox band and cover no scene content. */
@@ -444,7 +431,6 @@
                              marker, toaster, wrench, boba, tea, tape, pot. -->
                         <div class="carousel-track" id="policy-carousel">
                             <div class="carousel-slide current-slide">
-                                <div class="slide-task-label">Marker</div>
                                 <div class="stereo-video-wrap">
                                     <span class="eye-label eye-label--left">Left Camera</span>
                                     <span class="eye-label eye-label--right">Right Camera</span>
@@ -455,7 +441,6 @@
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <div class="slide-task-label">Toaster</div>
                                 <div class="stereo-video-wrap">
                                     <span class="eye-label eye-label--left">Left Camera</span>
                                     <span class="eye-label eye-label--right">Right Camera</span>
@@ -466,7 +451,6 @@
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <div class="slide-task-label">Wrench</div>
                                 <div class="stereo-video-wrap">
                                     <span class="eye-label eye-label--left">Left Camera</span>
                                     <span class="eye-label eye-label--right">Right Camera</span>
@@ -477,7 +461,6 @@
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <div class="slide-task-label">Boba</div>
                                 <div class="stereo-video-wrap">
                                     <span class="eye-label eye-label--left">Left Camera</span>
                                     <span class="eye-label eye-label--right">Right Camera</span>
@@ -488,7 +471,6 @@
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <div class="slide-task-label">Tea</div>
                                 <div class="stereo-video-wrap">
                                     <span class="eye-label eye-label--left">Left Camera</span>
                                     <span class="eye-label eye-label--right">Right Camera</span>
@@ -499,7 +481,6 @@
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <div class="slide-task-label">Tape</div>
                                 <div class="stereo-video-wrap">
                                     <span class="eye-label eye-label--left">Left Camera</span>
                                     <span class="eye-label eye-label--right">Right Camera</span>
@@ -510,7 +491,6 @@
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <div class="slide-task-label">Pot</div>
                                 <div class="stereo-video-wrap">
                                     <span class="eye-label eye-label--left">Left Camera</span>
                                     <span class="eye-label eye-label--right">Right Camera</span>
@@ -528,16 +508,37 @@
                     <button class="carousel-button carousel-button--right" data-carousel="policy-carousel" aria-label="Next policy rollout">
                         <i class="ti ti-chevron-right" aria-hidden="true"></i>
                     </button>
-                    <div class="carousel-nav">
-                        <button class="carousel-indicator current-slide" data-slide="0" aria-label="Show policy rollout 1"></button>
-                        <button class="carousel-indicator" data-slide="1" aria-label="Show policy rollout 2"></button>
-                        <button class="carousel-indicator" data-slide="2" aria-label="Show policy rollout 3"></button>
-                        <button class="carousel-indicator" data-slide="3" aria-label="Show policy rollout 4"></button>
-                        <button class="carousel-indicator" data-slide="4" aria-label="Show policy rollout 5"></button>
-                        <button class="carousel-indicator" data-slide="5" aria-label="Show policy rollout 6"></button>
-                        <button class="carousel-indicator" data-slide="6" aria-label="Show policy rollout 7"></button>
-                    </div>
                     <p class="carousel-caption">Example eye behavior during autonomous execution. All videos 1x speed.</p>
+                    <div class="carousel-nav results-filmstrip" aria-label="Choose a task rollout">
+                        <button type="button" class="results-thumbnail current-slide" data-slide="0" aria-label="Show Marker eye behavior" aria-pressed="true">
+                            <img src="data/posters/result_02_marker.jpg" alt="" loading="lazy" />
+                            <span>Marker</span>
+                        </button>
+                        <button type="button" class="results-thumbnail" data-slide="1" aria-label="Show Toaster eye behavior" aria-pressed="false">
+                            <img src="data/posters/result_06_toaster.jpg" alt="" loading="lazy" />
+                            <span>Toaster</span>
+                        </button>
+                        <button type="button" class="results-thumbnail" data-slide="2" aria-label="Show Wrench eye behavior" aria-pressed="false">
+                            <img src="data/posters/result_07_wrench.jpg" alt="" loading="lazy" />
+                            <span>Wrench</span>
+                        </button>
+                        <button type="button" class="results-thumbnail" data-slide="3" aria-label="Show Boba eye behavior" aria-pressed="false">
+                            <img src="data/posters/result_01_boba.jpg" alt="" loading="lazy" />
+                            <span>Boba</span>
+                        </button>
+                        <button type="button" class="results-thumbnail" data-slide="4" aria-label="Show Tea eye behavior" aria-pressed="false">
+                            <img src="data/posters/result_05_tea.jpg" alt="" loading="lazy" />
+                            <span>Tea</span>
+                        </button>
+                        <button type="button" class="results-thumbnail" data-slide="5" aria-label="Show Tape eye behavior" aria-pressed="false">
+                            <img src="data/posters/result_04_tape.jpg" alt="" loading="lazy" />
+                            <span>Tape</span>
+                        </button>
+                        <button type="button" class="results-thumbnail" data-slide="6" aria-label="Show Pot eye behavior" aria-pressed="false">
+                            <img src="data/posters/result_03_pot.jpg" alt="" loading="lazy" />
+                            <span>Pot</span>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="paragraph-with-sidenote policy-rollout-intro">
@@ -594,7 +595,10 @@
                     <span class="gaze-trajectory-label">Conditioned on gray tape</span>
                 </div>
             </div>
-            <p class="carousel-caption gaze-trajectory-caption">Gaze induced by conditioning on yellow vs gray tape. 3D visualization done with simulated data, but the policy is trained on real data</p>
+            <p class="carousel-caption gaze-trajectory-caption">Gaze induced by conditioning on yellow vs gray tape. 
+                3D visualization done with simulated data, but the policy is trained on real data. The red dot represents the current fixation point,
+                which is controlled by the RL agent in 3D. Foveated viewpoints are rendered centered on this point.
+            </p>
             <div class="goal-conditioned-intro">
                 <figure class="gaze-policy-wrap-figure">
                     <img src="images/gaze_policy_model.svg" alt="Goal-conditioned gaze policy: stereo views, eye state, and a target object prompt are mapped to eye-motion commands" />
@@ -610,7 +614,6 @@
             <div class="gaze-training-figures">
                 <figure>
                     <img src="images/gaze_ground_truth.svg" alt="Ground-truth fixation from SAM3 object detection and FoundationStereo depth, with the fixation-distance training reward" />
-                    <figcaption class="carousel-caption">Ground-truth fixation and training reward.</figcaption>
                 </figure>
             </div>
             <!-- TODO: drop clip at data/pretraining.mp4 -->
@@ -1369,7 +1372,7 @@
                     }
 
                     currentSlideIndex = targetIndex;
-                    if (carouselContainer.classList.contains('real-results-carousel-container')) {
+                    if (dotsNav && dotsNav.classList.contains('results-filmstrip')) {
                         dots.forEach((dot, index) => dot.setAttribute('aria-pressed', String(index === targetIndex)));
                         slides.forEach((slide, index) => slide.setAttribute('aria-hidden', String(index !== targetIndex)));
                     }
@@ -1401,7 +1404,7 @@
                     });
                 }
 
-                if (carouselContainer.classList.contains('real-results-carousel-container')) {
+                if (dotsNav && dotsNav.classList.contains('results-filmstrip')) {
                     slides.forEach((slide, index) => slide.setAttribute('aria-hidden', String(index !== 0)));
                     dotsNav.addEventListener('keydown', event => {
                         if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
