@@ -14,6 +14,9 @@ parser.add_argument('--av1', action='store_true',
                          'better gradients; H.264 stays as the fallback source)')
 parser.add_argument('--av1-crf', type=int, default=24)
 parser.add_argument('--av1-preset', type=int, default=4)
+parser.add_argument('--posters', action='store_true',
+                    help='also refresh data/posters from the SDR renders')
+parser.add_argument('--poster-quality', type=int, default=4)
 args = parser.parse_args()
 root = Path(__file__).resolve().parent.parent
 # Linear float processing avoids intermediate integer clipping. A fixed peak
@@ -61,3 +64,19 @@ for source in sorted((root / 'data/results-hlg').glob('result_*.mp4')):
                     '-movflags', '+faststart', str(av1_temp)], check=True)
     av1_temp.replace(av1_dest)
     print(f'Rendered av1/{av1_dest.name}', flush=True)
+
+if args.posters:
+    # Frame 0 at native resolution: the poster then matches the paused first
+    # frame exactly, so there is no visible pop when the video finishes loading.
+    poster_backup = Path(tempfile.mkdtemp(prefix='eyerobot-poster-backup-'))
+    print(f'Previous posters backed up to {poster_backup}', flush=True)
+    for rendered in sorted((root / 'data/results-sdr').glob('result_*.mp4')):
+        poster = root / 'data/posters' / (rendered.stem + '.jpg')
+        if poster.exists():
+            shutil.copy2(poster, poster_backup / poster.name)
+        temp = poster.with_name(poster.stem + '.rendering.jpg')
+        subprocess.run([args.ffmpeg, '-hide_banner', '-loglevel', 'error', '-y',
+                        '-i', str(rendered), '-frames:v', '1',
+                        '-q:v', str(args.poster_quality), str(temp)], check=True)
+        temp.replace(poster)
+        print(f'Poster {poster.name}', flush=True)
