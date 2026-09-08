@@ -20,19 +20,26 @@
     <title>EyeRobot 2.0: Active Visual Fixation for Precise Manipulation without Wrist Cameras</title>
 
     <!-- ===================================================================
-         Website Metadata — TODO: update every field below.
-         og:image / twitter:image should be an absolute URL to a preview card
-         (e.g. https://your-domain/data/previewcard.jpg, ~1200x630).
+         Website Metadata. og:image must stay an absolute URL: scrapers do
+         not resolve relative paths. Bump the ?v= when the card is replaced,
+         since the crawlers cache it aggressively.
     ==================================================================== -->
-    <meta content="[ONE-LINE DESCRIPTION OF THE PAPER]" name="description" />
+    <meta content="A single actively-fixating stereo camera matches or beats ego + wrist camera policies on precise manipulation. The robot learns where to look with RL." name="description" />
     <meta content="EyeRobot 2.0: Active Visual Fixation for Precise Manipulation without Wrist Cameras" property="og:title" />
-    <meta content="[ONE-LINE DESCRIPTION OF THE PAPER]" property="og:description" />
-    <meta content="https://[YOUR-DOMAIN]/data/previewcard.jpg" property="og:image" />
+    <meta content="A single actively-fixating stereo camera matches or beats ego + wrist camera policies on precise manipulation. The robot learns where to look with RL." property="og:description" />
+    <meta content="https://eyerobot2.github.io/data/previewcard.jpg?v=1" property="og:image" />
+    <meta content="1200" property="og:image:width" />
+    <meta content="630" property="og:image:height" />
+    <meta content="EyeRobot 2.0 gripper in front of a toaster on the evaluation workspace" property="og:image:alt" />
+    <meta content="https://eyerobot2.github.io/" property="og:url" />
+    <meta content="EyeRobot 2.0" property="og:site_name" />
     <meta content="EyeRobot 2.0: Active Visual Fixation for Precise Manipulation without Wrist Cameras" property="twitter:title" />
-    <meta content="[ONE-LINE DESCRIPTION OF THE PAPER]" property="twitter:description" />
-    <meta content="https://[YOUR-DOMAIN]/data/previewcard.jpg" property="twitter:image" />
+    <meta content="A single actively-fixating stereo camera matches or beats ego + wrist camera policies on precise manipulation. The robot learns where to look with RL." property="twitter:description" />
+    <meta content="https://eyerobot2.github.io/data/previewcard.jpg?v=1" property="twitter:image" />
+    <meta content="EyeRobot 2.0 gripper in front of a toaster on the evaluation workspace" property="twitter:image:alt" />
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
+    <link rel="canonical" href="https://eyerobot2.github.io/" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
 
