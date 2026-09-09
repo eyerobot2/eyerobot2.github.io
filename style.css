@@ -367,26 +367,22 @@ display: none;
 
 .title {
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 12px;
     font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
     color: #1a1a1a;
-    font-size: 54px;
-    line-height: 74px;
-    font-weight: 700;
+    font-size: 38px;
+    line-height: 52px;
+    font-weight: 400;
     letter-spacing: 0;
     text-align: center;
+    max-width: 20em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.subheader {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
-    color: #333;
-    font-size: 32px;
-    line-height: 48px;
-    font-weight: 500;
-    letter-spacing: 0;
-    text-align: center;
+.title-name {
+    font-weight: 600;
+    text-wrap: nowrap;
 }
 
 .tldr {
@@ -1768,14 +1764,9 @@ input:checked + .slider:before {
 
 @media screen and (max-width: 750px) {
     .title {
-        font-size: 48px;
-        line-height: 60px;
-        letter-spacing: 1.5px;
-    }
-
-    .subheader {
-        font-size: 26px;
-        line-height: 40px;
+        font-size: 30px;
+        line-height: 42px;
+        letter-spacing: 0;
     }
 
     .results-grid {
@@ -1795,14 +1786,9 @@ input:checked + .slider:before {
 
 @media screen and (max-width: 550px) {
     .title {
-        font-size: 36px;
-        line-height: 48px;
-        letter-spacing: 1px;
-    }
-
-    .subheader {
-        font-size: 20px;
-        line-height: 30px;
+        font-size: 23px;
+        line-height: 32px;
+        letter-spacing: 0;
     }
 
     .viewer-cta {
