@@ -267,11 +267,13 @@
                     <p class="paragraph">
                         Behavior cloning systems today overwhelmingly rely on wrist cameras for fine-grained manipulation. Why? Their high-resolution gripper-centric observations
                         improve precision and spatial reasoning via a sort of <b>physical attention</b> where it matters. We believe that these benefits
-                        can be obtained from a human-inspired physical attention system: one using two active eyes to focus on areas of interest.
+                        can be obtained from a human-inspired physical attention system: one using two active eyes to focus on areas of interest. 
+                        <span style="color:#7b2ff2;font-weight:600;">[NS: wording is slightly awk "one using two"]</span>
                     </p>
 
                     <p class="paragraph">
                         All policies below are single-task and trained from scratch on less than an hour of teleop data, using only a fixed stereo camera for vision.
+                        <span style="color:#7b2ff2;font-weight:600;">[NS: for all these videos, do we want them to restart when you toggle between them?"]</span>
                     </p>
                 </div>
             </div>
@@ -388,7 +390,10 @@
                 <aside class="takeaway-callout" aria-label="Key takeaway">
                     <div class="takeaway-text">
                         <p class="takeaway-statement">Active gaze from a single stereo camera matches or beats wrist cameras.</p>
-                        <p class="takeaway-detail">Across 640 real-world trials, AVF outperforms 3-camera policies and passive stereo policies trained on the same demonstrations. Every one of those trials is browsable in the <a href="viewer/">Eval Browser</a>.</p>
+                        <p class="takeaway-detail">
+                            <span style="color:#7b2ff2;font-weight:600;">[NS: "matches or beats" is maybe confusing with no context here explaining each case]</span>
+                            Across 640 real-world trials, AVF outperforms 3-camera policies and passive stereo policies trained on the same demonstrations. Every one of those trials is browsable in the <a href="viewer/">Eval Browser</a>. <span style="color:#7b2ff2;font-weight:600;">[NS: and then description says outperforms always]</span></p>
+    
                     </div>
                     <figure class="takeaway-figure">
                         <img src="images/figure_takeaway.svg" alt="Average real-world success rate: No Gaze 27%, Ego plus Wrist 52%, AVF 67%, over 640 trials" />
@@ -495,9 +500,9 @@
 
                 <div class="paragraph-with-sidenote policy-rollout-intro">
                     <p class="paragraph">
-                        The robot learns to coordinate its eyes with reinforcement learning, no gaze supervision required!
-                        Eye motion shown here was exactly what the policy looked at during execution. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">1</a></sup> image processing, which allocates
-                        high resolution image tokens towards the center. Notice how the policy's gaze swivels to focus this high-res patch towards directions requiring precise visual understanding
+                        <span style="color:#7b2ff2;font-weight:600;">[NS: maybe explain that eye = camera before this? eye is kind of brought up without explanation I feel] </span>The robot learns to coordinate its eyes with reinforcement learning, no gaze supervision required!
+                        <span style="color:#7b2ff2;font-weight:600;">[NS: The]</span> Eye motion shown here was exactly what the policy looked at during execution. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">1</a></sup> image processing, which allocates
+                        high resolution image tokens towards the center. Notice how the policy's gaze swivels to focus this high-res patch towards directions requiring precise visual understanding,
                         like inserting a straw. This behavior was <i>never supervised</i> and emerged through RL.
                     </p>
                     <aside class="sidenote" id="foveation-note" role="note">
@@ -579,11 +584,11 @@
             <h2 class="gaze-sequencing-heading">Sequencing gaze for manipulation</h2>
             <img class="gaze-sequencing-figure" src="images/arch.svg" alt="AVF framework / method overview" />
             <p class="paragraph">
-                Once we have a gaze policy that can look at objects of interest, we need to be able to choose at what stage of the task to look at each object. 
+                Once we have a gaze policy that can look at objects of interest, we need to be able to choose at what stage of the task to look at each object <span style="color:#7b2ff2;font-weight:600;">[NS: maybe instead, "choose what object to look at during each stage of the task."]</span>. 
                 This is also learned via RL, using the BC-RL framework we proposed in <a href="https://www.eyerobot.net/">EyeRobot</a>.
                 During this phase, we freeze the goal-conditioned gaze policy and train a lightweight <i>target selector</i> with RL to output a distribution over target objects to look at at each timestep.
-                The target selector is co-trained at the same time with the BC gripper policy and rewarded with the BC policy's prediction accuracy. The BC policy is a standard ACT-style transformer
-                decoder trained with a regression objective. We opt for regression because of its training speed and because we have high-quality non-diverse data, but the framework only assumes access to some 
+                The target selector is co-trained at the same time <span style="color:#7b2ff2;font-weight:600;">[NS: maybe just with?]</span> with the BC gripper policy and rewarded with the BC policy's prediction accuracy. The BC policy is a standard ACT-style transformer
+                decoder trained with a regression objective. We opt for regression because of its training speed and because <span style="color:#7b2ff2;font-weight:600;">[NS: because repeated]</span> we have high-quality non-diverse data, but the framework only assumes access to some 
                 computable offline error metric. With diffusion models, one could use action reconstruction error, or even distributional measures like sample agreement!
             </p>
 
@@ -669,8 +674,8 @@
             <h2>Compacting the data manifold with fixation</h2>
             <div class="paragraph-with-sidenote">
                 <p class="paragraph">
-                    Loosely speaking, there's only a few ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
-                    3) increase data manifold coverage by making the manifold itself more compact. Of course this is extremely hand-wavey, but much of AVF's design is attempting the latter, reducing the complexity
+                    Loosely speaking, there's only a few ways to make a neural network better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
+                    3) increase data manifold coverage by making the manifold itself more compact. Of course this is extremely hand-wavey, but much of AVF's design is attempting the latter <span style="color:#7b2ff2;font-weight:600;">[NS: i don't think latter is right for a list of 3]</span>, reducing the complexity
                     of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">2</a></sup>.
 
                 </p>
@@ -698,7 +703,7 @@
 
             <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        We evaluate <b>over 1,000 real-world rollouts</b> across all tasks for AVF and its ablations. We compare against two strong baselines with the same architecture and trained on the exact same demonstrations as AVF<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
+                        We evaluate <b>over 1,000 real-world rollouts</b> across all tasks for AVF and its ablations. We compare against two strong baselines with the same architecture <span style="color:#7b2ff2;font-weight:600;">[NS: specify architecture? unclear if same as avf or as each other]</span> and trained on the exact same demonstrations as AVF<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
                         The first baseline uses the RGB stereo inputs directly ("No Gaze"), and the second uses one stereo image along with two wrist-mounted cameras ("Ego + Wrist").
                         Note that <i>both baselines have a significant observability advantage</i>, since AVF's field of view is such that it cannot see the entire stereo image at once.
                         Both baselines are provided a full coverage view of the table, and with wrist cameras two additional high-resolution viewpoints of the gripper.
@@ -756,7 +761,7 @@
                         </div>
                     </div>
                     <figcaption>Visualization of the 25 evaluation locations used for all policies. Objects are aligned with image overlays for consistent comparison.</figcaption>
-                    <p style="width: 100%; color: #2563eb; font-size: 13px; font-weight: 700; margin: 6px 0 0;">KH, The objects look smeared and confusing, maybe nice to draw the object ranges?</p>
+                    <p style="width: 100%; color: #2563eb; font-size: 13px; font-weight: 700; margin: 6px 0 0;">KH, The objects look smeared and confusing, maybe nice to draw the object ranges? <span style="color:#7b2ff2;font-weight:600;">[NS: i agree, its also the same format as the carousel so kinda confusing to not be able to click on these]</span></p> 
                 </figure>
             </div>
 
@@ -782,7 +787,7 @@
                     <img id="real-results-chart" src="images/figure_real.svg" alt="Real average and per-task success rates for No Gaze, Ego plus Wrist, and AVF across 640 real-world trials" />
                 </figure>
             </div>
-            <p class="carousel-caption">Success rate is the percentage of trials that complete the full task. Task progression is the average percentage of task stages completed in order.</p>
+            <p class="carousel-caption">Success rate is the percentage of trials that complete the full task. Task progression is the average percentage of task stages completed in order. <span style="color:#7b2ff2;font-weight:600;">[NS: maybe consider moving this above graph to explain difference, feels hidden]</span></p>
 
             <div class="viewer-cta-wrap">
                 <a class="viewer-cta" href="viewer/" aria-label="Open the EyeRobot 2.0 Eval Browser">
@@ -803,7 +808,7 @@
             <div class="paragraph-with-sidenote">
                 <p class="paragraph">
                     AVF beats passive stereo by a large margin, in aggregate <b>+40%</b> success rate. Interestingly, by using the <i>same input images</i> with active fixation, we can recover
-                    the performance gap between wrist-camera and wrist-free policies. Passive stereo struggles with spatial understanding; learning about 3D servoing is harder from a
+                    the performance gap between wrist-camera and wrist-free policies. <span style="color:#7b2ff2;font-weight:600;">[NS: its a little confusing to talk about wrist cameras in the stereo baseline, can this be moved somewhere else]</span> Passive stereo struggles with spatial understanding; learning about 3D servoing is harder from a
                     static perspective than from a gripper-centric perspective like wrist cameras or fixated eyeballs.
 
 
@@ -823,7 +828,7 @@
             <p class="paragraph">
                 When wrist cameras have a clear view, AVF matches the ego + wrist baseline. When they don't, the gap widens.
                 We intentionally collected some tasks which are hard to see from the YAM's wrist cameras. In these tasks (boba and pot lid), ego + wrist policies must rely
-                solely on the ego-centric camera for useful information and so their performance collapses to about the same as static stereo. Different wrist camera designs like dual-cameras or fisheye views
+                solely on the ego-centric camera for useful information <span style="color:#7b2ff2;font-weight:600;">[NS: remove and (, instead)]</span> and so their performance collapses to about the same as static stereo. Different wrist camera designs like dual-cameras or fisheye views
                  can alleviate these problems, but it's impossible to always maintain good observability. This also requires teleoperators to teleop the robot in an unnatural way, one that sometimes harms
                  data quality because of unintuitive manipulation strategies required for observability.
             </p>
@@ -855,7 +860,7 @@
                     <figcaption class="carousel-caption wrist-view-task-name">Pot lid</figcaption>
                 </figure>
             </div>
-            <p class="carousel-caption wrist-view-caption">Wrist camera viewpoints during boba and pot lid tasks. Grasping tools poses significant visibility challenges for wrist cameras.</p>
+            <p class="carousel-caption wrist-view-caption">Wrist camera viewpoints during boba and pot lid tasks. Grasping tools poses significant visibility challenges for wrist cameras. <span style="color:#7b2ff2;font-weight:600;">[NS: can we clarify that these are baseline rollouts (cuz they fail)]</span></p>
 
             <h3>AVF matches wrist cameras in precise tasks without tool occlusions</h3>
             <p class="paragraph">
@@ -867,7 +872,7 @@
             <h2>Distractor objects</h2>
             <p class="paragraph">
                 We evaluated 3 tasks with unseen distractor objects scattered throughout the workspace. All comparisons use the <i>exact same object positions</i> to ensure comparability.
-                Notice how in these examples the wrist camera often reaches for the largest or most distinct object in its view. Once it begins reaching the policy cannot recover since the wrist camera loses sight
+                Notice how in these examples the wrist camera often reaches for the largest or most distinct object in its view. Once it begins reaching, the policy cannot recover since the wrist camera loses sight
                 of the target. In contrast, AVF usually reaches for the correct object.
             </p>
             <div class="carousel-container distractor-carousel-container">
@@ -992,7 +997,7 @@
                     We found it extremely helpful for project development to build a MuJoCo twin of the YAM arms for high-volume, low-noise evaluations.
                     Our goal here was <i>not</i> sim-to-real transfer, but rather a clean simulation-only benchmark that replicates as closely as possible the real world pipeline.
                 We built a VR teleoperation platform using the same GELLO leader arms as real teleop, and designed 6 tasks by importing assets from SAM-3D. Task stage success is labeled based on
-                   programatic physics checks.</p>
+                   programatic physics checks. <span style="color:#7b2ff2;font-weight:600;">[NS: we should mention we had 2 overlapping tasks (tape and pot)]</span></p>
             </div>
 
             <div class="paragraph-with-sidenote">
@@ -1075,6 +1080,7 @@
 
             <h2>Ablations</h2>
             <h3>Stereo and foveated vision</h3>
+            <!-- <span style="color:#7b2ff2;font-weight:600;">[NS: no explanation here? idk if most people understand sankeys actually]</span> -->
             <img src="images/ablation_table.png" alt="Ablation table: per-task success rates for AVF, AVF without foveation, and AVF without stereo (mono)"
                  style="width: 100%; height: auto; margin-top: 12px;" />
 
