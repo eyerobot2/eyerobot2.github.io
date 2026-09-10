@@ -1,0 +1,8 @@
+{
+  "source": "data/results-sdr/result_04_tape.mp4",
+  "output": "data/web-video/results-sdr/result_04_tape.mp4",
+  "source_sha256": "7edb436b64c6836c68f2511e5bab1059b73afd51abd77470ce723840a08f39af",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 7138266,
+  "web_bytes": 5104945
+}

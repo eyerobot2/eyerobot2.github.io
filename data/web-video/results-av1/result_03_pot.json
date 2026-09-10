@@ -1,0 +1,8 @@
+{
+  "source": "data/results-av1/result_03_pot.mp4",
+  "output": "data/web-video/results-av1/result_03_pot.mp4",
+  "source_sha256": "3f12595eada2a53c9e7d64d0726c9716eb36c81808e8bdd8eecfda35840a1d9d",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 3452405,
+  "web_bytes": 1769427
+}

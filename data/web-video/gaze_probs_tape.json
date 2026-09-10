@@ -1,0 +1,8 @@
+{
+  "source": "data/gaze_probs_tape.mp4",
+  "output": "data/web-video/gaze_probs_tape.mp4",
+  "source_sha256": "005e7e8de2001dfeb56ba2bbdf8e82716a217037a71633dc2a5b36093e19a49c",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 20872713,
+  "web_bytes": 3683060
+}

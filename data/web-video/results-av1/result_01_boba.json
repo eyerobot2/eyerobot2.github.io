@@ -1,0 +1,8 @@
+{
+  "source": "data/results-av1/result_01_boba.mp4",
+  "output": "data/web-video/results-av1/result_01_boba.mp4",
+  "source_sha256": "80bf7a510826649447145a67d7b46b8d883b4ca9013719e59f4c6858a05337a9",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 6044595,
+  "web_bytes": 3434279
+}

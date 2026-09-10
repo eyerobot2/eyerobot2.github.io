@@ -1,6 +1,7 @@
 /* Shared captions beneath videos and figures. */
 .carousel-caption,
 .video-caption,
+.gaze-training-figures figcaption,
 .token-density-figure figcaption,
 .spatial-distribution figcaption {
     box-sizing: border-box;
@@ -811,8 +812,8 @@ h1.tldr {
     margin: 0;
 }
 
-.results-gallery-arrows { display: flex; gap: 6px; }
-.real-results-carousel-container .carousel-button {
+.results-gallery-arrows { display: flex; gap: 6px; flex-shrink: 0; margin-left: auto; }
+.carousel-button {
     position: static;
     transform: none;
     display: grid;
@@ -825,8 +826,9 @@ h1.tldr {
     background: #fff;
     color: #444;
     font-size: 18px;
+    cursor: pointer;
 }
-.real-results-carousel-container .carousel-button:hover { background: #f3f3f3; }
+.carousel-button:hover { background: #f3f3f3; }
 
 .real-results-carousel-container .results-filmstrip,
 .policy-carousel-container .results-filmstrip {
@@ -852,6 +854,7 @@ h1.tldr {
 .results-thumbnail img {
     display: block;
     width: 100%;
+    height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: 4px;
@@ -862,7 +865,7 @@ h1.tldr {
 .results-thumbnail:hover img, .results-thumbnail.current-slide img { opacity: 1; }
 .results-thumbnail.current-slide { border-bottom-color: #333; color: #222; }
 .results-thumbnail:focus-visible,
-.real-results-carousel-container .carousel-button:focus-visible {
+.carousel-button:focus-visible {
     outline: 2px solid #555;
     outline-offset: 3px;
 }
@@ -872,6 +875,7 @@ h1.tldr {
     .results-thumbnail { font-size: 10px; }
     .carousel-caption,
     .video-caption,
+    .gaze-training-figures figcaption,
     .token-density-figure figcaption,
     .spatial-distribution figcaption { font-size: 11px; }
 }
@@ -1049,10 +1053,6 @@ h1.tldr {
     font-variant-numeric: tabular-nums;
     line-height: 1;
     text-align: right;
-}
-
-.distractor-carousel-container .carousel-button {
-    top: calc(50% + 8px);
 }
 
 .distractor-carousel-container .carousel-caption {

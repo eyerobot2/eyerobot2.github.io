@@ -1,0 +1,8 @@
+{
+  "source": "data/policy_toaster.mp4",
+  "output": "data/web-video/policy_toaster.mp4",
+  "source_sha256": "823e401e9347565355faafdb4065d0bbd81c541293e21b7764c690070e35f3e2",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 44300491,
+  "web_bytes": 16949073
+}

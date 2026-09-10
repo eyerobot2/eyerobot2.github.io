@@ -1,0 +1,244 @@
+[
+  {
+    "source": "data/policy_boba.mp4",
+    "output": "data/web-video/policy_boba.mp4",
+    "source_sha256": "a7d7b132edbc4cfac1291758da87a380815b4bc645e02ed9862c2a938b644e5d",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 23958060,
+    "web_bytes": 10057865
+  },
+  {
+    "source": "data/policy_marker.mp4",
+    "output": "data/web-video/policy_marker.mp4",
+    "source_sha256": "637e53cb3c607bbe448c18745f7d83469986fc52d61cf3ec91e9f66f28ca6de4",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 39246135,
+    "web_bytes": 15450926
+  },
+  {
+    "source": "data/policy_pot.mp4",
+    "output": "data/web-video/policy_pot.mp4",
+    "source_sha256": "cc44e639b2c05023a3ca04eaf8dd5a491bf4cac63ba3200513cc09b21bf1f094",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 10619620,
+    "web_bytes": 4183816
+  },
+  {
+    "source": "data/policy_tape.mp4",
+    "output": "data/web-video/policy_tape.mp4",
+    "source_sha256": "d8c5cd4193834e5ad0204ee3b537456d79089f5ad3d12975ad211314772d651d",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 18918399,
+    "web_bytes": 8162206
+  },
+  {
+    "source": "data/policy_tea.mp4",
+    "output": "data/web-video/policy_tea.mp4",
+    "source_sha256": "ce695320aa5828b3e01ccf36435a882e0ff487b2f3f67a0c0a23e00c0d7f9b51",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 15165693,
+    "web_bytes": 6209443
+  },
+  {
+    "source": "data/policy_toaster.mp4",
+    "output": "data/web-video/policy_toaster.mp4",
+    "source_sha256": "823e401e9347565355faafdb4065d0bbd81c541293e21b7764c690070e35f3e2",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 44300491,
+    "web_bytes": 16949073
+  },
+  {
+    "source": "data/policy_wrench.mp4",
+    "output": "data/web-video/policy_wrench.mp4",
+    "source_sha256": "79f9584be808524e7a232348810100f51de2eb144c5d62725743820ef3933100",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 24351610,
+    "web_bytes": 10588474
+  },
+  {
+    "source": "data/gaze_probs_boba.mp4",
+    "output": "data/web-video/gaze_probs_boba.mp4",
+    "source_sha256": "1b480c88393ea23313b330f187961462df451b208fe391ccb009c82852c2920a",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 26535196,
+    "web_bytes": 4646630
+  },
+  {
+    "source": "data/gaze_probs_marker.mp4",
+    "output": "data/web-video/gaze_probs_marker.mp4",
+    "source_sha256": "7efb1f6fb86741f04b7df9ff0d8770b02df979f2eaf9a630bf5a4843b3c391c4",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 43302741,
+    "web_bytes": 7159677
+  },
+  {
+    "source": "data/gaze_probs_pot.mp4",
+    "output": "data/web-video/gaze_probs_pot.mp4",
+    "source_sha256": "de0458eaee3e7836c521a6677f681138d10c068bd8b0a64adc7f39f18f973f57",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 11653436,
+    "web_bytes": 1987044
+  },
+  {
+    "source": "data/gaze_probs_tape.mp4",
+    "output": "data/web-video/gaze_probs_tape.mp4",
+    "source_sha256": "005e7e8de2001dfeb56ba2bbdf8e82716a217037a71633dc2a5b36093e19a49c",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 20872713,
+    "web_bytes": 3683060
+  },
+  {
+    "source": "data/gaze_probs_tea.mp4",
+    "output": "data/web-video/gaze_probs_tea.mp4",
+    "source_sha256": "a7ea3de86c6385f4e473e5c64f5a210591985cda00cb37147ebf75cb135c1432",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 17236300,
+    "web_bytes": 2685923
+  },
+  {
+    "source": "data/gaze_probs_toaster.mp4",
+    "output": "data/web-video/gaze_probs_toaster.mp4",
+    "source_sha256": "f95c87f7cecbb77631f44a210aadf8a0a02ee43aba3bf7d086a420fd20e53c94",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 49653336,
+    "web_bytes": 7521139
+  },
+  {
+    "source": "data/gaze_probs_wrench.mp4",
+    "output": "data/web-video/gaze_probs_wrench.mp4",
+    "source_sha256": "53eb0b9f61b5f21a4eede6037da7480892f6da4873ac1a1fc6badd99216cd251",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 26660925,
+    "web_bytes": 4085330
+  },
+  {
+    "source": "data/teaser.mp4",
+    "output": "data/web-video/teaser.mp4",
+    "source_sha256": "522f20dad4e8f6bb4983b5aa92964566f99926bcacd0c678008bf76f3a433aa7",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 7624508,
+    "web_bytes": 7624507,
+    "mode": "lossless faststart remux"
+  },
+  {
+    "source": "data/er2_success_scroll.mp4",
+    "output": "data/web-video/er2_success_scroll.mp4",
+    "source_sha256": "a92b22f41e5fb64604be0d90e1a59833354433c11f4b89c358bdfaffcf9373e5",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 34286810,
+    "web_bytes": 34286775,
+    "mode": "lossless faststart remux"
+  },
+  {
+    "source": "data/results-sdr/result_01_boba.mp4",
+    "output": "data/web-video/results-sdr/result_01_boba.mp4",
+    "source_sha256": "cbdbd2aad6f2221a799be336c4647ae545389f03ea41eda81e54da4a177694c9",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 9678555,
+    "web_bytes": 6614166
+  },
+  {
+    "source": "data/results-sdr/result_02_marker.mp4",
+    "output": "data/web-video/results-sdr/result_02_marker.mp4",
+    "source_sha256": "b66e560f566a4a6095f9ac834f007c5ff99dbaace2b6970e628c936c6ddc514c",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 16407285,
+    "web_bytes": 11661444
+  },
+  {
+    "source": "data/results-sdr/result_03_pot.mp4",
+    "output": "data/web-video/results-sdr/result_03_pot.mp4",
+    "source_sha256": "c204138169c02fccf886104b4a972312498db0ac41b069ab7d7d1e60c7b6284b",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 4019461,
+    "web_bytes": 2963795
+  },
+  {
+    "source": "data/results-sdr/result_04_tape.mp4",
+    "output": "data/web-video/results-sdr/result_04_tape.mp4",
+    "source_sha256": "7edb436b64c6836c68f2511e5bab1059b73afd51abd77470ce723840a08f39af",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 7138266,
+    "web_bytes": 5104945
+  },
+  {
+    "source": "data/results-sdr/result_05_tea.mp4",
+    "output": "data/web-video/results-sdr/result_05_tea.mp4",
+    "source_sha256": "1c33eb0bda1983fa86effbdf5b82d1991393219bfd1c7d2c1a43a0e6919aeae7",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 4551966,
+    "web_bytes": 3528498
+  },
+  {
+    "source": "data/results-sdr/result_06_toaster.mp4",
+    "output": "data/web-video/results-sdr/result_06_toaster.mp4",
+    "source_sha256": "4bacbf0738ac7da9e66fd9e9103a567ad90dabcf6274e4026909cf9721c24bb6",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 22764157,
+    "web_bytes": 15767465
+  },
+  {
+    "source": "data/results-sdr/result_07_wrench.mp4",
+    "output": "data/web-video/results-sdr/result_07_wrench.mp4",
+    "source_sha256": "119ab7ff17154ca736817e026a1bf4f42fef823052ed715c76a9b060db74faec",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 10819679,
+    "web_bytes": 7923108
+  },
+  {
+    "source": "data/results-av1/result_01_boba.mp4",
+    "output": "data/web-video/results-av1/result_01_boba.mp4",
+    "source_sha256": "80bf7a510826649447145a67d7b46b8d883b4ca9013719e59f4c6858a05337a9",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 6044595,
+    "web_bytes": 3434279
+  },
+  {
+    "source": "data/results-av1/result_02_marker.mp4",
+    "output": "data/web-video/results-av1/result_02_marker.mp4",
+    "source_sha256": "438fc5b18fb6e8aaf6313f5c55d19d28545db43a8e08ae48914d8a3197f32b60",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 11838989,
+    "web_bytes": 7020436
+  },
+  {
+    "source": "data/results-av1/result_03_pot.mp4",
+    "output": "data/web-video/results-av1/result_03_pot.mp4",
+    "source_sha256": "3f12595eada2a53c9e7d64d0726c9716eb36c81808e8bdd8eecfda35840a1d9d",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 3452405,
+    "web_bytes": 1769427
+  },
+  {
+    "source": "data/results-av1/result_04_tape.mp4",
+    "output": "data/web-video/results-av1/result_04_tape.mp4",
+    "source_sha256": "c95d762c15be31ac22bae9a7d6bd6f7e3cd8445c6601746d024632c6597fe38b",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 5650264,
+    "web_bytes": 3195903
+  },
+  {
+    "source": "data/results-av1/result_05_tea.mp4",
+    "output": "data/web-video/results-av1/result_05_tea.mp4",
+    "source_sha256": "99c59a63e1a4fea04cc6adde573d94989483a9f10645a8cf076243d2e9d9b0e4",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 4624119,
+    "web_bytes": 2196943
+  },
+  {
+    "source": "data/results-av1/result_06_toaster.mp4",
+    "output": "data/web-video/results-av1/result_06_toaster.mp4",
+    "source_sha256": "c2f9ababcc2ce1908939fa03972abf7fe664e40efa08eeff99d4a27c992f074f",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 15910836,
+    "web_bytes": 8909357
+  },
+  {
+    "source": "data/results-av1/result_07_wrench.mp4",
+    "output": "data/web-video/results-av1/result_07_wrench.mp4",
+    "source_sha256": "baa17eeb1b107ac08fecbbf27bbeffb1b6a26ace216a295d6055d43e994f1b50",
+    "settings": "1080-high-quality-30fps-v1",
+    "original_bytes": 7566197,
+    "web_bytes": 3412223
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "source": "data/policy_wrench.mp4",
+  "output": "data/web-video/policy_wrench.mp4",
+  "source_sha256": "79f9584be808524e7a232348810100f51de2eb144c5d62725743820ef3933100",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 24351610,
+  "web_bytes": 10588474
+}

@@ -1,0 +1,8 @@
+{
+  "source": "data/policy_tape.mp4",
+  "output": "data/web-video/policy_tape.mp4",
+  "source_sha256": "d8c5cd4193834e5ad0204ee3b537456d79089f5ad3d12975ad211314772d651d",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 18918399,
+  "web_bytes": 8162206
+}

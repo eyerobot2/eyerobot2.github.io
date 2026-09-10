@@ -329,11 +329,7 @@ function setupDistractorPlaybackControls() {
     };
 
     const togglePlayback = () => {
-      if (video.paused) {
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
+      window.SiteMedia.toggle(video);
     };
 
     const seekFromScrubber = () => {

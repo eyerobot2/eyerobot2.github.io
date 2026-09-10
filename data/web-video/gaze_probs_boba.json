@@ -1,0 +1,8 @@
+{
+  "source": "data/gaze_probs_boba.mp4",
+  "output": "data/web-video/gaze_probs_boba.mp4",
+  "source_sha256": "1b480c88393ea23313b330f187961462df451b208fe391ccb009c82852c2920a",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 26535196,
+  "web_bytes": 4646630
+}

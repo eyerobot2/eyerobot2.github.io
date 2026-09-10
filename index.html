@@ -53,13 +53,17 @@
 
     <!-- JQuery, scripts etc -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="script.js?v=distractor-controls" type="text/javascript"></script>
+    <script src="script.js?v=media1" type="text/javascript"></script>
 
     <!-- Stylesheets; tabler icons, font-awesome, fonts, ...-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=media1" rel="stylesheet" type="text/css" />
+    <link href="fixation-panels.css" rel="stylesheet" type="text/css" />
+    <link href="media.css?v=1" rel="stylesheet" />
+    <script src="media.js?v=1" defer></script>
+    <script src="fixation-panels.js?v=media1" defer></script>
 
     <!-- Carousel + separator styles -->
     <style>
@@ -86,32 +90,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 18px;
-            border-radius: 50%;
-            z-index: 2;
-        }
-
-        .carousel-button:hover {
-            background: rgba(0, 0, 0, 0.7);
-        }
-
-        .carousel-button--left {
-            left: 10px;
-        }
-
-        .carousel-button--right {
-            right: 10px;
         }
 
         .carousel-nav {
@@ -155,9 +133,6 @@
             outline-offset: 1px;
         }
 
-        .policy-carousel-container .carousel-button {
-            top: calc(50% - 24px);
-        }
 
 
         /* Placeholder box shown wherever real media has not been dropped in yet.
@@ -249,8 +224,8 @@
                 <b>TL;DR</b>: Single actively-fixating stereo camera matches or exceeds ego + wrist camera policies
                 <!-- TL;DR</b>: Actively fixating stereo camera >= ego + wrist cameras -->
             </h1>
-            <video id="main-video" controls muted autoplay loop playsinline preload="metadata">
-                <source id="mp4" src="data/teaser.mp4" type="video/mp4">
+            <video id="main-video" controls muted loop playsinline preload="none" width="2160" height="1080" style="aspect-ratio: 2160 / 1080; height: auto;" poster="data/web-posters/teaser.webp">
+                <source id="mp4" type="video/mp4" data-src="data/web-video/teaser.mp4">
                 Your browser does not support the video tag.
             </video>
             <p style="width: 100%; color: #2563eb; font-size: 13px; font-weight: 700; margin: 6px 0 0;">KH, Improve the teaser video</p>
@@ -267,13 +242,11 @@
                     <p class="paragraph">
                         Behavior cloning systems today overwhelmingly rely on wrist cameras for fine-grained manipulation. Why? Their high-resolution gripper-centric observations
                         improve precision and spatial reasoning via a sort of <b>physical attention</b> where it matters. We believe that these benefits
-                        can be obtained from a human-inspired physical attention system: one using two active eyes to focus on areas of interest. 
-                        <span style="color:#7b2ff2;font-weight:600;">[NS: wording is slightly awk "one using two"]</span>
+                        can be obtained from a human-inspired physical attention system: one using two active eyes to focus on areas of interest. <span style="color:#7b2ff2;font-weight:600;">[NS: wording is slightly awk "one using two"]</span>
                     </p>
 
                     <p class="paragraph">
-                        All policies below are single-task and trained from scratch on less than an hour of teleop data, using only a fixed stereo camera for vision.
-                        <span style="color:#7b2ff2;font-weight:600;">[NS: for all these videos, do we want them to restart when you toggle between them?"]</span>
+                        All policies below are single-task and trained from scratch on less than an hour of teleop data, using only a fixed stereo camera for vision. <span style="color:#7b2ff2;font-weight:600;">[NS: for all these videos, do we want them to restart when you toggle between them?"]</span>
                     </p>
                 </div>
             </div>
@@ -283,63 +256,63 @@
                     <div class="carousel-track" id="real-results-carousel">
                         <div class="carousel-slide current-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" poster="data/posters/result_02_marker.jpg" aria-label="Marker task rollout">
-                                    <source data-src="data/results-av1/result_02_marker.mp4?v=9" type='video/mp4; codecs="av01.0.09M.10"'>
-                                    <source data-src="data/results-sdr/result_02_marker.mp4?v=9" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Marker task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_02_marker.webp">
+                                    <source data-src="data/web-video/results-av1/result_02_marker.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_02_marker.mp4" type="video/mp4">
                                 </video>
                                 <figcaption>Cap marker, place in bag, zip bag</figcaption>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" poster="data/posters/result_06_toaster.jpg" aria-label="Toaster task rollout">
-                                    <source data-src="data/results-av1/result_06_toaster.mp4?v=9" type='video/mp4; codecs="av01.0.09M.10"'>
-                                    <source data-src="data/results-sdr/result_06_toaster.mp4?v=9" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Toaster task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_06_toaster.webp">
+                                    <source data-src="data/web-video/results-av1/result_06_toaster.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_06_toaster.mp4" type="video/mp4">
                                 </video>
                                 <figcaption>Open toaster, extract pan, close toaster</figcaption>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" poster="data/posters/result_07_wrench.jpg" aria-label="Wrench task rollout">
-                                    <source data-src="data/results-av1/result_07_wrench.mp4?v=9" type='video/mp4; codecs="av01.0.09M.10"'>
-                                    <source data-src="data/results-sdr/result_07_wrench.mp4?v=9" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Wrench task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_07_wrench.webp">
+                                    <source data-src="data/web-video/results-av1/result_07_wrench.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_07_wrench.mp4" type="video/mp4">
                                 </video>
                                 <figcaption>Open toolbox, extract wrench</figcaption>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" poster="data/posters/result_01_boba.jpg" aria-label="Boba task rollout">
-                                    <source data-src="data/results-av1/result_01_boba.mp4?v=9" type='video/mp4; codecs="av01.0.09M.10"'>
-                                    <source data-src="data/results-sdr/result_01_boba.mp4?v=9" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Boba task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_01_boba.webp">
+                                    <source data-src="data/web-video/results-av1/result_01_boba.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_01_boba.mp4" type="video/mp4">
                                 </video>
                                 <figcaption>Insert boba straw, place on coaster</figcaption>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" poster="data/posters/result_05_tea.jpg" aria-label="Tea task rollout">
-                                    <source data-src="data/results-av1/result_05_tea.mp4?v=9" type='video/mp4; codecs="av01.0.09M.10"'>
-                                    <source data-src="data/results-sdr/result_05_tea.mp4?v=9" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Tea task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_05_tea.webp">
+                                    <source data-src="data/web-video/results-av1/result_05_tea.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_05_tea.mp4" type="video/mp4">
                                 </video>
                                 <figcaption>Pick up teabag, put in cup</figcaption>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" poster="data/posters/result_04_tape.jpg" aria-label="Tape task rollout">
-                                    <source data-src="data/results-av1/result_04_tape.mp4?v=9" type='video/mp4; codecs="av01.0.09M.10"'>
-                                    <source data-src="data/results-sdr/result_04_tape.mp4?v=9" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Tape task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_04_tape.webp">
+                                    <source data-src="data/web-video/results-av1/result_04_tape.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_04_tape.mp4" type="video/mp4">
                                 </video>
                                 <figcaption>Pick tape, handover, place tape</figcaption>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" poster="data/posters/result_03_pot.jpg" aria-label="Pot task rollout">
-                                    <source data-src="data/results-av1/result_03_pot.mp4?v=9" type='video/mp4; codecs="av01.0.09M.10"'>
-                                    <source data-src="data/results-sdr/result_03_pot.mp4?v=9" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Pot task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_03_pot.webp">
+                                    <source data-src="data/web-video/results-av1/result_03_pot.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_03_pot.mp4" type="video/mp4">
                                 </video>
                                 <figcaption>Pick pot lid, place on pot</figcaption>
                             </figure>
@@ -355,31 +328,31 @@
                 </div>
                 <div class="carousel-nav results-filmstrip" aria-label="Choose a task rollout">
                     <button type="button" class="results-thumbnail current-slide" data-slide="0" aria-label="Show Marker rollout" aria-pressed="true">
-                        <img src="data/posters/result_02_marker.jpg" alt="" loading="lazy" />
+                        <img src="data/web-posters/thumbnails/result_02_marker.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Marker</span>
                     </button>
                     <button type="button" class="results-thumbnail" data-slide="1" aria-label="Show Toaster rollout" aria-pressed="false">
-                        <img src="data/posters/result_06_toaster.jpg" alt="" loading="lazy" />
+                        <img src="data/web-posters/thumbnails/result_06_toaster.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Toaster</span>
                     </button>
                     <button type="button" class="results-thumbnail" data-slide="2" aria-label="Show Wrench rollout" aria-pressed="false">
-                        <img src="data/posters/result_07_wrench.jpg" alt="" loading="lazy" />
+                        <img src="data/web-posters/thumbnails/result_07_wrench.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Wrench</span>
                     </button>
                     <button type="button" class="results-thumbnail" data-slide="3" aria-label="Show Boba rollout" aria-pressed="false">
-                        <img src="data/posters/result_01_boba.jpg" alt="" loading="lazy" />
+                        <img src="data/web-posters/thumbnails/result_01_boba.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Boba</span>
                     </button>
                     <button type="button" class="results-thumbnail" data-slide="4" aria-label="Show Tea rollout" aria-pressed="false">
-                        <img src="data/posters/result_05_tea.jpg" alt="" loading="lazy" />
+                        <img src="data/web-posters/thumbnails/result_05_tea.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Tea</span>
                     </button>
                     <button type="button" class="results-thumbnail" data-slide="5" aria-label="Show Tape rollout" aria-pressed="false">
-                        <img src="data/posters/result_04_tape.jpg" alt="" loading="lazy" />
+                        <img src="data/web-posters/thumbnails/result_04_tape.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Tape</span>
                     </button>
                     <button type="button" class="results-thumbnail" data-slide="6" aria-label="Show Pot rollout" aria-pressed="false">
-                        <img src="data/posters/result_03_pot.jpg" alt="" loading="lazy" />
+                        <img src="data/web-posters/thumbnails/result_03_pot.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Pot</span>
                     </button>
                 </div>
@@ -390,13 +363,10 @@
                 <aside class="takeaway-callout" aria-label="Key takeaway">
                     <div class="takeaway-text">
                         <p class="takeaway-statement">Active gaze from a single stereo camera matches or beats wrist cameras.</p>
-                        <p class="takeaway-detail">
-                            <span style="color:#7b2ff2;font-weight:600;">[NS: "matches or beats" is maybe confusing with no context here explaining each case]</span>
-                            Across 640 real-world trials, AVF outperforms 3-camera policies and passive stereo policies trained on the same demonstrations. Every one of those trials is browsable in the <a href="viewer/">Eval Browser</a>. <span style="color:#7b2ff2;font-weight:600;">[NS: and then description says outperforms always]</span></p>
-    
+                        <p class="takeaway-detail"><span style="color:#7b2ff2;font-weight:600;">[NS: "matches or beats" is maybe confusing with no context here explaining each case]</span> Across 640 real-world trials, AVF outperforms 3-camera policies and passive stereo policies trained on the same demonstrations. Every one of those trials is browsable in the <a href="viewer/">Eval Browser</a>. <span style="color:#7b2ff2;font-weight:600;">[NS: and then description says outperforms always]</span></p>
                     </div>
                     <figure class="takeaway-figure">
-                        <img src="images/figure_takeaway.svg" alt="Average real-world success rate: No Gaze 27%, Ego plus Wrist 52%, AVF 67%, over 640 trials" />
+                        <img src="images/figure_takeaway.svg" alt="Average real-world success rate: No Gaze 27%, Ego plus Wrist 52%, AVF 67%, over 640 trials" width="260" height="170" loading="lazy" decoding="async" />
                     </figure>
                 </aside>
                 <h3>Gaze emerges from RL</h3>
@@ -416,83 +386,84 @@
                              marker, toaster, wrench, boba, tea, tape, pot. -->
                         <div class="carousel-track" id="policy-carousel">
                             <div class="carousel-slide current-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_marker.jpg">
-                                    <source data-src="data/policy_marker.mp4?v=20260728-color" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_marker.webp">
+                                    <source data-src="data/web-video/policy_marker.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_toaster.jpg">
-                                    <source data-src="data/policy_toaster.mp4?v=20260728-color" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_toaster.webp">
+                                    <source data-src="data/web-video/policy_toaster.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_wrench.jpg">
-                                    <source data-src="data/policy_wrench.mp4?v=20260728-color" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_wrench.webp">
+                                    <source data-src="data/web-video/policy_wrench.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_boba.jpg">
-                                    <source data-src="data/policy_boba.mp4?v=20260728-color" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_boba.webp">
+                                    <source data-src="data/web-video/policy_boba.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tea.jpg">
-                                    <source data-src="data/policy_tea.mp4?v=20260728-color-tea-ep001" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_tea.webp">
+                                    <source data-src="data/web-video/policy_tea.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_tape.jpg">
-                                    <source data-src="data/policy_tape.mp4?v=20260728-color" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_tape.webp">
+                                    <source data-src="data/web-video/policy_tape.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/policy_pot.jpg">
-                                    <source data-src="data/policy_pot.mp4?v=20260728-color" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_pot.webp">
+                                    <source data-src="data/web-video/policy_pot.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                         </div>
                     </div>
-                    <button class="carousel-button carousel-button--left" data-carousel="policy-carousel" aria-label="Previous policy rollout">
-                        <i class="ti ti-chevron-left" aria-hidden="true"></i>
-                    </button>
-                    <button class="carousel-button carousel-button--right" data-carousel="policy-carousel" aria-label="Next policy rollout">
-                        <i class="ti ti-chevron-right" aria-hidden="true"></i>
-                    </button>
+                    <div class="results-gallery-footer">
                     <p class="carousel-caption">Example eye behavior during autonomous execution. All videos 1x speed.</p>
+                    <div class="results-gallery-arrows">
+                        <button type="button" class="carousel-button carousel-button--left" data-carousel="policy-carousel" aria-label="Previous slide">←</button>
+                        <button type="button" class="carousel-button carousel-button--right" data-carousel="policy-carousel" aria-label="Next slide">→</button>
+                    </div>
+                </div>
+
                     <div class="carousel-nav results-filmstrip" aria-label="Choose a task rollout">
                         <button type="button" class="results-thumbnail current-slide" data-slide="0" aria-label="Show Marker eye behavior" aria-pressed="true">
-                            <img src="data/posters/result_02_marker.jpg" alt="" loading="lazy" />
+                            <img src="data/web-posters/thumbnails/result_02_marker.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Marker</span>
                         </button>
                         <button type="button" class="results-thumbnail" data-slide="1" aria-label="Show Toaster eye behavior" aria-pressed="false">
-                            <img src="data/posters/result_06_toaster.jpg" alt="" loading="lazy" />
+                            <img src="data/web-posters/thumbnails/result_06_toaster.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Toaster</span>
                         </button>
                         <button type="button" class="results-thumbnail" data-slide="2" aria-label="Show Wrench eye behavior" aria-pressed="false">
-                            <img src="data/posters/result_07_wrench.jpg" alt="" loading="lazy" />
+                            <img src="data/web-posters/thumbnails/result_07_wrench.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Wrench</span>
                         </button>
                         <button type="button" class="results-thumbnail" data-slide="3" aria-label="Show Boba eye behavior" aria-pressed="false">
-                            <img src="data/posters/result_01_boba.jpg" alt="" loading="lazy" />
+                            <img src="data/web-posters/thumbnails/result_01_boba.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Boba</span>
                         </button>
                         <button type="button" class="results-thumbnail" data-slide="4" aria-label="Show Tea eye behavior" aria-pressed="false">
-                            <img src="data/posters/result_05_tea.jpg" alt="" loading="lazy" />
+                            <img src="data/web-posters/thumbnails/result_05_tea.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Tea</span>
                         </button>
                         <button type="button" class="results-thumbnail" data-slide="5" aria-label="Show Tape eye behavior" aria-pressed="false">
-                            <img src="data/posters/result_04_tape.jpg" alt="" loading="lazy" />
+                            <img src="data/web-posters/thumbnails/result_04_tape.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Tape</span>
                         </button>
                         <button type="button" class="results-thumbnail" data-slide="6" aria-label="Show Pot eye behavior" aria-pressed="false">
-                            <img src="data/posters/result_03_pot.jpg" alt="" loading="lazy" />
+                            <img src="data/web-posters/thumbnails/result_03_pot.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Pot</span>
                         </button>
                     </div>
@@ -500,9 +471,9 @@
 
                 <div class="paragraph-with-sidenote policy-rollout-intro">
                     <p class="paragraph">
-                        <span style="color:#7b2ff2;font-weight:600;">[NS: maybe explain that eye = camera before this? eye is kind of brought up without explanation I feel] </span>The robot learns to coordinate its eyes with reinforcement learning, no gaze supervision required!
+                        <span style="color:#7b2ff2;font-weight:600;">[NS: maybe explain that eye = camera before this? eye is kind of brought up without explanation I feel] </span> The robot learns to coordinate its eyes with reinforcement learning, no gaze supervision required!
                         <span style="color:#7b2ff2;font-weight:600;">[NS: The]</span> Eye motion shown here was exactly what the policy looked at during execution. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">1</a></sup> image processing, which allocates
-                        high resolution image tokens towards the center. Notice how the policy's gaze swivels to focus this high-res patch towards directions requiring precise visual understanding,
+                        high resolution image tokens towards the center. Notice how the policy's gaze swivels to focus this high-res patch towards directions requiring precise visual understanding
                         like inserting a straw. This behavior was <i>never supervised</i> and emerged through RL.
                     </p>
                     <aside class="sidenote" id="foveation-note" role="note">
@@ -526,10 +497,9 @@
 
 
             <h2>Simulated gaze RL environment</h2>
-            
-            <img class="gaze-rendering-figure" src="images/simulated_gaze_rendering.svg"
-                 alt="Simulated gaze rendering: raw stereo RGB images, spherical projection, and the resulting fixated view" />
-            
+
+            <img class="gaze-rendering-figure" src="images/simulated_gaze_rendering.svg" alt="Simulated gaze rendering: raw stereo RGB images, spherical projection, and the resulting fixated view" width="1213" height="184" loading="lazy" decoding="async" />
+
             <p class="paragraph">
             We simulate eye gaze by rendering stereo video through a spherical projection: based on the calibrated image and stereo geometry
             we can exactly render what two physical eyes would have seen, modulo missing data outside the image. This allows us to train RL policies
@@ -538,57 +508,57 @@
             <h2>Goal-conditioned gaze</h2>
             <div class="gaze-trajectory-comparison">
                 <div class="gaze-trajectory-item">
-                    <video loop autoplay muted playsinline preload="metadata" aria-label="Gaze policy trajectory rollout for yellow tape">
-                        <source src="images/yellow_scene.mp4" type="video/mp4">
+                    <video loop muted playsinline preload="none" aria-label="Gaze policy trajectory rollout for yellow tape" width="610" height="648" style="aspect-ratio: 610 / 648; height: auto;">
+                        <source type="video/mp4" data-src="images/yellow_scene.mp4">
                         Your browser does not support the video tag.
                     </video>
                     <span class="gaze-trajectory-label">Conditioned on yellow tape</span>
                 </div>
                 <div class="gaze-trajectory-item">
-                    <video loop autoplay muted playsinline preload="metadata" aria-label="Gaze policy trajectory rollout for gray tape">
-                        <source src="images/gray_scene.mp4" type="video/mp4">
+                    <video loop muted playsinline preload="none" aria-label="Gaze policy trajectory rollout for gray tape" width="610" height="648" style="aspect-ratio: 610 / 648; height: auto;">
+                        <source type="video/mp4" data-src="images/gray_scene.mp4">
                         Your browser does not support the video tag.
                     </video>
                     <span class="gaze-trajectory-label">Conditioned on gray tape</span>
                 </div>
             </div>
-            <p class="carousel-caption gaze-trajectory-caption">Gaze induced by conditioning on yellow vs gray tape. 
+            <p class="carousel-caption gaze-trajectory-caption">Gaze induced by conditioning on yellow vs gray tape.
                 3D visualization done with simulated data, but the policy is trained on real data. The red dot represents the current fixation point,
                 which is controlled by the RL agent in 3D. Foveated viewpoints are rendered centered on this point.
             </p>
             <div class="goal-conditioned-intro">
                 <figure class="gaze-policy-wrap-figure">
-                    <img src="images/gaze_policy_model.svg" alt="Goal-conditioned gaze policy: stereo views, eye state, and a target object prompt are mapped to eye-motion commands" />
+                    <img src="images/gaze_policy_model.svg" alt="Goal-conditioned gaze policy: stereo views, eye state, and a target object prompt are mapped to eye-motion commands" width="723" height="506" loading="lazy" decoding="async" />
 
                 </figure>
                 <p class="paragraph">
-                    We first train a gaze policy that continuously servos the 2 eyes to fixate on a target object in 3D. 
-                    The policy uses a transformer decoder architecture. It takes in foveated input views, the current eye proprioception, and a goal to look at, and outputs eye motion. 
+                    We first train a gaze policy that continuously servos the 2 eyes to fixate on a target object in 3D.
+                    The policy uses a transformer decoder architecture. It takes in foveated input views, the current eye proprioception, and a goal to look at, and outputs eye motion.
                     We train it with PPO with a dense reward derived from extracting 3D object locations with foundation models and supervising with Euclidean error.
                 </p>
             </div>
             <div class="gaze-training-figures">
                 <figure>
-                    <img src="images/gaze_ground_truth.svg" alt="Ground-truth fixation from SAM3 object detection and FoundationStereo depth, with the fixation-distance training reward" />
+                    <img src="images/gaze_ground_truth.svg" alt="Ground-truth fixation from SAM3 object detection and FoundationStereo depth, with the fixation-distance training reward" width="1128" height="312" loading="lazy" decoding="async" />
+                    <figcaption>Conditioned on a goal object, we compute dense euclidean reward based on the detected 3D positions</figcaption>
                 </figure>
             </div>
             <!-- TODO: drop clip at data/pretraining.mp4 -->
             <!-- Hidden until a real video loads, so the missing-source video doesn't
                  reserve empty space. Auto-reveals once data/pretraining.mp4 is present. -->
-            <video loop autoplay muted playsinline style="width: 100%; display: none;"
-                   preload="none" onloadeddata="this.style.display=''">
+            <video loop muted playsinline style="width: 100%; display: none;" preload="none" onloadeddata="this.style.display=&#x27;&#x27;">
                 <source data-src="data/pretraining.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
             <h2 class="gaze-sequencing-heading">Sequencing gaze for manipulation</h2>
-            <img class="gaze-sequencing-figure" src="images/arch.svg" alt="AVF framework / method overview" />
+            <img class="gaze-sequencing-figure" src="images/arch.svg" alt="AVF framework / method overview" width="1666" height="504" loading="lazy" decoding="async" />
             <p class="paragraph">
-                Once we have a gaze policy that can look at objects of interest, we need to be able to choose at what stage of the task to look at each object <span style="color:#7b2ff2;font-weight:600;">[NS: maybe instead, "choose what object to look at during each stage of the task."]</span>. 
+                Once we have a gaze policy that can look at objects of interest, we need to be able to choose at what stage of the task to look at each object <span style="color:#7b2ff2;font-weight:600;">[NS: maybe instead, "choose what object to look at during each stage of the task."]</span>.
                 This is also learned via RL, using the BC-RL framework we proposed in <a href="https://www.eyerobot.net/">EyeRobot</a>.
                 During this phase, we freeze the goal-conditioned gaze policy and train a lightweight <i>target selector</i> with RL to output a distribution over target objects to look at at each timestep.
                 The target selector is co-trained at the same time <span style="color:#7b2ff2;font-weight:600;">[NS: maybe just with?]</span> with the BC gripper policy and rewarded with the BC policy's prediction accuracy. The BC policy is a standard ACT-style transformer
-                decoder trained with a regression objective. We opt for regression because of its training speed and because <span style="color:#7b2ff2;font-weight:600;">[NS: because repeated]</span> we have high-quality non-diverse data, but the framework only assumes access to some 
+                decoder trained with a regression objective. We opt for regression because of its training speed and because <span style="color:#7b2ff2;font-weight:600;">[NS: because repeated]</span> we have high-quality non-diverse data, but the framework only assumes access to some
                 computable offline error metric. With diffusion models, one could use action reconstruction error, or even distributional measures like sample agreement!
             </p>
 
@@ -596,7 +566,7 @@
                 Take a look at the probabilities output from the target selector during each task here!
             </p>
             <!-- Framework figure, converted from images/arch.pdf -->
-            
+
 
             <!-- Carousel: policy rollouts w/ target-selector (gaze) probability strip -->
             <div class="carousel-container gaze-probs-carousel-container" style="margin-top: 12px;">
@@ -604,61 +574,62 @@
                     <div class="carousel-track" id="gaze-probs-carousel">
                         <!-- Tea -->
                         <div class="carousel-slide current-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_tea.jpg">
-                                <source data-src="data/gaze_probs_tea.mp4?v=20260729-friendly-probs" type="video/mp4">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_tea.webp">
+                                <source data-src="data/web-video/gaze_probs_tea.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                         <!-- Marker -->
                         <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_marker.jpg">
-                                <source data-src="data/gaze_probs_marker.mp4?v=20260729-friendly-probs" type="video/mp4">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_marker.webp">
+                                <source data-src="data/web-video/gaze_probs_marker.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                         <!-- Boba -->
                         <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_boba.jpg">
-                                <source data-src="data/gaze_probs_boba.mp4?v=20260729-friendly-probs" type="video/mp4">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_boba.webp">
+                                <source data-src="data/web-video/gaze_probs_boba.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                         <!-- Tape -->
                         <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_tape.jpg">
-                                <source data-src="data/gaze_probs_tape.mp4?v=20260729-friendly-probs" type="video/mp4">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_tape.webp">
+                                <source data-src="data/web-video/gaze_probs_tape.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                         <!-- Toaster -->
                         <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_toaster.jpg">
-                                <source data-src="data/gaze_probs_toaster.mp4?v=20260729-friendly-probs" type="video/mp4">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_toaster.webp">
+                                <source data-src="data/web-video/gaze_probs_toaster.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                         <!-- Wrench -->
                         <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_wrench.jpg">
-                                <source data-src="data/gaze_probs_wrench.mp4?v=20260729-friendly-probs" type="video/mp4">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_wrench.webp">
+                                <source data-src="data/web-video/gaze_probs_wrench.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                         <!-- Pot -->
                         <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/gaze_probs_pot.jpg">
-                                <source data-src="data/gaze_probs_pot.mp4?v=20260729-friendly-probs" type="video/mp4">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_pot.webp">
+                                <source data-src="data/web-video/gaze_probs_pot.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-button carousel-button--left" data-carousel="gaze-probs-carousel">
-                    <i class="ti ti-chevron-left"></i>
-                </button>
-                <button class="carousel-button carousel-button--right" data-carousel="gaze-probs-carousel">
-                    <i class="ti ti-chevron-right"></i>
-                </button>
+                <div class="results-gallery-footer">
+                    <p class="carousel-caption">Policy rollouts for each task with target probabilities (the raw output of the RL agent)</p>
+                    <div class="results-gallery-arrows">
+                        <button type="button" class="carousel-button carousel-button--left" data-carousel="gaze-probs-carousel" aria-label="Previous slide">←</button>
+                        <button type="button" class="carousel-button carousel-button--right" data-carousel="gaze-probs-carousel" aria-label="Next slide">→</button>
+                    </div>
+                </div>
                 <div class="carousel-nav">
                     <button class="carousel-indicator current-slide" data-slide="0"></button>
                     <button class="carousel-indicator" data-slide="1"></button>
@@ -668,23 +639,79 @@
                     <button class="carousel-indicator" data-slide="5"></button>
                     <button class="carousel-indicator" data-slide="6"></button>
                 </div>
-                <p class="carousel-caption">Policy rollouts for each task with target probabilities (the raw output of the RL agent)</p>
+
             </div>
 
             <h2>Compacting the data manifold with fixation</h2>
             <div class="paragraph-with-sidenote">
                 <p class="paragraph">
-                    Loosely speaking, there's only a few ways to make a neural network better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
-                    3) increase data manifold coverage by making the manifold itself more compact. Of course this is extremely hand-wavey, but much of AVF's design is attempting the latter <span style="color:#7b2ff2;font-weight:600;">[NS: i don't think latter is right for a list of 3]</span>, reducing the complexity
+                    Loosely speaking, there's a few main ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
+                    3) increase data manifold coverage by making the manifold itself more compact. Much of AVF's design is attempting the latter <span style="color:#7b2ff2;font-weight:600;">[NS: i don't think latter is right for a list of 3]</span>, reducing the complexity
                     of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">2</a></sup>.
 
+
                 </p>
+
                 <aside class="sidenote" id="fixation-relative-note" role="note">
                     <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">2</a> Wrist cameras are an example of this too.
                      Think about how easy it is to move left and right from an aligned wrist view, vs left and right from a distal fixed view.
                      Gripper-centric viewpoints make the servoing data manifold more compact.
                 </aside>
             </div>
+
+            <h3>Fixation-centric observations</h3>
+            <div class="paragraph-with-sidenote">
+                <p class="paragraph">
+                    By swiveling eyes to a common point, AVF compacts the input image manifold by centering views on regions of interest. This is particularly noticable in
+                    pick and place tasks shown below.
+                </p>
+            </div>
+
+            <figure id="fixation-observations" class="fixation-panels" aria-label="Fixation observation comparison" aria-roledescription="carousel">
+                <div class="fixation-carousel-viewport">
+                    <div class="carousel-track fixation-carousel-track">
+                <div class="fixation-slide" role="group" aria-roledescription="slide" aria-label="1 of 2: Tape" aria-hidden="false">
+                    <div class="fixation-panels-grid">
+                        <div class="fixation-panels-title">Pick tape</div>
+                        <div class="fixation-panels-title">Place tape</div>
+                        <video muted loop playsinline preload="none" width="256" height="464" aria-label="Pick tape: unfixated observations above matching fixated observations" style="aspect-ratio: 256 / 464; height: auto;" data-src="data/fixation-panels/pick-tape.mp4" data-poster="data/web-posters/fixation-panels/pick-tape.webp">
+
+                        </video>
+                        <video muted loop playsinline preload="none" width="256" height="464" aria-label="Place tape: unfixated observations above matching fixated observations" style="aspect-ratio: 256 / 464; height: auto;" data-src="data/fixation-panels/place-tape.mp4" data-poster="data/web-posters/fixation-panels/place-tape.webp">
+
+                        </video>
+                    </div>
+                </div>
+                <div class="fixation-slide" role="group" aria-roledescription="slide" aria-label="2 of 2: Tea" aria-hidden="true" inert>
+                    <div class="fixation-panels-grid">
+                        <div class="fixation-panels-title">Pick tea</div>
+                        <div class="fixation-panels-title">Place tea</div>
+                        <video muted loop playsinline preload="none" width="256" height="464" aria-label="Pick tea: unfixated observations above matching fixated observations" style="aspect-ratio: 256 / 464; height: auto;" data-src="data/fixation-panels/pick-tea.mp4" data-poster="data/web-posters/fixation-panels/pick-tea.webp">
+
+                        </video>
+                        <video muted loop playsinline preload="none" width="256" height="464" aria-label="Place tea: unfixated observations above matching fixated observations" style="aspect-ratio: 256 / 464; height: auto;" data-src="data/fixation-panels/place-tea.mp4" data-poster="data/web-posters/fixation-panels/place-tea.webp">
+
+                        </video>
+                    </div>
+                </div>
+                    </div>
+                </div>
+                <figcaption class="results-gallery-footer">
+                    <span class="carousel-caption">Randomly sampled frames from the passive stereo policy and fixated policy during selected task stages. Fixation
+                        makes the space of input images more compact by centering on objects of interest. </span>
+                    <div class="results-gallery-arrows">
+                        <button type="button" class="carousel-button carousel-button--left fixation-prev" aria-label="Previous task" hidden>←</button>
+                        <button type="button" class="carousel-button carousel-button--right fixation-next" aria-label="Next task" hidden>→</button>
+                    </div>
+                </figcaption>
+                <div class="carousel-nav fixation-carousel-nav" role="group" aria-label="Choose task" hidden>
+                    <button type="button" class="carousel-indicator current-slide" data-task="0" aria-label="Show tape" aria-pressed="true"></button>
+                    <button type="button" class="carousel-indicator" data-task="1" aria-label="Show tea" aria-pressed="false"></button>
+                </div>
+
+            </figure>
+
+            <h3>Fixation-centric action frame</h3>
 
 
 
@@ -715,10 +742,8 @@
                     </aside>
             </div>
             <div class="success-scroll-wrap">
-                <video class="success-scroll-video" loop muted playsinline preload="none" data-playback-rate="1.5"
-                       poster="data/posters/er2_success_scroll.jpg"
-                       aria-label="Grid of successful EyeRobot 2.0 evaluation trials">
-                    <source data-src="data/er2_success_scroll.mp4" type="video/mp4">
+                <video class="success-scroll-video" loop muted playsinline preload="none" data-playback-rate="1.5" aria-label="Grid of successful EyeRobot 2.0 evaluation trials" width="1920" height="1080" style="aspect-ratio: 1920 / 1080; height: auto;" data-poster="data/web-posters/posters/er2_success_scroll.webp">
+                    <source data-src="data/web-video/er2_success_scroll.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <span class="success-scroll-label">1.5x speed, autonomous</span>
@@ -732,36 +757,35 @@
                 <figure class="spatial-distribution">
                     <div class="spatial-distribution-grid">
                         <div class="spatial-distribution-item">
-                            <img src="images/marker_overlay_avg_pneg1.jpg" alt="Evaluation spatial distribution for the marker task" loading="lazy" />
+                            <img src="images/marker_overlay_avg_pneg1.jpg" alt="Evaluation spatial distribution for the marker task" loading="lazy" width="640" height="480" decoding="async" />
                             <span>Marker</span>
                         </div>
                         <div class="spatial-distribution-item">
-                            <img src="images/toaster_overlay_avg_p0.jpg" alt="Evaluation spatial distribution for the toaster task" loading="lazy" />
+                            <img src="images/toaster_overlay_avg_p0.jpg" alt="Evaluation spatial distribution for the toaster task" loading="lazy" width="640" height="480" decoding="async" />
                             <span>Toaster</span>
                         </div>
                         <div class="spatial-distribution-item">
-                            <img src="images/wrench_overlay_avg_pneg1.jpg" alt="Evaluation spatial distribution for the wrench task" loading="lazy" />
+                            <img src="images/wrench_overlay_avg_pneg1.jpg" alt="Evaluation spatial distribution for the wrench task" loading="lazy" width="640" height="480" decoding="async" />
                             <span>Wrench</span>
                         </div>
                         <div class="spatial-distribution-item">
-                            <img src="images/boba_overlay_avg_pneg1.jpg" alt="Evaluation spatial distribution for the boba task" loading="lazy" />
+                            <img src="images/boba_overlay_avg_pneg1.jpg" alt="Evaluation spatial distribution for the boba task" loading="lazy" width="640" height="480" decoding="async" />
                             <span>Boba</span>
                         </div>
                         <div class="spatial-distribution-item">
-                            <img src="images/tea_overlay_avg_pneg1.jpg" alt="Evaluation spatial distribution for the tea task" loading="lazy" />
+                            <img src="images/tea_overlay_avg_pneg1.jpg" alt="Evaluation spatial distribution for the tea task" loading="lazy" width="640" height="480" decoding="async" />
                             <span>Tea</span>
                         </div>
                         <div class="spatial-distribution-item">
-                            <img src="images/real_tape_grid_overlay_avg_pneg1.jpg" alt="Evaluation spatial distribution for the tape task" loading="lazy" />
+                            <img src="images/real_tape_grid_overlay_avg_pneg1.jpg" alt="Evaluation spatial distribution for the tape task" loading="lazy" width="640" height="480" decoding="async" />
                             <span>Tape</span>
                         </div>
                         <div class="spatial-distribution-item">
-                            <img src="images/real_pot_lid_overlay_avg_pneg1.jpg" alt="Evaluation spatial distribution for the pot lid task" loading="lazy" />
+                            <img src="images/real_pot_lid_overlay_avg_pneg1.jpg" alt="Evaluation spatial distribution for the pot lid task" loading="lazy" width="640" height="480" decoding="async" />
                             <span>Pot</span>
                         </div>
                     </div>
-                    <figcaption>Visualization of the 25 evaluation locations used for all policies. Objects are aligned with image overlays for consistent comparison.</figcaption>
-                    <p style="width: 100%; color: #2563eb; font-size: 13px; font-weight: 700; margin: 6px 0 0;">KH, The objects look smeared and confusing, maybe nice to draw the object ranges? <span style="color:#7b2ff2;font-weight:600;">[NS: i agree, its also the same format as the carousel so kinda confusing to not be able to click on these]</span></p> 
+                    <figcaption>Visualization of the 25 evaluation locations used for all policies. Objects are aligned with image overlays for consistent comparison. <span style="color:#7b2ff2;font-weight:600;">[NS: i agree, its also the same format as the carousel so kinda confusing to not be able to click on these]</span></figcaption>
                 </figure>
             </div>
 
@@ -784,7 +808,7 @@
                     </button>
                 </div>
                 <figure class="spatial-distribution real-results-plot">
-                    <img id="real-results-chart" src="images/figure_real.svg" alt="Real average and per-task success rates for No Gaze, Ego plus Wrist, and AVF across 640 real-world trials" />
+                    <img id="real-results-chart" src="images/figure_real.svg" alt="Real average and per-task success rates for No Gaze, Ego plus Wrist, and AVF across 640 real-world trials" width="760" height="250" loading="lazy" decoding="async" />
                 </figure>
             </div>
             <p class="carousel-caption">Success rate is the percentage of trials that complete the full task. Task progression is the average percentage of task stages completed in order. <span style="color:#7b2ff2;font-weight:600;">[NS: maybe consider moving this above graph to explain difference, feels hidden]</span></p>
@@ -819,7 +843,7 @@
                 </p>
             </div>
             <figure class="token-density-figure">
-                <img src="images/token_density.svg" alt="Token grids comparing dense stereo images with EyeRobot 2.0's three-level foveated stereo pyramid" />
+                <img src="images/token_density.svg" alt="Token grids comparing dense stereo images with EyeRobot 2.0&#x27;s three-level foveated stereo pyramid" width="800" height="240" loading="lazy" decoding="async" />
                 <figcaption>Achieving the same resolution as EyeRobot's foveated inputs with passive stereo would require a cumbersome amount of input tokens.
                     This is even more problematic at higher resolutions; foveation requires roughly linear scaling, dense tokenization requires quadratic.</figcaption>
             </figure>
@@ -839,7 +863,7 @@
                             <span>Left wrist</span>
                             <span>Right wrist</span>
                         </div>
-                        <video loop muted playsinline preload="none" poster="data/posters/wrist_views_boba.jpg" aria-label="Boba task: left wrist camera on the left, right wrist camera on the right">
+                        <video loop muted playsinline preload="none" aria-label="Boba task: left wrist camera on the left, right wrist camera on the right" width="1280" height="480" style="aspect-ratio: 1280 / 480; height: auto;" data-poster="data/web-posters/posters/wrist_views_boba.webp">
                             <source data-src="data/wrist_views_boba.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -852,7 +876,7 @@
                             <span>Left wrist</span>
                             <span>Right wrist</span>
                         </div>
-                        <video loop muted playsinline preload="none" poster="data/posters/wrist_views_pot.jpg" aria-label="Pot lid task: left wrist camera on the left, right wrist camera on the right">
+                        <video loop muted playsinline preload="none" aria-label="Pot lid task: left wrist camera on the left, right wrist camera on the right" width="1280" height="480" style="aspect-ratio: 1280 / 480; height: auto;" data-poster="data/web-posters/posters/wrist_views_pot.webp">
                             <source data-src="data/wrist_views_pot.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -872,7 +896,7 @@
             <h2>Distractor objects</h2>
             <p class="paragraph">
                 We evaluated 3 tasks with unseen distractor objects scattered throughout the workspace. All comparisons use the <i>exact same object positions</i> to ensure comparability.
-                Notice how in these examples the wrist camera often reaches for the largest or most distinct object in its view. Once it begins reaching, the policy cannot recover since the wrist camera loses sight
+                Notice how in these examples the wrist camera often reaches for the largest or most distinct object in its view. Once it begins reaching the policy cannot recover since the wrist camera loses sight
                 of the target. In contrast, AVF usually reaches for the correct object.
             </p>
             <div class="carousel-container distractor-carousel-container">
@@ -881,7 +905,7 @@
                         <div class="carousel-slide current-slide">
                             <figure class="distractor-comparison">
                                 <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="auto" poster="data/posters/distractor_comparisons/tape_012.jpg?v=seek1">
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_012.webp">
                                     <source data-src="data/distractor_comparisons/tape_012.mp4?v=seek1" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -890,7 +914,7 @@
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
                                 <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="auto" poster="data/posters/distractor_comparisons/tape_013.jpg?v=seek1">
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_013.webp">
                                     <source data-src="data/distractor_comparisons/tape_013.mp4?v=seek1" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -899,7 +923,7 @@
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
                                 <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="auto" poster="data/posters/distractor_comparisons/tape_014.jpg?v=seek1">
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_014.webp">
                                     <source data-src="data/distractor_comparisons/tape_014.mp4?v=seek1" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -908,7 +932,7 @@
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
                                 <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="auto" poster="data/posters/distractor_comparisons/tape_022.jpg?v=seek1">
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_022.webp">
                                     <source data-src="data/distractor_comparisons/tape_022.mp4?v=seek1" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -917,7 +941,7 @@
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
                                 <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="auto" poster="data/posters/distractor_comparisons/wrench_005.jpg?v=seek1">
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_005.webp">
                                     <source data-src="data/distractor_comparisons/wrench_005.mp4?v=seek1" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -926,7 +950,7 @@
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
                                 <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="auto" poster="data/posters/distractor_comparisons/wrench_000.jpg?v=seek1">
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_000.webp">
                                     <source data-src="data/distractor_comparisons/wrench_000.mp4?v=seek1" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -935,7 +959,7 @@
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
                                 <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="auto" poster="data/posters/distractor_comparisons/wrench_001.jpg?v=seek1">
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_001.webp">
                                     <source data-src="data/distractor_comparisons/wrench_001.mp4?v=seek1" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -944,7 +968,7 @@
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
                                 <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="auto" poster="data/posters/distractor_comparisons/wrench_009.jpg?v=seek1">
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_009.webp">
                                     <source data-src="data/distractor_comparisons/wrench_009.mp4?v=seek1" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -953,7 +977,7 @@
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
                                 <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="auto" poster="data/posters/distractor_comparisons/tea_008.jpg?v=seek1">
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tea_008.webp">
                                     <source data-src="data/distractor_comparisons/tea_008.mp4?v=seek1" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -961,12 +985,13 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-button carousel-button--left" data-carousel="distractor-carousel" aria-label="Previous distractor comparison">
-                    <i class="ti ti-chevron-left" aria-hidden="true"></i>
-                </button>
-                <button class="carousel-button carousel-button--right" data-carousel="distractor-carousel" aria-label="Next distractor comparison">
-                    <i class="ti ti-chevron-right" aria-hidden="true"></i>
-                </button>
+                <div class="results-gallery-footer">
+                    <p class="carousel-caption">On eval trials with unseen distractors in the same configuration, ego + wrist policies often move towards the first object seen by the wrist cameras and get confused while AVF can ignore them.</p>
+                    <div class="results-gallery-arrows">
+                        <button type="button" class="carousel-button carousel-button--left" data-carousel="distractor-carousel" aria-label="Previous slide">←</button>
+                        <button type="button" class="carousel-button carousel-button--right" data-carousel="distractor-carousel" aria-label="Next slide">→</button>
+                    </div>
+                </div>
                 <div class="carousel-nav">
                     <button class="carousel-indicator current-slide" data-slide="0" aria-label="Show distractor comparison 1"></button>
                     <button class="carousel-indicator" data-slide="1" aria-label="Show distractor comparison 2"></button>
@@ -978,7 +1003,7 @@
                     <button class="carousel-indicator" data-slide="7" aria-label="Show distractor comparison 8"></button>
                     <button class="carousel-indicator" data-slide="8" aria-label="Show distractor comparison 9"></button>
                 </div>
-                <p class="carousel-caption">On eval trials with unseen distractors in the same configuration, ego + wrist policies often move towards the first object seen by the wrist cameras and get confused while AVF can ignore them.</p>
+
             </div>
 
 
@@ -1012,13 +1037,13 @@
                         <div class="carousel-slide current-slide">
                             <div class="sim-carousel-pair">
                                 <figure class="results-grid-item">
-                                    <video loop muted playsinline preload="none" poster="data/posters/sim_autonomous_spoon.jpg" aria-label="Autonomous hang spoon simulation rollout">
+                                    <video loop muted playsinline preload="none" aria-label="Autonomous hang spoon simulation rollout" width="2048" height="1024" style="aspect-ratio: 2048 / 1024; height: auto;" data-poster="data/web-posters/posters/sim_autonomous_spoon.webp">
                                         <source data-src="data/sim_autonomous_spoon.mp4?v=hires" type="video/mp4">
                                     </video>
                                     <figcaption>Hang Spoon</figcaption>
                                 </figure>
                                 <figure class="results-grid-item">
-                                    <video loop muted playsinline preload="none" poster="data/posters/sim_autonomous_tray.jpg" aria-label="Autonomous medical tray simulation rollout">
+                                    <video loop muted playsinline preload="none" aria-label="Autonomous medical tray simulation rollout" width="2048" height="1024" style="aspect-ratio: 2048 / 1024; height: auto;" data-poster="data/web-posters/posters/sim_autonomous_tray.webp">
                                         <source data-src="data/sim_autonomous_tray.mp4?v=hires" type="video/mp4">
                                     </video>
                                     <figcaption>Medical Tray</figcaption>
@@ -1028,13 +1053,13 @@
                         <div class="carousel-slide">
                             <div class="sim-carousel-pair">
                                 <figure class="results-grid-item">
-                                    <video loop muted playsinline preload="none" poster="data/posters/sim_autonomous_plate.jpg" aria-label="Autonomous plate in rack simulation rollout">
+                                    <video loop muted playsinline preload="none" aria-label="Autonomous plate in rack simulation rollout" width="2048" height="1024" style="aspect-ratio: 2048 / 1024; height: auto;" data-poster="data/web-posters/posters/sim_autonomous_plate.webp">
                                         <source data-src="data/sim_autonomous_plate.mp4?v=hires" type="video/mp4">
                                     </video>
                                     <figcaption>Plate in Rack</figcaption>
                                 </figure>
                                 <figure class="results-grid-item">
-                                    <video loop muted playsinline preload="none" poster="data/posters/sim_autonomous_tape.jpg" aria-label="Autonomous tape handover simulation rollout">
+                                    <video loop muted playsinline preload="none" aria-label="Autonomous tape handover simulation rollout" width="2048" height="1024" style="aspect-ratio: 2048 / 1024; height: auto;" data-poster="data/web-posters/posters/sim_autonomous_tape.webp">
                                         <source data-src="data/sim_autonomous_tape.mp4?v=hires" type="video/mp4">
                                     </video>
                                     <figcaption>Tape Handover</figcaption>
@@ -1044,13 +1069,13 @@
                         <div class="carousel-slide">
                             <div class="sim-carousel-pair">
                                 <figure class="results-grid-item">
-                                    <video loop muted playsinline preload="none" poster="data/posters/sim_autonomous_pot.jpg" aria-label="Autonomous pot lid simulation rollout">
+                                    <video loop muted playsinline preload="none" aria-label="Autonomous pot lid simulation rollout" width="2048" height="1024" style="aspect-ratio: 2048 / 1024; height: auto;" data-poster="data/web-posters/posters/sim_autonomous_pot.webp">
                                         <source data-src="data/sim_autonomous_pot.mp4?v=hires" type="video/mp4">
                                     </video>
                                     <figcaption>Pot Lid</figcaption>
                                 </figure>
                                 <figure class="results-grid-item">
-                                    <video loop muted playsinline preload="none" poster="data/posters/sim_autonomous_tiger.jpg" aria-label="Autonomous tiger pickup simulation rollout">
+                                    <video loop muted playsinline preload="none" aria-label="Autonomous tiger pickup simulation rollout" width="2048" height="1024" style="aspect-ratio: 2048 / 1024; height: auto;" data-poster="data/web-posters/posters/sim_autonomous_tiger.webp">
                                         <source data-src="data/sim_autonomous_tiger.mp4?v=hires" type="video/mp4">
                                     </video>
                                     <figcaption>Tiger Pickup</figcaption>
@@ -1059,30 +1084,37 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-button carousel-button--left" data-carousel="sim-autonomous-carousel" aria-label="Previous autonomous simulation rollouts">
-                    <i class="ti ti-chevron-left" aria-hidden="true"></i>
-                </button>
-                <button class="carousel-button carousel-button--right" data-carousel="sim-autonomous-carousel" aria-label="Next autonomous simulation rollouts">
-                    <i class="ti ti-chevron-right" aria-hidden="true"></i>
-                </button>
+                <div class="results-gallery-footer">
+                    <p class="carousel-caption">Autonomous sim eval rollouts including eye motion</p>
+                    <div class="results-gallery-arrows">
+                        <button type="button" class="carousel-button carousel-button--left" data-carousel="sim-autonomous-carousel" aria-label="Previous slide">←</button>
+                        <button type="button" class="carousel-button carousel-button--right" data-carousel="sim-autonomous-carousel" aria-label="Next slide">→</button>
+                    </div>
+                </div>
                 <div class="carousel-nav">
                     <button class="carousel-indicator current-slide" data-slide="0" aria-label="Show autonomous simulation rollouts 1 and 2"></button>
                     <button class="carousel-indicator" data-slide="1" aria-label="Show autonomous simulation rollouts 3 and 4"></button>
                     <button class="carousel-indicator" data-slide="2" aria-label="Show autonomous simulation rollouts 5 and 6"></button>
                 </div>
-                <p class="carousel-caption">Autonomous sim eval rollouts including eye motion</p>
+
             </div>
 
             <div class="experiment-figures">
-                <img class="sim-results-plot" src="images/figure_sim.svg" alt="Simulation average and per-task success rates for No Gaze, Ego plus Wrist, and AVF across 1800 simulation trials" />
+                <img class="sim-results-plot" src="images/figure_sim.svg" alt="Simulation average and per-task success rates for No Gaze, Ego plus Wrist, and AVF across 1800 simulation trials" width="700" height="250" loading="lazy" decoding="async" />
             </div>
 
 
             <h2>Ablations</h2>
             <h3>Stereo and foveated vision</h3>
             <!-- <span style="color:#7b2ff2;font-weight:600;">[NS: no explanation here? idk if most people understand sankeys actually]</span> -->
-            <img src="images/ablation_table.png" alt="Ablation table: per-task success rates for AVF, AVF without foveation, and AVF without stereo (mono)"
-                 style="width: 100%; height: auto; margin-top: 12px;" />
+            <p class="paragraph">
+                Ablating either stereo inputs or foveal inputs harms policy performance. Take a look at the sankey diagrams for a stage-by-stage breakdown;
+                the failure cases of these ablations tend to cluster around stages requiring precision like capping the marker, or pulling out the toaster oven tray.
+                Interestingly, boba performance was unaffected which we think was because the most precise phase of inserting the straw was performed near the
+                stereo camera, making any gains from foveation less beneficial.
+
+            </p>
+            <img src="images/ablation_table.png" alt="Ablation table: per-task success rates for AVF, AVF without foveation, and AVF without stereo (mono)" style="display: block; width: 80%; height: auto; margin: 12px auto 0;" width="2820" height="424" loading="lazy" decoding="async" />
 
 
             <!-- BEGIN GENERATED ABLATION SANKEYS -->
@@ -1097,39 +1129,39 @@
 <button type="button" data-ablation-task="pot-place" aria-controls="ablation-pot-place" aria-pressed="false">Pot lid</button>
 </div>
 <div class="ablation-task-panel" id="ablation-marker">
-<figure class="ablation-sankey"><figcaption><span>AVF</span><span>17/25 succeeded · 68%</span></figcaption><a href="viewer/#/episodes/eyeball/marker" aria-label="Browse AVF Marker trials"><img src="images/ablation-sankeys/eyeball__marker.svg" alt="AVF, Marker: stage-by-stage trial progression; 17 of 25 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>5/25 succeeded · 20%</span></figcaption><a href="viewer/#/episodes/peripheral/marker" aria-label="Browse Without foveation Marker trials"><img src="images/ablation-sankeys/peripheral__marker.svg" alt="Without foveation, Marker: stage-by-stage trial progression; 5 of 25 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>8/25 succeeded · 32%</span></figcaption><a href="viewer/#/episodes/mono/marker" aria-label="Browse Without stereo Marker trials"><img src="images/ablation-sankeys/mono__marker.svg" alt="Without stereo, Marker: stage-by-stage trial progression; 8 of 25 trials succeeded" loading="lazy" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>AVF</span><span>17/25 succeeded · 68%</span></figcaption><a href="viewer/#/episodes/eyeball/marker" aria-label="Browse AVF Marker trials"><img src="images/ablation-sankeys/eyeball__marker.svg" alt="AVF, Marker: stage-by-stage trial progression; 17 of 25 trials succeeded" loading="lazy" width="916" height="124" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>5/25 succeeded · 20%</span></figcaption><a href="viewer/#/episodes/peripheral/marker" aria-label="Browse Without foveation Marker trials"><img src="images/ablation-sankeys/peripheral__marker.svg" alt="Without foveation, Marker: stage-by-stage trial progression; 5 of 25 trials succeeded" loading="lazy" width="916" height="124" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>8/25 succeeded · 32%</span></figcaption><a href="viewer/#/episodes/mono/marker" aria-label="Browse Without stereo Marker trials"><img src="images/ablation-sankeys/mono__marker.svg" alt="Without stereo, Marker: stage-by-stage trial progression; 8 of 25 trials succeeded" loading="lazy" width="916" height="124" decoding="async" /></a></figure>
 </div>
 <div class="ablation-task-panel" id="ablation-tea" hidden>
-<figure class="ablation-sankey"><figcaption><span>AVF</span><span>20/25 succeeded · 80%</span></figcaption><a href="viewer/#/episodes/eyeball/tea" aria-label="Browse AVF Tea trials"><img src="images/ablation-sankeys/eyeball__tea.svg" alt="AVF, Tea: stage-by-stage trial progression; 20 of 25 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>12/25 succeeded · 48%</span></figcaption><a href="viewer/#/episodes/peripheral/tea" aria-label="Browse Without foveation Tea trials"><img src="images/ablation-sankeys/peripheral__tea.svg" alt="Without foveation, Tea: stage-by-stage trial progression; 12 of 25 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>15/25 succeeded · 60%</span></figcaption><a href="viewer/#/episodes/mono/tea" aria-label="Browse Without stereo Tea trials"><img src="images/ablation-sankeys/mono__tea.svg" alt="Without stereo, Tea: stage-by-stage trial progression; 15 of 25 trials succeeded" loading="lazy" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>AVF</span><span>20/25 succeeded · 80%</span></figcaption><a href="viewer/#/episodes/eyeball/tea" aria-label="Browse AVF Tea trials"><img src="images/ablation-sankeys/eyeball__tea.svg" alt="AVF, Tea: stage-by-stage trial progression; 20 of 25 trials succeeded" loading="lazy" width="980" height="124" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>12/25 succeeded · 48%</span></figcaption><a href="viewer/#/episodes/peripheral/tea" aria-label="Browse Without foveation Tea trials"><img src="images/ablation-sankeys/peripheral__tea.svg" alt="Without foveation, Tea: stage-by-stage trial progression; 12 of 25 trials succeeded" loading="lazy" width="980" height="124" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>15/25 succeeded · 60%</span></figcaption><a href="viewer/#/episodes/mono/tea" aria-label="Browse Without stereo Tea trials"><img src="images/ablation-sankeys/mono__tea.svg" alt="Without stereo, Tea: stage-by-stage trial progression; 15 of 25 trials succeeded" loading="lazy" width="980" height="124" decoding="async" /></a></figure>
 </div>
 <div class="ablation-task-panel" id="ablation-toaster" hidden>
-<figure class="ablation-sankey"><figcaption><span>AVF</span><span>13/25 succeeded · 52%</span></figcaption><a href="viewer/#/episodes/eyeball/toaster" aria-label="Browse AVF Toaster trials"><img src="images/ablation-sankeys/eyeball__toaster.svg" alt="AVF, Toaster: stage-by-stage trial progression; 13 of 25 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>9/25 succeeded · 36%</span></figcaption><a href="viewer/#/episodes/peripheral/toaster" aria-label="Browse Without foveation Toaster trials"><img src="images/ablation-sankeys/peripheral__toaster.svg" alt="Without foveation, Toaster: stage-by-stage trial progression; 9 of 25 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>6/25 succeeded · 24%</span></figcaption><a href="viewer/#/episodes/mono/toaster" aria-label="Browse Without stereo Toaster trials"><img src="images/ablation-sankeys/mono__toaster.svg" alt="Without stereo, Toaster: stage-by-stage trial progression; 6 of 25 trials succeeded" loading="lazy" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>AVF</span><span>13/25 succeeded · 52%</span></figcaption><a href="viewer/#/episodes/eyeball/toaster" aria-label="Browse AVF Toaster trials"><img src="images/ablation-sankeys/eyeball__toaster.svg" alt="AVF, Toaster: stage-by-stage trial progression; 13 of 25 trials succeeded" loading="lazy" width="980" height="124" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>9/25 succeeded · 36%</span></figcaption><a href="viewer/#/episodes/peripheral/toaster" aria-label="Browse Without foveation Toaster trials"><img src="images/ablation-sankeys/peripheral__toaster.svg" alt="Without foveation, Toaster: stage-by-stage trial progression; 9 of 25 trials succeeded" loading="lazy" width="980" height="124" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>6/25 succeeded · 24%</span></figcaption><a href="viewer/#/episodes/mono/toaster" aria-label="Browse Without stereo Toaster trials"><img src="images/ablation-sankeys/mono__toaster.svg" alt="Without stereo, Toaster: stage-by-stage trial progression; 6 of 25 trials succeeded" loading="lazy" width="980" height="124" decoding="async" /></a></figure>
 </div>
 <div class="ablation-task-panel" id="ablation-wrench" hidden>
-<figure class="ablation-sankey"><figcaption><span>AVF</span><span>19/25 succeeded · 76%</span></figcaption><a href="viewer/#/episodes/eyeball/wrench" aria-label="Browse AVF Wrench trials"><img src="images/ablation-sankeys/eyeball__wrench.svg" alt="AVF, Wrench: stage-by-stage trial progression; 19 of 25 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>15/25 succeeded · 60%</span></figcaption><a href="viewer/#/episodes/peripheral/wrench" aria-label="Browse Without foveation Wrench trials"><img src="images/ablation-sankeys/peripheral__wrench.svg" alt="Without foveation, Wrench: stage-by-stage trial progression; 15 of 25 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>16/25 succeeded · 64%</span></figcaption><a href="viewer/#/episodes/mono/wrench" aria-label="Browse Without stereo Wrench trials"><img src="images/ablation-sankeys/mono__wrench.svg" alt="Without stereo, Wrench: stage-by-stage trial progression; 16 of 25 trials succeeded" loading="lazy" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>AVF</span><span>19/25 succeeded · 76%</span></figcaption><a href="viewer/#/episodes/eyeball/wrench" aria-label="Browse AVF Wrench trials"><img src="images/ablation-sankeys/eyeball__wrench.svg" alt="AVF, Wrench: stage-by-stage trial progression; 19 of 25 trials succeeded" loading="lazy" width="931" height="124" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>15/25 succeeded · 60%</span></figcaption><a href="viewer/#/episodes/peripheral/wrench" aria-label="Browse Without foveation Wrench trials"><img src="images/ablation-sankeys/peripheral__wrench.svg" alt="Without foveation, Wrench: stage-by-stage trial progression; 15 of 25 trials succeeded" loading="lazy" width="931" height="124" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>16/25 succeeded · 64%</span></figcaption><a href="viewer/#/episodes/mono/wrench" aria-label="Browse Without stereo Wrench trials"><img src="images/ablation-sankeys/mono__wrench.svg" alt="Without stereo, Wrench: stage-by-stage trial progression; 16 of 25 trials succeeded" loading="lazy" width="987" height="124" decoding="async" /></a></figure>
 </div>
 <div class="ablation-task-panel" id="ablation-boba" hidden>
-<figure class="ablation-sankey"><figcaption><span>AVF</span><span>11/25 succeeded · 44%</span></figcaption><a href="viewer/#/episodes/eyeball/boba" aria-label="Browse AVF Boba trials"><img src="images/ablation-sankeys/eyeball__boba.svg" alt="AVF, Boba: stage-by-stage trial progression; 11 of 25 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>12/25 succeeded · 48%</span></figcaption><a href="viewer/#/episodes/peripheral/boba" aria-label="Browse Without foveation Boba trials"><img src="images/ablation-sankeys/peripheral__boba.svg" alt="Without foveation, Boba: stage-by-stage trial progression; 12 of 25 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>10/25 succeeded · 40%</span></figcaption><a href="viewer/#/episodes/mono/boba" aria-label="Browse Without stereo Boba trials"><img src="images/ablation-sankeys/mono__boba.svg" alt="Without stereo, Boba: stage-by-stage trial progression; 10 of 25 trials succeeded" loading="lazy" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>AVF</span><span>11/25 succeeded · 44%</span></figcaption><a href="viewer/#/episodes/eyeball/boba" aria-label="Browse AVF Boba trials"><img src="images/ablation-sankeys/eyeball__boba.svg" alt="AVF, Boba: stage-by-stage trial progression; 11 of 25 trials succeeded" loading="lazy" width="949" height="124" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>12/25 succeeded · 48%</span></figcaption><a href="viewer/#/episodes/peripheral/boba" aria-label="Browse Without foveation Boba trials"><img src="images/ablation-sankeys/peripheral__boba.svg" alt="Without foveation, Boba: stage-by-stage trial progression; 12 of 25 trials succeeded" loading="lazy" width="949" height="124" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>10/25 succeeded · 40%</span></figcaption><a href="viewer/#/episodes/mono/boba" aria-label="Browse Without stereo Boba trials"><img src="images/ablation-sankeys/mono__boba.svg" alt="Without stereo, Boba: stage-by-stage trial progression; 10 of 25 trials succeeded" loading="lazy" width="949" height="124" decoding="async" /></a></figure>
 </div>
 <div class="ablation-task-panel" id="ablation-tape" hidden>
-<figure class="ablation-sankey"><figcaption><span>AVF</span><span>60/64 succeeded · 94%</span></figcaption><a href="viewer/#/episodes/eyeball/tape" aria-label="Browse AVF Tape trials"><img src="images/ablation-sankeys/eyeball__tape.svg" alt="AVF, Tape: stage-by-stage trial progression; 60 of 64 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>47/64 succeeded · 73%</span></figcaption><a href="viewer/#/episodes/peripheral/tape" aria-label="Browse Without foveation Tape trials"><img src="images/ablation-sankeys/peripheral__tape.svg" alt="Without foveation, Tape: stage-by-stage trial progression; 47 of 64 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>51/64 succeeded · 80%</span></figcaption><a href="viewer/#/episodes/mono/tape" aria-label="Browse Without stereo Tape trials"><img src="images/ablation-sankeys/mono__tape.svg" alt="Without stereo, Tape: stage-by-stage trial progression; 51 of 64 trials succeeded" loading="lazy" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>AVF</span><span>60/64 succeeded · 94%</span></figcaption><a href="viewer/#/episodes/eyeball/tape" aria-label="Browse AVF Tape trials"><img src="images/ablation-sankeys/eyeball__tape.svg" alt="AVF, Tape: stage-by-stage trial progression; 60 of 64 trials succeeded" loading="lazy" width="993" height="124" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>47/64 succeeded · 73%</span></figcaption><a href="viewer/#/episodes/peripheral/tape" aria-label="Browse Without foveation Tape trials"><img src="images/ablation-sankeys/peripheral__tape.svg" alt="Without foveation, Tape: stage-by-stage trial progression; 47 of 64 trials succeeded" loading="lazy" width="993" height="124" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>51/64 succeeded · 80%</span></figcaption><a href="viewer/#/episodes/mono/tape" aria-label="Browse Without stereo Tape trials"><img src="images/ablation-sankeys/mono__tape.svg" alt="Without stereo, Tape: stage-by-stage trial progression; 51 of 64 trials succeeded" loading="lazy" width="934" height="124" decoding="async" /></a></figure>
 </div>
 <div class="ablation-task-panel" id="ablation-pot-place" hidden>
-<figure class="ablation-sankey"><figcaption><span>AVF</span><span>13/25 succeeded · 52%</span></figcaption><a href="viewer/#/episodes/eyeball/pot%20place" aria-label="Browse AVF Pot lid trials"><img src="images/ablation-sankeys/eyeball__pot-place.svg" alt="AVF, Pot lid: stage-by-stage trial progression; 13 of 25 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>10/25 succeeded · 40%</span></figcaption><a href="viewer/#/episodes/peripheral/pot%20place" aria-label="Browse Without foveation Pot lid trials"><img src="images/ablation-sankeys/peripheral__pot-place.svg" alt="Without foveation, Pot lid: stage-by-stage trial progression; 10 of 25 trials succeeded" loading="lazy" /></a></figure>
-<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>10/25 succeeded · 40%</span></figcaption><a href="viewer/#/episodes/mono/pot%20place" aria-label="Browse Without stereo Pot lid trials"><img src="images/ablation-sankeys/mono__pot-place.svg" alt="Without stereo, Pot lid: stage-by-stage trial progression; 10 of 25 trials succeeded" loading="lazy" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>AVF</span><span>13/25 succeeded · 52%</span></figcaption><a href="viewer/#/episodes/eyeball/pot%20place" aria-label="Browse AVF Pot lid trials"><img src="images/ablation-sankeys/eyeball__pot-place.svg" alt="AVF, Pot lid: stage-by-stage trial progression; 13 of 25 trials succeeded" loading="lazy" width="1014" height="132" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without foveation</span><span>10/25 succeeded · 40%</span></figcaption><a href="viewer/#/episodes/peripheral/pot%20place" aria-label="Browse Without foveation Pot lid trials"><img src="images/ablation-sankeys/peripheral__pot-place.svg" alt="Without foveation, Pot lid: stage-by-stage trial progression; 10 of 25 trials succeeded" loading="lazy" width="992" height="127" decoding="async" /></a></figure>
+<figure class="ablation-sankey"><figcaption><span>Without stereo</span><span>10/25 succeeded · 40%</span></figcaption><a href="viewer/#/episodes/mono/pot%20place" aria-label="Browse Without stereo Pot lid trials"><img src="images/ablation-sankeys/mono__pot-place.svg" alt="Without stereo, Pot lid: stage-by-stage trial progression; 10 of 25 trials succeeded" loading="lazy" width="1014" height="124" decoding="async" /></a></figure>
 </div>
 <p class="carousel-caption">Partial successes of ablations visualized as Sankey diagrams.</p>
 </div>
@@ -1154,40 +1186,41 @@
                     <div class="carousel-track" id="failures-carousel">
                         <!-- Ambiguity collapse — boba, episode_005 -->
                         <div class="carousel-slide current-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/failure_ambiguity_boba.jpg">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 640 / 480; height: auto;" preload="none" width="640" height="480" data-poster="data/web-posters/posters/failure_ambiguity_boba.webp">
                                 <source data-src="data/failure_ambiguity_boba.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                         <!-- Thrashing — marker, episode_004 -->
                         <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/failure_thrashing_marker.jpg">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 640 / 480; height: auto;" preload="none" width="640" height="480" data-poster="data/web-posters/posters/failure_thrashing_marker.webp">
                                 <source data-src="data/failure_thrashing_marker.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                         <!-- pot-place, episode_014 -->
                         <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/failure_pot_014.jpg">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 640 / 480; height: auto;" preload="none" width="640" height="480" data-poster="data/web-posters/posters/failure_pot_014.webp">
                                 <source data-src="data/failure_pot_014.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                         <!-- wrench, episode_006 -->
                         <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%;" preload="none" poster="data/posters/failure_wrench_006.jpg">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 640 / 320; height: auto;" preload="none" width="640" height="320" data-poster="data/web-posters/posters/failure_wrench_006.webp">
                                 <source data-src="data/failure_wrench_006.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-button carousel-button--left" data-carousel="failures-carousel">
-                    <i class="ti ti-chevron-left"></i>
-                </button>
-                <button class="carousel-button carousel-button--right" data-carousel="failures-carousel">
-                    <i class="ti ti-chevron-right"></i>
-                </button>
+                <div class="results-gallery-footer">
+
+                    <div class="results-gallery-arrows">
+                        <button type="button" class="carousel-button carousel-button--left" data-carousel="failures-carousel" aria-label="Previous slide">←</button>
+                        <button type="button" class="carousel-button carousel-button--right" data-carousel="failures-carousel" aria-label="Next slide">→</button>
+                    </div>
+                </div>
                 <div class="carousel-nav">
                     <button class="carousel-indicator current-slide" data-slide="0"></button>
                     <button class="carousel-indicator" data-slide="1"></button>
@@ -1224,262 +1257,7 @@
         </footer>
     </div>
 
-    <!-- ===========================================================
-         Carousel JavaScript (lazy-loads videos, handles nav/dots).
-         Generic: drives every .carousel-container on the page.
-    ============================================================ -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-
-            const initializeCarousel = (carouselContainer) => {
-                const track = carouselContainer.querySelector('.carousel-track');
-                if (!track) return;
-
-                const slides = Array.from(track.children);
-                const nextButton = carouselContainer.querySelector('.carousel-button--right');
-                const prevButton = carouselContainer.querySelector('.carousel-button--left');
-                const dotsNav = carouselContainer.querySelector('.carousel-nav');
-                const dots = dotsNav ? Array.from(dotsNav.children) : [];
-
-                let currentSlideIndex = 0;
-
-                const loadVideo = (video) => {
-                    if (video._loadPromise) return video._loadPromise;
-
-                    const sources = video.querySelectorAll('source[data-src]');
-                    if (sources.length === 0) return Promise.resolve();
-
-                    const useBlob = Boolean(video.closest('.distractor-comparison'));
-                    video._loadPromise = Promise.all(Array.from(sources).map(async source => {
-                        const sourceUrl = source.dataset.src;
-                        if (useBlob) {
-                            try {
-                                const response = await fetch(sourceUrl);
-                                if (!response.ok) throw new Error(`Video request failed: ${response.status}`);
-                                const objectUrl = URL.createObjectURL(await response.blob());
-                                source.src = objectUrl;
-                                video._objectUrls = [...(video._objectUrls || []), objectUrl];
-                            } catch (error) {
-                                console.warn('Falling back to streamed video:', error);
-                                source.src = sourceUrl;
-                            }
-                        } else {
-                            source.src = sourceUrl;
-                        }
-                        source.removeAttribute('data-src');
-                    })).then(() => {
-                        video.load();
-                    });
-                    return video._loadPromise;
-                };
-
-                // Slide the track so the current slide is centred in the viewport.
-                // For full-width slides this is just index * slideWidth; for carousels
-                // whose slides are narrower than the container (see the real-results
-                // carousel) it leaves the neighbouring slides peeking out on each side.
-                const trackContainer = carouselContainer.querySelector('.carousel-track-container');
-                const setTrackOffset = () => {
-                    const slide = slides[currentSlideIndex];
-                    if (!slide || !trackContainer) return;
-                    const slideWidth = slide.getBoundingClientRect().width;
-                    const containerWidth = trackContainer.getBoundingClientRect().width;
-                    const raw = (slide.offsetLeft - slides[0].offsetLeft) - (containerWidth - slideWidth) / 2;
-                    // Clamp so the first and last slides sit flush with the edges
-                    // instead of leaving an empty gutter.
-                    const maxOffset = Math.max(0, track.scrollWidth - containerWidth);
-                    const offset = Math.min(Math.max(raw, 0), maxOffset);
-                    track.style.transform = `translateX(-${offset}px)`;
-                };
-
-                // Function to move to a specific slide
-                const moveToSlide = (targetIndex) => {
-                    if (targetIndex < 0 || targetIndex >= slides.length) return;
-
-                    // Pause current videos
-                    if (slides[currentSlideIndex]) {
-                        const currentVideos = slides[currentSlideIndex].querySelectorAll('video');
-                        currentVideos.forEach(video => {
-                            video.pause();
-                        });
-                    }
-
-                    const targetSlide = slides[targetIndex];
-
-                    // Load video for target slide
-                    const newVideos = targetSlide.querySelectorAll('video');
-                    newVideos.forEach(video => {
-                        loadVideo(video).then(() => {
-                            video.play().catch(e => {
-                                // Autoplay was prevented.
-                                console.log('Autoplay was prevented:', e);
-                            });
-                        });
-                    });
-
-                    // Update current slide
-                    if (slides[currentSlideIndex]) {
-                        slides[currentSlideIndex].classList.remove('current-slide');
-                    }
-                    targetSlide.classList.add('current-slide');
-
-                    // Update dots
-                    if (dots.length > 0 && dots[currentSlideIndex]) {
-                        dots[currentSlideIndex].classList.remove('current-slide');
-                        dots[targetIndex].classList.add('current-slide');
-                    }
-
-                    currentSlideIndex = targetIndex;
-                    if (dotsNav && dotsNav.classList.contains('results-filmstrip')) {
-                        dots.forEach((dot, index) => dot.setAttribute('aria-pressed', String(index === targetIndex)));
-                        slides.forEach((slide, index) => slide.setAttribute('aria-hidden', String(index !== targetIndex)));
-                    }
-                    setTrackOffset();
-                };
-
-                // Next button functionality
-                if (nextButton) {
-                    nextButton.addEventListener('click', () => {
-                        const nextIndex = (currentSlideIndex + 1) % slides.length;
-                        moveToSlide(nextIndex);
-                    });
-                }
-
-                // Previous button functionality
-                if (prevButton) {
-                    prevButton.addEventListener('click', () => {
-                        const prevIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-                        moveToSlide(prevIndex);
-                    });
-                }
-
-                // Dot navigation functionality
-                if (dots.length > 0) {
-                    dots.forEach((dot, index) => {
-                        dot.addEventListener('click', () => {
-                            moveToSlide(index);
-                        });
-                    });
-                }
-
-                if (dotsNav && dotsNav.classList.contains('results-filmstrip')) {
-                    slides.forEach((slide, index) => slide.setAttribute('aria-hidden', String(index !== 0)));
-                    dotsNav.addEventListener('keydown', event => {
-                        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-                        event.preventDefault();
-                        const index = event.key === 'Home' ? 0 : event.key === 'End' ? slides.length - 1
-                            : (currentSlideIndex + (event.key === 'ArrowRight' ? 1 : -1) + slides.length) % slides.length;
-                        moveToSlide(index);
-                        dots[index].focus({ preventScroll: true });
-                    });
-                }
-
-                // Keep the track aligned when the viewport (and slide width) changes.
-                window.addEventListener('resize', setTrackOffset);
-
-                // Horizontal swipe on touch devices.
-                if (trackContainer && window.PointerEvent) {
-                    let startX = 0, startY = 0, tracking = false;
-                    trackContainer.addEventListener('pointerdown', (e) => {
-                        if (e.pointerType === 'mouse') return;
-                        startX = e.clientX; startY = e.clientY; tracking = true;
-                    }, { passive: true });
-                    trackContainer.addEventListener('pointerup', (e) => {
-                        if (!tracking) return;
-                        tracking = false;
-                        const dx = e.clientX - startX;
-                        const dy = e.clientY - startY;
-                        // Ignore mostly-vertical drags so page scrolling still wins.
-                        if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
-                        const delta = dx < 0 ? 1 : -1;
-                        moveToSlide((currentSlideIndex + delta + slides.length) % slides.length);
-                    }, { passive: true });
-                    trackContainer.addEventListener('pointercancel', () => { tracking = false; }, { passive: true });
-                }
-
-                // Pause other videos when one starts playing
-                slides.forEach((slide, index) => {
-                    const videos = slide.querySelectorAll('video');
-                    videos.forEach(video => {
-                        video.addEventListener('play', () => {
-                            // Pause all other videos in this carousel
-                            slides.forEach((otherSlide, otherIndex) => {
-                                if (otherIndex !== index) {
-                                    const otherVideos = otherSlide.querySelectorAll('video');
-                                    otherVideos.forEach(otherVideo => {
-                                        otherVideo.pause();
-                                    });
-                                }
-                            });
-                        });
-                    });
-                });
-
-                // Play the CURRENT slide's video only while this carousel is on-screen.
-                // With several carousels on the page, autoplaying them all at once
-                // exhausts the browser's video-decoder budget and some stall / don't
-                // play. Gating on visibility keeps only the visible carousel decoding.
-                const playCurrent = () => {
-                    const s = slides[currentSlideIndex];
-                    if (!s) return;
-                    s.querySelectorAll('video').forEach(v => {
-                        loadVideo(v).then(() => {
-                            v.play().catch(e => console.log('Autoplay was prevented:', e));
-                        });
-                    });
-                };
-                const pauseCurrent = () => {
-                    const s = slides[currentSlideIndex];
-                    if (!s) return;
-                    s.querySelectorAll('video').forEach(v => v.pause());
-                };
-                if ('IntersectionObserver' in window) {
-                    const visObs = new IntersectionObserver((entries) => {
-                        entries.forEach(e => { e.isIntersecting ? playCurrent() : pauseCurrent(); });
-                    }, { threshold: 0.25 });
-                    visObs.observe(carouselContainer);
-                } else {
-                    playCurrent();  // no IO support → fall back to playing first slide
-                }
-            };
-
-            // Initialize all carousels on the page
-            const carousels = document.querySelectorAll('.carousel-container');
-            carousels.forEach(initializeCarousel);
-
-            // Lazy load videos that are not in a carousel
-            const lazyVideos = [].slice.call(document.querySelectorAll('video:not(.carousel-track video)'));
-
-            if ('IntersectionObserver' in window) {
-                let lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(videoEntry) {
-                        if (videoEntry.isIntersecting) {
-                            let video = videoEntry.target;
-                            let sources = video.querySelectorAll('source[data-src]');
-                            let loadedSource = false;
-                            sources.forEach(source => {
-                                if (source.dataset.src) {
-                                    source.src = source.dataset.src;
-                                    source.removeAttribute('data-src');
-                                    loadedSource = true;
-                                }
-                            });
-                            if (loadedSource) video.load();
-                            if (video.dataset.playbackRate) {
-                                video.playbackRate = Number(video.dataset.playbackRate);
-                            }
-                            video.play().catch(e => console.log("Autoplay for non-carousel video prevented.", e));
-                        } else {
-                            videoEntry.target.pause();
-                        }
-                    });
-                });
-
-                lazyVideos.forEach(function(video) {
-                    lazyVideoObserver.observe(video);
-                });
-            }
-        });
-    </script>
+    <script src="carousels.js?v=media1" defer></script>
 
 </body>
 

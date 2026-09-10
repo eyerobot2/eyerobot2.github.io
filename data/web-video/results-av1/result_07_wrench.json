@@ -1,0 +1,8 @@
+{
+  "source": "data/results-av1/result_07_wrench.mp4",
+  "output": "data/web-video/results-av1/result_07_wrench.mp4",
+  "source_sha256": "baa17eeb1b107ac08fecbbf27bbeffb1b6a26ace216a295d6055d43e994f1b50",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 7566197,
+  "web_bytes": 3412223
+}

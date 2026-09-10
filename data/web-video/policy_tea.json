@@ -1,0 +1,8 @@
+{
+  "source": "data/policy_tea.mp4",
+  "output": "data/web-video/policy_tea.mp4",
+  "source_sha256": "ce695320aa5828b3e01ccf36435a882e0ff487b2f3f67a0c0a23e00c0d7f9b51",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 15165693,
+  "web_bytes": 6209443
+}

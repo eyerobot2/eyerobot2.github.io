@@ -1,0 +1,8 @@
+{
+  "source": "data/results-sdr/result_06_toaster.mp4",
+  "output": "data/web-video/results-sdr/result_06_toaster.mp4",
+  "source_sha256": "4bacbf0738ac7da9e66fd9e9103a567ad90dabcf6274e4026909cf9721c24bb6",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 22764157,
+  "web_bytes": 15767465
+}

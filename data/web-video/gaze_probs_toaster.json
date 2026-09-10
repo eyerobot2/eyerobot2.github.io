@@ -1,0 +1,8 @@
+{
+  "source": "data/gaze_probs_toaster.mp4",
+  "output": "data/web-video/gaze_probs_toaster.mp4",
+  "source_sha256": "f95c87f7cecbb77631f44a210aadf8a0a02ee43aba3bf7d086a420fd20e53c94",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 49653336,
+  "web_bytes": 7521139
+}

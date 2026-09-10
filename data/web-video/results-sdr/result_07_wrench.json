@@ -1,0 +1,8 @@
+{
+  "source": "data/results-sdr/result_07_wrench.mp4",
+  "output": "data/web-video/results-sdr/result_07_wrench.mp4",
+  "source_sha256": "119ab7ff17154ca736817e026a1bf4f42fef823052ed715c76a9b060db74faec",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 10819679,
+  "web_bytes": 7923108
+}

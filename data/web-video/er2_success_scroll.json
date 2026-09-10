@@ -1,0 +1,9 @@
+{
+  "source": "data/er2_success_scroll.mp4",
+  "output": "data/web-video/er2_success_scroll.mp4",
+  "source_sha256": "a92b22f41e5fb64604be0d90e1a59833354433c11f4b89c358bdfaffcf9373e5",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 34286810,
+  "web_bytes": 34286775,
+  "mode": "lossless faststart remux"
+}

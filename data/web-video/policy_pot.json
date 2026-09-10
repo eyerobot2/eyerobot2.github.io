@@ -1,0 +1,8 @@
+{
+  "source": "data/policy_pot.mp4",
+  "output": "data/web-video/policy_pot.mp4",
+  "source_sha256": "cc44e639b2c05023a3ca04eaf8dd5a491bf4cac63ba3200513cc09b21bf1f094",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 10619620,
+  "web_bytes": 4183816
+}

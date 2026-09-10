@@ -1,0 +1,8 @@
+{
+  "source": "data/results-av1/result_02_marker.mp4",
+  "output": "data/web-video/results-av1/result_02_marker.mp4",
+  "source_sha256": "438fc5b18fb6e8aaf6313f5c55d19d28545db43a8e08ae48914d8a3197f32b60",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 11838989,
+  "web_bytes": 7020436
+}

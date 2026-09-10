@@ -1,0 +1,8 @@
+{
+  "source": "data/results-av1/result_06_toaster.mp4",
+  "output": "data/web-video/results-av1/result_06_toaster.mp4",
+  "source_sha256": "c2f9ababcc2ce1908939fa03972abf7fe664e40efa08eeff99d4a27c992f074f",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 15910836,
+  "web_bytes": 8909357
+}

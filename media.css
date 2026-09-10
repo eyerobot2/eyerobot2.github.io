@@ -1,0 +1,30 @@
+/* Feedback reserves a small, stable row while media buffers or needs a tap. */
+.carousel-container video { width: 100%; height: auto; }
+.media-feedback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 26px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.4;
+    visibility: hidden;
+}
+.media-feedback.is-visible { visibility: visible; }
+.media-feedback button {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    padding: 4px 12px;
+    color: #444;
+    font: inherit;
+    cursor: pointer;
+}
+.media-feedback button[hidden] { display: none; }
+.media-feedback button:focus-visible {
+    outline: 2px solid #555;
+    outline-offset: 2px;
+}

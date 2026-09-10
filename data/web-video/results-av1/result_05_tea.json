@@ -1,0 +1,8 @@
+{
+  "source": "data/results-av1/result_05_tea.mp4",
+  "output": "data/web-video/results-av1/result_05_tea.mp4",
+  "source_sha256": "99c59a63e1a4fea04cc6adde573d94989483a9f10645a8cf076243d2e9d9b0e4",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 4624119,
+  "web_bytes": 2196943
+}

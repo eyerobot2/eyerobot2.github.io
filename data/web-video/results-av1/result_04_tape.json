@@ -1,0 +1,8 @@
+{
+  "source": "data/results-av1/result_04_tape.mp4",
+  "output": "data/web-video/results-av1/result_04_tape.mp4",
+  "source_sha256": "c95d762c15be31ac22bae9a7d6bd6f7e3cd8445c6601746d024632c6597fe38b",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 5650264,
+  "web_bytes": 3195903
+}

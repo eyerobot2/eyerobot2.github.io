@@ -1,0 +1,8 @@
+{
+  "source": "data/results-sdr/result_05_tea.mp4",
+  "output": "data/web-video/results-sdr/result_05_tea.mp4",
+  "source_sha256": "1c33eb0bda1983fa86effbdf5b82d1991393219bfd1c7d2c1a43a0e6919aeae7",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 4551966,
+  "web_bytes": 3528498
+}

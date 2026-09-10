@@ -1,0 +1,9 @@
+{
+  "source": "data/teaser.mp4",
+  "output": "data/web-video/teaser.mp4",
+  "source_sha256": "522f20dad4e8f6bb4983b5aa92964566f99926bcacd0c678008bf76f3a433aa7",
+  "settings": "1080-high-quality-30fps-v1",
+  "original_bytes": 7624508,
+  "web_bytes": 7624507,
+  "mode": "lossless faststart remux"
+}
