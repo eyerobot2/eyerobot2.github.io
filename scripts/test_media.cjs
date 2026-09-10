@@ -113,6 +113,22 @@ async function main() {
         await selected.locator('.distractor-play-toggle').click();
         await page.waitForFunction(() => !document.querySelector('.distractor-comparison')
             .closest('.carousel-container').querySelector('.current-slide video').paused);
+        await selected.locator('video').evaluate(video => { video.currentTime = 3; });
+        await carousel.locator('.carousel-nav .current-slide').click();
+        await page.waitForFunction(() => {
+            const video = document.querySelector('.distractor-comparison')
+                .closest('.carousel-container').querySelector('.current-slide video');
+            return !video.paused && !video.seeking && video.currentTime < 1;
+        });
+        await selected.locator('video').evaluate(video => { video.currentTime = 3; });
+        await carousel.locator('.carousel-button--right').click();
+        await carousel.locator('.carousel-button--left').click();
+        await page.waitForFunction(() => {
+            const video = document.querySelector('.distractor-comparison')
+                .closest('.carousel-container').querySelector('.current-slide video');
+            return !video.paused && !video.seeking && video.currentTime < 1;
+        });
+        console.log('PASS: current-tab selection and revisiting an evicted slide restart at zero');
         for (let i = 0; i < 5; i++) await carousel.locator('.carousel-button--right').click();
         await page.waitForTimeout(1500);
         assert(await carousel.locator('video').evaluateAll(videos => videos.filter(video =>
@@ -134,6 +150,11 @@ async function main() {
             .every(video => !video.paused && video.readyState >= 3));
         assert(await fixation.locator('.fixation-slide[aria-hidden="true"] video')
             .evaluateAll(videos => videos.every(video => video.paused)));
+        await fixation.locator('.fixation-slide[aria-hidden="false"] video')
+            .evaluateAll(videos => videos.forEach(video => { video.currentTime = 3; }));
+        await fixation.locator('[data-task][aria-pressed="true"]').click();
+        await page.waitForFunction(() => [...document.querySelectorAll('.fixation-slide[aria-hidden="false"] video')]
+            .every(video => !video.paused && !video.seeking && video.currentTime < 1));
         console.log('PASS: fixation pairs load on demand and switch together');
         assert.deepEqual(errors, []);
         await context.close();

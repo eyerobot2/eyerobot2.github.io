@@ -170,7 +170,14 @@
         };
         const player = {
             select(index) {
+                pauseAll();
                 active = index;
+                current().forEach(video => {
+                    // Explicit navigation restarts the clip, including after
+                    // its sources were evicted or its current tab was clicked.
+                    recordFor(video).time = 0;
+                    video.currentTime = 0;
+                });
                 message = '';
                 slow = false;
                 clearTimeout(loadingTimer);

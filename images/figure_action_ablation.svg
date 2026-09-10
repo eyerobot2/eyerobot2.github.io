@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="250" viewBox="0 0 700 250" role="img" aria-labelledby="title desc">
+  <title id="title">Fixation-centric action frame ablation</title>
+  <desc id="desc">Simulation success rates for AVF and world-relative actions. Task average: 74.3% versus 52.5%. Tape handover (random): 79% versus 56%. Pot lid: 91% versus 58%. Tiger (right half): 98% versus 81%. Medical tray: 78% versus 45%. Plate in rack: 70% versus 55%. Hang spoon: 30% versus 20%.</desc>
+  <defs>
+    <pattern id="avf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="8" height="8" fill="#f2986f"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#fff" stroke-width="1.2"/>
+    </pattern>
+    <style>
+      text { font-family: "Avenir Next", Avenir, "Open Sans", sans-serif; fill: #171717; letter-spacing: 0; }
+      .legend { font-size: 13px; }
+      .section-label { font-size: 14px; fill: #555; }
+      .axis-label { font-size: 12px; }
+      .task-label { font-size: 13px; }
+      .value { font-size: 11px; text-anchor: middle; }
+      .grid { stroke: #e9e9e9; stroke-width: 1; }
+      .axis { stroke: #222; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="700" height="250" fill="#fff"/>
+
+  <g transform="translate(0 -24)">
+  <g class="grid">
+    <line x1="48" y1="60" x2="682" y2="60"/>
+    <line x1="48" y1="96" x2="682" y2="96"/>
+    <line x1="48" y1="132" x2="682" y2="132"/>
+    <line x1="48" y1="168" x2="682" y2="168"/>
+  </g>
+  <g class="axis">
+    <line x1="48" y1="60" x2="48" y2="204"/>
+    <line x1="48" y1="204" x2="682" y2="204"/>
+    <line x1="166" y1="68" x2="166" y2="204" stroke="#888" stroke-width="2"/>
+  </g>
+  <g class="axis-label" text-anchor="end">
+    <text x="42" y="64">100%</text>
+    <text x="42" y="100">75%</text>
+    <text x="42" y="136">50%</text>
+    <text x="42" y="172">25%</text>
+    <text x="42" y="208">0%</text>
+  </g>
+  <text class="axis-label" transform="translate(13 158) rotate(-90)">Success Rate</text>
+
+  <g><title>Task average: AVF 74.3%, world-relative actions 52.5%</title>
+    <rect x="75" y="128.400" width="24" height="75.600" fill="#5c8fc5"/>
+    <text class="value" x="87" y="123.400">52.5</text>
+    <rect x="105" y="97.008" width="24" height="106.992" fill="url(#avf-hatch)"/>
+    <text class="value" x="117" y="92.008">74.3</text>
+    <text class="task-label" x="102" y="225" text-anchor="middle">Average</text>
+  </g>
+  <g><title>Tape handover (random): AVF 79%, world-relative actions 56%</title>
+    <rect x="181" y="123.360" width="24" height="80.640" fill="#5c8fc5"/>
+    <text class="value" x="193" y="118.360">56</text>
+    <rect x="211" y="90.240" width="24" height="113.760" fill="url(#avf-hatch)"/>
+    <text class="value" x="223" y="85.240">79</text>
+    <text class="task-label" x="208" y="225" text-anchor="middle">tape</text>
+  </g>
+  <g><title>Pot lid: AVF 91%, world-relative actions 58%</title>
+    <rect x="261" y="120.480" width="24" height="83.520" fill="#5c8fc5"/>
+    <text class="value" x="273" y="115.480">58</text>
+    <rect x="291" y="72.960" width="24" height="131.040" fill="url(#avf-hatch)"/>
+    <text class="value" x="303" y="67.960">91</text>
+    <text class="task-label" x="288" y="225" text-anchor="middle">pot</text>
+  </g>
+  <g><title>Tiger (right half): AVF 98%, world-relative actions 81%</title>
+    <rect x="341" y="87.360" width="24" height="116.640" fill="#5c8fc5"/>
+    <text class="value" x="353" y="82.360">81</text>
+    <rect x="371" y="62.880" width="24" height="141.120" fill="url(#avf-hatch)"/>
+    <text class="value" x="383" y="57.880">98</text>
+    <text class="task-label" x="368" y="225" text-anchor="middle">tiger</text>
+  </g>
+  <g><title>Medical tray: AVF 78%, world-relative actions 45%</title>
+    <rect x="421" y="139.200" width="24" height="64.800" fill="#5c8fc5"/>
+    <text class="value" x="433" y="134.200">45</text>
+    <rect x="451" y="91.680" width="24" height="112.320" fill="url(#avf-hatch)"/>
+    <text class="value" x="463" y="86.680">78</text>
+    <text class="task-label" x="448" y="225" text-anchor="middle">tray</text>
+  </g>
+  <g><title>Plate in rack: AVF 70%, world-relative actions 55%</title>
+    <rect x="501" y="124.800" width="24" height="79.200" fill="#5c8fc5"/>
+    <text class="value" x="513" y="119.800">55</text>
+    <rect x="531" y="103.200" width="24" height="100.800" fill="url(#avf-hatch)"/>
+    <text class="value" x="543" y="98.200">70</text>
+    <text class="task-label" x="528" y="225" text-anchor="middle">plate</text>
+  </g>
+  <g><title>Hang spoon: AVF 30%, world-relative actions 20%</title>
+    <rect x="581" y="175.200" width="24" height="28.800" fill="#5c8fc5"/>
+    <text class="value" x="593" y="170.200">20</text>
+    <rect x="611" y="160.800" width="24" height="43.200" fill="url(#avf-hatch)"/>
+    <text class="value" x="623" y="155.800">30</text>
+    <text class="task-label" x="608" y="225" text-anchor="middle">spoon</text>
+  </g>
+  </g>
+  <g class="legend">
+    <rect x="180" y="228" width="12" height="12" fill="#5c8fc5"/>
+    <text x="200" y="239">World-relative actions</text>
+    <rect x="395" y="228" width="12" height="12" fill="url(#avf-hatch)"/>
+    <text x="415" y="239">AVF</text>
+  </g>
+</svg>
