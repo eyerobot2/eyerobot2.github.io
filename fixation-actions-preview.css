@@ -1,0 +1,9 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #fff; color: #333; font: 18px/1.45 'Open Sans', sans-serif; }
+main { width: min(800px, calc(100% - 48px)); margin: 64px auto; }
+h1 { font: 600 23px/1.3 'Avenir Next', Avenir, 'Open Sans', sans-serif; margin: 0 0 16px; }
+.intro { margin: 0 0 28px; }
+@media (max-width: 550px) {
+    main { width: calc(100% - 32px); margin: 32px auto; }
+    h1 { font-size: 21px; } .intro { font-size: 16px; }
+}

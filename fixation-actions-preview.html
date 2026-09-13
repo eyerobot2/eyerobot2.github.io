@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fixation-centric actions</title>
+    <link rel="stylesheet" href="fixation-actions-preview.css">
+    <link rel="stylesheet" href="fixation-actions.css">
+    <script src="fixation-actions.js" defer></script>
+</head>
+<body>
+<main>
+    <h1>Fixation-centric action frame</h1>
+    <p class="intro">The same reaching motions, expressed relative to fixation, come together in a shared frame.</p>
+    <figure id="fixation-actions" class="fixation-actions" data-fixation-actions data-src="data/fixation-actions/tape-pick-widget.json" aria-label="Interactive comparison of world and fixation coordinates">
+        <p data-load-status role="alert" hidden></p>
+        <div class="views">
+            <section class="view">
+                <h4>World frame</h4><p class="view-note">Relative to the robot</p>
+                <canvas id="world-view" tabindex="0" aria-label="World-frame gripper trajectories. Drag or use arrow keys to rotate both views; plus and minus to zoom."></canvas>
+            </section>
+            <section class="view">
+                <h4>Fixation frame</h4><p class="view-note">Relative to the gaze direction</p>
+                <canvas id="fixation-view" tabindex="0" aria-label="The same gripper trajectories in fixation coordinates. Drag or use arrow keys to rotate both views; plus and minus to zoom."></canvas>
+            </section>
+        </div>
+        <div class="rgb-context">
+            <p class="rgb-heading">Point to a frame to locate the pose above</p>
+            <div class="rgb-strip">
+                <button class="rgb-frame" type="button" data-example="0" aria-label="Locate the reach pose in both plots">
+                    <img src="data/fixation-actions/reach-0.webp" width="480" height="360" loading="lazy" decoding="async" alt="Robot gripper beside the yellow tape roll at the start of the reach">
+                </button>
+                <button class="rgb-frame" type="button" data-example="1" aria-label="Locate the approach pose in both plots">
+                    <img src="data/fixation-actions/reach-1.webp" width="480" height="360" loading="lazy" decoding="async" alt="Robot gripper approaching the yellow tape roll from above">
+                </button>
+                <button class="rgb-frame" type="button" data-example="2" aria-label="Locate the pre-grasp pose in both plots">
+                    <img src="data/fixation-actions/reach-2.webp" width="480" height="360" loading="lazy" decoding="async" alt="Robot gripper positioned around the yellow tape roll before grasping">
+                </button>
+            </div>
+        </div>
+        <figcaption class="figure-footer">
+            <span>Recorded gripper poses during tape picking, shown in world and fixation coordinates at the same scale. Expressing motion relative to fixation brings reaches to different object locations into a more compact representation.</span>
+        </figcaption>
+    </figure>
+</main>
+</body>
+</html>

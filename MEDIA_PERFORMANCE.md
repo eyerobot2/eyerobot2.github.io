@@ -55,6 +55,7 @@ Install test tooling outside the site, then run:
 ```sh
 npm install --prefix /tmp/eyerobot-media-tests playwright
 NODE_PATH=/tmp/eyerobot-media-tests/node_modules node scripts/test_media.cjs
+NODE_PATH=/tmp/eyerobot-media-tests/node_modules node scripts/test_fixation_actions.cjs
 ```
 
 The tests use installed Google Chrome and a temporary localhost server with
@@ -62,6 +63,24 @@ byte-range support. They cover delayed responses, rapid navigation, seeking,
 pause/resume, visibility, source eviction, paired fixation playback, failed
 downloads, autoplay rejection, mobile overflow, and thumbnail aspect ratios.
 The tests do not publish or alter media.
+
+The fixation-action figure uses a separate, deferred pose payload loaded
+within 400 pixels of the viewport. Its static geometry is precomputed; only
+the small camera sway redraws at 20 fps, persisting around the user's chosen
+angle while pausing during dragging or while offscreen. Its checks cover lazy loading, the fixed 25–100% window, linked
+camera controls, RGB pose highlights, reduced motion, and responsive layout.
+
+The fixation-observation carousel uses horizontal pairs from
+`data/fixation-panels/rows/`: static and fixated views share each encoded
+frame, with pick and place pairs alongside one another on desktop. Below
+550 px the two stages stack while each pair stays side by side. These retain
+the original 128 samples, seeded order, and 12 fps, with no additional video
+streams. Regenerate from the original cached frames with:
+
+```sh
+python3 scripts/generate_fixation_site_panels.py --layout horizontal \
+  --output data/fixation-panels/rows --panels pick-tape place-tape pick-tea place-tea
+```
 
 ## Validation (September 10, 2026)
 

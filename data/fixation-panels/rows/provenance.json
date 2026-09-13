@@ -1,0 +1,2227 @@
+{
+  "fps": 12,
+  "samples": 128,
+  "shuffle_seed": 7,
+  "original_frame_indices": [
+    35,
+    92,
+    16,
+    75,
+    78,
+    65,
+    3,
+    86,
+    34,
+    79,
+    114,
+    0,
+    110,
+    41,
+    88,
+    76,
+    107,
+    48,
+    81,
+    1,
+    29,
+    52,
+    43,
+    56,
+    98,
+    113,
+    87,
+    67,
+    14,
+    25,
+    77,
+    57,
+    22,
+    66,
+    20,
+    45,
+    2,
+    42,
+    51,
+    126,
+    60,
+    10,
+    84,
+    32,
+    102,
+    112,
+    38,
+    85,
+    91,
+    119,
+    21,
+    31,
+    33,
+    62,
+    36,
+    90,
+    61,
+    49,
+    44,
+    106,
+    93,
+    123,
+    125,
+    117,
+    58,
+    59,
+    40,
+    104,
+    63,
+    26,
+    96,
+    108,
+    120,
+    118,
+    47,
+    24,
+    127,
+    94,
+    13,
+    23,
+    89,
+    39,
+    95,
+    101,
+    69,
+    18,
+    109,
+    37,
+    17,
+    71,
+    5,
+    100,
+    122,
+    124,
+    97,
+    73,
+    103,
+    116,
+    99,
+    80,
+    28,
+    15,
+    72,
+    115,
+    54,
+    70,
+    111,
+    30,
+    8,
+    53,
+    55,
+    11,
+    4,
+    27,
+    64,
+    7,
+    74,
+    46,
+    12,
+    68,
+    105,
+    9,
+    6,
+    83,
+    50,
+    19,
+    121,
+    82
+  ],
+  "panels": [
+    {
+      "panel": "pick-tape",
+      "source_manifest": "data/fixation-cloud/count-128/manifest.json",
+      "ordered_frames": [
+        {
+          "episode": "episode_002",
+          "source_frame": 65
+        },
+        {
+          "episode": "episode_031",
+          "source_frame": 53
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 54
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 31
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 34
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 29
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 41
+        },
+        {
+          "episode": "episode_035",
+          "source_frame": 27
+        },
+        {
+          "episode": "episode_043",
+          "source_frame": 55
+        },
+        {
+          "episode": "episode_038",
+          "source_frame": 40
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 43
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 39
+        },
+        {
+          "episode": "episode_057",
+          "source_frame": 62
+        },
+        {
+          "episode": "episode_063",
+          "source_frame": 66
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 73
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 68
+        },
+        {
+          "episode": "episode_028",
+          "source_frame": 61
+        },
+        {
+          "episode": "episode_056",
+          "source_frame": 61
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 59
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 54
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 79
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 82
+        },
+        {
+          "episode": "episode_028",
+          "source_frame": 27
+        },
+        {
+          "episode": "episode_033",
+          "source_frame": 44
+        },
+        {
+          "episode": "episode_043",
+          "source_frame": 34
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 81
+        },
+        {
+          "episode": "episode_050",
+          "source_frame": 82
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 80
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 57
+        },
+        {
+          "episode": "episode_055",
+          "source_frame": 27
+        },
+        {
+          "episode": "episode_039",
+          "source_frame": 75
+        },
+        {
+          "episode": "episode_059",
+          "source_frame": 36
+        },
+        {
+          "episode": "episode_035",
+          "source_frame": 52
+        },
+        {
+          "episode": "episode_029",
+          "source_frame": 38
+        },
+        {
+          "episode": "episode_047",
+          "source_frame": 44
+        },
+        {
+          "episode": "episode_051",
+          "source_frame": 72
+        },
+        {
+          "episode": "episode_029",
+          "source_frame": 56
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 74
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 60
+        },
+        {
+          "episode": "episode_045",
+          "source_frame": 38
+        },
+        {
+          "episode": "episode_041",
+          "source_frame": 43
+        },
+        {
+          "episode": "episode_025",
+          "source_frame": 46
+        },
+        {
+          "episode": "episode_047",
+          "source_frame": 87
+        },
+        {
+          "episode": "episode_052",
+          "source_frame": 33
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 92
+        },
+        {
+          "episode": "episode_056",
+          "source_frame": 39
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 40
+        },
+        {
+          "episode": "episode_036",
+          "source_frame": 54
+        },
+        {
+          "episode": "episode_030",
+          "source_frame": 34
+        },
+        {
+          "episode": "episode_026",
+          "source_frame": 30
+        },
+        {
+          "episode": "episode_036",
+          "source_frame": 78
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 63
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 62
+        },
+        {
+          "episode": "episode_045",
+          "source_frame": 56
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 88
+        },
+        {
+          "episode": "episode_054",
+          "source_frame": 35
+        },
+        {
+          "episode": "episode_060",
+          "source_frame": 26
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 40
+        },
+        {
+          "episode": "episode_037",
+          "source_frame": 27
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 50
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 56
+        },
+        {
+          "episode": "episode_062",
+          "source_frame": 39
+        },
+        {
+          "episode": "episode_060",
+          "source_frame": 62
+        },
+        {
+          "episode": "episode_032",
+          "source_frame": 52
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 78
+        },
+        {
+          "episode": "episode_062",
+          "source_frame": 57
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 41
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 88
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 32
+        },
+        {
+          "episode": "episode_054",
+          "source_frame": 53
+        },
+        {
+          "episode": "episode_052",
+          "source_frame": 71
+        },
+        {
+          "episode": "episode_037",
+          "source_frame": 62
+        },
+        {
+          "episode": "episode_033",
+          "source_frame": 82
+        },
+        {
+          "episode": "episode_027",
+          "source_frame": 30
+        },
+        {
+          "episode": "episode_034",
+          "source_frame": 78
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 29
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 81
+        },
+        {
+          "episode": "episode_046",
+          "source_frame": 26
+        },
+        {
+          "episode": "episode_039",
+          "source_frame": 28
+        },
+        {
+          "episode": "episode_050",
+          "source_frame": 42
+        },
+        {
+          "episode": "episode_055",
+          "source_frame": 72
+        },
+        {
+          "episode": "episode_040",
+          "source_frame": 38
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 38
+        },
+        {
+          "episode": "episode_048",
+          "source_frame": 80
+        },
+        {
+          "episode": "episode_061",
+          "source_frame": 71
+        },
+        {
+          "episode": "episode_044",
+          "source_frame": 36
+        },
+        {
+          "episode": "episode_051",
+          "source_frame": 51
+        },
+        {
+          "episode": "episode_048",
+          "source_frame": 42
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 83
+        },
+        {
+          "episode": "episode_049",
+          "source_frame": 23
+        },
+        {
+          "episode": "episode_061",
+          "source_frame": 24
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 58
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 48
+        },
+        {
+          "episode": "episode_041",
+          "source_frame": 23
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 42
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 23
+        },
+        {
+          "episode": "episode_040",
+          "source_frame": 82
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 58
+        },
+        {
+          "episode": "episode_002",
+          "source_frame": 41
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 35
+        },
+        {
+          "episode": "episode_031",
+          "source_frame": 79
+        },
+        {
+          "episode": "episode_038",
+          "source_frame": 56
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 63
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 30
+        },
+        {
+          "episode": "episode_027",
+          "source_frame": 54
+        },
+        {
+          "episode": "episode_053",
+          "source_frame": 43
+        },
+        {
+          "episode": "episode_034",
+          "source_frame": 52
+        },
+        {
+          "episode": "episode_046",
+          "source_frame": 43
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 23
+        },
+        {
+          "episode": "episode_032",
+          "source_frame": 70
+        },
+        {
+          "episode": "episode_026",
+          "source_frame": 55
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 50
+        },
+        {
+          "episode": "episode_058",
+          "source_frame": 76
+        },
+        {
+          "episode": "episode_030",
+          "source_frame": 50
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 72
+        },
+        {
+          "episode": "episode_049",
+          "source_frame": 44
+        },
+        {
+          "episode": "episode_025",
+          "source_frame": 25
+        },
+        {
+          "episode": "episode_057",
+          "source_frame": 28
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 97
+        },
+        {
+          "episode": "episode_058",
+          "source_frame": 53
+        },
+        {
+          "episode": "episode_063",
+          "source_frame": 37
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 43
+        },
+        {
+          "episode": "episode_053",
+          "source_frame": 65
+        },
+        {
+          "episode": "episode_042",
+          "source_frame": 84
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 66
+        },
+        {
+          "episode": "episode_042",
+          "source_frame": 44
+        },
+        {
+          "episode": "episode_059",
+          "source_frame": 70
+        },
+        {
+          "episode": "episode_044",
+          "source_frame": 74
+        }
+      ]
+    },
+    {
+      "panel": "place-tape",
+      "source_manifest": "data/fixation-cloud/place/count-128/manifest.json",
+      "ordered_frames": [
+        {
+          "episode": "episode_002",
+          "source_frame": 254
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 290
+        },
+        {
+          "episode": "episode_045",
+          "source_frame": 249
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 251
+        },
+        {
+          "episode": "episode_043",
+          "source_frame": 246
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 242
+        },
+        {
+          "episode": "episode_025",
+          "source_frame": 212
+        },
+        {
+          "episode": "episode_048",
+          "source_frame": 246
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 216
+        },
+        {
+          "episode": "episode_029",
+          "source_frame": 270
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 221
+        },
+        {
+          "episode": "episode_031",
+          "source_frame": 259
+        },
+        {
+          "episode": "episode_044",
+          "source_frame": 265
+        },
+        {
+          "episode": "episode_039",
+          "source_frame": 286
+        },
+        {
+          "episode": "episode_053",
+          "source_frame": 278
+        },
+        {
+          "episode": "episode_045",
+          "source_frame": 229
+        },
+        {
+          "episode": "episode_046",
+          "source_frame": 257
+        },
+        {
+          "episode": "episode_034",
+          "source_frame": 240
+        },
+        {
+          "episode": "episode_062",
+          "source_frame": 279
+        },
+        {
+          "episode": "episode_063",
+          "source_frame": 312
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 233
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 271
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 238
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 277
+        },
+        {
+          "episode": "episode_057",
+          "source_frame": 294
+        },
+        {
+          "episode": "episode_037",
+          "source_frame": 278
+        },
+        {
+          "episode": "episode_061",
+          "source_frame": 304
+        },
+        {
+          "episode": "episode_052",
+          "source_frame": 273
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 261
+        },
+        {
+          "episode": "episode_032",
+          "source_frame": 198
+        },
+        {
+          "episode": "episode_028",
+          "source_frame": 231
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 290
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 256
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 288
+        },
+        {
+          "episode": "episode_051",
+          "source_frame": 251
+        },
+        {
+          "episode": "episode_055",
+          "source_frame": 251
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 250
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 245
+        },
+        {
+          "episode": "episode_058",
+          "source_frame": 256
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 264
+        },
+        {
+          "episode": "episode_031",
+          "source_frame": 240
+        },
+        {
+          "episode": "episode_041",
+          "source_frame": 223
+        },
+        {
+          "episode": "episode_035",
+          "source_frame": 235
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 254
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 217
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 253
+        },
+        {
+          "episode": "episode_057",
+          "source_frame": 254
+        },
+        {
+          "episode": "episode_032",
+          "source_frame": 228
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 277
+        },
+        {
+          "episode": "episode_042",
+          "source_frame": 272
+        },
+        {
+          "episode": "episode_062",
+          "source_frame": 237
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 240
+        },
+        {
+          "episode": "episode_027",
+          "source_frame": 238
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 280
+        },
+        {
+          "episode": "episode_026",
+          "source_frame": 224
+        },
+        {
+          "episode": "episode_040",
+          "source_frame": 258
+        },
+        {
+          "episode": "episode_063",
+          "source_frame": 284
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 251
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 245
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 239
+        },
+        {
+          "episode": "episode_027",
+          "source_frame": 267
+        },
+        {
+          "episode": "episode_025",
+          "source_frame": 222
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 272
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 266
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 249
+        },
+        {
+          "episode": "episode_042",
+          "source_frame": 232
+        },
+        {
+          "episode": "episode_060",
+          "source_frame": 250
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 226
+        },
+        {
+          "episode": "episode_025",
+          "source_frame": 239
+        },
+        {
+          "episode": "episode_048",
+          "source_frame": 267
+        },
+        {
+          "episode": "episode_026",
+          "source_frame": 257
+        },
+        {
+          "episode": "episode_034",
+          "source_frame": 269
+        },
+        {
+          "episode": "episode_031",
+          "source_frame": 270
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 223
+        },
+        {
+          "episode": "episode_046",
+          "source_frame": 229
+        },
+        {
+          "episode": "episode_035",
+          "source_frame": 255
+        },
+        {
+          "episode": "episode_052",
+          "source_frame": 255
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 259
+        },
+        {
+          "episode": "episode_059",
+          "source_frame": 242
+        },
+        {
+          "episode": "episode_050",
+          "source_frame": 271
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 280
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 234
+        },
+        {
+          "episode": "episode_002",
+          "source_frame": 230
+        },
+        {
+          "episode": "episode_039",
+          "source_frame": 268
+        },
+        {
+          "episode": "episode_036",
+          "source_frame": 248
+        },
+        {
+          "episode": "episode_043",
+          "source_frame": 214
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 293
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 223
+        },
+        {
+          "episode": "episode_028",
+          "source_frame": 249
+        },
+        {
+          "episode": "episode_033",
+          "source_frame": 256
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 261
+        },
+        {
+          "episode": "episode_060",
+          "source_frame": 228
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 262
+        },
+        {
+          "episode": "episode_047",
+          "source_frame": 238
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 255
+        },
+        {
+          "episode": "episode_059",
+          "source_frame": 278
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 275
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 253
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 215
+        },
+        {
+          "episode": "episode_051",
+          "source_frame": 232
+        },
+        {
+          "episode": "episode_053",
+          "source_frame": 245
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 278
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 219
+        },
+        {
+          "episode": "episode_056",
+          "source_frame": 261
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 240
+        },
+        {
+          "episode": "episode_041",
+          "source_frame": 260
+        },
+        {
+          "episode": "episode_058",
+          "source_frame": 234
+        },
+        {
+          "episode": "episode_040",
+          "source_frame": 287
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 250
+        },
+        {
+          "episode": "episode_037",
+          "source_frame": 247
+        },
+        {
+          "episode": "episode_056",
+          "source_frame": 226
+        },
+        {
+          "episode": "episode_033",
+          "source_frame": 224
+        },
+        {
+          "episode": "episode_047",
+          "source_frame": 278
+        },
+        {
+          "episode": "episode_061",
+          "source_frame": 261
+        },
+        {
+          "episode": "episode_047",
+          "source_frame": 258
+        },
+        {
+          "episode": "episode_052",
+          "source_frame": 291
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 237
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 265
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 238
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 231
+        },
+        {
+          "episode": "episode_055",
+          "source_frame": 283
+        },
+        {
+          "episode": "episode_036",
+          "source_frame": 268
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 250
+        },
+        {
+          "episode": "episode_050",
+          "source_frame": 248
+        },
+        {
+          "episode": "episode_044",
+          "source_frame": 285
+        },
+        {
+          "episode": "episode_029",
+          "source_frame": 242
+        },
+        {
+          "episode": "episode_063",
+          "source_frame": 257
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 227
+        }
+      ]
+    },
+    {
+      "panel": "pick-tea",
+      "source_manifest": "data/fixation-cloud/tea/pick_tea/count-128/manifest.json",
+      "ordered_frames": [
+        {
+          "episode": "episode_020",
+          "source_frame": 80
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 58
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 71
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 25
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 91
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 98
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 31
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 70
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 32
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 72
+        },
+        {
+          "episode": "episode_002",
+          "source_frame": 27
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 34
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 67
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 48
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 89
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 66
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 54
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 82
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 76
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 76
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 55
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 74
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 57
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 28
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 27
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 61
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 113
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 88
+        },
+        {
+          "episode": "episode_002",
+          "source_frame": 71
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 72
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 44
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 35
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 35
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 25
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 57
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 33
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 55
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 40
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 26
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 82
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 46
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 25
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 51
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 65
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 92
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 73
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 72
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 101
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 62
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 28
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 92
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 58
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 99
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 48
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 54
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 68
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 27
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 26
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 38
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 46
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 74
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 72
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 40
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 29
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 67
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 82
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 50
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 45
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 44
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 51
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 81
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 87
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 24
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 46
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 90
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 54
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 63
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 52
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 27
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 37
+        },
+        {
+          "episode": "episode_002",
+          "source_frame": 58
+        },
+        {
+          "episode": "episode_002",
+          "source_frame": 39
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 48
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 42
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 76
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 85
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 101
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 88
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 70
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 34
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 89
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 63
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 77
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 89
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 111
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 55
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 64
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 39
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 43
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 78
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 74
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 80
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 56
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 39
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 29
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 72
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 44
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 61
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 48
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 48
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 34
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 81
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 82
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 26
+        },
+        {
+          "episode": "episode_002",
+          "source_frame": 90
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 96
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 71
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 63
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 23
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 29
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 51
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 63
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 87
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 35
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 49
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 61
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 52
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 84
+        }
+      ]
+    },
+    {
+      "panel": "place-tea",
+      "source_manifest": "data/fixation-cloud/tea/carry_tea/count-128/manifest.json",
+      "ordered_frames": [
+        {
+          "episode": "episode_005",
+          "source_frame": 194
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 143
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 150
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 176
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 159
+        },
+        {
+          "episode": "episode_002",
+          "source_frame": 136
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 169
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 228
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 130
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 118
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 153
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 191
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 182
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 125
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 149
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 132
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 123
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 162
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 177
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 145
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 174
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 147
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 154
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 129
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 100
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 123
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 199
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 170
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 119
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 153
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 119
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 101
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 158
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 165
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 196
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 159
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 129
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 127
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 167
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 153
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 162
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 142
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 145
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 137
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 164
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 159
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 133
+        },
+        {
+          "episode": "episode_005",
+          "source_frame": 130
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 140
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 142
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 193
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 159
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 178
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 134
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 206
+        },
+        {
+          "episode": "episode_002",
+          "source_frame": 185
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 172
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 148
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 153
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 148
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 179
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 150
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 200
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 117
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 140
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 170
+        },
+        {
+          "episode": "episode_002",
+          "source_frame": 166
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 163
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 175
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 110
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 178
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 164
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 145
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 138
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 118
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 181
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 136
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 171
+        },
+        {
+          "episode": "episode_018",
+          "source_frame": 159
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 112
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 180
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 163
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 182
+        },
+        {
+          "episode": "episode_019",
+          "source_frame": 188
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 124
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 194
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 186
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 174
+        },
+        {
+          "episode": "episode_007",
+          "source_frame": 153
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 117
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 140
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 138
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 207
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 136
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 143
+        },
+        {
+          "episode": "episode_016",
+          "source_frame": 131
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 133
+        },
+        {
+          "episode": "episode_015",
+          "source_frame": 116
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 168
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 123
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 143
+        },
+        {
+          "episode": "episode_002",
+          "source_frame": 197
+        },
+        {
+          "episode": "episode_017",
+          "source_frame": 182
+        },
+        {
+          "episode": "episode_002",
+          "source_frame": 154
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 146
+        },
+        {
+          "episode": "episode_011",
+          "source_frame": 122
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 193
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 213
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 117
+        },
+        {
+          "episode": "episode_014",
+          "source_frame": 117
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 168
+        },
+        {
+          "episode": "episode_004",
+          "source_frame": 150
+        },
+        {
+          "episode": "episode_000",
+          "source_frame": 129
+        },
+        {
+          "episode": "episode_006",
+          "source_frame": 102
+        },
+        {
+          "episode": "episode_010",
+          "source_frame": 136
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 173
+        },
+        {
+          "episode": "episode_013",
+          "source_frame": 115
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 155
+        },
+        {
+          "episode": "episode_021",
+          "source_frame": 214
+        },
+        {
+          "episode": "episode_009",
+          "source_frame": 113
+        },
+        {
+          "episode": "episode_024",
+          "source_frame": 196
+        },
+        {
+          "episode": "episode_020",
+          "source_frame": 155
+        },
+        {
+          "episode": "episode_012",
+          "source_frame": 111
+        },
+        {
+          "episode": "episode_003",
+          "source_frame": 103
+        },
+        {
+          "episode": "episode_022",
+          "source_frame": 214
+        },
+        {
+          "episode": "episode_023",
+          "source_frame": 182
+        },
+        {
+          "episode": "episode_001",
+          "source_frame": 140
+        },
+        {
+          "episode": "episode_008",
+          "source_frame": 159
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "width": 464,
+    "height": 192,
+    "raw": [
+      0,
+      0,
+      256,
+      192
+    ],
+    "fixation": [
+      272,
+      0,
+      192,
+      192
+    ]
+  },
+  "method": "Same approved stage samples and per-frame local contrast as the 128-frame study. Same seeded shuffle A. Each encoded frame contains both views of one exposure. Raw camera padding removed; no camera content cropped. Wrench uses whole rollouts.",
+  "gif_timing": "GIF timing rounds frame durations to centiseconds; MP4 preserves exact 12 fps."
+}

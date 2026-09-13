@@ -1,0 +1,26 @@
+/* Scoped to the action-frame figure; no global page or media styles. */
+.fixation-actions, .fixation-actions * { box-sizing: border-box; }
+.fixation-actions [hidden] { display: none !important; }
+.fixation-actions { width: 100%; margin: 24px 0 32px; font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif; text-align: left; }
+.fixation-actions .views { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid #eee; }
+.fixation-actions .view { min-width: 0; position: relative; padding-top: 22px; }
+.fixation-actions .view + .view { border-left: 1px solid #eee; }
+.fixation-actions h4 { margin: 0; text-align: center; font-size: 16px; font-weight: 500; }
+.fixation-actions .view-note { margin: 4px 0 0; color: #999; text-align: center; font-size: 11px; }
+.fixation-actions canvas { width: 100%; height: 340px; display: block; touch-action: none; cursor: grab; }
+.fixation-actions canvas:active { cursor: grabbing; }
+.fixation-actions .figure-footer { display: flex; align-items: center; gap: 16px; border-top: 1px solid #eee; padding-top: 12px; }
+.fixation-actions .rgb-context { width: min(456px, 100%); margin: 0 auto 20px; }
+.fixation-actions .rgb-heading { color: #999; font-size: 10px; text-align: left; margin: 0 0 8px; }
+.fixation-actions .rgb-strip { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+.fixation-actions .rgb-frame { display: block; width: 100%; height: auto; padding: 0; border: 0; border-radius: 3px; background: transparent; cursor: pointer; }
+.fixation-actions .rgb-frame img { display: block; width: 100%; height: auto; border-radius: 3px; }
+.fixation-actions .rgb-frame:hover { background: #f3f3f3; }
+.fixation-actions .rgb-frame.is-active img { outline: 1px solid #555; outline-offset: 2px; }
+.fixation-actions button:focus-visible, .fixation-actions canvas:focus-visible { outline: 2px solid #777; outline-offset: 4px; }
+.fixation-actions figcaption { margin: 0; color: #777; font-size: 12px; font-weight: 500; line-height: 1.4; text-align: left; }
+@media (max-width: 550px) {
+    .fixation-actions h4 { font-size: 14px; }
+    .fixation-actions .view-note { font-size: 10px; padding: 0 8px; min-height: 30px; }
+    .fixation-actions canvas { height: 225px; }
+}

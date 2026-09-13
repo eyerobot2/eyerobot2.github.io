@@ -1,5 +1,5 @@
 .fixation-panels {
-    width: 60%;
+    width: 100%;
     min-width: 0;
     max-width: 100%;
     margin: 24px auto 32px;
@@ -8,8 +8,8 @@
 .fixation-panels-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 18px;
-    row-gap: 12px;
+    column-gap: 32px;
+    row-gap: 20px;
     align-items: start;
 }
 .fixation-carousel-viewport { position: relative; overflow: hidden; }
@@ -17,17 +17,33 @@
 @media (prefers-reduced-motion: reduce) {
     .fixation-carousel-track { transition: none; }
 }
-.fixation-panels-title {
+.fixation-panels .fixation-panels-title {
+    margin: 0;
     font-size: 12px;
     font-weight: 500;
-    text-align: center;
+    text-align: left;
     color: #555;
+}
+.fixation-stage { min-width: 0; }
+.fixation-stage-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    margin-bottom: 8px;
+}
+.fixation-stage-heading > span {
+    color: #999;
+    font-size: 10px;
+    white-space: nowrap;
 }
 .fixation-panels video {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 256 / 464;
+    aspect-ratio: 464 / 192;
     background: white;
 }
 .fixation-panels button:focus-visible { outline: 2px solid #9e852c; outline-offset: 4px; }
@@ -35,8 +51,8 @@
 @media (max-width: 550px) {
     .fixation-panels { width: 100%; }
     .fixation-panels-grid {
-        column-gap: 8px;
-        row-gap: 10px;
+        grid-template-columns: 1fr;
+        row-gap: 20px;
     }
-    .fixation-panels-title { font-size: 11px; }
+    .fixation-panels .fixation-panels-title { font-size: 11px; }
 }

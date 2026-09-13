@@ -60,6 +60,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="style.css?v=media1" rel="stylesheet" type="text/css" />
+    <link href="fixation-actions.css" rel="stylesheet" type="text/css" />
+    <script src="fixation-actions.js" defer></script>
     <link href="fixation-panels.css" rel="stylesheet" type="text/css" />
     <link href="media.css?v=1" rel="stylesheet" />
     <script src="media.js?v=2" defer></script>
@@ -676,26 +678,26 @@
                     <div class="carousel-track fixation-carousel-track">
                 <div class="fixation-slide" role="group" aria-roledescription="slide" aria-label="1 of 2: Tape" aria-hidden="false">
                     <div class="fixation-panels-grid">
-                        <div class="fixation-panels-title">Pick tape</div>
-                        <div class="fixation-panels-title">Place tape</div>
-                        <video muted loop playsinline preload="none" width="256" height="464" aria-label="Pick tape: unfixated observations above matching fixated observations" style="aspect-ratio: 256 / 464; height: auto;" data-src="data/fixation-panels/pick-tape.mp4" data-poster="data/web-posters/fixation-panels/pick-tape.webp">
-
-                        </video>
-                        <video muted loop playsinline preload="none" width="256" height="464" aria-label="Place tape: unfixated observations above matching fixated observations" style="aspect-ratio: 256 / 464; height: auto;" data-src="data/fixation-panels/place-tape.mp4" data-poster="data/web-posters/fixation-panels/place-tape.webp">
-
-                        </video>
+                        <section class="fixation-stage" aria-label="Pick tape">
+                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Pick tape</h4><span>Static → Fixated</span></div>
+                            <video muted loop playsinline preload="none" width="464" height="192" aria-label="Pick tape: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/pick-tape.mp4" data-poster="data/fixation-panels/rows/pick-tape.webp"></video>
+                        </section>
+                        <section class="fixation-stage" aria-label="Place tape">
+                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Place tape</h4><span>Static → Fixated</span></div>
+                            <video muted loop playsinline preload="none" width="464" height="192" aria-label="Place tape: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/place-tape.mp4" data-poster="data/fixation-panels/rows/place-tape.webp"></video>
+                        </section>
                     </div>
                 </div>
                 <div class="fixation-slide" role="group" aria-roledescription="slide" aria-label="2 of 2: Tea" aria-hidden="true" inert>
                     <div class="fixation-panels-grid">
-                        <div class="fixation-panels-title">Pick tea</div>
-                        <div class="fixation-panels-title">Place tea</div>
-                        <video muted loop playsinline preload="none" width="256" height="464" aria-label="Pick tea: unfixated observations above matching fixated observations" style="aspect-ratio: 256 / 464; height: auto;" data-src="data/fixation-panels/pick-tea.mp4" data-poster="data/web-posters/fixation-panels/pick-tea.webp">
-
-                        </video>
-                        <video muted loop playsinline preload="none" width="256" height="464" aria-label="Place tea: unfixated observations above matching fixated observations" style="aspect-ratio: 256 / 464; height: auto;" data-src="data/fixation-panels/place-tea.mp4" data-poster="data/web-posters/fixation-panels/place-tea.webp">
-
-                        </video>
+                        <section class="fixation-stage" aria-label="Pick tea">
+                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Pick tea</h4><span>Static → Fixated</span></div>
+                            <video muted loop playsinline preload="none" width="464" height="192" aria-label="Pick tea: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/pick-tea.mp4" data-poster="data/fixation-panels/rows/pick-tea.webp"></video>
+                        </section>
+                        <section class="fixation-stage" aria-label="Place tea">
+                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Place tea</h4><span>Static → Fixated</span></div>
+                            <video muted loop playsinline preload="none" width="464" height="192" aria-label="Place tea: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/place-tea.mp4" data-poster="data/fixation-panels/rows/place-tea.webp"></video>
+                        </section>
                     </div>
                 </div>
                     </div>
@@ -716,11 +718,43 @@
             </figure>
 
             <h3>Fixation-centric action frame</h3>
-
-
-
-
-
+            <p class="paragraph">
+                The same idea applies to the action space. In world coordinates, reaching for the same object at different
+                locations produces different gripper trajectories. Expressing proprioception and actions relative to fixation
+                brings these reaches into a more compact manifold, reducing the variation the policy needs to learn.
+                This lets the same data more densely cover the relevant motions, rather than spreading it across
+                different object locations.
+            </p>
+            <figure id="fixation-actions" class="fixation-actions" data-fixation-actions data-src="data/fixation-actions/tape-pick-widget.json" aria-label="Interactive comparison of world and fixation coordinates">
+                <p data-load-status role="alert" hidden></p>
+                <div class="views">
+                    <section class="view">
+                        <h4>World frame</h4><p class="view-note">Relative to the robot</p>
+                        <canvas id="world-view" tabindex="0" aria-label="World-frame gripper trajectories. Drag or use arrow keys to rotate both views; plus and minus to zoom."></canvas>
+                    </section>
+                    <section class="view">
+                        <h4>Fixation frame</h4><p class="view-note">Relative to the gaze direction</p>
+                        <canvas id="fixation-view" tabindex="0" aria-label="The same gripper trajectories in fixation coordinates. Drag or use arrow keys to rotate both views; plus and minus to zoom."></canvas>
+                    </section>
+                </div>
+                <div class="rgb-context">
+                    <p class="rgb-heading">Point to a frame to locate the pose above</p>
+                    <div class="rgb-strip">
+                        <button class="rgb-frame" type="button" data-example="0" aria-label="Locate the reach pose in both plots">
+                            <img src="data/fixation-actions/reach-0.webp" width="480" height="360" loading="lazy" decoding="async" alt="Robot gripper beside the yellow tape roll at the start of the reach">
+                        </button>
+                        <button class="rgb-frame" type="button" data-example="1" aria-label="Locate the approach pose in both plots">
+                            <img src="data/fixation-actions/reach-1.webp" width="480" height="360" loading="lazy" decoding="async" alt="Robot gripper approaching the yellow tape roll from above">
+                        </button>
+                        <button class="rgb-frame" type="button" data-example="2" aria-label="Locate the pre-grasp pose in both plots">
+                            <img src="data/fixation-actions/reach-2.webp" width="480" height="360" loading="lazy" decoding="async" alt="Robot gripper positioned around the yellow tape roll before grasping">
+                        </button>
+                    </div>
+                </div>
+                <figcaption class="figure-footer">
+                    <span>Recorded gripper poses during tape picking, shown in world and fixation coordinates at the same scale. Expressing motion relative to fixation brings reaches to different object locations into a more compact representation.</span>
+                </figcaption>
+            </figure>
         </div>
 
 

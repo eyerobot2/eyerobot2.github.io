@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export standalone paired panels for the main site's 2x5 comparison."""
+"""Export paired fixation panels, vertically stacked or side by side."""
 import argparse
 import json
 from pathlib import Path
@@ -24,6 +24,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--cache", type=Path, default=Path("/tmp/fixation-state-video-frames"))
     parser.add_argument("--output", type=Path, default=Path("data/fixation-panels"))
+    parser.add_argument("--layout", choices=("vertical", "horizontal"), default="vertical")
+    parser.add_argument("--panels", nargs="+", choices=[p[0] for p in PANELS])
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     base = Path(__file__).resolve().parents[1]/"data/fixation-cloud"
@@ -31,6 +33,8 @@ def main():
     random.Random(7).shuffle(order)
     panels = []
     for name, cache, folder in PANELS:
+        if args.panels and name not in args.panels:
+            continue
         manifest = json.loads((base/folder/"manifest.json").read_text())
         records = [(r["episode"], s) for r in manifest["records"] for s in r["samples"]]
         assert sorted(s["pool_rank"] for _, s in records) == list(range(128))
@@ -41,12 +45,22 @@ def main():
             frames = Path(temporary)
             for i in range(128):
                 # The two views share one encoded frame, so they cannot drift.
-                canvas = Image.new("RGB", (256, 464), "white")
-                canvas.paste(Image.fromarray(arrays["raw"][i]).crop((0, 32, 256, 224)), (0, 0))
-                canvas.paste(Image.fromarray(arrays["fixation"][i]), (0, 208))
+                raw = Image.fromarray(arrays["raw"][i]).crop((0, 32, 256, 224))
+                fixated = Image.fromarray(arrays["fixation"][i])
+                if args.layout == "horizontal":
+                    # Equal display heights preserve both complete fields of view.
+                    canvas = Image.new("RGB", (464, 192), "white")
+                    canvas.paste(raw, (0, 0))
+                    canvas.paste(fixated.resize((192, 192), Image.Resampling.LANCZOS), (272, 0))
+                else:
+                    canvas = Image.new("RGB", (256, 464), "white")
+                    canvas.paste(raw, (0, 0))
+                    canvas.paste(fixated, (0, 208))
                 canvas.save(frames/f"frame_{i:03d}.png")
                 if i == 0:
-                    canvas.save(args.output/f"{name}.jpg", quality=95)
+                    canvas.save(args.output/f"{name}.webp", quality=85)
+                    if args.layout == "vertical":
+                        canvas.save(args.output/f"{name}.jpg", quality=95)
             common = ["ffmpeg", "-v", "error", "-y", "-framerate", "12",
                       "-i", str(frames/"frame_%03d.png")]
             subprocess.run(common + [
@@ -54,20 +68,23 @@ def main():
                 "-crf", "18", "-pix_fmt", "yuv420p", "-movflags", "+faststart",
                 str(args.output/f"{name}.mp4"),
             ], check=True)
-            subprocess.run(common + [
-                "-filter_complex",
-                "[0:v]split[a][b];[a]palettegen=stats_mode=diff[p];[b][p]paletteuse=dither=sierra2_4a",
-                "-loop", "0", str(args.output/f"{name}.gif"),
-            ], check=True)
+            if args.layout == "vertical":
+                subprocess.run(common + [
+                    "-filter_complex",
+                    "[0:v]split[a][b];[a]palettegen=stats_mode=diff[p];[b][p]paletteuse=dither=sierra2_4a",
+                    "-loop", "0", str(args.output/f"{name}.gif"),
+                ], check=True)
         panels.append(dict(
             panel=name, source_manifest=f"data/fixation-cloud/{folder}/manifest.json",
             ordered_frames=[dict(episode=records[i][0], source_frame=records[i][1]["source_frame"])
                             for i in indices],
         ))
-        print(f"Exported {name}: paired GIF + 12-fps MP4", flush=True)
+        print(f"Exported {name}: {args.layout} pair, 12-fps MP4 + WebP poster", flush=True)
     (args.output/"provenance.json").write_text(json.dumps(dict(
         fps=12, samples=128, shuffle_seed=7, original_frame_indices=order, panels=panels,
-        layout=dict(width=256, height=464, raw=[0, 0, 256, 192], fixation=[0, 208, 256, 256]),
+        layout=(dict(width=464, height=192, raw=[0, 0, 256, 192], fixation=[272, 0, 192, 192])
+                if args.layout == "horizontal" else
+                dict(width=256, height=464, raw=[0, 0, 256, 192], fixation=[0, 208, 256, 256])),
         method="Same approved stage samples and per-frame local contrast as the 128-frame study. "
                "Same seeded shuffle A. Each encoded frame contains both views of one exposure. "
                "Raw camera padding removed; no camera content cropped. Wrench uses whole rollouts.",

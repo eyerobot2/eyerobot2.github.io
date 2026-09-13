@@ -63,6 +63,23 @@ async function main() {
                     const rect = image.getBoundingClientRect();
                     return Math.abs(rect.width / rect.height - 16 / 9) < .04;
                 })), `Thumbnail aspect ratio at ${width}px`);
+            const pairs = await page.locator('.fixation-slide[aria-hidden="false"] video').evaluateAll(videos =>
+                videos.map(video => {
+                    const r = video.getBoundingClientRect();
+                    return { y: r.y, bottom: r.bottom, width: r.width, height: r.height };
+                }));
+            assert(pairs.every(r => Math.abs(r.width / r.height - 464 / 192) < .02),
+                `Horizontal observation pairs retain their aspect ratio at ${width}px`);
+            assert(width > 550 ? Math.abs(pairs[0].y - pairs[1].y) < 1 : pairs[1].y >= pairs[0].bottom,
+                `Observation pairs use one row on desktop and stack on mobile at ${width}px`);
+            assert(await page.locator('.gaze-trajectory-item').evaluateAll(items => items.every(item => {
+                const video = item.querySelector('video').getBoundingClientRect();
+                const label = item.querySelector('.gaze-trajectory-label').getBoundingClientRect();
+                const feedback = item.querySelector('.media-feedback').getBoundingClientRect();
+                return label.left >= video.left && label.right <= video.right &&
+                    label.top >= video.top && Math.abs(video.bottom - label.bottom - 8) < 1 &&
+                    feedback.top >= video.bottom;
+            })), `Goal-conditioned labels stay inside the video above its status row at ${width}px`);
         }
         console.log('PASS: responsive page and unstretched thumbnails at four viewport widths');
         await page.setViewportSize({ width: 390, height: 844 });
@@ -145,6 +162,9 @@ async function main() {
         await fixation.scrollIntoViewIfNeeded();
         await page.waitForFunction(() => [...document.querySelectorAll('.fixation-slide[aria-hidden="false"] video')]
             .every(video => !video.paused && video.readyState >= 3));
+        assert(await fixation.locator('.fixation-slide[aria-hidden="false"] video').evaluateAll(videos =>
+            videos.every(video => video.videoWidth === 464 && video.videoHeight === 192)),
+            'Observation carousel loads the horizontal pairs');
         await fixation.locator('.fixation-next').click();
         await page.waitForFunction(() => [...document.querySelectorAll('.fixation-slide[aria-hidden="false"] video')]
             .every(video => !video.paused && video.readyState >= 3));

@@ -1,0 +1,29 @@
+[
+  {
+    "episode": "episode_027",
+    "source_index": 1209,
+    "state_index": 25,
+    "time_s": 1.3004108930035727,
+    "source_frame": 39,
+    "frame_time_s": 1.3004108930035727,
+    "timestamp_error_ms": 0.0
+  },
+  {
+    "episode": "episode_027",
+    "source_index": 1223,
+    "state_index": 39,
+    "time_s": 1.96964501599723,
+    "source_frame": 59,
+    "frame_time_s": 1.96964501599723,
+    "timestamp_error_ms": 0.0
+  },
+  {
+    "episode": "episode_027",
+    "source_index": 1237,
+    "state_index": 53,
+    "time_s": 2.6681297850009287,
+    "source_frame": 80,
+    "frame_time_s": 2.6681297850009287,
+    "timestamp_error_ms": 0.0
+  }
+]
