@@ -255,7 +255,8 @@
                     </p>
 
                     <p class="paragraph">
-                        All policies below are single-task and trained from scratch on less than an hour of teleop data, using only a fixed stereo camera.
+                        EyeRobot 2.0 can carry out precise, multi-step tasks like capping a marker, zipping a bag, or inserting a straw, all from a single ego-centric perspective.
+                        All policies below are single-task and trained from scratch on less than an hour of teleop data.
                     </p>
                 </div>
             </div>
@@ -368,6 +369,18 @@
             </div>
 
             <div style="width: 100%;">
+                <!-- Abridged takeaway before the method section; full results live in Experiments below -->
+                <aside class="takeaway-callout" aria-label="Key takeaway">
+                    <div class="takeaway-text">
+                        <p class="takeaway-statement">Active gaze from a single stereo camera matches wrist-camera performance.</p>
+                        <p class="takeaway-detail">Across 640 real-world trials, we compare EyeRobot 2.0 (ER2) with ego + wrist camera policies and passive stereo policies trained on the same demonstrations. Every one of our trials is browsable in the <a href="viewer/">Eval Browser</a>.</p>
+                        <p class="takeaway-detail takeaway-experiments"><a href="#experiments">See experiments and full results →</a></p>
+                    </div>
+                    <figure class="takeaway-figure">
+                        <img src="images/figure_takeaway.svg" alt="Average real-world success rate: No Gaze 27%, Ego plus Wrist 52%, EyeRobot 2.0 67%, over 640 trials" width="260" height="170" loading="lazy" decoding="async" />
+                    </figure>
+                </aside>
+
                 <h3>Stereo policies with active gaze</h3>
                 <div class="carousel-container policy-carousel-container" style="margin-top: 12px;">
                     <div class="carousel-track-container">
@@ -481,17 +494,6 @@
                     </aside>
                 </div>
 
-                <!-- Abridged takeaway before the method section; full results live in Experiments below -->
-                <aside class="takeaway-callout" aria-label="Key takeaway">
-                    <div class="takeaway-text">
-                        <p class="takeaway-statement">Active gaze from a single stereo camera matches wrist-camera performance.</p>
-                        <p class="takeaway-detail">Across 640 real-world trials, we compare EyeRobot 2.0 (ER2) with ego + wrist camera policies and passive stereo policies trained on the same demonstrations. Every one of our trials is browsable in the <a href="viewer/">Eval Browser</a>.</p>
-                        <p class="takeaway-detail takeaway-experiments"><a href="#experiments">See experiments and full results →</a></p>
-                    </div>
-                    <figure class="takeaway-figure">
-                        <img src="images/figure_takeaway.svg" alt="Average real-world success rate: No Gaze 27%, Ego plus Wrist 52%, EyeRobot 2.0 67%, over 640 trials" width="260" height="170" loading="lazy" decoding="async" />
-                    </figure>
-                </aside>
 
             </div>
         </div>
@@ -1048,7 +1050,7 @@
 
             <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        We evaluate <b>over 1,000 real-world rollouts</b> across all tasks for EyeRobot 2.0 and its ablations. We compare EyeRobot 2.0 against two strong baselines that use the same policy architecture as EyeRobot 2.0 and are trained on the exact same demonstrations<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
+                        In total we evaluated <b>over 1,000 real-world rollouts</b> across all baselines and ablations for EyeRobot 2.0. We compare against two strong baselines that use the same policy architecture as EyeRobot 2.0 and are trained on the exact same demonstrations<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
                         The first baseline uses the RGB stereo inputs directly ("No Gaze"), and the second uses one stereo image along with two wrist-mounted cameras ("Ego + Wrist").
                         Note that <i>both baselines have a significant observability advantage</i>, since EyeRobot 2.0's field of view is such that it cannot see the entire stereo image at once.
                         Both baselines are provided a full coverage view of the table, and with wrist cameras two additional high-resolution viewpoints of the gripper.
