@@ -924,6 +924,43 @@ h1.tldr {
     aspect-ratio: 2 / 1;
 }
 
+.distractor-summary {
+    width: 80%;
+    margin: 20px auto 26px;
+}
+
+.distractor-summary .plot-metric-toggle {
+    display: flex;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.distractor-summary [hidden] { display: none; }
+
+.distractor-results-plot,
+.distractor-results-plot img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.distractor-results-plot { margin-top: 6px; }
+
+.distractor-summary figcaption {
+    margin-top: 10px;
+    color: #666;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    .distractor-summary { width: 100%; }
+    .distractor-summary .plot-metric-toggle button { padding: 4px 8px; font-size: 11px; }
+    .distractor-results-plot img { aspect-ratio: 320 / 250; }
+}
+
 .distractor-comparison {
     position: relative;
     width: 100%;

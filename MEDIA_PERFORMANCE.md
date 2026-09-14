@@ -50,6 +50,12 @@ network errors. Fixation pairs start together after both have data.
 
 ## Browser regression checks
 
+For local preview, use `node scripts/serve_media.cjs 8765`. This shares the
+tests' byte-range server and requires only Node. Python's basic
+`http.server` ignores Range requests; on that server Chrome can reset a
+distractor seek to zero even though the same clip seeks correctly on GitHub
+Pages. Reload the preview after switching servers.
+
 Install test tooling outside the site, then run:
 
 ```sh

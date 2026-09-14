@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="250" viewBox="0 0 520 250" role="img" aria-labelledby="title desc">
+<title id="title">Distractor objects: First-grasp success</title>
+<desc id="desc">Average: No Gaze 16.0%, Ego + Wrist 46.7%, AVF 74.7%. Wrench: No Gaze 12.0%, Ego + Wrist 40.0%, AVF 80.0%. Tea: No Gaze 12.0%, Ego + Wrist 44.0%, AVF 52.0%. Tape: No Gaze 24.0%, Ego + Wrist 56.0%, AVF 92.0%. 25 trials per task and policy. Average weights tasks equally. Values above bars are rounded; bar heights use exact fractions.</desc>
+<defs>
+    <pattern id="avf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="8" height="8" fill="#f2986f"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#fff" stroke-width="1.2"/>
+    </pattern>
+    <style>
+      text { font-family: "Avenir Next", Avenir, "Open Sans", sans-serif; fill: #171717; letter-spacing: 0; }
+      .legend { font-size: 13px; }
+      .section-label { font-size: 14px; fill: #555; }
+      .axis-label { font-size: 12px; }
+      .task-label { font-size: 13px; }
+      .value { font-size: 11px; text-anchor: middle; }
+      .grid { stroke: #e9e9e9; stroke-width: 1; }
+      .axis { stroke: #222; stroke-width: 1; }
+    </style>
+  </defs>
+<rect width="520" height="250" fill="#fff"/>
+<g transform="translate(0 -24)">
+<g class="grid">
+<line x1="48" y1="60" x2="508" y2="60"/>
+<line x1="48" y1="96" x2="508" y2="96"/>
+<line x1="48" y1="132" x2="508" y2="132"/>
+<line x1="48" y1="168" x2="508" y2="168"/>
+</g><g class="axis">
+<line x1="48" y1="60" x2="48" y2="204"/>
+<line x1="48" y1="204" x2="508" y2="204"/>
+<line x1="171" y1="68" x2="171" y2="204" stroke="#888" stroke-width="2"/>
+</g><g class="axis-label" text-anchor="end">
+<text x="42" y="64">100%</text>
+<text x="42" y="100">75%</text>
+<text x="42" y="136">50%</text>
+<text x="42" y="172">25%</text>
+<text x="42" y="208">0%</text>
+</g>
+<text class="axis-label" text-anchor="middle" transform="translate(13 132) rotate(-90)">First-Grasp Success</text>
+<g data-task="Average">
+<rect data-policy="No Gaze" data-value="16.000000" x="66" y="180.960000" width="24" height="23.040000" fill="#7fc0a3"><title>No Gaze: 16.0%</title></rect>
+<text class="value" x="78" y="175.960000">16</text>
+<rect data-policy="Ego + Wrist" data-value="46.666667" x="93" y="136.800000" width="24" height="67.200000" fill="#5c8fc5"><title>Ego + Wrist: 46.7%</title></rect>
+<text class="value" x="105" y="131.800000">47</text>
+<rect data-policy="AVF" data-value="74.666667" x="120" y="96.480000" width="24" height="107.520000" fill="url(#avf-hatch)"><title>AVF: 74.7%</title></rect>
+<text class="value" x="132" y="91.480000">75</text>
+<text class="task-label" x="105" y="225" text-anchor="middle">Average</text></g>
+<g data-task="Wrench">
+<rect data-policy="No Gaze" data-value="12.000000" x="201" y="186.720000" width="24" height="17.280000" fill="#7fc0a3"><title>No Gaze: 12.0%</title></rect>
+<text class="value" x="213" y="181.720000">12</text>
+<rect data-policy="Ego + Wrist" data-value="40.000000" x="228" y="146.400000" width="24" height="57.600000" fill="#5c8fc5"><title>Ego + Wrist: 40.0%</title></rect>
+<text class="value" x="240" y="141.400000">40</text>
+<rect data-policy="AVF" data-value="80.000000" x="255" y="88.800000" width="24" height="115.200000" fill="url(#avf-hatch)"><title>AVF: 80.0%</title></rect>
+<text class="value" x="267" y="83.800000">80</text>
+<text class="task-label" x="240" y="225" text-anchor="middle">Wrench</text></g>
+<g data-task="Tea">
+<rect data-policy="No Gaze" data-value="12.000000" x="306" y="186.720000" width="24" height="17.280000" fill="#7fc0a3"><title>No Gaze: 12.0%</title></rect>
+<text class="value" x="318" y="181.720000">12</text>
+<rect data-policy="Ego + Wrist" data-value="44.000000" x="333" y="140.640000" width="24" height="63.360000" fill="#5c8fc5"><title>Ego + Wrist: 44.0%</title></rect>
+<text class="value" x="345" y="135.640000">44</text>
+<rect data-policy="AVF" data-value="52.000000" x="360" y="129.120000" width="24" height="74.880000" fill="url(#avf-hatch)"><title>AVF: 52.0%</title></rect>
+<text class="value" x="372" y="124.120000">52</text>
+<text class="task-label" x="345" y="225" text-anchor="middle">Tea</text></g>
+<g data-task="Tape">
+<rect data-policy="No Gaze" data-value="24.000000" x="411" y="169.440000" width="24" height="34.560000" fill="#7fc0a3"><title>No Gaze: 24.0%</title></rect>
+<text class="value" x="423" y="164.440000">24</text>
+<rect data-policy="Ego + Wrist" data-value="56.000000" x="438" y="123.360000" width="24" height="80.640000" fill="#5c8fc5"><title>Ego + Wrist: 56.0%</title></rect>
+<text class="value" x="450" y="118.360000">56</text>
+<rect data-policy="AVF" data-value="92.000000" x="465" y="71.520000" width="24" height="132.480000" fill="url(#avf-hatch)"><title>AVF: 92.0%</title></rect>
+<text class="value" x="477" y="66.520000">92</text>
+<text class="task-label" x="450" y="225" text-anchor="middle">Tape</text></g>
+</g><g class="legend">
+<rect x="110" y="228" width="12" height="12" fill="#7fc0a3"/>
+<text x="129" y="239">No Gaze</text>
+<rect x="226" y="228" width="12" height="12" fill="#5c8fc5"/>
+<text x="245" y="239">Ego + Wrist</text>
+<rect x="366" y="228" width="12" height="12" fill="url(#avf-hatch)"/>
+<text x="385" y="239">AVF</text>
+</g></svg>

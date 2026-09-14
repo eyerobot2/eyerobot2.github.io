@@ -1,0 +1,10 @@
+task,Subtask 1 label,Subtask 2 label,Subtask 3 label,Policy,Subtask 1,Subtask 2,Subtask 3,Success (complete)
+wrench,grab tab,open box,grab wrench,Exo (Stereo),3/25,0/25,0/25,0/25
+wrench,grab tab,open box,grab wrench,Ego + Wrist,10/25,6/25,4/25,4/25
+wrench,grab tab,open box,grab wrench,AVF,20/25,7/25,5/25,5/25
+tea,grab tea,tea in cup,–,Exo (Stereo),3/25,0/25,–,0/25
+tea,grab tea,tea in cup,–,Ego + Wrist,11/25,4/25,–,4/25
+tea,grab tea,tea in cup,–,AVF,13/25,4/25,–,4/25
+tape,pick yellow,handoff,place yellow,Exo (Stereo),6/25,1/25,0/25,0/25
+tape,pick yellow,handoff,place yellow,Ego + Wrist,14/25,0/25,0/25,0/25
+tape,pick yellow,handoff,place yellow,AVF,23/25,12/25,8/25,8/25

@@ -66,6 +66,7 @@
     <script src="simulated-gaze.js" defer></script>
     <link href="fixation-actions.css" rel="stylesheet" type="text/css" />
     <script src="fixation-actions.js" defer></script>
+    <script src="distractor-results.js" defer></script>
     <link href="fixation-panels.css" rel="stylesheet" type="text/css" />
     <link href="media.css?v=1" rel="stylesheet" />
     <script src="media.js?v=2" defer></script>
@@ -246,7 +247,7 @@
                 <h1>Do robots need wrist cameras?</h1>
                 <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        Behavior cloning systems today overwhelmingly rely on wrist cameras for fine-grained manipulation. Why? Their high-resolution gripper-centric observations
+                        Behavior cloning systems today overwhelmingly rely on wrist cameras for fine-grained manipulation. Their high-resolution gripper-centric observations
                         improve precision and spatial reasoning via a sort of <b>physical attention</b> where it matters. We believe that these benefits
                         can be obtained from a human-inspired physical attention system which uses two active eyes to focus on areas of interest.
                     </p>
@@ -1199,8 +1200,25 @@
             <p class="paragraph">
                 We evaluated 3 tasks with unseen distractor objects scattered throughout the workspace. All comparisons use the <i>exact same object positions</i> to ensure comparability.
                 Notice how in these examples the wrist camera often reaches for the largest or most distinct object in its view. Once it begins reaching the policy cannot recover since the wrist camera loses sight
-                of the target. In contrast, AVF usually reaches for the correct object.
+                of the target. In contrast, AVF reaches for the correct object when its gaze is correctly directed at it, and mostly misses grasps when it is looking in the wrong place.
+                Decoupling vision and action could improve robustness in cluttered scenes by literally ignoring irrelevant information, as foveation does.
             </p>
+            <!-- Paper Table 5, p. 18: 25 real trials per task/policy.
+                 The paper labels No Gaze "Exo (Stereo)".
+                 Progression = sum of subtask counts / (25 * number of stages);
+                 wrench and tape have 3 stages, tea has 2. The completion column is not an extra stage. -->
+            <figure class="distractor-summary" data-distractor-results>
+                <div class="plot-metric-toggle" role="group" aria-label="Distractor evaluation metric" hidden>
+                    <button type="button" class="active" aria-pressed="true" aria-controls="distractor-results-chart" data-metric="progression">Task progression</button>
+                    <button type="button" aria-pressed="false" aria-controls="distractor-results-chart" data-metric="grasp">First grasp</button>
+                    <button type="button" aria-pressed="false" aria-controls="distractor-results-chart" data-metric="success">Full-task success</button>
+                </div>
+                <picture class="distractor-results-plot">
+                    <source media="(max-width: 600px)" srcset="images/figure_distractor_progression-mobile.svg">
+                    <img id="distractor-results-chart" src="images/figure_distractor_progression.svg" width="520" height="250" loading="lazy" decoding="async" alt="Average and per-task progression with distractors for No Gaze, Ego plus Wrist, and AVF. Twenty-five trials per task and policy.">
+                </picture>
+                <figcaption aria-live="polite">Mean percentage of task stages completed. 25 trials per task bar.</figcaption>
+            </figure>
             <div class="carousel-container distractor-carousel-container">
                 <div class="carousel-track-container">
                     <div class="carousel-track" id="distractor-carousel">
