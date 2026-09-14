@@ -2130,6 +2130,10 @@ input:checked + .slider:before {
     color: #555;
 }
 
+.takeaway-experiments {
+    margin-top: 12px;
+}
+
 .takeaway-detail a {
     color: inherit;
     text-decoration: underline;
@@ -2598,6 +2602,11 @@ input:checked + .slider:before {
     outline-offset: 3px;
 }
 .ablation-task-panel[hidden] { display: none; }
+.ablation-sankeys .ablation-reading-guide {
+    margin: 0 0 16px;
+    font-size: 13px;
+    line-height: 1.5;
+}
 .ablation-sankey { margin: 0 0 10px; }
 .ablation-sankey figcaption {
     display: flex;

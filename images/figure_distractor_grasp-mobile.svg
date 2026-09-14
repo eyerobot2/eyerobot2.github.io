@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="320" height="250" viewBox="0 0 320 250" role="img" aria-labelledby="title desc">
 <title id="title">Distractor objects: First-grasp success</title>
-<desc id="desc">Average: No Gaze 16.0%, Ego + Wrist 46.7%, AVF 74.7%. Wrench: No Gaze 12.0%, Ego + Wrist 40.0%, AVF 80.0%. Tea: No Gaze 12.0%, Ego + Wrist 44.0%, AVF 52.0%. Tape: No Gaze 24.0%, Ego + Wrist 56.0%, AVF 92.0%. 25 trials per task and policy. Average weights tasks equally. Values above bars are rounded; bar heights use exact fractions.</desc>
+<desc id="desc">Average: No Gaze 16.0%, Ego + Wrist 46.7%, ER2 74.7%. Wrench: No Gaze 12.0%, Ego + Wrist 40.0%, ER2 80.0%. Tea: No Gaze 12.0%, Ego + Wrist 44.0%, ER2 52.0%. Tape: No Gaze 24.0%, Ego + Wrist 56.0%, ER2 92.0%. 25 trials per task and policy. Average weights tasks equally. Values above bars are rounded; bar heights use exact fractions.</desc>
 <defs>
     <pattern id="avf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
       <rect width="8" height="8" fill="#f2986f"/>
@@ -41,7 +41,7 @@
 <text class="value" x="60" y="175.960000">16</text>
 <rect data-policy="Ego + Wrist" data-value="46.666667" x="69" y="136.800000" width="14" height="67.200000" fill="#5c8fc5"><title>Ego + Wrist: 46.7%</title></rect>
 <text class="value" x="76" y="131.800000">47</text>
-<rect data-policy="AVF" data-value="74.666667" x="85" y="96.480000" width="14" height="107.520000" fill="url(#avf-hatch)"><title>AVF: 74.7%</title></rect>
+<rect data-policy="ER2" data-value="74.666667" x="85" y="96.480000" width="14" height="107.520000" fill="url(#avf-hatch)"><title>ER2: 74.7%</title></rect>
 <text class="value" x="92" y="91.480000">75</text>
 <text class="task-label" x="76" y="225" text-anchor="middle">Average</text></g>
 <g data-task="Wrench">
@@ -49,7 +49,7 @@
 <text class="value" x="128" y="181.720000">12</text>
 <rect data-policy="Ego + Wrist" data-value="40.000000" x="137" y="146.400000" width="14" height="57.600000" fill="#5c8fc5"><title>Ego + Wrist: 40.0%</title></rect>
 <text class="value" x="144" y="141.400000">40</text>
-<rect data-policy="AVF" data-value="80.000000" x="153" y="88.800000" width="14" height="115.200000" fill="url(#avf-hatch)"><title>AVF: 80.0%</title></rect>
+<rect data-policy="ER2" data-value="80.000000" x="153" y="88.800000" width="14" height="115.200000" fill="url(#avf-hatch)"><title>ER2: 80.0%</title></rect>
 <text class="value" x="160" y="83.800000">80</text>
 <text class="task-label" x="144" y="225" text-anchor="middle">Wrench</text></g>
 <g data-task="Tea">
@@ -57,7 +57,7 @@
 <text class="value" x="196" y="181.720000">12</text>
 <rect data-policy="Ego + Wrist" data-value="44.000000" x="205" y="140.640000" width="14" height="63.360000" fill="#5c8fc5"><title>Ego + Wrist: 44.0%</title></rect>
 <text class="value" x="212" y="135.640000">44</text>
-<rect data-policy="AVF" data-value="52.000000" x="221" y="129.120000" width="14" height="74.880000" fill="url(#avf-hatch)"><title>AVF: 52.0%</title></rect>
+<rect data-policy="ER2" data-value="52.000000" x="221" y="129.120000" width="14" height="74.880000" fill="url(#avf-hatch)"><title>ER2: 52.0%</title></rect>
 <text class="value" x="228" y="124.120000">52</text>
 <text class="task-label" x="212" y="225" text-anchor="middle">Tea</text></g>
 <g data-task="Tape">
@@ -65,7 +65,7 @@
 <text class="value" x="264" y="164.440000">24</text>
 <rect data-policy="Ego + Wrist" data-value="56.000000" x="273" y="123.360000" width="14" height="80.640000" fill="#5c8fc5"><title>Ego + Wrist: 56.0%</title></rect>
 <text class="value" x="280" y="118.360000">56</text>
-<rect data-policy="AVF" data-value="92.000000" x="289" y="71.520000" width="14" height="132.480000" fill="url(#avf-hatch)"><title>AVF: 92.0%</title></rect>
+<rect data-policy="ER2" data-value="92.000000" x="289" y="71.520000" width="14" height="132.480000" fill="url(#avf-hatch)"><title>ER2: 92.0%</title></rect>
 <text class="value" x="296" y="66.520000">92</text>
 <text class="task-label" x="280" y="225" text-anchor="middle">Tape</text></g>
 </g><g class="legend">
@@ -74,5 +74,5 @@
 <rect x="130" y="228" width="12" height="12" fill="#5c8fc5"/>
 <text x="149" y="239">Ego + Wrist</text>
 <rect x="256" y="228" width="12" height="12" fill="url(#avf-hatch)"/>
-<text x="275" y="239">AVF</text>
+<text x="275" y="239">ER2</text>
 </g></svg>

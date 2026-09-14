@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', initializePage);
 //   console.log("foo", prev_arr.style);
 // });
 
-// Compare the same task across AVF and both vision ablations.
+// Compare the same task across ER2 and both vision ablations.
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.ablation-sankeys').forEach(gallery => {
     const buttons = [...gallery.querySelectorAll('[data-ablation-task]')];

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="250" viewBox="0 0 760 250" role="img" aria-labelledby="title desc">
   <title id="title">Real-world evaluation task progression</title>
-  <desc id="desc">Real average and seven real-world task progression rates for No Gaze, Ego plus Wrist, and AVF.</desc>
+  <desc id="desc">Real average and seven real-world task progression rates for No Gaze, Ego plus Wrist, and ER2.</desc>
   <defs>
     <pattern id="avf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
       <rect width="8" height="8" fill="#f2986f"/>
@@ -105,6 +105,6 @@
     <rect x="339" y="228" width="12" height="12" fill="#5c8fc5"/>
     <text x="359" y="239">Ego + Wrist (3 Cameras)</text>
     <rect x="550" y="228" width="12" height="12" fill="url(#avf-hatch)"/>
-    <text x="570" y="239">AVF (Stereo Only)</text>
+    <text x="570" y="239">ER2 (Stereo Only)</text>
   </g>
 </svg>

@@ -16,7 +16,7 @@ const renderer = source.slice(source.indexOf('function pctStr('), source.indexOf
 const context = vm.createContext({});
 vm.runInContext(functions + '\n' + renderer, context);
 const tasks = ['marker', 'tea', 'toaster', 'wrench', 'boba', 'tape', 'pot place'];
-const policies = [['eyeball', 'AVF'], ['peripheral', 'Without foveation'], ['mono', 'Without stereo']];
+const policies = [['eyeball', 'ER2'], ['peripheral', 'Without foveation'], ['mono', 'Without stereo']];
 const css = `.funnel-flow{stroke:none}.funnel-flow.spine{fill:#059669;opacity:.16}.funnel-flow.success{fill:#059669;opacity:.55}.funnel-flow.win{fill:#059669;opacity:.42}.funnel-flow.fail{fill:#b91c1c;opacity:.38}.funnel-bar.start{fill:#aaa}.funnel-bar.spine,.funnel-bar.success,.funnel-bar.win{fill:#059669}.funnel-bar.fail{fill:#b91c1c}.funnel-name{font-family:Arial,sans-serif;font-size:12.5px;font-weight:600;fill:#333}.funnel-sub{font-family:Arial,sans-serif;font-size:11px;fill:#777}.funnel-name.success,.funnel-name.win,.funnel-sub.success,.funnel-sub.win{fill:#059669}.funnel-name.fail,.funnel-sub.fail{fill:#b91c1c}`;
 fs.mkdirSync('images/ablation-sankeys', { recursive: true });
 let html = '<!-- BEGIN GENERATED ABLATION SANKEYS -->\n<div class="ablation-sankeys">\n<div class="ablation-task-picker" role="group" aria-label="Choose an ablation task">\n';
@@ -26,6 +26,7 @@ for (const [i, task] of tasks.entries()) {
   html += `<button type="button" data-ablation-task="${slug}" aria-controls="ablation-${slug}" aria-pressed="${i === 0}">${label}</button>\n`;
 }
 html += '</div>\n';
+html += '<p class="carousel-caption ablation-reading-guide">Read left to right: green flows show trials progressing through task stages; red branches show where they fail. Thicker flows represent more trials. Each stage’s percentage is the fraction of trials from the preceding stage that advance. Click a diagram to browse its trials.</p>\n';
 for (const [i, task] of tasks.entries()) {
   const slug = task.replaceAll(' ', '-');
   const label = task === 'pot place' ? 'Pot lid' : context.displayLabel(task);
@@ -47,7 +48,7 @@ for (const [i, task] of tasks.entries()) {
   }
   html += '</div>\n';
 }
-html += '<p class="carousel-caption">Trial progression for AVF and its vision ablations. Flow widths represent trial counts; red branches show where trials drop out. Stage percentages are conditional on reaching the preceding stage. Select a diagram to browse its trials.</p>\n</div>\n<!-- END GENERATED ABLATION SANKEYS -->';
+html += '<p class="carousel-caption">Partial successes of ablations visualized as Sankey diagrams.</p>\n</div>\n<!-- END GENERATED ABLATION SANKEYS -->';
 const page = fs.readFileSync('index.html', 'utf8');
 if (!page.includes('<!-- BEGIN GENERATED ABLATION SANKEYS -->')) throw new Error('Missing insertion markers');
 fs.writeFileSync('index.html', page.replace(/<!-- BEGIN GENERATED ABLATION SANKEYS -->[\s\S]*?<!-- END GENERATED ABLATION SANKEYS -->/, html));

@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 POLICIES = [
     ("Exo (Stereo)", "No Gaze", "#7fc0a3"),
     ("Ego + Wrist", "Ego + Wrist", "#5c8fc5"),
-    ("AVF", "AVF", "url(#avf-hatch)"),
+    ("AVF", "ER2", "url(#avf-hatch)"),
 ]
 METRICS = {
     "progression": ("Task progression", "Task Progression"),
