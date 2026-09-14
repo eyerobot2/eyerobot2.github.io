@@ -5,7 +5,7 @@
     function init(root) {
         const canvases = [...root.querySelectorAll('canvas')];
         const colors = ['#c46b65', '#5f987e', '#658bb8'];
-        const defaultView = {yaw: 1.05, pitch: .32, zoom: 1.12};
+        const defaultView = {yaw: 1.05, pitch: .32, zoom: 1.344};
         let {yaw, pitch, zoom} = defaultView;
         let drag = null, views = [];
         let inViewport = false, swayTimer = null, lastSway = null, swayTime = 0;

@@ -3,6 +3,7 @@
   "output": "data/web-video/policy_boba.mp4",
   "source_sha256": "a7d7b132edbc4cfac1291758da87a380815b4bc645e02ed9862c2a938b644e5d",
   "settings": "1080-high-quality-30fps-v1",
+  "trim_start_seconds": 1.0,
   "original_bytes": 23958060,
-  "web_bytes": 10057865
+  "web_bytes": 9604607
 }

@@ -1,0 +1,49 @@
+.goal-conditioned-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#gaze-transformer {
+    float: none;
+    order: 1;
+    width: 60%;
+    max-width: 780px;
+    margin: 0 auto 12px;
+}
+
+@media (max-width: 900px) {
+    #gaze-transformer {
+        width: 80%;
+    }
+}
+
+@media (max-width: 640px) {
+    #gaze-transformer {
+        width: calc(100% + 32px);
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+}
+
+#gaze-transformer > svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#gt-gaze-figure .motion-label {
+    font: 500 36px Avenir, "Avenir Next", Arial, sans-serif;
+    fill: #8265aa;
+    paint-order: stroke;
+    stroke: #fff;
+    stroke-width: 8px;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #gt-gaze-figure * {
+        transition: none;
+    }
+}

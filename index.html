@@ -60,6 +60,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="style.css?v=media1" rel="stylesheet" type="text/css" />
+    <link href="gaze-transformer.css" rel="stylesheet" />
+    <script src="gaze-transformer.js" defer></script>
+    <link href="simulated-gaze.css" rel="stylesheet" />
+    <script src="simulated-gaze.js" defer></script>
     <link href="fixation-actions.css" rel="stylesheet" type="text/css" />
     <script src="fixation-actions.js" defer></script>
     <link href="fixation-panels.css" rel="stylesheet" type="text/css" />
@@ -183,8 +187,8 @@
                     </div>
                     <div class="author-line">
                         <a href="https://www.jiahuilei.com/" target="_blank" rel="noopener" class="author-text">Jiahui Lei<sup>1</sup></a>
-                        <a href="https://profiles.stanford.edu/c-karen-liu" target="_blank" rel="noopener" class="author-text">C. Karen Liu<sup>2,3</sup></a>
                         <a href="https://people.eecs.berkeley.edu/~malik/" target="_blank" rel="noopener" class="author-text">Jitendra Malik<sup>1,2</sup></a>
+                        <a href="https://profiles.stanford.edu/c-karen-liu" target="_blank" rel="noopener" class="author-text">C. Karen Liu<sup>2,3</sup></a>
                         <a href="https://goldberg.berkeley.edu/" target="_blank" rel="noopener" class="author-text">Ken Goldberg<sup>&dagger;1</sup></a>
                         <a href="https://people.eecs.berkeley.edu/~kanazawa/" target="_blank" rel="noopener" class="author-text">Angjoo Kanazawa<sup>&dagger;1,2</sup></a>
                     </div>
@@ -258,63 +262,63 @@
                     <div class="carousel-track" id="real-results-carousel">
                         <div class="carousel-slide current-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" aria-label="Marker task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_02_marker.webp">
-                                    <source data-src="data/web-video/results-av1/result_02_marker.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
-                                    <source data-src="data/web-video/results-sdr/result_02_marker.mp4" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Marker task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_02_marker.webp?v=843fe44df6ac">
+                                    <source data-src="data/web-video/results-av1/result_02_marker.mp4?v=e384f6d51773" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_02_marker.mp4?v=c6cf91c6be88" type="video/mp4">
                                 </video>
                                 <figcaption>Cap marker, place in bag, zip bag</figcaption>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" aria-label="Toaster task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_06_toaster.webp">
-                                    <source data-src="data/web-video/results-av1/result_06_toaster.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
-                                    <source data-src="data/web-video/results-sdr/result_06_toaster.mp4" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Toaster task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_06_toaster.webp?v=f10dfcf9d96d">
+                                    <source data-src="data/web-video/results-av1/result_06_toaster.mp4?v=43c119fcc258" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_06_toaster.mp4?v=119b0e500ebd" type="video/mp4">
                                 </video>
                                 <figcaption>Open toaster, extract pan, close toaster</figcaption>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" aria-label="Wrench task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_07_wrench.webp">
-                                    <source data-src="data/web-video/results-av1/result_07_wrench.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
-                                    <source data-src="data/web-video/results-sdr/result_07_wrench.mp4" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Wrench task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_07_wrench.webp?v=eb269eaa0815">
+                                    <source data-src="data/web-video/results-av1/result_07_wrench.mp4?v=3cd323e6e197" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_07_wrench.mp4?v=6051cec9e0e5" type="video/mp4">
                                 </video>
                                 <figcaption>Open toolbox, extract wrench</figcaption>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" aria-label="Boba task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_01_boba.webp">
-                                    <source data-src="data/web-video/results-av1/result_01_boba.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
-                                    <source data-src="data/web-video/results-sdr/result_01_boba.mp4" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Boba task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_01_boba.webp?v=32ca1c4ddbcd">
+                                    <source data-src="data/web-video/results-av1/result_01_boba.mp4?v=00fbfcd97b58" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_01_boba.mp4?v=8e23c793b668" type="video/mp4">
                                 </video>
                                 <figcaption>Insert boba straw, place on coaster</figcaption>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" aria-label="Tea task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_05_tea.webp">
-                                    <source data-src="data/web-video/results-av1/result_05_tea.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
-                                    <source data-src="data/web-video/results-sdr/result_05_tea.mp4" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Tea task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_05_tea.webp?v=5794ea56c140">
+                                    <source data-src="data/web-video/results-av1/result_05_tea.mp4?v=57b6a74c248e" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_05_tea.mp4?v=8ba465a779d4" type="video/mp4">
                                 </video>
                                 <figcaption>Pick up teabag, put in cup</figcaption>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" aria-label="Tape task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_04_tape.webp">
-                                    <source data-src="data/web-video/results-av1/result_04_tape.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
-                                    <source data-src="data/web-video/results-sdr/result_04_tape.mp4" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Tape task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_04_tape.webp?v=7b830dc42f4c">
+                                    <source data-src="data/web-video/results-av1/result_04_tape.mp4?v=27be56d116f5" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_04_tape.mp4?v=0f99a2cfd8e9" type="video/mp4">
                                 </video>
                                 <figcaption>Pick tape, handover, place tape</figcaption>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="results-grid-item">
-                                <video loop muted playsinline preload="none" aria-label="Pot task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_03_pot.webp">
-                                    <source data-src="data/web-video/results-av1/result_03_pot.mp4" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
-                                    <source data-src="data/web-video/results-sdr/result_03_pot.mp4" type="video/mp4">
+                                <video loop muted playsinline preload="none" aria-label="Pot task rollout" width="1600" height="900" style="aspect-ratio: 1600 / 900; height: auto;" data-poster="data/web-posters/posters/result_03_pot.webp?v=73881936c68d">
+                                    <source data-src="data/web-video/results-av1/result_03_pot.mp4?v=4605aa2bb773" type="video/mp4; codecs=&quot;av01.0.09M.10&quot;">
+                                    <source data-src="data/web-video/results-sdr/result_03_pot.mp4?v=2e564c182342" type="video/mp4">
                                 </video>
                                 <figcaption>Pick pot lid, place on pot</figcaption>
                             </figure>
@@ -330,31 +334,31 @@
                 </div>
                 <div class="carousel-nav results-filmstrip" aria-label="Choose a task rollout">
                     <button type="button" class="results-thumbnail current-slide" data-slide="0" aria-label="Show Marker rollout" aria-pressed="true">
-                        <img src="data/web-posters/thumbnails/result_02_marker.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                        <img src="data/web-posters/thumbnails/result_02_marker.webp?v=af43e18b5deb" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Marker</span>
                     </button>
                     <button type="button" class="results-thumbnail" data-slide="1" aria-label="Show Toaster rollout" aria-pressed="false">
-                        <img src="data/web-posters/thumbnails/result_06_toaster.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                        <img src="data/web-posters/thumbnails/result_06_toaster.webp?v=f9ec85865d4b" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Toaster</span>
                     </button>
                     <button type="button" class="results-thumbnail" data-slide="2" aria-label="Show Wrench rollout" aria-pressed="false">
-                        <img src="data/web-posters/thumbnails/result_07_wrench.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                        <img src="data/web-posters/thumbnails/result_07_wrench.webp?v=eac3ac97ac20" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Wrench</span>
                     </button>
                     <button type="button" class="results-thumbnail" data-slide="3" aria-label="Show Boba rollout" aria-pressed="false">
-                        <img src="data/web-posters/thumbnails/result_01_boba.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                        <img src="data/web-posters/thumbnails/result_01_boba.webp?v=659d247640b6" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Boba</span>
                     </button>
                     <button type="button" class="results-thumbnail" data-slide="4" aria-label="Show Tea rollout" aria-pressed="false">
-                        <img src="data/web-posters/thumbnails/result_05_tea.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                        <img src="data/web-posters/thumbnails/result_05_tea.webp?v=6735de5dac06" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Tea</span>
                     </button>
                     <button type="button" class="results-thumbnail" data-slide="5" aria-label="Show Tape rollout" aria-pressed="false">
-                        <img src="data/web-posters/thumbnails/result_04_tape.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                        <img src="data/web-posters/thumbnails/result_04_tape.webp?v=3c08a51cda4d" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Tape</span>
                     </button>
                     <button type="button" class="results-thumbnail" data-slide="6" aria-label="Show Pot rollout" aria-pressed="false">
-                        <img src="data/web-posters/thumbnails/result_03_pot.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                        <img src="data/web-posters/thumbnails/result_03_pot.webp?v=facb52bf63cd" alt="" loading="lazy" width="240" height="135" decoding="async" />
                         <span>Pot</span>
                     </button>
                 </div>
@@ -388,44 +392,44 @@
                              marker, toaster, wrench, boba, tea, tape, pot. -->
                         <div class="carousel-track" id="policy-carousel">
                             <div class="carousel-slide current-slide">
-                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_marker.webp">
-                                    <source data-src="data/web-video/policy_marker.mp4" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_marker.webp?v=d69b57f97d16">
+                                    <source data-src="data/web-video/policy_marker.mp4?v=1676252c089c" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_toaster.webp">
-                                    <source data-src="data/web-video/policy_toaster.mp4" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_toaster.webp?v=c7122ecd6c18">
+                                    <source data-src="data/web-video/policy_toaster.mp4?v=0f33a507957a" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_wrench.webp">
-                                    <source data-src="data/web-video/policy_wrench.mp4" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_wrench.webp?v=fca024d06d4d">
+                                    <source data-src="data/web-video/policy_wrench.mp4?v=58c91486e529" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_boba.webp">
-                                    <source data-src="data/web-video/policy_boba.mp4" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_boba.webp?v=6e0b84cec33f">
+                                    <source data-src="data/web-video/policy_boba.mp4?v=c45647bf2e82" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_tea.webp">
-                                    <source data-src="data/web-video/policy_tea.mp4" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_tea.webp?v=73890816f4c8">
+                                    <source data-src="data/web-video/policy_tea.mp4?v=b157aa327f28" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_tape.webp">
-                                    <source data-src="data/web-video/policy_tape.mp4" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_tape.webp?v=4cb9c0c8635f">
+                                    <source data-src="data/web-video/policy_tape.mp4?v=777d7edb7fdb" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                             <div class="carousel-slide">
-                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_pot.webp">
-                                    <source data-src="data/web-video/policy_pot.mp4" type="video/mp4">
+                                <video loop muted playsinline style="width: 100%; aspect-ratio: 2160 / 1080; height: auto;" preload="none" width="2160" height="1080" data-poster="data/web-posters/posters/policy_pot.webp?v=abd75c02418c">
+                                    <source data-src="data/web-video/policy_pot.mp4?v=ca30e5c8681c" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
@@ -441,31 +445,31 @@
 
                     <div class="carousel-nav results-filmstrip" aria-label="Choose a task rollout">
                         <button type="button" class="results-thumbnail current-slide" data-slide="0" aria-label="Show Marker eye behavior" aria-pressed="true">
-                            <img src="data/web-posters/thumbnails/result_02_marker.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                            <img src="data/web-posters/thumbnails/result_02_marker.webp?v=af43e18b5deb" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Marker</span>
                         </button>
                         <button type="button" class="results-thumbnail" data-slide="1" aria-label="Show Toaster eye behavior" aria-pressed="false">
-                            <img src="data/web-posters/thumbnails/result_06_toaster.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                            <img src="data/web-posters/thumbnails/result_06_toaster.webp?v=f9ec85865d4b" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Toaster</span>
                         </button>
                         <button type="button" class="results-thumbnail" data-slide="2" aria-label="Show Wrench eye behavior" aria-pressed="false">
-                            <img src="data/web-posters/thumbnails/result_07_wrench.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                            <img src="data/web-posters/thumbnails/result_07_wrench.webp?v=eac3ac97ac20" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Wrench</span>
                         </button>
                         <button type="button" class="results-thumbnail" data-slide="3" aria-label="Show Boba eye behavior" aria-pressed="false">
-                            <img src="data/web-posters/thumbnails/result_01_boba.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                            <img src="data/web-posters/thumbnails/result_01_boba.webp?v=659d247640b6" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Boba</span>
                         </button>
                         <button type="button" class="results-thumbnail" data-slide="4" aria-label="Show Tea eye behavior" aria-pressed="false">
-                            <img src="data/web-posters/thumbnails/result_05_tea.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                            <img src="data/web-posters/thumbnails/result_05_tea.webp?v=6735de5dac06" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Tea</span>
                         </button>
                         <button type="button" class="results-thumbnail" data-slide="5" aria-label="Show Tape eye behavior" aria-pressed="false">
-                            <img src="data/web-posters/thumbnails/result_04_tape.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                            <img src="data/web-posters/thumbnails/result_04_tape.webp?v=3c08a51cda4d" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Tape</span>
                         </button>
                         <button type="button" class="results-thumbnail" data-slide="6" aria-label="Show Pot eye behavior" aria-pressed="false">
-                            <img src="data/web-posters/thumbnails/result_03_pot.webp" alt="" loading="lazy" width="240" height="135" decoding="async" />
+                            <img src="data/web-posters/thumbnails/result_03_pot.webp?v=facb52bf63cd" alt="" loading="lazy" width="240" height="135" decoding="async" />
                             <span>Pot</span>
                         </button>
                     </div>
@@ -489,29 +493,112 @@
 
 
         <!-- ===========================================================
-             "How it works" — single video + a before/after comparison
+             "How it works" — manipulation architecture, then learned gaze
         ============================================================ -->
         <div class="section base-row add-top-padding">
 
 
             <div class="separator"></div>
             <h1>How it works</h1>
+            <h2 id="policy-architecture">A stereo policy centered on fixation</h2>
             <p class="paragraph">
-                First we train a semantic gaze policy which can look at objects of interest in 3D, then use it to train a hierarchical target selector which outputs <i>what</i> to look at during
-                the rollout. Both are trained with RL without gaze demonstrations, with gaze sequencing emerging from optimizing the BC loss itself.
+                Our gripper policy combines foveated stereo views with the robot's state to predict a chunk of bimanual actions.
+                Both gripper poses and predicted actions are expressed relative to fixation, while multi-scale image crops preserve detail at the center and context in the periphery.
+                We use a standard ACT-style transformer decoder trained with a regression objective.
+                We opt for regression for its training speed and suitability for our high-quality, non-diverse data.
             </p>
 
+            <figure class="policy-architecture" aria-label="Gripper policy architecture">
+                <div class="policy-architecture-flow">
+                    <div class="policy-inputs">
+                        <div class="policy-stereo">
+                            <h3>Fixated stereo views</h3>
+                            <img src="images/policy-stereo-inputs.svg" width="280" height="152" alt="Left and right eye views, each represented by a pyramid of centered crops with more detail near fixation." loading="lazy" decoding="async" />
+                            <div class="policy-encoder">
+                                <strong>Frozen DINOv3</strong>
+                                <span>Multi-scale image tokens</span>
+                            </div>
+                        </div>
+                        <div class="policy-state">
+                            <strong>Gripper &amp; gaze state</strong>
+                            <span>Proprioception, gaze depth and direction</span>
+                        </div>
+                        <div class="policy-target">Target object <span>“yellow tape”</span></div>
+                    </div>
+                    <span class="policy-flow-arrow" aria-hidden="true"></span>
+                    <div class="policy-network">
+                        <h3>Gripper policy</h3>
+                        <p>Transformer decoder</p>
+                        <div class="policy-attention">
+                            <span>Image, state &amp; goal tokens</span>
+                            <svg viewBox="0 0 160 114" role="img" aria-label="Image, state, and target tokens interact with action-query tokens through cross-attention.">
+                                <g stroke="#aabfce" stroke-width="1" fill="none">
+                                    <path d="M14 22V39H146V22M47 22V39M80 22V39M113 22V39M80 39V48"/>
+                                    <path d="M80 66V76M47 92V76H113V92M80 76V92"/>
+                                    <path d="M77 45L80 48L83 45M77 69L80 66L83 69"/>
+                                </g>
+                                <g stroke-width="1">
+                                    <rect x="4" y="2" width="20" height="20" rx="3" fill="#b8d8c7" stroke="#96bca8"/>
+                                    <rect x="37" y="2" width="20" height="20" rx="3" fill="#b8d8c7" stroke="#96bca8"/>
+                                    <rect x="70" y="2" width="20" height="20" rx="3" fill="#d7dde1" stroke="#b6c0c7"/>
+                                    <rect x="103" y="2" width="20" height="20" rx="3" fill="#d7dde1" stroke="#b6c0c7"/>
+                                    <rect x="136" y="2" width="20" height="20" rx="3" fill="#f0cbb5" stroke="#dab29a"/>
+                                    <rect x="37" y="92" width="20" height="20" rx="3" fill="#a2bfd7" stroke="#85a7c2"/>
+                                    <rect x="70" y="92" width="20" height="20" rx="3" fill="#a2bfd7" stroke="#85a7c2"/>
+                                    <rect x="103" y="92" width="20" height="20" rx="3" fill="#a2bfd7" stroke="#85a7c2"/>
+                                </g>
+                                <text x="80" y="61" text-anchor="middle" fill="#57738b" font-size="13">Cross-attention</text>
+                            </svg>
+                            <span>Action queries</span>
+                        </div>
+                    </div>
+                    <span class="policy-flow-arrow" aria-hidden="true"></span>
+                    <div class="policy-output">
+                        <h3>Fixation-relative action chunk</h3>
+                        <img src="images/policy-fixation-frame.svg" width="460" height="350" alt="The physical stereo camera faces straight ahead, while the fixation frame turns toward the tape from an origin between the eyes. Future gripper poses are represented in this virtual frame. A fixed world frame and the fixation target are labeled separately; one arm is illustrated using the URDF wrist and finger geometry." loading="lazy" decoding="async" />
+                        <span class="policy-frame-label">Bimanual SE(3) poses + gripper positions</span>
+                    </div>
+                </div>
+                <figcaption class="carousel-caption">Observed gripper poses and the entire predicted action chunk share the current fixation frame. Actions are transformed back to robot coordinates for execution.</figcaption>
+            </figure>
 
-            <h2>Simulated gaze RL environment</h2>
+            <p class="paragraph policy-gaze-transition">
+                But how does the robot know where to look? We learn this in two stages: first a gaze policy that fixates on a requested object,
+                then a target selector that chooses <i>what</i> to look at during manipulation. Both learn through RL without gaze demonstrations.
+            </p>
 
-            <img class="gaze-rendering-figure" src="images/simulated_gaze_rendering.svg" alt="Simulated gaze rendering: raw stereo RGB images, spherical projection, and the resulting fixated view" width="1213" height="184" loading="lazy" decoding="async" />
+            <h2 id="simulated-gaze">Simulating gaze for RL training</h2>
+
+            <figure class="gym-spatial gym-spatial--inline" id="gym-spatial" aria-label="Virtual gaze from a fixed stereo pair">
+              <div class="gym-spatial-layout">
+                <section class="gym-spatial-inputs" aria-label="Original recorded stereo images">
+                  <p class="gym-spatial-section-label">Stereo images</p>
+                  <div class="gym-spatial-sources">
+                    <div><img src="images/simulated-gaze/left-sensor.webp" width="800" height="600" loading="lazy" decoding="async" alt="Original left stereo image showing yellow and grey tape"><span>L</span></div>
+                    <div><img src="images/simulated-gaze/right-sensor.webp" width="800" height="600" loading="lazy" decoding="async" alt="Original right stereo image showing yellow and grey tape"><span>R</span></div>
+                  </div>
+                </section>
+                <div class="gym-spatial-projection-arrow" aria-hidden="true"><i></i></div>
+                <section class="gym-spatial-world" aria-label="Spatial view synthesis">
+                  <p class="gym-spatial-section-label">Spherical projection</p>
+                  <canvas id="gym-spatial-scene" width="1200" height="840" role="img" aria-label="Head-on schematic view: the robot’s right eye is on the left, and its left eye is on the right. Spherical image patches connect to hollow cylinders representing grey and yellow tape."></canvas>
+                  <div class="gym-spatial-topline"><span class="gym-spatial-key"><i></i> sampled view <i></i> fixation</span></div>
+                </section>
+                <section class="gym-spatial-outputs" aria-label="Fixation-centered stereo crops">
+                  <p class="gym-spatial-section-label">Rendered perspective</p>
+                  <div class="gym-spatial-crop"><canvas id="gym-spatial-left" width="360" height="270" role="img" aria-label="Left virtual view, sampled from the fixed left image"></canvas><span>L</span></div>
+                  <div class="gym-spatial-crop"><canvas id="gym-spatial-right" width="360" height="270" role="img" aria-label="Right virtual view, sampled from the fixed right image"></canvas><span>R</span></div>
+                </section>
+              </div>
+              <p class="gym-spatial-status" id="gym-spatial-status" role="status">Loading the recorded stereo pair…</p>
+            </figure>
 
             <p class="paragraph">
             We simulate eye gaze by rendering stereo video through a spherical projection: based on the calibrated image and stereo geometry
             we can exactly render what two physical eyes would have seen, modulo missing data outside the image. This allows us to train RL policies
             to control gaze based on a variety of rewards, detailed below.
             </p>
-            <h2>Goal-conditioned gaze</h2>
+            <h2>Learning goal-conditioned gaze</h2>
             <div class="gaze-trajectory-comparison">
                 <div class="gaze-trajectory-item">
                     <video loop muted playsinline preload="none" aria-label="Gaze policy trajectory rollout for yellow tape" width="610" height="648" style="aspect-ratio: 610 / 648; height: auto;">
@@ -533,21 +620,195 @@
                 which is controlled by the RL agent in 3D. Foveated viewpoints are rendered centered on this point.
             </p>
             <div class="goal-conditioned-intro">
-                <figure class="gaze-policy-wrap-figure">
-                    <img src="images/gaze_policy_model.svg" alt="Goal-conditioned gaze policy: stereo views, eye state, and a target object prompt are mapped to eye-motion commands" width="723" height="506" loading="lazy" decoding="async" />
+                <figure id="gaze-transformer" class="gaze-policy-wrap-figure">
+                    <!-- Editable gaze transformer; animation is scoped to this figure. -->
+                    <svg id="gt-gaze-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1446 1028" width="1446" height="1028" role="img" aria-labelledby="gt-figure-title gt-figure-description">
+                      <title id="gt-figure-title">Goal-conditioned gaze transformer</title>
+                      <desc id="gt-figure-description">Two foveated stereo views, eye proprioception, and a target prompt feed a gaze transformer through MLP projection. The transformer outputs delta theta, delta phi, and delta distance to control two eyes and a 3D fixation point. The moving fixation point is labeled Depth during radial motion and Direction during angular motion.</desc>
+                      <defs>
+                        <style>
+                          #gt-gaze-figure .diagram-label { font-family: Avenir, "Avenir Next", Arial, sans-serif; font-weight: 400; fill: #050505; font-size: 46px; }
+                          #gt-gaze-figure .math { font-family: "Times New Roman", Times, serif; font-style: italic; fill: #000; }
+                          #gt-gaze-figure .flow-arrow { fill: none; stroke: #606060; stroke-width: 4; marker-end: url(#gt-arrow-gray); }
+                          #gt-gaze-figure .policy-fill { fill: #b6daca; }
+                          #gt-gaze-figure .output-border { stroke: #9b8bbb; }
+                          #gt-gaze-figure .ray { stroke: #cd7061; stroke-width: 7; stroke-dasharray: 8 7; fill: none; }
+                          #gt-gaze-figure .fixation-fill { fill: #cd7061; }
+                          #gt-gaze-figure .prompt-border { stroke: #fcc4a7; }
+                          #gt-gaze-figure .layer { transition: filter 200ms; }
+                          #gt-gaze-figure .output-key { fill: #f8f7fa; stroke: #dedbe5; stroke-width: 2; transition: fill 220ms, stroke 220ms; }
+                          #gt-gaze-figure .output-key.active { fill: #ede6fb; stroke: #9b83c0; }
+                          #gt-gaze-figure .motion-caption { font-family: Avenir, "Avenir Next", Arial, sans-serif; font-size: 36px; fill: #5e6f65; transition: fill 220ms; }
+                          #gt-gaze-figure .motion-caption.active { fill: #8265aa; }
+                          #gt-gaze-figure .motion-guide { stroke: #b6a4cd; stroke-width: 2.5; fill: none; opacity: 0; transition: opacity 180ms; }
+                          #gt-gaze-figure .motion-guide.active { opacity: .8; }
+                        </style>
+                        <filter id="gt-paper-shadow" x="-30%" y="-50%" width="160%" height="220%">
+                          <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity=".12"/>
+                        </filter>
+                        <filter id="gt-plane-shadow" x="-50%" y="-70%" width="200%" height="260%">
+                          <feDropShadow dx="0" dy="5" stdDeviation="5" flood-opacity=".16"/>
+                        </filter>
+                        <filter id="gt-key-shadow" x="-60%" y="-60%" width="220%" height="240%">
+                          <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity=".10"/>
+                        </filter>
+                        <linearGradient id="gt-plane" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="#bfc5c1"/>
+                          <stop offset="1" stop-color="#d3d8d4"/>
+                        </linearGradient>
+                        <linearGradient id="gt-mount" x1="0" y1="0" x2="0" y2="1">
+                          <stop stop-color="#343535"/><stop offset=".5" stop-color="#222323"/><stop offset="1" stop-color="#171818"/>
+                        </linearGradient>
+                        <linearGradient id="gt-barrel" x1="0" y1="0" x2="0" y2="1">
+                          <stop stop-color="#181919"/><stop offset=".35" stop-color="#353636"/><stop offset=".7" stop-color="#222323"/><stop offset="1" stop-color="#111212"/>
+                        </linearGradient>
+                        <radialGradient id="gt-lens" cx=".32" cy=".23" r=".8">
+                          <stop stop-color="#8a8b8a"/><stop offset=".2" stop-color="#494a49"/><stop offset=".48" stop-color="#282929"/><stop offset="1" stop-color="#171818"/>
+                        </radialGradient>
+                        <marker id="gt-arrow-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                          <path d="M0 0 10 5 0 10Z" fill="#606060"/>
+                        </marker>
+                        <marker id="gt-arrow-black" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+                          <path d="M0 0 10 5 0 10Z" fill="#000"/>
+                        </marker>
+                        <marker id="gt-arrow-white" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                          <path d="M0 0 10 5 0 10Z" fill="#fff"/>
+                        </marker>
+                        <marker id="gt-arrow-guide" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto-start-reverse">
+                          <path d="M0 0 10 5 0 10Z" fill="#b6a4cd"/>
+                        </marker>
+                        <!-- A small tape ring, shared across the six independently editable planes. -->
+                        <g id="gt-tape">
+                          <ellipse cx="3" cy="3" rx="29" ry="6" fill="#7d7762" opacity=".24"/>
+                          <ellipse rx="24" ry="5.5" fill="#ad9345"/>
+                          <ellipse cy="-1" rx="19" ry="3.4" fill="#77786c"/>
+                          <ellipse cy="0" rx="16.5" ry="2.4" fill="#cdd1c9"/>
+                          <path d="M-22-1C-14-6 13-6 23-1" fill="none" stroke="#d0bd7b" stroke-width="1.6"/>
+                        </g>
+                        <g id="gt-stereo-pyramid">
+                          <g data-plane="wide" filter="url(#gt-plane-shadow)">
+                            <path d="M-97 267H96L123 343H-123Z" fill="url(#gt-plane)" stroke="#929793" stroke-width="4"/>
+                            <use href="#gt-tape" transform="translate(0 304)"/>
+                          </g>
+                          <g data-plane="middle" filter="url(#gt-plane-shadow)">
+                            <path d="M-67 220H65L88 293H-89Z" fill="url(#gt-plane)" stroke="#929793" stroke-width="4"/>
+                            <use href="#gt-tape" transform="translate(0 257)"/>
+                          </g>
+                          <g data-plane="foveal" filter="url(#gt-plane-shadow)">
+                            <path d="M-39 194H37L56 251H-57Z" fill="url(#gt-plane)" stroke="#929793" stroke-width="4"/>
+                            <use href="#gt-tape" transform="translate(0 225)"/>
+                          </g>
+                        </g>
+                        <!-- Native vector camera: mounting plate, cooling fins, barrel, and lens. -->
+                        <g id="gt-camera-base">
+                          <path d="M68-63 123-44 124 13 70 32 49 22 48-45Z" fill="#242525" stroke="#151616" stroke-width="2"/>
+                          <g stroke="#0f1010" stroke-width="7">
+                            <path d="m52-39 59-19m-57 28 58-19m-56 28 57-19m-55 28 56-19m-55 28 56-19m-57 29 58-20m-60 29 61-20m-63 28 64-19"/>
+                          </g>
+                          <g stroke="#3b3c3c" stroke-width="2" opacity=".75">
+                            <path d="m52-41 59-19m-57 28 58-19m-56 28 57-19m-55 28 56-19m-55 28 56-19m-57 29 58-20m-60 29 61-20m-63 28 64-19"/>
+                          </g>
+                        </g>
+                        <g id="gt-camera-eye">
+                          <path d="M1-45 50-50C80-48 94 5 66 28L27 51Z" fill="url(#gt-barrel)" stroke="#141515" stroke-width="2"/>
+                          <g fill="none" stroke="#121313" stroke-width="2.5">
+                            <path d="M40-48C68-41 81 9 57 33"/>
+                            <path d="M29-47C57-40 70 13 46 38"/>
+                            <path d="M19-46C47-39 60 17 36 42"/>
+                          </g>
+                          <ellipse cx="11" cy="3" rx="30" ry="49" transform="rotate(-16 11 3)" fill="#303131" stroke="#171818" stroke-width="3"/>
+                          <ellipse cx="6" cy="3" rx="25" ry="44" transform="rotate(-16 6 3)" fill="url(#gt-lens)" stroke="#202121" stroke-width="2"/>
+                          <path d="M-13-29Q-28-4-10 31" fill="none" stroke="#737575" stroke-opacity=".17" stroke-width="2"/>
+                        </g>
+                      </defs>
 
+                      <g id="gt-stereo-inputs" class="layer" transform="translate(0 -40)" aria-label="Foveated stereo views">
+                        <text class="diagram-label" x="391" y="147" text-anchor="middle">Foveated stereo</text>
+                        <use href="#gt-stereo-pyramid" transform="translate(260 0)"/>
+                        <use href="#gt-stereo-pyramid" transform="translate(522 0)"/>
+                      </g>
+                      <g id="gt-eye-state" class="layer" transform="translate(0 -40)">
+                        <text class="diagram-label" x="741" y="147" text-anchor="middle">Eye Proprio</text>
+                        <g fill="white" stroke="#000" stroke-width="4.2">
+                          <ellipse cx="703" cy="200" rx="32" ry="33"/>
+                          <ellipse cx="778" cy="200" rx="32" ry="33"/>
+                        </g>
+                        <g id="gt-pupils" fill="#000">
+                          <circle cx="715" cy="200" r="13.5"/><circle cx="790" cy="200" r="13.5"/>
+                          <g fill="white"><circle cx="720" cy="195" r="4"/><circle cx="795" cy="195" r="4"/></g>
+                        </g>
+                        <text class="math" x="741" y="285" font-size="60" text-anchor="middle">(θ, ϕ, d)</text>
+                      </g>
+                      <g id="gt-goal-prompt" class="layer" transform="translate(0 -40)">
+                        <text class="diagram-label" x="1016" y="147" text-anchor="middle">Prompt</text>
+                        <rect class="prompt-border" x="848" y="163" width="348" height="83" rx="23" fill="none" stroke-width="3" stroke-dasharray="3 5"/>
+                        <text id="gt-prompt-text" class="diagram-label" x="1022" y="219" text-anchor="middle" style="font-size:42px;fill:#606060">“a yellow tape”</text>
+                      </g>
+                      <g id="gt-projection-label">
+                        <text class="diagram-label" x="1370" y="344" text-anchor="end" style="font-size:36px;fill:#5e6f65">MLP projection</text>
+                      </g>
+                      <g id="gt-policy-block" class="layer">
+                        <rect class="policy-fill" x="64" y="375" width="1318" height="164" rx="25" stroke="white" stroke-width="2" filter="url(#gt-paper-shadow)"/>
+                        <text id="gt-policy-text" class="diagram-label" x="723" y="477" font-size="60" style="font-size:60px" text-anchor="middle">Gaze Transformer</text>
+                      </g>
+                      <g id="gt-input-connections">
+                        <path id="gt-left-flow" class="flow-arrow" d="M260 320V372"/>
+                        <path id="gt-right-flow" class="flow-arrow" d="M522 320V372"/>
+                        <path id="gt-state-flow" class="flow-arrow" d="M742 264V372"/>
+                        <path id="gt-prompt-flow" class="flow-arrow" d="M1022 213V372"/>
+                        <path id="gt-output-flow" class="flow-arrow" d="M372 548V641"/>
+                      </g>
+                      <g id="gt-motion-outputs" class="layer">
+                        <rect class="output-border" x="96" y="655" width="552" height="146" rx="19" fill="none" stroke-width="3"/>
+                        <g filter="url(#gt-key-shadow)">
+                          <rect id="gt-theta-key" class="output-key" x="122" y="681" width="132" height="92" rx="11"/>
+                          <rect id="gt-phi-key" class="output-key" x="306" y="681" width="132" height="92" rx="11"/>
+                          <rect id="gt-depth-key" class="output-key" x="490" y="681" width="132" height="92" rx="11"/>
+                        </g>
+                        <g class="math" font-size="88" text-anchor="middle">
+                          <text x="188" y="755"><tspan font-style="normal">Δ</tspan>θ</text>
+                          <text x="372" y="752"><tspan font-style="normal">Δ</tspan>ϕ</text>
+                          <text x="556" y="754"><tspan font-style="normal">Δ</tspan>d</text>
+                        </g>
+                        <text id="gt-direction-caption" class="motion-caption" x="280" y="846" text-anchor="middle">Direction</text>
+                        <text id="gt-depth-caption" class="motion-caption" x="556" y="846" text-anchor="middle">Depth</text>
+                      </g>
+                      <g id="gt-gaze-illustration" transform="translate(-100 -5)">
+                      <g id="gt-motion-guides" aria-hidden="true">
+                        <path id="gt-depth-guide" class="motion-guide" marker-start="url(#gt-arrow-guide)" marker-end="url(#gt-arrow-guide)"/>
+                        <path id="gt-direction-guide" class="motion-guide" marker-start="url(#gt-arrow-guide)" marker-end="url(#gt-arrow-guide)"/>
+                      </g>
+                      <g id="gt-gaze-rays">
+                        <path id="gt-left-ray" class="ray" d="M920 910 1074 716"/>
+                        <path id="gt-right-ray" class="ray" d="M920 910 1305 792"/>
+                      </g>
+                      <g id="gt-stereo-hardware" class="layer">
+                        <path d="M1146 615Q1149 612 1155 615L1439 718Q1443 719 1443 727L1446 796Q1446 805 1438 803L1150 700Q1144 698 1144 690Z" fill="url(#gt-mount)" stroke="#171818" stroke-width="3"/>
+                        <path d="M1152 622 1435 725 1438 793" fill="none" stroke="#454646" stroke-width="3" opacity=".7"/>
+                        <path d="m1234 648 5 83m11-77 6 82m-36-93 5 82" fill="none" stroke="#101111" stroke-width="3"/>
+                        <ellipse cx="1435" cy="736" rx="3.5" ry="7" fill="#111"/>
+                        <ellipse cx="1439" cy="785" rx="3.5" ry="7" fill="#111"/>
+                        <use href="#gt-camera-base" transform="translate(1075 695)"/>
+                        <use href="#gt-camera-base" transform="translate(1296 777)"/>
+                        <g id="gt-left-eye-motion"><use href="#gt-camera-eye" transform="translate(1075 695)"/></g>
+                        <g id="gt-right-eye-motion"><use href="#gt-camera-eye" transform="translate(1296 777)"/></g>
+                      </g>
+                      <!-- Ray endpoints sit on the lens faces, as in the source. -->
+                      <g id="gt-ray-tips" class="ray">
+                        <path id="gt-left-ray-tip" d="m1067 720 9-5"/><path id="gt-right-ray-tip" d="m1297 795 10-3"/>
+                      </g>
+                      <g id="gt-fixation-point">
+                        <circle id="gt-fixation-dot" class="fixation-fill" cx="920" cy="910" r="13"/>
+                      </g>
+                      <text id="gt-motion-label" class="motion-label" x="930" y="994" text-anchor="middle">Direction · depth</text>
+                      </g>
+                    </svg>
                 </figure>
                 <p class="paragraph">
                     We first train a gaze policy that continuously servos the 2 eyes to fixate on a target object in 3D.
                     The policy uses a transformer decoder architecture. It takes in foveated input views, the current eye proprioception, and a goal to look at, and outputs eye motion.
                     We train it with PPO with a dense reward derived from extracting 3D object locations with foundation models and supervising with Euclidean error.
                 </p>
-            </div>
-            <div class="gaze-training-figures">
-                <figure>
-                    <img src="images/gaze_ground_truth.svg" alt="Ground-truth fixation from SAM3 object detection and FoundationStereo depth, with the fixation-distance training reward" width="1128" height="312" loading="lazy" decoding="async" />
-                    <figcaption>Conditioned on a goal object, we compute dense euclidean reward based on the detected 3D positions</figcaption>
-                </figure>
             </div>
             <!-- TODO: drop clip at data/pretraining.mp4 -->
             <!-- Hidden until a real video loads, so the missing-source video doesn't
@@ -558,14 +819,16 @@
             </video>
 
             <h2 class="gaze-sequencing-heading">Sequencing gaze for manipulation</h2>
-            <img class="gaze-sequencing-figure" src="images/arch.svg" alt="AVF framework / method overview" width="1666" height="504" loading="lazy" decoding="async" />
             <p class="paragraph">
                 Once we have a gaze policy that can look at objects of interest, we need to choose what object to look at during each stage of the task.
                 This is also learned via RL, using the BC-RL framework we proposed in <a href="https://www.eyerobot.net/">EyeRobot</a>.
                 During this phase, we freeze the goal-conditioned gaze policy and train a lightweight <i>target selector</i> with RL to output a distribution over target objects to look at at each timestep.
-                The target selector is co-trained with the BC gripper policy and rewarded with the BC policy's prediction accuracy. The BC policy is a standard ACT-style transformer
-                decoder trained with a regression objective. We opt for regression for its training speed and suitability for our high-quality non-diverse data, but the framework only assumes access to some
-                computable offline error metric. With diffusion models, one could use action reconstruction error, or even distributional measures like sample agreement!
+                The target selector is co-trained with the BC gripper policy and rewarded with the BC policy's prediction accuracy.
+            </p>
+            <img class="gaze-sequencing-figure" src="images/arch.svg" alt="AVF framework / method overview" width="1666" height="504" loading="lazy" decoding="async" />
+            <p class="paragraph">
+                The framework only requires a computable offline error metric to reward the target selector.
+                For generative models such as diffusion models, this could be action reconstruction error or a distributional measure such as sample agreement.
             </p>
 
             <p class="paragraph">

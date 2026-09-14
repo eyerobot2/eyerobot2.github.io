@@ -1,0 +1,152 @@
+/* Scoped styles for the main-page simulated gaze figure. */
+.gym-spatial-page { margin:0; background:#fff; color:var(--ink,#333); font-family:"Avenir Next",Avenir,"Open Sans",sans-serif; -webkit-font-smoothing:antialiased; }
+.gym-spatial-page-content { max-width:1040px; margin:0 auto; padding:30px 28px 48px; box-sizing:border-box; }
+.gym-spatial-header { max-width:800px; margin:0 auto 26px; }
+.gym-spatial-header a { margin-bottom:30px; color:var(--muted,#75808a); font-size:13px; text-decoration:none; }
+.gym-spatial-header a:hover { color:var(--ink,#333); }
+.gym-spatial-header h1 { font-size:30px; font-weight:650; letter-spacing:-.6px; margin:0 0 12px; }
+.gym-spatial-header p { font-size:15px; color:var(--muted,#75808a); margin:0; }
+.gym-spatial { max-width:800px; padding:0; margin:0 auto; border:0; border-top:1px solid var(--line,#dce2e6); border-radius:0; overflow:hidden; background:white; }
+.gym-spatial * { box-sizing:border-box; }
+.gym-spatial-topline { display:flex; justify-content:flex-end; align-items:center; padding:21px 25px 0; font-size:13px; color:var(--ink,#333); }
+.gym-spatial-key { display:flex; align-items:center; gap:7px; font-size:11px; color:var(--muted,#75808a); }
+.gym-spatial-key i { width:11px; height:11px; border-radius:3px; background:var(--mint,#b6daca); }
+.gym-spatial-key i:nth-of-type(2) { background:var(--peach,#f5c6aa); margin-left:9px; border-radius:50%; }
+.gym-spatial-layout { display:grid; grid-template-columns:96px 76px minmax(0,1fr) 156px; gap:8px; padding:16px 20px 18px; align-items:center; }
+.gym-spatial-world { min-width:0; }
+#gym-spatial-scene { display:block; width:100%; aspect-ratio:10/7; }
+.gym-spatial-scene-note { display:flex; justify-content:center; gap:12px; font-size:10px; color:var(--muted,#75808a); margin:0 0 5px; }
+.gym-spatial-scene-note span:last-child { display:none; }
+.gym-spatial-outputs { padding-top:12px; }
+.gym-spatial-section-label { font-size:12px; margin:0 0 10px; }
+.gym-spatial-crop { position:relative; border:1px solid var(--mint,#b6daca); border-radius:7px; overflow:hidden; margin:0 0 10px; background:var(--mint-light,#edf6f0); }
+.gym-spatial-crop canvas { display:block; width:100%; aspect-ratio:4/3; }
+.gym-spatial-crop > span,.gym-spatial-sources span { position:absolute; top:7px; left:8px; font-size:10px; padding:1px 5px; background:rgba(255,255,255,.86); border-radius:3px; color:#52685c; }
+.gym-spatial-output-note { font-size:11px; line-height:1.55; margin:0; color:var(--muted,#75808a); }
+.gym-spatial-inputs { align-self:center; }
+.gym-spatial-inputs .gym-spatial-section-label { font-size:11px; }
+.gym-spatial-sources { display:grid; gap:10px; }
+.gym-spatial-sources > div { position:relative; min-width:0; }
+.gym-spatial-sources img { display:block; width:100%; height:auto; border:1px solid var(--line,#dce2e6); border-radius:5px; }
+.gym-spatial-sources span { top:4px; left:4px; font-size:9px; padding:0 4px; }
+.gym-spatial-projection-arrow { color:#6d7c87; font-size:13px; text-align:center; align-self:center; margin-top:-45px; }
+.gym-spatial-projection-arrow i { display:block; position:relative; height:1px; background:#b8c4cc; margin:9px 4px 0; }
+.gym-spatial-projection-arrow i::after { content:""; position:absolute; right:0; top:-3px; width:6px; height:6px; border-top:1px solid #b8c4cc; border-right:1px solid #b8c4cc; transform:rotate(45deg); }
+.gym-spatial-status { min-height:19px; padding:0 25px; margin:0 0 12px; font-size:11px; color:#6c786f; }
+.gym-spatial-status[data-missing="true"] { color:#966345; }
+.gym-spatial-caption { display:block; border-top:1px solid #edf0f2; padding:16px 25px 19px; color:var(--muted,#75808a); font-size:12px; line-height:1.7; margin:0; }
+.gym-spatial-method { font-size:11px; line-height:1.7; color:var(--muted,#75808a); max-width:800px; margin:17px auto 14px; }
+.gym-spatial-details { color:var(--muted,#75808a); font-size:12px; line-height:1.7; }
+.gym-spatial-details summary { cursor:pointer; width:fit-content; }
+.gym-spatial-details p { max-width:800px; }
+.gym-spatial-details a { color:#5e8098; }
+.gym-spatial-page :focus-visible { outline:2px solid #648ca7; outline-offset:4px; }
+@media (max-width:800px) and (min-width:661px) {
+ .gym-spatial-layout { grid-template-columns:80px 72px minmax(0,1fr) 140px; padding:14px 12px; gap:5px; }
+ .gym-spatial-projection-arrow { font-size:12px; }
+}
+@media (max-width:660px) {
+ .gym-spatial-page-content { padding:20px 14px 32px; }
+ .gym-spatial-header { margin-bottom:20px; }
+ .gym-spatial-header h1 { font-size:25px; }
+ .gym-spatial-header p { font-size:14px; }
+ .gym-spatial-topline { padding:17px 14px 0; font-size:12px; }
+ .gym-spatial-key { font-size:9px; gap:4px; }
+ .gym-spatial-key i { width:8px; height:8px; }
+ .gym-spatial-layout { grid-template-columns:1fr; padding:18px 10px; gap:7px; }
+ .gym-spatial-inputs { display:flex; justify-content:center; align-items:center; gap:12px; }
+ .gym-spatial-inputs .gym-spatial-section-label { max-width:48px; margin:0; }
+ .gym-spatial-sources { grid-template-columns:1fr 1fr; gap:7px; max-width:205px; }
+ .gym-spatial-projection-arrow { margin:0; height:34px; position:relative; }
+ .gym-spatial-projection-arrow span { position:absolute; left:calc(50% + 12px); top:2px; text-align:left; white-space:nowrap; }
+ .gym-spatial-projection-arrow i { width:1px; height:28px; margin:3px auto; }
+ .gym-spatial-projection-arrow i::after { right:-3px; top:auto; bottom:0; transform:rotate(135deg); }
+ .gym-spatial-scene-note { margin:0 0 12px; font-size:10px; }
+ .gym-spatial-outputs { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:0 4px; }
+ .gym-spatial-section-label { grid-column:1/-1; margin:0; }
+ .gym-spatial-crop { margin:0; }
+ .gym-spatial-output-note { grid-column:1/-1; font-size:10px; }
+ .gym-spatial-output-note br { display:none; }
+ .gym-spatial-status { padding:0 14px; font-size:10px; }
+ .gym-spatial-caption { padding:14px; font-size:11px; }
+}
+@media (max-width:360px) {
+ .gym-spatial-key { display:none; }
+ .gym-spatial-sources { max-width:175px; }
+}
+
+.lab-embed .gym-spatial-page-content { padding:0; }
+.lab-embed .gym-spatial { border-radius:0; }
+
+
+.gym-spatial-header .lab-kicker{font-size:11px;margin:0 0 9px}
+
+/* Continuous presentation: no transport or target controls. */
+.gym-spatial-status { color:#75808a; padding-top:0; margin-top:-5px; }
+
+.gym-spatial-layout { align-items:center; }
+
+.gym-spatial-status { display:none; }
+.gym-spatial[data-load-error="true"] .gym-spatial-status { display:block; }
+
+/* Native main-page placement shares the same rendering as the isolated study. */
+.gym-spatial.gym-spatial--inline {
+ width:100%;
+ margin:10px auto 24px;
+ border:0;
+ color:#333;
+ font:14px/1.5 "Avenir Next",Avenir,"Open Sans",sans-serif;
+}
+
+/* Reading order: stereo inputs, spherical map, rendered perspective. */
+.gym-spatial-layout {
+ grid-template-columns:176px 24px minmax(0,1fr) 176px;
+ gap:8px;
+ padding:0;
+ align-items:start;
+}
+.gym-spatial .gym-spatial-section-label {
+ font-size:15px;
+ font-weight:500;
+ line-height:1.4;
+ margin:0 0 12px;
+ color:#46545e;
+}
+.gym-spatial-inputs { align-self:start; }
+.gym-spatial-world > .gym-spatial-section-label { text-align:center; }
+#gym-spatial-scene { aspect-ratio:30/19; height:auto; }
+.gym-spatial-outputs { padding-top:0; }
+.gym-spatial-crop > span,.gym-spatial-sources span { font-size:11px; }
+.gym-spatial-projection-arrow { margin:104px 0 0; align-self:start; }
+.gym-spatial-projection-arrow i { margin:0; }
+.gym-spatial-topline { padding:0; margin:0; justify-content:center; }
+.gym-spatial-key { font-size:12px; }
+@media (min-width:661px) and (max-width:800px) {
+ .gym-spatial-layout { grid-template-columns:160px 18px minmax(0,1fr) 160px; }
+}
+@media (max-width:660px) {
+ .gym-spatial-layout { grid-template-columns:1fr; gap:10px; }
+ .gym-spatial-inputs { align-self:center; }
+ .gym-spatial-inputs .gym-spatial-section-label { max-width:55px; margin:0; }
+ .gym-spatial-projection-arrow { margin:0; height:24px; }
+ .gym-spatial-projection-arrow i { margin:0 auto; height:24px; }
+ .gym-spatial-world > .gym-spatial-section-label { margin-bottom:0; }
+ .gym-spatial-outputs { padding:6px 0 0; }
+ .gym-spatial-outputs .gym-spatial-section-label { margin-bottom:0; }
+ .gym-spatial-key { font-size:11px; }
+}
+
+/* Center the connector in the visible gap, not the canvas's empty margin. */
+.gym-spatial-layout { position:relative; }
+.gym-spatial-inputs { grid-column:1; grid-row:1; }
+.gym-spatial-world { grid-column:3; grid-row:1; }
+.gym-spatial-outputs { grid-column:4; grid-row:1; }
+.gym-spatial-projection-arrow { position:absolute; height:1px; margin:0; }
+#gym-spatial-scene { aspect-ratio:10/7; }
+@media (min-width:661px) {
+ .gym-spatial-crop:last-child { margin-bottom:0; }
+}
+@media (max-width:660px) {
+ .gym-spatial-inputs,.gym-spatial-world,.gym-spatial-outputs { grid-column:1; grid-row:auto; }
+ .gym-spatial-projection-arrow { position:relative; grid-column:1; grid-row:auto; width:1px; height:24px; margin:0 auto; }
+}

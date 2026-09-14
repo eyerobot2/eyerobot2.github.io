@@ -16,6 +16,15 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data/web-video"
 SETTINGS = "1080-high-quality-30fps-v1"
 
+def trim_start(source):
+    """Trim paired result/policy rollouts, leaving the source masters intact."""
+    if source.stem == "policy_wrench":
+        return 1.5
+    if source.stem.startswith(("result_", "policy_")):
+        task = source.stem.rsplit("_", 1)[-1]
+        return {"wrench": 2.0, "toaster": 0.5}.get(task, 1.0)
+    return 0.0
+
 
 def digest(path):
     with path.open("rb") as source:
@@ -24,6 +33,8 @@ def digest(path):
 
 def prefer_smaller_source(result):
     """Already compact <=1080p/30fps sources only need their metadata moved."""
+    if result.get("trim_start_seconds", 0):
+        return result
     source, target = ROOT / result["source"], ROOT / result["output"]
     if target.stat().st_size > source.stat().st_size:
         video = json.loads(subprocess.check_output([
@@ -48,9 +59,12 @@ def encode(source):
     target = OUTPUT / relative
     record = target.with_suffix(".json")
     source_hash = digest(source)
+    start = trim_start(source)
     if target.exists() and record.exists():
         previous = json.loads(record.read_text())
-        if previous["source_sha256"] == source_hash and previous["settings"] == SETTINGS:
+        if (previous["source_sha256"] == source_hash
+                and previous["settings"] == SETTINGS
+                and previous.get("trim_start_seconds", 0) == start):
             return prefer_smaller_source(previous)
 
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -64,7 +78,7 @@ def encode(source):
     filters = "scale=-2:'min(1080,ih)':flags=lanczos,fps=30"
     command = [
         "ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
-        "-threads", "4", "-i", str(source), "-map", "0:v:0", "-map", "0:a?",
+        "-threads", "4", "-ss", str(start), "-i", str(source), "-map", "0:v:0", "-map", "0:a?",
         "-vf", filters, "-c:a", "copy",
     ]
     if av1:
@@ -85,6 +99,7 @@ def encode(source):
         "output": str(target.relative_to(ROOT)),
         "source_sha256": source_hash,
         "settings": SETTINGS,
+        "trim_start_seconds": start,
         "original_bytes": source.stat().st_size,
         "web_bytes": target.stat().st_size,
     }

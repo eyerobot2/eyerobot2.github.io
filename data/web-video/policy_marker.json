@@ -3,6 +3,7 @@
   "output": "data/web-video/policy_marker.mp4",
   "source_sha256": "637e53cb3c607bbe448c18745f7d83469986fc52d61cf3ec91e9f66f28ca6de4",
   "settings": "1080-high-quality-30fps-v1",
+  "trim_start_seconds": 1.0,
   "original_bytes": 39246135,
-  "web_bytes": 15450926
+  "web_bytes": 15123955
 }

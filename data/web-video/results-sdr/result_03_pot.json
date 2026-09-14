@@ -3,6 +3,7 @@
   "output": "data/web-video/results-sdr/result_03_pot.mp4",
   "source_sha256": "c204138169c02fccf886104b4a972312498db0ac41b069ab7d7d1e60c7b6284b",
   "settings": "1080-high-quality-30fps-v1",
+  "trim_start_seconds": 1.0,
   "original_bytes": 4019461,
-  "web_bytes": 2963795
+  "web_bytes": 2727576
 }

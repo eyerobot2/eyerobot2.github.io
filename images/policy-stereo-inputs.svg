@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="152" viewBox="0 0 280 152">
+  <title>Foveated stereo image pyramids</title>
+  <desc>Two eye views, each with three centered crops. The tape occupies more of each successively narrower crop.</desc>
+  <defs>
+    <g id="pyramid" stroke-linejoin="round">
+      <path d="M18 58H110L126 113H2Z" fill="#f0f1ed" stroke="#b8bfba" stroke-width="1.4"/>
+      <path d="M19 90L39 84M91 98L106 87" stroke="#d5dad4" stroke-width="2"/>
+      <ellipse cx="64" cy="88" rx="15" ry="5.8" fill="#d6b458" stroke="#aa8b3e" stroke-width="1"/>
+      <ellipse cx="64" cy="86.7" rx="10" ry="3.8" fill="#f7f7f3"/>
+      <path d="M29 33H99L112 78H16Z" fill="#e8eee8" stroke="#aebcb1" stroke-width="1.4"/>
+      <ellipse cx="64" cy="57" rx="18" ry="7" fill="#d6b458" stroke="#aa8b3e" stroke-width="1"/>
+      <ellipse cx="64" cy="55.4" rx="12" ry="4.5" fill="#f7f7f3"/>
+      <path d="M40 10H88L99 45H29Z" fill="#e0ebe4" stroke="#92af9d" stroke-width="1.4"/>
+      <ellipse cx="64" cy="29" rx="19" ry="7.7" fill="#d6b458" stroke="#aa8b3e" stroke-width="1"/>
+      <ellipse cx="64" cy="27.2" rx="12.7" ry="4.9" fill="#f7f7f3"/>
+    </g>
+  </defs>
+  <use href="#pyramid" x="6" y="1"/>
+  <use href="#pyramid" x="148" y="1"/>
+  <g fill="#777" font-family="'Avenir Next', Avenir, sans-serif" font-size="13" text-anchor="middle">
+    <text x="70" y="136">Left eye</text>
+    <text x="212" y="136">Right eye</text>
+  </g>
+  <g stroke="#9ca8a1" stroke-width="1.3" fill="none">
+    <path d="M70 142V151M212 142V151"/>
+  </g>
+</svg>

@@ -1,0 +1,121 @@
+{
+  "source_host": "sphynx",
+  "source_directory": "/home/jkerr/eyeball/data/demos/calib_tape_recollect_merged_cleaned/trajectory_0000",
+  "source_files": [
+    "left_raw.mp4",
+    "right_raw.mp4",
+    "left.mp4",
+    "right.mp4"
+  ],
+  "frame_index": 0,
+  "timestamp_seconds": 0,
+  "fps": 30,
+  "frames_in_clip": 284,
+  "retrieved": "2026-09-13",
+  "retrieval": "Read-only SSH; OpenCV VideoCapture in /home/jkerr/miniconda3/envs/eyeball211/bin/python. First decoded frame from each stream. No remote files changed.",
+  "raw_sensor_resolution": [
+    1600,
+    1200
+  ],
+  "saved_spherical_resolution": [
+    2562,
+    1282
+  ],
+  "runtime": "One recorded still stereo pair; virtual gaze loops continuously. No controls, no video decoder or 3D library. Pauses when hidden/offscreen; reduced-motion preference gives a static view.",
+  "calibration": "No stereo_calib.json sidecar was found for this older dataset. Uses the existing left.mp4/right.mp4 spherical projections with their baked calibration warp. Does not apply current camera constants. Historical calibration version is not independently verified.",
+  "direction_convention": {
+    "source_code": "sphynx:~/eyeball/eye/elp_equirect.py, _build_real_elp_to_equirect_grid",
+    "world_ray": "[sin(polar)*cos(azimuth), -sin(polar)*sin(azimuth), cos(polar)]",
+    "azimuth": "((u+0.5)/2562*2-1)*pi",
+    "polar": "(v+0.5)/1282*pi",
+    "display_camera_to_world": [
+      [
+        0,
+        -0.7071067811865476,
+        0.7071067811865476
+      ],
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        -0.7071067811865476,
+        -0.7071067811865476
+      ]
+    ]
+  },
+  "fixed_preview": {
+    "resolution": [
+      1200,
+      900
+    ],
+    "focal_length_pixels": 450,
+    "principal_point": [
+      600,
+      450
+    ],
+    "note": "Virtual pinhole projection of the saved maps, not raw-sensor intrinsics."
+  },
+  "target_annotations": {
+    "yellow_tape": [
+      [
+        505,
+        725
+      ],
+      [
+        420,
+        725
+      ]
+    ],
+    "grey_tape": [
+      [
+        749,
+        704
+      ],
+      [
+        660,
+        704
+      ]
+    ],
+    "note": "Approximate hand-selected hole centers in fixed preview pixels. Matched vertical coordinate. Disparity estimates depth in baseline-relative units, not measured metric object poses."
+  },
+  "display_geometry": {
+    "camera_centers": [
+      [
+        -0.9,
+        0,
+        0
+      ],
+      [
+        0.9,
+        0,
+        0
+      ]
+    ],
+    "units": "arbitrary, baseline-relative",
+    "sphere_radius": 0.92,
+    "note": "Schematic front view: camera +X projects to the reader\u2019s left. R/grey appear left; L/yellow appear right. Depth compression and table height are illustrative, not a calibrated observer camera or reconstructed surfaces. Sampling uses unchanged per-eye rays.",
+    "reference_table": "Plane y+z=15.8 in the 45-degree display camera frame. Height chosen for illustration; not a recovered table measurement.",
+    "table_spacing": "Illustrative table target X offsets are compressed to 55% about their midpoint. Cylinder sizes are preserved. Connectors link sampled sphere points to the displayed cylinders; original target directions and RGB sampling are unchanged.",
+    "sphere_presentation": "Original forward hemispheres: camera center + radius * unit(ray), rendered with the same schematic projection as the table. No local half-turn, separate sphere perspective, or rear-surface tint. Restored from the exact pre-experiment source snapshot."
+  },
+  "output": {
+    "resolution": [
+      360,
+      270
+    ],
+    "horizontal_fov_degrees": 36,
+    "sampling": "One bilinear sample directly from the saved native-resolution spherical image; no intermediate per-frame projection."
+  },
+  "mask": "Border-connected near-black panorama padding (max RGB <12), eroded by one pixel. This is an image-derived validity estimate because no original binary coverage mask was saved. Interior dark image content is preserved.",
+  "source_png_sha256": {
+    "left-equirect.png": "68efef279df374c96ec6517a812665ee78a292ba5ea9390a40b15ec906e54425",
+    "right-raw.png": "2d780d5af5c8fba0aab755dfaa3288c7ac94eaa95107f653e399f2be254fba27",
+    "left-raw.png": "caeba08a5ffd2e09e48d7cd7e85afae690daf7f8be90c1ca126bc2e3b5ea94d6",
+    "right-equirect.png": "165baf8d7dd2a2298fd4222724d59e360cc64f745125ac327cdc8a83b6a008ea"
+  },
+  "object_sketches": "Code-drawn hollow tape cylinders with shaded outer walls, cardboard inner walls, annular top faces, and light contact shadows. Cached in the static diagram background; no meshes or photo cutouts are loaded.",
+  "source_thumbnails": "800 \u00d7 600 downsampled original raw sensor frames, at left before the spherical projection arrow. No virtual crop footprint is overlaid on raw sensor pixels."
+}
