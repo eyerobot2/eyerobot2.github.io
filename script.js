@@ -277,19 +277,25 @@ function formatPlaybackTime(seconds) {
   return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
 }
 
-function setupDistractorPlaybackControls() {
-  document.querySelectorAll(".distractor-comparison").forEach(figure => {
+function setupVideoPlaybackControls() {
+  // Controls only observe media events: source attachment and preloading stay
+  // with SiteMedia, so offscreen slides do not load just to populate a timeline.
+  document.querySelectorAll(
+    ".distractor-comparison, #real-results-carousel .results-grid-item, #policy-carousel .carousel-slide"
+  ).forEach(figure => {
     const video = figure.querySelector("video");
     if (!video || figure.querySelector(".distractor-playback-controls")) return;
 
+    const label = figure.matches(".distractor-comparison") ? "comparison" :
+      figure.closest("#policy-carousel") ? "eye-view video" : "task rollout";
     const controls = document.createElement("div");
-    controls.className = "distractor-playback-controls";
+    controls.className = "video-playback-controls distractor-playback-controls";
 
     const toggle = document.createElement("button");
     toggle.type = "button";
     toggle.className = "distractor-play-toggle";
     toggle.title = "Play";
-    toggle.setAttribute("aria-label", "Play comparison");
+    toggle.setAttribute("aria-label", `Play ${label}`);
 
     const scrubber = document.createElement("input");
     scrubber.type = "range";
@@ -299,7 +305,7 @@ function setupDistractorPlaybackControls() {
     scrubber.step = "1";
     scrubber.value = "0";
     scrubber.disabled = true;
-    scrubber.setAttribute("aria-label", "Seek comparison video");
+    scrubber.setAttribute("aria-label", `Seek ${label}`);
 
     const time = document.createElement("span");
     time.className = "distractor-playback-time";
@@ -314,7 +320,7 @@ function setupDistractorPlaybackControls() {
       const paused = video.paused;
       toggle.innerHTML = `<i class="ti ${paused ? "ti-player-play" : "ti-player-pause"}" aria-hidden="true"></i>`;
       toggle.title = paused ? "Play" : "Pause";
-      toggle.setAttribute("aria-label", `${paused ? "Play" : "Pause"} comparison`);
+      toggle.setAttribute("aria-label", `${paused ? "Play" : "Pause"} ${label}`);
     };
 
     const updateProgress = () => {
@@ -324,7 +330,12 @@ function setupDistractorPlaybackControls() {
         scrubber.disabled = false;
         if (!scrubbing) scrubber.value = String(Math.round((current / duration) * 1000));
         scrubber.style.setProperty("--seek-progress", `${Math.min((current / duration) * 100, 100)}%`);
+      } else {
+        scrubber.disabled = true;
+        scrubber.value = "0";
+        scrubber.style.setProperty("--seek-progress", "0%");
       }
+      scrubber.setAttribute("aria-valuetext", `${formatPlaybackTime(current)} of ${formatPlaybackTime(duration)}`);
       time.textContent = `${formatPlaybackTime(current)} / ${formatPlaybackTime(duration)}`;
     };
 
@@ -354,6 +365,7 @@ function setupDistractorPlaybackControls() {
     video.addEventListener("pause", updateToggle);
     video.addEventListener("loadedmetadata", updateProgress);
     video.addEventListener("durationchange", updateProgress);
+    video.addEventListener("emptied", updateProgress);
     video.addEventListener("timeupdate", updateProgress);
     scrubber.addEventListener("pointerdown", beginScrub);
     scrubber.addEventListener("input", seekFromScrubber);
@@ -380,7 +392,7 @@ function initializePage() {
   randomizeCoFirstAuthors();
   setupRealResultsMetricToggle();
   setupSectionIndex();
-  setupDistractorPlaybackControls();
+  setupVideoPlaybackControls();
   setupThumbnailClickEvents();
 
   // Show the first iframe by default

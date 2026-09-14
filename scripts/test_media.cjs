@@ -22,6 +22,9 @@ async function main() {
             'Below-fold fixation videos must not download on initial navigation');
         assert(!requests.some(url => url.includes('/web-posters/posters/gaze_probs')),
             'Far-offscreen posters must stay deferred');
+        assert(!requests.some(url => /\/web-video\/(results-|policy_)/.test(url)),
+            'Intro scrub bars must not trigger video or metadata downloads on initial navigation');
+        assert.equal(await page.locator('#real-results-carousel .video-playback-controls, #policy-carousel .video-playback-controls').count(), 14);
         console.log('PASS: initial video/poster loading is selective');
 
         for (const width of [320, 390, 768, 1440]) {
@@ -52,6 +55,50 @@ async function main() {
             })), `Goal-conditioned labels stay inside the video above its status row at ${width}px`);
         }
         console.log('PASS: responsive page and unstretched thumbnails at four viewport widths');
+        await page.setViewportSize({ width: 390, height: 844 });
+
+        for (const width of [390, 1200]) {
+            await page.setViewportSize({ width, height: 844 });
+            for (const id of ['real-results-carousel', 'policy-carousel']) {
+                const intro = page.locator('.carousel-container').filter({ has: page.locator(`#${id}`) });
+                await intro.scrollIntoViewIfNeeded();
+                await intro.locator('.carousel-nav .current-slide').click();
+                await page.waitForFunction(id => {
+                    const v = document.querySelector(`#${id} .current-slide video`);
+                    return v.readyState >= 3 && !v.paused;
+                }, id);
+                const selected = intro.locator('.carousel-track .current-slide');
+                const slider = selected.locator('input[type="range"]');
+                await selected.locator('.distractor-play-toggle').click();
+                assert(await selected.locator('video').evaluate(v => v.paused));
+                await slider.evaluate(input => {
+                    input.value = '650';
+                    input.dispatchEvent(new Event('input', { bubbles: true }));
+                });
+                await page.waitForFunction(id => {
+                    const v = document.querySelector(`#${id} .current-slide video`);
+                    return !v.seeking && Math.abs(v.currentTime / v.duration - .65) < .01;
+                }, id);
+                await slider.focus();
+                await slider.press('Home');
+                await page.waitForFunction(id => document.querySelector(`#${id} .current-slide video`).currentTime < .1, id);
+                await selected.locator('.distractor-play-toggle').click();
+                await page.waitForFunction(id => !document.querySelector(`#${id} .current-slide video`).paused, id);
+                await intro.locator('.carousel-button--right').click();
+                await page.waitForFunction(id => {
+                    const v = document.querySelector(`#${id} .current-slide video`);
+                    return v.readyState >= 3 && !v.paused && v.currentTime < 2;
+                }, id);
+                assert(await intro.locator('video').evaluateAll(videos =>
+                    videos.filter(v => v.querySelector('source[src]')).length <= 2),
+                    'Intro controls must preserve the two-slide loading bound');
+                await page.waitForFunction(id => {
+                    const r = document.querySelector(`#${id} .current-slide .video-playback-controls`).getBoundingClientRect();
+                    return r.left >= 0 && r.right <= innerWidth;
+                }, id);
+                console.log(`PASS: ${id} seeking, keyboard, pause/resume, slide switching, and bounded loading at ${width}px`);
+            }
+        }
         await page.setViewportSize({ width: 390, height: 844 });
 
         await page.route('**/data/distractor_comparisons/tape_012.mp4*', async route => {
