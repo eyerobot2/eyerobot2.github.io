@@ -1181,7 +1181,7 @@ h1.tldr {
     display: block;
     width: 104%;
     height: auto;
-    aspect-ratio: 2 / 1;
+    aspect-ratio: 16 / 9;
     margin: 0;
     border-radius: 10px;
 }

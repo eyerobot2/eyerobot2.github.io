@@ -121,11 +121,11 @@
   {
     "source": "data/teaser.mp4",
     "output": "data/web-video/teaser.mp4",
-    "source_sha256": "522f20dad4e8f6bb4983b5aa92964566f99926bcacd0c678008bf76f3a433aa7",
+    "source_sha256": "e50340e4bf7b08ca72f7b2d5a1d589ce4f42dc68ff22d04f2e64e87ffd63ce99",
     "settings": "1080-high-quality-30fps-v1",
-    "original_bytes": 7624508,
-    "web_bytes": 7624507,
-    "mode": "lossless faststart remux"
+    "trim_start_seconds": 0.0,
+    "original_bytes": 7881477,
+    "web_bytes": 8634615
   },
   {
     "source": "data/er2_success_scroll.mp4",
