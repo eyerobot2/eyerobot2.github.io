@@ -17,7 +17,7 @@
     -->
 
     <meta charset="utf-8" />
-    <title>EyeRobot 2.0: Active Visual Fixation for Precise Manipulation without Wrist Cameras</title>
+    <title>EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras</title>
 
     <!-- ===================================================================
          Website Metadata. og:image must stay an absolute URL: scrapers do
@@ -25,7 +25,7 @@
          since the crawlers cache it aggressively.
     ==================================================================== -->
     <meta content="A single actively-fixating stereo camera matches ego + wrist camera performance on precise manipulation. The robot learns where to look with RL." name="description" />
-    <meta content="EyeRobot 2.0: Active Visual Fixation for Precise Manipulation without Wrist Cameras" property="og:title" />
+    <meta content="EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras" property="og:title" />
     <meta content="A single actively-fixating stereo camera matches ego + wrist camera performance on precise manipulation. The robot learns where to look with RL." property="og:description" />
     <meta content="https://eyerobot2.github.io/data/previewcard.jpg?v=1" property="og:image" />
     <meta content="1200" property="og:image:width" />
@@ -33,7 +33,7 @@
     <meta content="EyeRobot 2.0 gripper in front of a toaster on the evaluation workspace" property="og:image:alt" />
     <meta content="https://eyerobot2.github.io/" property="og:url" />
     <meta content="EyeRobot 2.0" property="og:site_name" />
-    <meta content="EyeRobot 2.0: Active Visual Fixation for Precise Manipulation without Wrist Cameras" property="twitter:title" />
+    <meta content="EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras" property="twitter:title" />
     <meta content="A single actively-fixating stereo camera matches ego + wrist camera performance on precise manipulation. The robot learns where to look with RL." property="twitter:description" />
     <meta content="https://eyerobot2.github.io/data/previewcard.jpg?v=1" property="twitter:image" />
     <meta content="EyeRobot 2.0 gripper in front of a toaster on the evaluation workspace" property="twitter:image:alt" />
@@ -174,7 +174,7 @@
         ============================================================ -->
         <div>
             <h1 class="title">
-                <span class="title-name">EyeRobot 2.0</span>: Active Gaze enables Precise Manipulation without Wrist Cameras
+                <span class="title-name">EyeRobot 2.0</span>: Active Gaze for Precise Manipulation without Wrist Cameras
                 <!-- via Active Visual Fixation -->
             </h1>
 
@@ -576,7 +576,7 @@
                 then a target selector that chooses <i>what</i> to look at during manipulation. Both learn through RL without gaze demonstrations.
             </p>
 
-            <h2 id="simulated-gaze">Simulating gaze for RL training</h2>
+            <h2 id="simulated-gaze">Synthesizing gaze from offline real-world data</h2>
 
             <figure class="gym-spatial gym-spatial--inline" id="gym-spatial" aria-label="Virtual gaze from a fixed stereo pair">
               <div class="gym-spatial-layout">
@@ -603,9 +603,9 @@
             </figure>
 
             <p class="paragraph">
-            We simulate eye gaze by rendering stereo video through a spherical projection: based on the calibrated image and stereo geometry
-            we can exactly render what two physical eyes would have seen, modulo missing data outside the image. This allows us to train RL policies
-            to control gaze based on a variety of rewards, detailed below.
+                We synthesize gaze from recorded stereo video by projecting calibrated images onto spheres and rendering perspective views along new gaze directions.
+                This geometric form of view synthesis reproduces how the scene would look as the eyes rotate, within the original cameras’ field of view.
+                It lets us train gaze policies with RL on offline real-world data, using the rewards described below.
             </p>
             <h2>Learning goal-conditioned gaze</h2>
             <div class="gaze-trajectory-comparison">
@@ -998,8 +998,7 @@
                     Loosely speaking, there's a few main ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
                     3) increase data manifold coverage by making the manifold itself more compact. Much of EyeRobot 2.0's design follows the third approach, reducing the complexity
                     of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">2</a></sup>.
-
-
+                    This shares a motivation with equivariant learning: reducing variation by expressing observations and actions in a common frame, here defined by gaze.
                 </p>
 
                 <aside class="sidenote" id="fixation-relative-note" role="note">
@@ -1071,7 +1070,7 @@
                 locations produces different gripper trajectories. Expressing proprioception and actions relative to fixation
                 brings these reaches into a more compact manifold, reducing the variation the policy needs to learn.
                 This lets the same data more densely cover the relevant motions, rather than spreading it across
-                different object locations.
+                different object locations. <a href="#action-frame-ablation">See action-frame ablation →</a>
             </p>
             <figure id="fixation-actions" class="fixation-actions" data-fixation-actions data-src="data/fixation-actions/tape-pick-widget.json" aria-label="Interactive comparison of world and fixation coordinates">
                 <p data-load-status role="alert" hidden></p>
@@ -1238,10 +1237,8 @@
             <p class="paragraph">
                 Using the <i>same input images</i> as passive stereo, active fixation closes the performance gap between wrist-free and wrist-camera policies.
                 When wrist cameras have a clear view, EyeRobot 2.0 matches the ego + wrist baseline. When they don't, the gap widens.
-                We intentionally collected some tasks which are hard to see from the YAM's wrist cameras. In these tasks (boba and pot lid), ego + wrist policies must rely
-                solely on the ego-centric camera for useful information, so their performance drops to roughly that of the static stereo baseline. Different wrist camera designs like dual-cameras or fisheye views
-                 can alleviate these problems, but it's impossible to always maintain good observability. This also requires teleoperators to teleop the robot in an unnatural way, one that sometimes harms
-                 data quality because of unintuitive manipulation strategies required for observability.
+                We intentionally collected some tasks which are hard to see from the YAM's wrist cameras because they become blocked by objects throughout the task. In these tasks (boba and pot lid), ego + wrist policies must rely
+                solely on the ego-centric camera for useful information, so their performance drops to roughly that of the static stereo baseline.
             </p>
             <div class="wrist-view-comparison">
                 <figure class="wrist-view-task">
@@ -1272,6 +1269,10 @@
                 </figure>
             </div>
             <p class="carousel-caption wrist-view-caption">Wrist camera viewpoints during boba and pot lid tasks. Grasping tools poses significant visibility challenges for wrist cameras.</p>
+            <p class="paragraph">
+                Different wrist camera designs like dual-cameras or fisheye views can alleviate these problems, but it's impossible to always maintain good observability.
+                This also requires teleoperators to teleop the robot in an unnatural way, one that sometimes harms data quality because of unintuitive manipulation strategies required for observability.
+            </p>
 
             <h3>EyeRobot 2.0 matches wrist cameras in precise tasks without tool occlusions</h3>
             <p class="paragraph">
@@ -1426,7 +1427,9 @@
                     We found it extremely helpful for project development to build a MuJoCo twin of the YAM arms for high-volume, low-noise evaluations.
                     Our goal here was <i>not</i> sim-to-real transfer, but rather a clean simulation-only benchmark that replicates as closely as possible the real world pipeline.
                 We built a VR teleoperation platform using the same GELLO leader arms as real teleop, and designed 6 tasks by importing assets from SAM-3D. Task stage success is labeled based on
-                   programatic physics checks.</p>
+                   programatic physics checks.
+                    We will open-source the full simulation setup, including the task environments and teleoperation, training, and evaluation code.
+                </p>
             </div>
 
             <div class="paragraph-with-sidenote">
@@ -1572,7 +1575,7 @@
 </div>
 <!-- END GENERATED ABLATION SANKEYS -->
 
-            <h3>Gaze-centric actions</h3>
+            <h3 id="action-frame-ablation">Gaze-centric actions</h3>
             <p class="paragraph">
                 Instead of fixation-relative actions, we train and test models in simulation using world-frame SE(3) inputs and outputs.
                 These also degrade in performance and interestingly roughly match the performance of the entirely non-fixating policy.

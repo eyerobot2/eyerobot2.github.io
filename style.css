@@ -239,6 +239,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     box-sizing: border-box;
     text-align: left;
+    margin-bottom: 20px;
 }
 
 .token-density-figure {
@@ -2620,3 +2621,5 @@ input:checked + .slider:before {
 .ablation-sankey figcaption span:last-child { color: #777; }
 .ablation-sankey a { display: block; overflow-x: auto; }
 .ablation-sankey img { display: block; width: 100%; min-width: 580px; height: auto; }
+
+#action-frame-ablation { scroll-margin-top: 24px; }
