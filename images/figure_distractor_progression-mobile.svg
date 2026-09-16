@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="320" height="250" viewBox="0 0 320 250" role="img" aria-labelledby="title desc">
 <title id="title">Distractor objects: Task progression</title>
-<desc id="desc">Average: No Gaze 6.4%, Ego + Wrist 25.1%, ER2 44.7%. Wrench: No Gaze 4.0%, Ego + Wrist 26.7%, ER2 42.7%. Tea: No Gaze 6.0%, Ego + Wrist 30.0%, ER2 34.0%. Tape: No Gaze 9.3%, Ego + Wrist 18.7%, ER2 57.3%. 25 trials per task and policy. Average weights tasks equally. Values above bars are rounded; bar heights use exact fractions.</desc>
+<desc id="desc">Average: No Gaze 6.4%, Ego + Wrist 25.1%, EyeRobot 2.0 44.7%. Wrench: No Gaze 4.0%, Ego + Wrist 26.7%, EyeRobot 2.0 42.7%. Tea: No Gaze 6.0%, Ego + Wrist 30.0%, EyeRobot 2.0 34.0%. Tape: No Gaze 9.3%, Ego + Wrist 18.7%, EyeRobot 2.0 57.3%. 25 trials per task and policy. Average weights tasks equally. Values above bars are rounded; bar heights use exact fractions.</desc>
 <defs>
     <pattern id="avf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
       <rect width="8" height="8" fill="#f2986f"/>
@@ -41,7 +41,7 @@
 <text class="value" x="60" y="189.720000">6</text>
 <rect data-policy="Ego + Wrist" data-value="25.111111" x="69" y="167.840000" width="14" height="36.160000" fill="#5c8fc5"><title>Ego + Wrist: 25.1%</title></rect>
 <text class="value" x="76" y="162.840000">25</text>
-<rect data-policy="ER2" data-value="44.666667" x="85" y="139.680000" width="14" height="64.320000" fill="url(#avf-hatch)"><title>ER2: 44.7%</title></rect>
+<rect data-policy="EyeRobot 2.0" data-value="44.666667" x="85" y="139.680000" width="14" height="64.320000" fill="url(#avf-hatch)"><title>EyeRobot 2.0: 44.7%</title></rect>
 <text class="value" x="92" y="134.680000">45</text>
 <text class="task-label" x="76" y="225" text-anchor="middle">Average</text></g>
 <g data-task="Wrench">
@@ -49,7 +49,7 @@
 <text class="value" x="128" y="193.240000">4</text>
 <rect data-policy="Ego + Wrist" data-value="26.666667" x="137" y="165.600000" width="14" height="38.400000" fill="#5c8fc5"><title>Ego + Wrist: 26.7%</title></rect>
 <text class="value" x="144" y="160.600000">27</text>
-<rect data-policy="ER2" data-value="42.666667" x="153" y="142.560000" width="14" height="61.440000" fill="url(#avf-hatch)"><title>ER2: 42.7%</title></rect>
+<rect data-policy="EyeRobot 2.0" data-value="42.666667" x="153" y="142.560000" width="14" height="61.440000" fill="url(#avf-hatch)"><title>EyeRobot 2.0: 42.7%</title></rect>
 <text class="value" x="160" y="137.560000">43</text>
 <text class="task-label" x="144" y="225" text-anchor="middle">Wrench</text></g>
 <g data-task="Tea">
@@ -57,7 +57,7 @@
 <text class="value" x="196" y="190.360000">6</text>
 <rect data-policy="Ego + Wrist" data-value="30.000000" x="205" y="160.800000" width="14" height="43.200000" fill="#5c8fc5"><title>Ego + Wrist: 30.0%</title></rect>
 <text class="value" x="212" y="155.800000">30</text>
-<rect data-policy="ER2" data-value="34.000000" x="221" y="155.040000" width="14" height="48.960000" fill="url(#avf-hatch)"><title>ER2: 34.0%</title></rect>
+<rect data-policy="EyeRobot 2.0" data-value="34.000000" x="221" y="155.040000" width="14" height="48.960000" fill="url(#avf-hatch)"><title>EyeRobot 2.0: 34.0%</title></rect>
 <text class="value" x="228" y="150.040000">34</text>
 <text class="task-label" x="212" y="225" text-anchor="middle">Tea</text></g>
 <g data-task="Tape">
@@ -65,14 +65,14 @@
 <text class="value" x="264" y="185.560000">9</text>
 <rect data-policy="Ego + Wrist" data-value="18.666667" x="273" y="177.120000" width="14" height="26.880000" fill="#5c8fc5"><title>Ego + Wrist: 18.7%</title></rect>
 <text class="value" x="280" y="172.120000">19</text>
-<rect data-policy="ER2" data-value="57.333333" x="289" y="121.440000" width="14" height="82.560000" fill="url(#avf-hatch)"><title>ER2: 57.3%</title></rect>
+<rect data-policy="EyeRobot 2.0" data-value="57.333333" x="289" y="121.440000" width="14" height="82.560000" fill="url(#avf-hatch)"><title>EyeRobot 2.0: 57.3%</title></rect>
 <text class="value" x="296" y="116.440000">57</text>
 <text class="task-label" x="280" y="225" text-anchor="middle">Tape</text></g>
 </g><g class="legend">
-<rect x="30" y="228" width="12" height="12" fill="#7fc0a3"/>
-<text x="49" y="239">No Gaze</text>
-<rect x="130" y="228" width="12" height="12" fill="#5c8fc5"/>
-<text x="149" y="239">Ego + Wrist</text>
-<rect x="256" y="228" width="12" height="12" fill="url(#avf-hatch)"/>
-<text x="275" y="239">ER2</text>
+<rect x="14" y="228" width="12" height="12" fill="#7fc0a3"/>
+<text x="33" y="239">No Gaze</text>
+<rect x="100" y="228" width="12" height="12" fill="#5c8fc5"/>
+<text x="119" y="239">Ego + Wrist</text>
+<rect x="214" y="228" width="12" height="12" fill="url(#avf-hatch)"/>
+<text x="233" y="239">EyeRobot 2.0</text>
 </g></svg>

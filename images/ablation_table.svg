@@ -1,42 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="150" viewBox="0 0 1000 150" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="150" viewBox="0 0 1060 150" role="img" aria-labelledby="title desc">
 <title id="title">Stereo and foveation ablations</title>
 <desc id="desc">Per-task successes and mean success rates for EyeRobot 2.0 and its vision ablations. Values transcribed unchanged from ablation_table.png.</desc>
 <style>text{font-family:"Avenir Next",Avenir,"Open Sans",sans-serif;font-size:20px;fill:#333}.heading{font-weight:600}.value{text-anchor:middle}</style>
-<path d="M8 3H992 M8 40H992 M8 148H992" stroke="#777" fill="none"/>
+<path d="M8 3H1052 M8 40H1052 M8 148H1052" stroke="#777" fill="none"/>
 <text class="heading" x="18" y="28">Policy</text>
-<text class="heading value" x="250" y="28">boba</text>
-<text class="heading value" x="350" y="28">marker</text>
-<text class="heading value" x="450" y="28">pot</text>
-<text class="heading value" x="550" y="28">tea</text>
-<text class="heading value" x="650" y="28">toaster</text>
-<text class="heading value" x="750" y="28">tape</text>
-<text class="heading value" x="850" y="28">wrench</text>
-<text class="heading value" x="950" y="28">Mean</text>
-<text x="18" y="70">ER2 − foveation</text>
-<text class="value" x="250" y="70">12/25</text>
-<text class="value" x="350" y="70">5/25</text>
-<text class="value" x="450" y="70">10/25</text>
-<text class="value" x="550" y="70">12/25</text>
-<text class="value" x="650" y="70">9/25</text>
-<text class="value" x="750" y="70">47/64</text>
-<text class="value" x="850" y="70">15/25</text>
-<text class="value" x="950" y="70">46.5%</text>
-<text x="18" y="104">ER2 − stereo</text>
-<text class="value" x="250" y="104">10/25</text>
-<text class="value" x="350" y="104">8/25</text>
-<text class="value" x="450" y="104">10/25</text>
-<text class="value" x="550" y="104">15/25</text>
-<text class="value" x="650" y="104">6/25</text>
-<text class="value" x="750" y="104">51/64</text>
-<text class="value" x="850" y="104">16/25</text>
-<text class="value" x="950" y="104">48.5%</text>
-<text x="18" y="138">ER2</text>
-<text class="value" x="250" y="138">11/25</text>
-<text class="value" x="350" y="138">17/25</text>
-<text class="value" x="450" y="138">13/25</text>
-<text class="value" x="550" y="138">20/25</text>
-<text class="value" x="650" y="138">13/25</text>
-<text class="value" x="750" y="138">60/64</text>
-<text class="value" x="850" y="138">19/25</text>
-<text class="value" x="950" y="138">66.5%</text>
+<text class="heading value" x="310" y="28">boba</text>
+<text class="heading value" x="410" y="28">marker</text>
+<text class="heading value" x="510" y="28">pot</text>
+<text class="heading value" x="610" y="28">tea</text>
+<text class="heading value" x="710" y="28">toaster</text>
+<text class="heading value" x="810" y="28">tape</text>
+<text class="heading value" x="910" y="28">wrench</text>
+<text class="heading value" x="1010" y="28">Mean</text>
+<text x="18" y="70">EyeRobot 2.0 − foveation</text>
+<text class="value" x="310" y="70">12/25</text>
+<text class="value" x="410" y="70">5/25</text>
+<text class="value" x="510" y="70">10/25</text>
+<text class="value" x="610" y="70">12/25</text>
+<text class="value" x="710" y="70">9/25</text>
+<text class="value" x="810" y="70">47/64</text>
+<text class="value" x="910" y="70">15/25</text>
+<text class="value" x="1010" y="70">46.5%</text>
+<text x="18" y="104">EyeRobot 2.0 − stereo</text>
+<text class="value" x="310" y="104">10/25</text>
+<text class="value" x="410" y="104">8/25</text>
+<text class="value" x="510" y="104">10/25</text>
+<text class="value" x="610" y="104">15/25</text>
+<text class="value" x="710" y="104">6/25</text>
+<text class="value" x="810" y="104">51/64</text>
+<text class="value" x="910" y="104">16/25</text>
+<text class="value" x="1010" y="104">48.5%</text>
+<text x="18" y="138">EyeRobot 2.0</text>
+<text class="value" x="310" y="138">11/25</text>
+<text class="value" x="410" y="138">17/25</text>
+<text class="value" x="510" y="138">13/25</text>
+<text class="value" x="610" y="138">20/25</text>
+<text class="value" x="710" y="138">13/25</text>
+<text class="value" x="810" y="138">60/64</text>
+<text class="value" x="910" y="138">19/25</text>
+<text class="value" x="1010" y="138">66.5%</text>
 </svg>

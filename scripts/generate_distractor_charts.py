@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 POLICIES = [
     ("Exo (Stereo)", "No Gaze", "#7fc0a3"),
     ("Ego + Wrist", "Ego + Wrist", "#5c8fc5"),
-    ("AVF", "ER2", "url(#avf-hatch)"),
+    ("AVF", "EyeRobot 2.0", "url(#avf-hatch)"),
 ]
 METRICS = {
     "progression": ("Task progression", "Task Progression"),
@@ -94,7 +94,7 @@ def render(metric, mobile, data, defs):
             svg.append(f'<text class="value" x="{x}" y="{y-5:.6f}">{float(value):.0f}</text>')
         svg.append(f'<text class="task-label" x="{center}" y="225" text-anchor="middle">{task}</text></g>')
     svg.append('</g><g class="legend">')
-    for x, (_, label, fill) in zip([30, 130, 256] if mobile else [110, 226, 366], POLICIES):
+    for x, (_, label, fill) in zip([14, 100, 214] if mobile else [70, 206, 366], POLICIES):
         svg.append(f'<rect x="{x}" y="228" width="12" height="12" fill="{fill}"/>')
         svg.append(f'<text x="{x+19}" y="239">{escape(label)}</text>')
     svg.append('</g></svg>')

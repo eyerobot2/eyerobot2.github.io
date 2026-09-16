@@ -16,7 +16,7 @@ const renderer = source.slice(source.indexOf('function pctStr('), source.indexOf
 const context = vm.createContext({});
 vm.runInContext(functions + '\n' + renderer, context);
 const tasks = ['marker', 'tea', 'toaster', 'wrench', 'boba', 'tape', 'pot place'];
-const policies = [['eyeball', 'ER2'], ['peripheral', 'Without foveation'], ['mono', 'Without stereo']];
+const policies = [['eyeball', 'EyeRobot 2.0'], ['peripheral', 'Without foveation'], ['mono', 'Without stereo']];
 const css = `.funnel-flow{stroke:none}.funnel-flow.spine{fill:#059669;opacity:.16}.funnel-flow.success{fill:#059669;opacity:.55}.funnel-flow.win{fill:#059669;opacity:.42}.funnel-flow.fail{fill:#b91c1c;opacity:.38}.funnel-bar.start{fill:#aaa}.funnel-bar.spine,.funnel-bar.success,.funnel-bar.win{fill:#059669}.funnel-bar.fail{fill:#b91c1c}.funnel-name{font-family:Arial,sans-serif;font-size:12.5px;font-weight:600;fill:#333}.funnel-sub{font-family:Arial,sans-serif;font-size:11px;fill:#777}.funnel-name.success,.funnel-name.win,.funnel-sub.success,.funnel-sub.win{fill:#059669}.funnel-name.fail,.funnel-sub.fail{fill:#b91c1c}`;
 fs.mkdirSync('images/ablation-sankeys', { recursive: true });
 let html = '<!-- BEGIN GENERATED ABLATION SANKEYS -->\n<div class="ablation-sankeys">\n<div class="ablation-task-picker" role="group" aria-label="Choose an ablation task">\n';

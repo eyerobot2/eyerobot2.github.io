@@ -16,7 +16,7 @@
             const metric = button.dataset.metric;
             mobile.srcset = `images/figure_distractor_${metric}-mobile.svg`;
             image.src = `images/figure_distractor_${metric}.svg`;
-            image.alt = `Average and per-task ${metrics[metric]} with distractors for No Gaze, Ego plus Wrist, and ER2. Twenty-five trials per task and policy.`;
+            image.alt = `Average and per-task ${metrics[metric]} with distractors for No Gaze, Ego plus Wrist, and EyeRobot 2.0. Twenty-five trials per task and policy.`;
             caption.textContent = captions[metric] + protocol;
             buttons.forEach(other => {
                 const selected = other === button;

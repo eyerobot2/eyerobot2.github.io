@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="700" height="250" viewBox="0 0 700 250" role="img" aria-labelledby="title desc">
   <title id="title">Fixation-centric action frame ablation</title>
-  <desc id="desc">Simulation success rates for ER2 and world-relative actions. Task average: 74.3% versus 52.5%. Tape handover (random): 79% versus 56%. Pot lid: 91% versus 58%. Tiger (right half): 98% versus 81%. Medical tray: 78% versus 45%. Plate in rack: 70% versus 55%. Hang spoon: 30% versus 20%.</desc>
+  <desc id="desc">Simulation success rates for EyeRobot 2.0 and world-relative actions. Task average: 74.3% versus 52.5%. Tape handover (random): 79% versus 56%. Pot lid: 91% versus 58%. Tiger (right half): 98% versus 81%. Medical tray: 78% versus 45%. Plate in rack: 70% versus 55%. Hang spoon: 30% versus 20%.</desc>
   <defs>
     <pattern id="avf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
       <rect width="8" height="8" fill="#f2986f"/>
@@ -42,49 +42,49 @@
   </g>
   <text class="axis-label" transform="translate(13 158) rotate(-90)">Success Rate</text>
 
-  <g><title>Task average: ER2 74.3%, world-relative actions 52.5%</title>
+  <g><title>Task average: EyeRobot 2.0 74.3%, world-relative actions 52.5%</title>
     <rect x="75" y="128.400" width="24" height="75.600" fill="#5c8fc5"/>
     <text class="value" x="87" y="123.400">52.5</text>
     <rect x="105" y="97.008" width="24" height="106.992" fill="url(#avf-hatch)"/>
     <text class="value" x="117" y="92.008">74.3</text>
     <text class="task-label" x="102" y="225" text-anchor="middle">Average</text>
   </g>
-  <g><title>Tape handover (random): ER2 79%, world-relative actions 56%</title>
+  <g><title>Tape handover (random): EyeRobot 2.0 79%, world-relative actions 56%</title>
     <rect x="181" y="123.360" width="24" height="80.640" fill="#5c8fc5"/>
     <text class="value" x="193" y="118.360">56</text>
     <rect x="211" y="90.240" width="24" height="113.760" fill="url(#avf-hatch)"/>
     <text class="value" x="223" y="85.240">79</text>
     <text class="task-label" x="208" y="225" text-anchor="middle">tape</text>
   </g>
-  <g><title>Pot lid: ER2 91%, world-relative actions 58%</title>
+  <g><title>Pot lid: EyeRobot 2.0 91%, world-relative actions 58%</title>
     <rect x="261" y="120.480" width="24" height="83.520" fill="#5c8fc5"/>
     <text class="value" x="273" y="115.480">58</text>
     <rect x="291" y="72.960" width="24" height="131.040" fill="url(#avf-hatch)"/>
     <text class="value" x="303" y="67.960">91</text>
     <text class="task-label" x="288" y="225" text-anchor="middle">pot</text>
   </g>
-  <g><title>Tiger (right half): ER2 98%, world-relative actions 81%</title>
+  <g><title>Tiger (right half): EyeRobot 2.0 98%, world-relative actions 81%</title>
     <rect x="341" y="87.360" width="24" height="116.640" fill="#5c8fc5"/>
     <text class="value" x="353" y="82.360">81</text>
     <rect x="371" y="62.880" width="24" height="141.120" fill="url(#avf-hatch)"/>
     <text class="value" x="383" y="57.880">98</text>
     <text class="task-label" x="368" y="225" text-anchor="middle">tiger</text>
   </g>
-  <g><title>Medical tray: ER2 78%, world-relative actions 45%</title>
+  <g><title>Medical tray: EyeRobot 2.0 78%, world-relative actions 45%</title>
     <rect x="421" y="139.200" width="24" height="64.800" fill="#5c8fc5"/>
     <text class="value" x="433" y="134.200">45</text>
     <rect x="451" y="91.680" width="24" height="112.320" fill="url(#avf-hatch)"/>
     <text class="value" x="463" y="86.680">78</text>
     <text class="task-label" x="448" y="225" text-anchor="middle">tray</text>
   </g>
-  <g><title>Plate in rack: ER2 70%, world-relative actions 55%</title>
+  <g><title>Plate in rack: EyeRobot 2.0 70%, world-relative actions 55%</title>
     <rect x="501" y="124.800" width="24" height="79.200" fill="#5c8fc5"/>
     <text class="value" x="513" y="119.800">55</text>
     <rect x="531" y="103.200" width="24" height="100.800" fill="url(#avf-hatch)"/>
     <text class="value" x="543" y="98.200">70</text>
     <text class="task-label" x="528" y="225" text-anchor="middle">plate</text>
   </g>
-  <g><title>Hang spoon: ER2 30%, world-relative actions 20%</title>
+  <g><title>Hang spoon: EyeRobot 2.0 30%, world-relative actions 20%</title>
     <rect x="581" y="175.200" width="24" height="28.800" fill="#5c8fc5"/>
     <text class="value" x="593" y="170.200">20</text>
     <rect x="611" y="160.800" width="24" height="43.200" fill="url(#avf-hatch)"/>
@@ -96,6 +96,6 @@
     <rect x="180" y="228" width="12" height="12" fill="#5c8fc5"/>
     <text x="200" y="239">World-relative actions</text>
     <rect x="395" y="228" width="12" height="12" fill="url(#avf-hatch)"/>
-    <text x="415" y="239">ER2</text>
+    <text x="415" y="239">EyeRobot 2.0</text>
   </g>
 </svg>

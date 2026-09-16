@@ -24,13 +24,13 @@ def main():
         "Simulation evaluation success rates",
         "Fixation-centric action frame ablation",
     ).replace(
-        "Simulation average and six simulation task success rates for No Gaze, Ego plus Wrist, and ER2.",
-        "Simulation success rates for ER2 and world-relative actions. "
+        "Simulation average and six simulation task success rates for No Gaze, Ego plus Wrist, and EyeRobot 2.0.",
+        "Simulation success rates for EyeRobot 2.0 and world-relative actions. "
         + " ".join(f"{task}: {full}% versus {world}%." for _, task, full, world, _ in DATA),
     )
     groups = []
     for label, task, full, world, center in DATA:
-        groups.append(f'  <g><title>{escape(task)}: ER2 {full}%, world-relative actions {world}%</title>')
+        groups.append(f'  <g><title>{escape(task)}: EyeRobot 2.0 {full}%, world-relative actions {world}%</title>')
         for value, x, fill in (
             (world, center - 15, "#5c8fc5"),
             (full, center + 15, "url(#avf-hatch)"),
@@ -49,7 +49,7 @@ def main():
     <rect x="180" y="228" width="12" height="12" fill="#5c8fc5"/>
     <text x="200" y="239">World-relative actions</text>
     <rect x="395" y="228" width="12" height="12" fill="url(#avf-hatch)"/>
-    <text x="415" y="239">ER2</text>
+    <text x="415" y="239">EyeRobot 2.0</text>
   </g>
 </svg>
 """

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="700" height="250" viewBox="0 0 700 250" role="img" aria-labelledby="title desc">
   <title id="title">Simulation evaluation success rates</title>
-  <desc id="desc">Simulation average and six simulation task success rates for No Gaze, Ego plus Wrist, and ER2.</desc>
+  <desc id="desc">Simulation average and six simulation task success rates for No Gaze, Ego plus Wrist, and EyeRobot 2.0.</desc>
   <defs>
     <pattern id="avf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
       <rect width="8" height="8" fill="#f2986f"/>
@@ -94,11 +94,11 @@
   </g>
 
   <g class="legend">
-    <rect x="120" y="228" width="12" height="12" fill="#7fc0a3"/>
-    <text x="140" y="239">No Gaze (Stereo Only)</text>
-    <rect x="309" y="228" width="12" height="12" fill="#5c8fc5"/>
-    <text x="329" y="239">Ego + Wrist (3 Cameras)</text>
-    <rect x="520" y="228" width="12" height="12" fill="url(#avf-hatch)"/>
-    <text x="540" y="239">ER2 (Stereo Only)</text>
+    <rect x="74.13" y="228" width="12" height="12" fill="#7fc0a3"/>
+    <text x="94.13" y="239">No Gaze (Stereo Only)</text>
+    <rect x="254.68" y="228" width="12" height="12" fill="#5c8fc5"/>
+    <text x="274.68" y="239">Ego + Wrist (3 Cameras)</text>
+    <rect x="445.76" y="228" width="12" height="12" fill="url(#avf-hatch)"/>
+    <text x="465.76" y="239">EyeRobot 2.0 (Stereo Only)</text>
   </g>
 </svg>

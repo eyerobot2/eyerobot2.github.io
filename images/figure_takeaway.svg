@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="260" height="170" viewBox="0 0 260 170" role="img" aria-labelledby="tk-title tk-desc">
   <title id="tk-title">Average real-world success rate</title>
-  <desc id="tk-desc">No Gaze 27 percent, Ego plus Wrist 52 percent, ER2 67 percent, averaged over 640 real-world trials.</desc>
+  <desc id="tk-desc">No Gaze 27 percent, Ego plus Wrist 52 percent, EyeRobot 2.0 67 percent, averaged over 640 real-world trials.</desc>
   <defs>
     <pattern id="tk-avf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
       <rect width="8" height="8" fill="#f2986f"/>
@@ -29,15 +29,15 @@
   <rect x="40" y="103" width="44" height="27" fill="#7fc0a3"/>
   <text class="tk-value" x="62" y="97">27%</text>
   <text class="tk-label" x="62" y="146">No Gaze</text>
-  <text class="tk-label" x="62" y="159">(stereo only)</text>
+  <text class="tk-label" x="62" y="162">(stereo only)</text>
   <!-- Ego + Wrist 52% -->
   <rect x="108" y="78" width="44" height="52" fill="#5c8fc5"/>
   <text class="tk-value" x="130" y="72">52%</text>
   <text class="tk-label" x="130" y="146">Ego + Wrist</text>
-  <text class="tk-label" x="130" y="159">(3 cameras)</text>
-  <!-- ER2 67% -->
+  <text class="tk-label" x="130" y="162">(3 cameras)</text>
+  <!-- EyeRobot 2.0 67% -->
   <rect x="176" y="63" width="44" height="67" fill="url(#tk-avf-hatch)"/>
   <text class="tk-value" x="198" y="57">67%</text>
-  <text class="tk-label" x="198" y="146">ER2</text>
-  <text class="tk-label" x="198" y="159">(stereo only)</text>
+  <text class="tk-label" x="198" y="146">EyeRobot 2.0</text>
+  <text class="tk-label" x="198" y="162">(stereo only)</text>
 </svg>
