@@ -64,6 +64,8 @@
     <script src="gaze-transformer.js" defer></script>
     <link href="simulated-gaze.css" rel="stylesheet" />
     <script src="simulated-gaze.js" defer></script>
+    <link href="gaze-sequencing.css" rel="stylesheet" />
+    <script src="gaze-sequencing.js" defer></script>
     <link href="fixation-actions.css" rel="stylesheet" type="text/css" />
     <script src="fixation-actions.js" defer></script>
     <script src="distractor-results.js" defer></script>
@@ -172,7 +174,7 @@
         ============================================================ -->
         <div>
             <h1 class="title">
-                <span class="title-name">EyeRobot 2.0</span>: Precise Manipulation without Wrist Cameras through Active Gaze
+                <span class="title-name">EyeRobot 2.0</span>: Active Gaze enables Precise Manipulation without Wrist Cameras
                 <!-- via Active Visual Fixation -->
             </h1>
 
@@ -832,7 +834,80 @@
                 During this phase, we freeze the goal-conditioned gaze policy and train another RL agent to output a distribution over target objects to look at at each timestep.
                 This <i>target selector</i> is co-trained with the BC gripper policy and rewarded with the BC policy's prediction accuracy.
             </p>
-            <img class="gaze-sequencing-figure" src="images/arch.svg" alt="EyeRobot 2.0 framework / method overview" width="1666" height="504" loading="lazy" decoding="async" />
+            <div class="gaze-sequencing" id="gaze-sequencing">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="seq-arm" stroke="#535d62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 73H48L45 66H17Z" fill="#e5e9eb"/><path d="M29 64L30 48L47 18L75 30L85 23" fill="none" stroke="#626d72" stroke-width="9"/><path d="M29 64L30 48L47 18L75 30L85 23" fill="none" stroke="#fff" stroke-width="5"/>
+<g fill="#fff"><circle cx="30" cy="48" r="5"/><circle cx="47" cy="18" r="5"/><circle cx="75" cy="30" r="4"/></g><path d="M83 18L88 24L96 21M85 27L90 32L98 29" fill="none"/>
+</g>
+<g id="seq-arm-reach" stroke="#535d62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 73H40L37 66H13Z" fill="#e5e9eb"/><path d="M24 64L23 49L33 22L71 20L84 14" fill="none" stroke="#626d72" stroke-width="9"/><path d="M24 64L23 49L33 22L71 20L84 14" fill="none" stroke="#fff" stroke-width="5"/><g fill="#fff"><circle cx="23" cy="49" r="5"/><circle cx="33" cy="22" r="5"/><circle cx="71" cy="20" r="4"/></g><path d="M82 10L87 16L96 13M85 20L90 25L98 22" fill="none"/></g>
+<g id="seq-eyes" fill="#fff" stroke="#535d62" stroke-width="2.5"><ellipse cx="28" cy="42" rx="20" ry="23"/><ellipse cx="75" cy="42" rx="20" ry="23"/><g fill="#303438" stroke="none"><ellipse cx="34" cy="44" rx="10" ry="13"/><ellipse cx="81" cy="44" rx="10" ry="13"/></g><g fill="#fff" stroke="none"><circle cx="37" cy="39" r="4"/><circle cx="84" cy="39" r="4"/></g></g>
+<g id="seq-views" stroke="#929da1" stroke-width="1.8" stroke-linejoin="round"><path d="M9 69L25 24H75L93 69Z" fill="#d4dce0"/><path d="M19 55L34 15H68L82 55Z" fill="#e2e7e8"/><path d="M30 39L42 6H60L71 39Z" fill="#edf0ec"/><g fill="#cfcaab" stroke="#a7a289"><ellipse cx="50" cy="19" rx="7" ry="3"/><ellipse cx="51" cy="41" rx="10" ry="4"/><ellipse cx="52" cy="59" rx="12" ry="4"/></g></g>
+<g id="seq-hand" fill="#f4f7f4" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="-9" y="-19" width="18" height="13" rx="2"/><path d="M-8 -6L-15 3V18H-7V6M8 -6L15 3V18H7V6" fill="none" stroke-width="3"/></g>
+<marker id="seq-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M1 1L9 5L1 9Z" fill="#7c8387"/></marker>
+<marker id="seq-red-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M1 1L9 5L1 9Z" fill="#d56558"/></marker>
+<marker id="seq-green-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M1 1L9 5L1 9Z" fill="#7aaf78"/></marker>
+<marker id="seq-focus-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M1 1L9 5L1 9Z" fill="#527e9c"/></marker></defs></svg><div class="pipeline-controls" role="group" aria-label="Highlight a pipeline">
+<button type="button" data-mode="bc" aria-pressed="true">BC update</button>
+<button type="button" data-mode="rl" aria-pressed="false">RL</button>
+<button type="button" data-mode="gaze" aria-pressed="false">Gaze rollout</button>
+<button type="button" data-mode="all" aria-pressed="false">Overview</button>
+</div><figure aria-labelledby="seq-figure-caption"><p class="scroll-hint" hidden>Swipe to explore the diagram →</p><div class="figure-scroll" tabindex="0" role="region" aria-label="Gaze sequencing diagram; scroll horizontally on small screens"><div class="diagram">
+<svg class="wires" viewBox="0 0 1200 560" aria-hidden="true"><g fill="none" stroke="#7c8387" stroke-width="1.8" stroke-linecap="butt" stroke-linejoin="round">
+<path id="seq-edge-proprio-selector" class="" data-focus="rl" data-role="primary" data-source=".proprio" data-source-side="top" data-target=".selector" data-target-side="left" d="M64 170V118Q64 110 72 110H113" stroke="#7c8387" marker-end="url(#seq-arrow)"/>
+<path id="seq-edge-proprio-gripper" class="" data-focus="bc" data-role="primary" data-source=".proprio" data-source-side="bottom" data-target=".policy:not(.gaze)" data-target-side="top" d="M64 244V277" stroke="#7c8387" marker-end="url(#seq-arrow)"/>
+<path id="seq-edge-selector-object" class="" data-focus="rl" data-role="primary" data-source=".selector" data-source-side="right" data-target=".chosen" data-target-side="left" d="M214 110H244Q252 110 252 118V132Q252 140 260 140H273" stroke="#7c8387" marker-end="url(#seq-arrow)"/>
+<path id="seq-edge-object-gripper" class="" data-focus="bc" data-role="primary" data-source=".chosen" data-source-side="bottom" data-target=".policy:not(.gaze)" data-target-side="top" d="M338 167V170Q338 178 330 178H124Q116 178 116 186V277" stroke="#7c8387" marker-end="url(#seq-arrow)"/>
+<path id="seq-edge-object-gaze" class="" data-focus="gaze" data-role="primary" data-source=".chosen" data-source-side="bottom" data-target=".gaze" data-target-side="top" d="M338 167V170Q338 178 346 178H358Q366 178 366 186V277" stroke="#7c8387" marker-end="url(#seq-arrow)"/>
+<path id="seq-edge-observation-gripper" class="" data-focus="bc" data-role="primary" data-source=".observation[data-focus=&quot;bc&quot;]" data-source-side="bottom" data-target=".policy:not(.gaze)" data-target-side="top" d="M214.5 260V277" stroke="#7c8387" marker-end="url(#seq-arrow)"/>
+<path id="seq-edge-observation-gaze" class="" data-focus="gaze" data-role="primary" data-source=".observation[data-focus=&quot;gaze&quot;]" data-source-side="bottom" data-target=".gaze" data-target-side="top" d="M469.5 260V277" stroke="#7c8387" marker-end="url(#seq-arrow)"/>
+<path id="seq-edge-gripper-prediction" class="" data-focus="bc" data-role="pred" data-source=".policy:not(.gaze)" data-source-side="bottom" data-target=".arm-chunk" data-target-side="top" d="M152 410V435" stroke="#d56558" marker-end="url(#seq-red-arrow)"/>
+<path id="seq-edge-gaze-actions" class="" data-focus="gaze" data-role="primary" data-source=".gaze" data-source-side="bottom" data-target=".gaze-actions" data-target-side="top" d="M430 410V447" stroke="#7c8387" marker-end="url(#seq-arrow)"/>
+<path id="seq-edge-reward-update" class="" data-focus="rl" data-role="primary" data-source=".equation[data-focus=&quot;rl&quot;]" data-source-side="top" data-target=".update" data-target-side="bottom" d="M695 190V163" stroke="#7c8387" marker-end="url(#seq-arrow)"/>
+<path id="seq-edge-prediction-bc" class="" data-focus="bc" data-role="pred" data-source=".chunk[data-role=&quot;pred&quot;]" data-source-side="right" data-target=".equation[data-focus=&quot;bc&quot;]" data-target-side="bottom" d="M291 532H698Q706 532 706 524V403" stroke="#d56558" marker-end="url(#seq-red-arrow)"/>
+<path id="seq-edge-demo-bc" class="" data-focus="bc" data-role="truth" data-source=".chunk[data-role=&quot;truth&quot;]" data-source-side="bottom" data-target=".equation[data-focus=&quot;bc&quot;]" data-target-side="bottom" d="M1077 517V539Q1077 547 1069 547H802Q794 547 794 539V403" stroke="#7aaf78" marker-end="url(#seq-green-arrow)"/>
+<path id="seq-edge-bc-supervision" class="focus-only training-return" data-focus="bc" data-role="primary" data-source=".equation[data-focus=&quot;bc&quot;]" data-source-side="left" data-target=".policy:not(.gaze)" data-target-side="top" d="M594 362H584Q576 362 576 354V274Q576 266 568 266H250V277" stroke="#7c8387" marker-end="url(#seq-arrow)"/>
+<path id="seq-edge-prediction-reward" class="focus-only" data-focus="rl" data-role="pred" data-source=".chunk[data-role=&quot;pred&quot;]" data-source-side="right" data-target=".equation[data-focus=&quot;rl&quot;]" data-target-side="bottom" d="M291 532H568Q576 532 576 524V290Q576 282 584 282H652Q660 282 660 274V259" stroke="#d56558" marker-end="url(#seq-red-arrow)"/>
+<path id="seq-edge-demo-reward" class="focus-only" data-focus="rl" data-role="truth" data-source=".chunk[data-role=&quot;truth&quot;]" data-source-side="bottom" data-target=".equation[data-focus=&quot;rl&quot;]" data-target-side="bottom" d="M1077 517V539Q1077 547 1069 547H885Q877 547 877 539V290Q877 282 869 282H798Q790 282 790 274V259" stroke="#7aaf78" marker-end="url(#seq-green-arrow)"/>
+<path id="seq-edge-selector-training" class="focus-only training-return" data-focus="rl" data-role="primary" data-source=".update" data-source-side="top" data-target=".selector" data-target-side="left" d="M695 71V20Q695 12 687 12H56Q48 12 48 20V67Q48 75 56 75H113" stroke="#7c8387" marker-end="url(#seq-arrow)"/>
+<path id="seq-edge-gaze-render" class="focus-only" data-focus="gaze" data-role="primary" data-source=".gaze-actions" data-source-side="right" data-target=".observation[data-focus=&quot;gaze&quot;]" data-target-side="top" d="M562 483H568Q576 483 576 475V176Q576 168 568 168H477.5Q469.5 168 469.5 176V187" stroke="#7c8387" marker-end="url(#seq-arrow)"/>
+</g><path d="M890 62V503" stroke="#e8eceb" stroke-width="1"/></svg>
+<div class="node label" data-focus="rl" data-role="primary" style="--x:88;--y:25;--w:162;--h:30" >Target Selector</div>
+<div class="node selector" data-focus="rl" data-role="primary" style="--x:122;--y:65;--w:86;--h:90" ><i></i><i></i><i></i><span class="status" role="img" aria-label="Trainable">🔥</span></div>
+<div class="node proprio" data-focus="bc rl" data-role="primary" style="--x:16;--y:176;--w:96;--h:62" >Arm<svg class="" viewBox="0 0 100 80" aria-hidden="true"><use href="#seq-arm"/></svg><br>Proprio</div>
+<div class="node targets" data-focus="bc gaze rl" data-role="primary" style="--x:282;--y:77;--w:168;--h:84" ><div>“a grey tape”</div><div class="chosen">“a yellow tape”</div></div>
+<div class="node histogram" data-focus="rl" data-role="primary" style="--x:459;--y:76;--w:103;--h:80" role="img" aria-label="Target probabilities favor yellow tape"><i></i><i></i></div>
+<div class="node observation" data-focus="bc" data-role="primary" style="--x:142;--y:196;--w:145;--h:58" role="img" aria-label="Foveated image observations and gaze state"><svg class="views" viewBox="0 0 100 80" aria-hidden="true"><use href="#seq-views"/></svg><svg class="eyes" viewBox="0 0 100 80" aria-hidden="true"><use href="#seq-eyes"/></svg></div>
+<div class="node observation" data-focus="gaze" data-role="primary" style="--x:397;--y:196;--w:145;--h:58" role="img" aria-label="Foveated image observations and gaze state"><svg class="views" viewBox="0 0 100 80" aria-hidden="true"><use href="#seq-views"/></svg><svg class="eyes" viewBox="0 0 100 80" aria-hidden="true"><use href="#seq-eyes"/></svg></div>
+<div class="node policy" data-focus="bc" data-role="primary" style="--x:32;--y:286;--w:240;--h:118" >Gripper Policy<span class="status" role="img" aria-label="Trainable">🔥</span></div>
+<div class="node policy gaze" data-focus="gaze" data-role="primary" style="--x:310;--y:286;--w:240;--h:118" >Gaze Policy<span class="status" role="img" aria-label="Frozen">❄️</span></div>
+<div class="node update" data-focus="rl" data-role="primary" style="--x:640;--y:77;--w:110;--h:77" >RL<br>Update</div>
+<div class="node equation" data-focus="rl" data-role="primary" style="--x:600;--y:196;--w:258;--h:54" ><span>r = −D<sub>F</sub> (</span><span class="pred">A<sub>pred</sub></span>, <span class="truth">A<sub>gt</sub></span><span>)</span></div>
+<div class="node equation" data-focus="bc" data-role="primary" style="--x:600;--y:330;--w:258;--h:64" ><span>l<sub>BC</sub> = ‖</span><span class="pred">A<sub>pred</sub></span><span>−</span><span class="truth">A<sub>gt</sub></span><span>‖</span></div>
+<div class="node gaze-actions" data-focus="gaze" data-role="primary" style="--x:306;--y:456;--w:250;--h:54" aria-label="Gaze outputs: direction and depth adjustments, and value estimate"><span>Δθ</span><span>Δϕ</span><span>Δd</span><span>v</span></div>
+<div class="node arm-chunk" data-focus="bc rl" data-role="pred" style="--x:61;--y:444;--w:224;--h:74" role="img" aria-label="Predicted robot action chunk"><svg class="" viewBox="0 0 100 80" aria-hidden="true"><use href="#seq-arm"/></svg><svg class="" viewBox="0 0 100 80" aria-hidden="true"><use href="#seq-arm-reach"/></svg><svg class="" viewBox="0 0 100 80" aria-hidden="true"><use href="#seq-arm-reach"/></svg></div>
+<div class="node chunk" data-focus="bc rl" data-role="pred" style="--x:61;--y:521;--w:224;--h:22" ><i style="--c:#943d34"></i><i style="--c:#b64a40"></i><i style="--c:#d15b50"></i><i style="--c:#df7a70"></i><i style="--c:#e6958d"></i><i style="--c:#edada7"></i><i style="--c:#f3c8c3"></i><i style="--c:#f7ddda"></i></div>
+<div class="node " data-focus="bc gaze" data-role="scene" style="--x:904;--y:76;--w:273;--h:380" ><svg class="scene" viewBox="0 0 300 420" role="img" aria-label="Minimal camera and demonstrated gripper poses approaching a tape roll. The fixation frame originates between the eyes and points toward the tape.">
+<path d="M24 310H260L285 378H3Z" fill="#f7f9f8" stroke="#e0e6e3"/>
+<!-- Physical stereo camera, with the virtual fixation frame between its lenses. -->
+<rect x="68" y="35" width="114" height="38" rx="9" fill="#e9eef0" stroke="#8e9a9f" stroke-width="1.6"/>
+<g fill="#fff" stroke="#87959d" stroke-width="2"><circle cx="91" cy="54" r="11"/><circle cx="159" cy="54" r="11"/></g><g fill="#a5b6bf"><circle cx="91" cy="54" r="5"/><circle cx="159" cy="54" r="5"/></g>
+<text x="125" y="19" text-anchor="middle">Stereo camera</text>
+<path d="M125 75L194 330" fill="none" stroke="#c4d2d8" stroke-width="2" stroke-dasharray="5 5"/>
+<g stroke-width="4" stroke-linecap="round"><path d="M125 74L156 80" stroke="#c98279"/><path d="M125 74L106 96" stroke="#8aae8c"/><path d="M125 74L141 128" stroke="#7d9cbd"/></g>
+<path d="M153 93Q166 106 155 121" fill="none" stroke="#a0abb0" stroke-width="1.3"/>
+<text x="181" y="110">Δθ, Δϕ</text><text x="157" y="226" transform="rotate(75 157 226)">Δd</text>
+<!-- Demonstrated poses are schematic, not measured trajectory samples. -->
+<path d="M57 209C63 254 102 282 188 321" fill="none" stroke="#a6c7a3" stroke-width="2" stroke-dasharray="4 5"/>
+<g style="color:#81a97c"><use href="#seq-hand" transform="translate(57 209) rotate(-34)" opacity=".45"/><use href="#seq-hand" transform="translate(102 278) rotate(-52)" opacity=".7"/><use href="#seq-hand" transform="translate(181 314) rotate(-68)"/></g>
+<g stroke="#b3a166" stroke-width="1.2"><path d="M165 334V344C165 365 222 365 222 344V334" fill="#cbbb80"/><ellipse cx="193.5" cy="334" rx="28.5" ry="18" fill="#e5d99e"/><ellipse cx="193.5" cy="334" rx="14" ry="9" fill="#f7f9f8"/></g>
+<circle cx="194" cy="331" r="3.5" fill="#e8b394"/>
+</svg></div>
+<div class="node scene-label" data-focus="bc rl" data-role="truth" style="--x:900;--y:460;--w:275;--h:28" >Demo → fixation-frame chunk</div>
+<div class="node chunk" data-focus="bc rl" data-role="truth" style="--x:994;--y:489;--w:166;--h:22" ><i style="--c:#bdd8b9"></i><i style="--c:#b0d0ab"></i><i style="--c:#a0c599"></i><i style="--c:#92bb8c"></i><i style="--c:#83b27c"></i><i style="--c:#76a86f"></i><i style="--c:#699e62"></i><i style="--c:#5d9356"></i></div>
+</div></div><figcaption id="seq-figure-caption" class="carousel-caption"><span class="legend"><span>🔥 Trainable</span><span>❄️ Frozen</span></span>Solid arrows: data flow. Dashed arrows: training updates.</figcaption></figure>
+
+</div>
             <p class="paragraph">
                 The framework only requires a computable offline error metric to compute reward.
                 For generative models such as diffusion models, this could be action reconstruction error or a distributional measure such as sample agreement.
@@ -841,7 +916,6 @@
             <p class="paragraph">
                 Take a look at the output probabilities from the target selector during execution here!
             </p>
-            <!-- Framework figure, converted from images/arch.pdf -->
 
 
             <!-- Carousel: policy rollouts w/ target-selector (gaze) probability strip -->
@@ -949,24 +1023,28 @@
                 <div class="fixation-slide" role="group" aria-roledescription="slide" aria-label="1 of 2: Tape" aria-hidden="false">
                     <div class="fixation-panels-grid">
                         <section class="fixation-stage" aria-label="Pick tape">
-                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Pick tape</h4><span>Static → Fixated</span></div>
+                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Pick tape</h4></div>
                             <video muted loop playsinline preload="none" width="464" height="192" aria-label="Pick tape: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/pick-tape.mp4" data-poster="data/fixation-panels/rows/pick-tape.webp"></video>
+                            <div class="fixation-view-labels"><span>Static view</span><span>Fixated view</span></div>
                         </section>
                         <section class="fixation-stage" aria-label="Place tape">
-                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Place tape</h4><span>Static → Fixated</span></div>
+                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Place tape</h4></div>
                             <video muted loop playsinline preload="none" width="464" height="192" aria-label="Place tape: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/place-tape.mp4" data-poster="data/fixation-panels/rows/place-tape.webp"></video>
+                            <div class="fixation-view-labels"><span>Static view</span><span>Fixated view</span></div>
                         </section>
                     </div>
                 </div>
                 <div class="fixation-slide" role="group" aria-roledescription="slide" aria-label="2 of 2: Tea" aria-hidden="true" inert>
                     <div class="fixation-panels-grid">
                         <section class="fixation-stage" aria-label="Pick tea">
-                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Pick tea</h4><span>Static → Fixated</span></div>
+                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Pick tea</h4></div>
                             <video muted loop playsinline preload="none" width="464" height="192" aria-label="Pick tea: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/pick-tea.mp4" data-poster="data/fixation-panels/rows/pick-tea.webp"></video>
+                            <div class="fixation-view-labels"><span>Static view</span><span>Fixated view</span></div>
                         </section>
                         <section class="fixation-stage" aria-label="Place tea">
-                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Place tea</h4><span>Static → Fixated</span></div>
+                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Place tea</h4></div>
                             <video muted loop playsinline preload="none" width="464" height="192" aria-label="Place tea: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/place-tea.mp4" data-poster="data/fixation-panels/rows/place-tea.webp"></video>
+                            <div class="fixation-view-labels"><span>Static view</span><span>Fixated view</span></div>
                         </section>
                     </div>
                 </div>
@@ -1197,7 +1275,7 @@
 
             <h3>EyeRobot 2.0 matches wrist cameras in precise tasks without tool occlusions</h3>
             <p class="paragraph">
-                We also evaluate tasks with unobstructed wrist camera views: marker, tea, toaster, and wrench. These tasks require precise grasping and dexterous manipulation, making clear wrist camera views particularly helpful. Even on these tasks, EyeRobot 2.0 matches or exceeds the performance of the wrist camera baselines.
+                We also evaluate tasks with unobstructed wrist camera views: marker, tea, toaster, and wrench. These tasks require precise grasping and tolerances, making clear wrist camera views particularly helpful. Even on these tasks, EyeRobot 2.0 matches or exceeds the performance of the wrist camera baselines.
             </p>
             </div>
 
@@ -1230,81 +1308,81 @@
                     <div class="carousel-track" id="distractor-carousel">
                         <div class="carousel-slide current-slide">
                             <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_012.webp">
-                                    <source data-src="data/distractor_comparisons/tape_012.mp4?v=seek1" type="video/mp4">
+                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_012.webp?v=4965b2eb9b51">
+                                    <source data-src="data/distractor_comparisons/tape_012.mp4?v=ed26d3abc73a" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_013.webp">
-                                    <source data-src="data/distractor_comparisons/tape_013.mp4?v=seek1" type="video/mp4">
+                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_013.webp?v=68710c73a916">
+                                    <source data-src="data/distractor_comparisons/tape_013.mp4?v=b90a1b7e87ba" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_014.webp">
-                                    <source data-src="data/distractor_comparisons/tape_014.mp4?v=seek1" type="video/mp4">
+                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_014.webp?v=62fc510b45a3">
+                                    <source data-src="data/distractor_comparisons/tape_014.mp4?v=1c7384bfd35e" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_022.webp">
-                                    <source data-src="data/distractor_comparisons/tape_022.mp4?v=seek1" type="video/mp4">
+                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_022.webp?v=2a025ea0eaf7">
+                                    <source data-src="data/distractor_comparisons/tape_022.mp4?v=7ca871ea8c3b" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_005.webp">
-                                    <source data-src="data/distractor_comparisons/wrench_005.mp4?v=seek1" type="video/mp4">
+                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_005.webp?v=fe2d5fab0615">
+                                    <source data-src="data/distractor_comparisons/wrench_005.mp4?v=8f7e87948544" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_000.webp">
-                                    <source data-src="data/distractor_comparisons/wrench_000.mp4?v=seek1" type="video/mp4">
+                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_000.webp?v=456797ad552d">
+                                    <source data-src="data/distractor_comparisons/wrench_000.mp4?v=818ae4434c0e" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_001.webp">
-                                    <source data-src="data/distractor_comparisons/wrench_001.mp4?v=seek1" type="video/mp4">
+                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_001.webp?v=d5066ac2235e">
+                                    <source data-src="data/distractor_comparisons/wrench_001.mp4?v=531d5fb3b2e0" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_009.webp">
-                                    <source data-src="data/distractor_comparisons/wrench_009.mp4?v=seek1" type="video/mp4">
+                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_009.webp?v=c0354405be10">
+                                    <source data-src="data/distractor_comparisons/wrench_009.mp4?v=2039aea74bab" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </figure>
                         </div>
                         <div class="carousel-slide">
                             <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>EyeRobot 2.0</span><span>Ego + Wrist</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tea_008.webp">
-                                    <source data-src="data/distractor_comparisons/tea_008.mp4?v=seek1" type="video/mp4">
+                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tea_008.webp?v=60f44bf1cc21">
+                                    <source data-src="data/distractor_comparisons/tea_008.mp4?v=900a36f114c9" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </figure>
