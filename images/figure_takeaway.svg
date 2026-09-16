@@ -3,17 +3,17 @@
   <title id="tk-title">Average real-world success rate</title>
   <desc id="tk-desc">No Gaze 27 percent, Ego plus Wrist 52 percent, EyeRobot 2.0 67 percent, averaged over 640 real-world trials.</desc>
   <defs>
-    <pattern id="tk-avf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <rect width="8" height="8" fill="#f2986f"/>
-      <line x1="0" y1="0" x2="0" y2="8" stroke="#fff" stroke-width="1.2"/>
+    <pattern id="tk-avf-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="7" height="7" fill="#f2986f"/>
+      <line x1="0" y1="0" x2="0" y2="7" stroke="#fff" stroke-width="1"/>
     </pattern>
     <style>
-      text { font-family: "Avenir Next", Avenir, "Open Sans", sans-serif; fill: #171717; letter-spacing: 0; }
+      text { font-family: "Avenir Next", Avenir, "Open Sans", sans-serif; fill: #333; letter-spacing: 0; }
       .tk-title { font-size: 12px; fill: #555; }
       .tk-value { font-size: 15px; font-weight: 600; text-anchor: middle; }
       .tk-label { font-size: 11px; fill: #444; text-anchor: middle; }
-      .tk-grid { stroke: #e9e9e9; stroke-width: 1; }
-      .tk-axis { stroke: #222; stroke-width: 1; }
+      .tk-grid { stroke: #e8ebed; stroke-width: 1; }
+      .tk-axis { stroke: #e8ebed; stroke-width: 1; }
     </style>
   </defs>
   <text class="tk-title" x="130" y="14" text-anchor="middle">Avg. real-world success, 640 trials</text>
@@ -26,17 +26,17 @@
   </g>
   <line class="tk-axis" x1="20" y1="130" x2="250" y2="130"/>
   <!-- No Gaze 27% -->
-  <rect x="40" y="103" width="44" height="27" fill="#7fc0a3"/>
+  <rect rx="1" x="40" y="103" width="44" height="27" fill="#7fc0a3"/>
   <text class="tk-value" x="62" y="97">27%</text>
   <text class="tk-label" x="62" y="146">No Gaze</text>
   <text class="tk-label" x="62" y="162">(stereo only)</text>
   <!-- Ego + Wrist 52% -->
-  <rect x="108" y="78" width="44" height="52" fill="#5c8fc5"/>
+  <rect rx="1" x="108" y="78" width="44" height="52" fill="#5c8fc5"/>
   <text class="tk-value" x="130" y="72">52%</text>
   <text class="tk-label" x="130" y="146">Ego + Wrist</text>
   <text class="tk-label" x="130" y="162">(3 cameras)</text>
   <!-- EyeRobot 2.0 67% -->
-  <rect x="176" y="63" width="44" height="67" fill="url(#tk-avf-hatch)"/>
+  <rect rx="1" x="176" y="63" width="44" height="67" fill="url(#tk-avf-hatch)"/>
   <text class="tk-value" x="198" y="57">67%</text>
   <text class="tk-label" x="198" y="146">EyeRobot 2.0</text>
   <text class="tk-label" x="198" y="162">(stereo only)</text>

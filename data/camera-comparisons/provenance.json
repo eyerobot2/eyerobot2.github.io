@@ -1,0 +1,568 @@
+{
+  "encoding": "H.264 CRF20 slow, yuv420p, 30fps, keyframe every second, faststart; no audio.",
+  "wrench": "Existing stereo-only replay reused without reencoding.",
+  "outputs": [
+    {
+      "task": "marker",
+      "kind": "wrists",
+      "operation": "Side-by-side left/right wrist views, starting at frame 0; end at shorter input.",
+      "sources": [
+        {
+          "path": "viewer/videos/exo-wrist-ee/marker/episode-000/wrist_left.mp4",
+          "sha256": "3aa486a05aaadec0e217ff98f5437199f32ab6c830e783fb6f61966454b32bb0",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "858",
+            "duration": 28.6
+          }
+        },
+        {
+          "path": "viewer/videos/exo-wrist-ee/marker/episode-000/wrist_right.mp4",
+          "sha256": "30ecaf96bafd3d0680fa8c1926f94f02370478bf3d70092d562d4e61c6fc8caa",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "858",
+            "duration": 28.6
+          }
+        }
+      ],
+      "output": {
+        "src": "data/camera-comparisons/marker-wrists.mp4?v=6db5855b06ec",
+        "poster": "data/camera-comparisons/marker-wrists.webp?v=07322beb1a6c"
+      },
+      "video": {
+        "width": 1280,
+        "height": 480,
+        "r_frame_rate": "30/1",
+        "nb_frames": "858",
+        "duration": 28.6
+      },
+      "bytes": 6252796,
+      "sha256": "6db5855b06ec4b3fe44a57a038568242566d450fd8432c490e7e3928f39e89bf"
+    },
+    {
+      "task": "marker",
+      "kind": "er",
+      "operation": "Keep x=0,y=0,w=640,h=320; remove bottom 160px probability panel.",
+      "sources": [
+        {
+          "path": "viewer/videos/eyeball/marker/episode-000/replay.mp4",
+          "sha256": "ade15c65ca0e216b9ba4f5736028a2ff6ec73a040628f83950626f02f012aa9a",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "873",
+            "duration": 29.1
+          }
+        }
+      ],
+      "output": {
+        "src": "data/camera-comparisons/marker-er.mp4?v=efc5f31b2c37",
+        "poster": "data/camera-comparisons/marker-er.webp?v=0d265be4b014"
+      },
+      "video": {
+        "width": 640,
+        "height": 320,
+        "r_frame_rate": "30/1",
+        "nb_frames": "873",
+        "duration": 29.1
+      },
+      "bytes": 1786427,
+      "sha256": "efc5f31b2c376fbc7b6dd38095b5666176283aaeab34f7b3a2d161cc5de99506"
+    },
+    {
+      "task": "tea",
+      "kind": "wrists",
+      "operation": "Side-by-side left/right wrist views, starting at frame 0; end at shorter input.",
+      "sources": [
+        {
+          "path": "viewer/videos/exo-wrist-ee/tea/episode-002/wrist_left.mp4",
+          "sha256": "73357431e1528f966ed8558713b5acf88633c801da3c6271e3ae429c52aa4a6e",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "233",
+            "duration": 7.766667
+          }
+        },
+        {
+          "path": "viewer/videos/exo-wrist-ee/tea/episode-002/wrist_right.mp4",
+          "sha256": "6e2e055acb1eb01945023c5729efde2c87182a165769ce94bf7baac06201d83e",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "233",
+            "duration": 7.766667
+          }
+        }
+      ],
+      "output": {
+        "src": "data/camera-comparisons/tea-wrists.mp4?v=33dc527fca6d",
+        "poster": "data/camera-comparisons/tea-wrists.webp?v=ce13b05aee03"
+      },
+      "video": {
+        "width": 1280,
+        "height": 480,
+        "r_frame_rate": "30/1",
+        "nb_frames": "233",
+        "duration": 7.766667
+      },
+      "bytes": 1030150,
+      "sha256": "33dc527fca6df3f03b76371d174bc10ec5f67213ac9a8d3fc84a4a2096918d12"
+    },
+    {
+      "task": "tea",
+      "kind": "er",
+      "operation": "Keep x=0,y=0,w=640,h=320; remove bottom 160px probability panel.",
+      "sources": [
+        {
+          "path": "viewer/videos/eyeball/tea/episode-002/replay.mp4",
+          "sha256": "62dad84bcf5deb24b474daf51e4dde7bd3e5db19a69c44c958687b28298d8cce",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "227",
+            "duration": 7.566667
+          }
+        }
+      ],
+      "output": {
+        "src": "data/camera-comparisons/tea-er.mp4?v=66acecb43008",
+        "poster": "data/camera-comparisons/tea-er.webp?v=21d7a6feb64e"
+      },
+      "video": {
+        "width": 640,
+        "height": 320,
+        "r_frame_rate": "30/1",
+        "nb_frames": "227",
+        "duration": 7.566667
+      },
+      "bytes": 421967,
+      "sha256": "66acecb430084ef2b4adb929c7646ac664aaf30451f1af8c6463811d1a4887ca"
+    },
+    {
+      "task": "toaster",
+      "kind": "wrists",
+      "operation": "Side-by-side left/right wrist views, starting at frame 0; end at shorter input.",
+      "sources": [
+        {
+          "path": "viewer/videos/exo-wrist-ee/toaster/episode-000/wrist_left.mp4",
+          "sha256": "cdcebe7b5afe706cff0483b43f67f4466c974d4b7bb6730d3b0eff8b3367688e",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "1098",
+            "duration": 36.6
+          }
+        },
+        {
+          "path": "viewer/videos/exo-wrist-ee/toaster/episode-000/wrist_right.mp4",
+          "sha256": "a16767200542410512969f722cbf3ad0f77be5b6244381ac26618411ea96f007",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "1098",
+            "duration": 36.6
+          }
+        }
+      ],
+      "output": {
+        "src": "data/camera-comparisons/toaster-wrists.mp4?v=873d53b08e62",
+        "poster": "data/camera-comparisons/toaster-wrists.webp?v=20e4dd851fc0"
+      },
+      "video": {
+        "width": 1280,
+        "height": 480,
+        "r_frame_rate": "30/1",
+        "nb_frames": "1098",
+        "duration": 36.6
+      },
+      "bytes": 9306620,
+      "sha256": "873d53b08e62dc7e449f03725cfc0d0fe6430e5e88e8b81cafb6fd16764f0635"
+    },
+    {
+      "task": "toaster",
+      "kind": "er",
+      "operation": "Keep x=0,y=0,w=640,h=320; remove bottom 160px probability panel.",
+      "sources": [
+        {
+          "path": "viewer/videos/eyeball/toaster/episode-000/replay.mp4",
+          "sha256": "82bc28748c20119cf22717b463662afd1811ea73277e6a5b2f7cb481e8a4834a",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "879",
+            "duration": 29.3
+          }
+        }
+      ],
+      "output": {
+        "src": "data/camera-comparisons/toaster-er.mp4?v=124204f86637",
+        "poster": "data/camera-comparisons/toaster-er.webp?v=a6afc0940f03"
+      },
+      "video": {
+        "width": 640,
+        "height": 320,
+        "r_frame_rate": "30/1",
+        "nb_frames": "879",
+        "duration": 29.3
+      },
+      "bytes": 1686822,
+      "sha256": "124204f866372438252a8e3cad8f6415c1b61a7ec3e0ba98427689bea242a047"
+    },
+    {
+      "task": "wrench",
+      "kind": "wrists",
+      "operation": "Side-by-side left/right wrist views, starting at frame 0; end at shorter input.",
+      "sources": [
+        {
+          "path": "viewer/videos/exo-wrist-ee/wrench/episode-000/wrist_left.mp4",
+          "sha256": "e2ea30fa44a83945e3497c9df8cdb85f273217eb11c55e26223b5a013c1ab1f9",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "431",
+            "duration": 14.366667
+          }
+        },
+        {
+          "path": "viewer/videos/exo-wrist-ee/wrench/episode-000/wrist_right.mp4",
+          "sha256": "fd3936ee356be50aa09e78f449285957833778ff58f782ca4b2f35051106f717",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "432",
+            "duration": 14.4
+          }
+        }
+      ],
+      "output": {
+        "src": "data/camera-comparisons/wrench-wrists.mp4?v=39ba07e69c18",
+        "poster": "data/camera-comparisons/wrench-wrists.webp?v=d99eab0b7fa0"
+      },
+      "video": {
+        "width": 1280,
+        "height": 480,
+        "r_frame_rate": "30/1",
+        "nb_frames": "431",
+        "duration": 14.366667
+      },
+      "bytes": 3194267,
+      "sha256": "39ba07e69c185deb079048ac0a6ebd0150e19281e034dd8ec4831b9ec93e3c75"
+    },
+    {
+      "task": "boba",
+      "kind": "wrists",
+      "operation": "Side-by-side left/right wrist views, starting at frame 0; end at shorter input.",
+      "sources": [
+        {
+          "path": "viewer/videos/exo-wrist-ee/boba/episode-001/wrist_left.mp4",
+          "sha256": "d6523a19825ba4eed0e7afd5ce0242878bd2fefb5001bb03159c7d0d9525513d",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "456",
+            "duration": 15.2
+          }
+        },
+        {
+          "path": "viewer/videos/exo-wrist-ee/boba/episode-001/wrist_right.mp4",
+          "sha256": "dbf628c9c5449d25a4341c0cee3756a0bbbdc975cac5dbb667bfd527e24ddb8e",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "455",
+            "duration": 15.166667
+          }
+        }
+      ],
+      "output": {
+        "src": "data/camera-comparisons/boba-wrists.mp4?v=c95cfedbed5c",
+        "poster": "data/camera-comparisons/boba-wrists.webp?v=a3c69335720a"
+      },
+      "video": {
+        "width": 1280,
+        "height": 480,
+        "r_frame_rate": "30/1",
+        "nb_frames": "455",
+        "duration": 15.166667
+      },
+      "bytes": 2344710,
+      "sha256": "c95cfedbed5c39613b7fa2eb227318a74c66d4c886898ba1a09ef280ca527283"
+    },
+    {
+      "task": "boba",
+      "kind": "er",
+      "operation": "Keep x=0,y=0,w=640,h=320; remove bottom 160px probability panel.",
+      "sources": [
+        {
+          "path": "viewer/videos/eyeball/boba/episode-001/replay.mp4",
+          "sha256": "704d879c97133a182ecdcf69eb3321ae353b29c6f336247b7ba1f370e73739f0",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "546",
+            "duration": 18.2
+          }
+        }
+      ],
+      "output": {
+        "src": "data/camera-comparisons/boba-er.mp4?v=96b88a1990ff",
+        "poster": "data/camera-comparisons/boba-er.webp?v=32cf55288fcf"
+      },
+      "video": {
+        "width": 640,
+        "height": 320,
+        "r_frame_rate": "30/1",
+        "nb_frames": "546",
+        "duration": 18.2
+      },
+      "bytes": 1239809,
+      "sha256": "96b88a1990ffe0043fe8af03cae1da2b30909ecd55d4dfa82cc785b06ed72923"
+    },
+    {
+      "task": "pot-place",
+      "kind": "wrists",
+      "operation": "Side-by-side left/right wrist views, starting at frame 0; end at shorter input.",
+      "sources": [
+        {
+          "path": "viewer/videos/exo-wrist-ee/pot-place/episode-004/wrist_left.mp4",
+          "sha256": "84b32b7c90904310f86f70a93aafc85d6c5f4e70c7178d573fd9a0126660e816",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "247",
+            "duration": 8.233333
+          }
+        },
+        {
+          "path": "viewer/videos/exo-wrist-ee/pot-place/episode-004/wrist_right.mp4",
+          "sha256": "82e47f8b8d21ecbcb3696e2d4b00171929019826602a2250ade63f792a75b671",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "248",
+            "duration": 8.266667
+          }
+        }
+      ],
+      "output": {
+        "src": "data/camera-comparisons/pot-place-wrists.mp4?v=51120914fdc5",
+        "poster": "data/camera-comparisons/pot-place-wrists.webp?v=177ceef7d7b7"
+      },
+      "video": {
+        "width": 1280,
+        "height": 480,
+        "r_frame_rate": "30/1",
+        "nb_frames": "247",
+        "duration": 8.233333
+      },
+      "bytes": 2048945,
+      "sha256": "51120914fdc5a386baea7fea3d28118dce3d83009d32d7dbb179902210183c98"
+    },
+    {
+      "task": "pot-place",
+      "kind": "er",
+      "operation": "Keep x=0,y=0,w=640,h=320; remove bottom 160px probability panel.",
+      "sources": [
+        {
+          "path": "viewer/videos/eyeball/pot-place/episode-004/replay.mp4",
+          "sha256": "56ee5d3ec1262060b07b095128e158778082bdbef509d665aa87cd7283c17931",
+          "video": {
+            "width": 640,
+            "height": 480,
+            "r_frame_rate": "30/1",
+            "nb_frames": "246",
+            "duration": 8.2
+          }
+        }
+      ],
+      "output": {
+        "src": "data/camera-comparisons/pot-place-er.mp4?v=ff844721e550",
+        "poster": "data/camera-comparisons/pot-place-er.webp?v=fc8abdd64ec8"
+      },
+      "video": {
+        "width": 640,
+        "height": 320,
+        "r_frame_rate": "30/1",
+        "nb_frames": "246",
+        "duration": 8.2
+      },
+      "bytes": 531002,
+      "sha256": "ff844721e5509c25d6d04b8e726f78dd485f331b5ac0fa953f8cac65e27b8245"
+    }
+  ],
+  "pixelVerification": {
+    "pixelChecks": [
+      {
+        "task": "marker",
+        "kind": "wrists",
+        "rms": [
+          2.04
+        ]
+      },
+      {
+        "task": "marker",
+        "kind": "er",
+        "rms": [
+          0.89,
+          1.497,
+          2.44
+        ]
+      },
+      {
+        "task": "tea",
+        "kind": "wrists",
+        "rms": [
+          1.19
+        ]
+      },
+      {
+        "task": "tea",
+        "kind": "er",
+        "rms": [
+          0.98,
+          1.554,
+          1.679
+        ]
+      },
+      {
+        "task": "toaster",
+        "kind": "wrists",
+        "rms": [
+          2.379
+        ]
+      },
+      {
+        "task": "toaster",
+        "kind": "er",
+        "rms": [
+          0.911,
+          1.41,
+          1.349
+        ]
+      },
+      {
+        "task": "wrench",
+        "kind": "wrists",
+        "rms": [
+          2.091
+        ]
+      },
+      {
+        "task": "boba",
+        "kind": "wrists",
+        "rms": [
+          1.328
+        ]
+      },
+      {
+        "task": "boba",
+        "kind": "er",
+        "rms": [
+          0.941,
+          1.206,
+          1.386
+        ]
+      },
+      {
+        "task": "pot-place",
+        "kind": "wrists",
+        "rms": [
+          1.887
+        ]
+      },
+      {
+        "task": "pot-place",
+        "kind": "er",
+        "rms": [
+          1.006,
+          2.562,
+          1.643
+        ]
+      }
+    ],
+    "originalsUnchanged": true,
+    "faststart": true
+  },
+  "media": {
+    "marker": {
+      "wrists": {
+        "src": "data/camera-comparisons/marker-wrists.mp4?v=6db5855b06ec",
+        "poster": "data/camera-comparisons/marker-wrists.webp?v=07322beb1a6c"
+      },
+      "er": {
+        "src": "data/camera-comparisons/marker-er.mp4?v=efc5f31b2c37",
+        "poster": "data/camera-comparisons/marker-er.webp?v=0d265be4b014"
+      }
+    },
+    "tea": {
+      "wrists": {
+        "src": "data/camera-comparisons/tea-wrists.mp4?v=33dc527fca6d",
+        "poster": "data/camera-comparisons/tea-wrists.webp?v=ce13b05aee03"
+      },
+      "er": {
+        "src": "data/camera-comparisons/tea-er.mp4?v=66acecb43008",
+        "poster": "data/camera-comparisons/tea-er.webp?v=21d7a6feb64e"
+      }
+    },
+    "toaster": {
+      "wrists": {
+        "src": "data/camera-comparisons/toaster-wrists.mp4?v=873d53b08e62",
+        "poster": "data/camera-comparisons/toaster-wrists.webp?v=20e4dd851fc0"
+      },
+      "er": {
+        "src": "data/camera-comparisons/toaster-er.mp4?v=124204f86637",
+        "poster": "data/camera-comparisons/toaster-er.webp?v=a6afc0940f03"
+      }
+    },
+    "wrench": {
+      "wrists": {
+        "src": "data/camera-comparisons/wrench-wrists.mp4?v=39ba07e69c18",
+        "poster": "data/camera-comparisons/wrench-wrists.webp?v=d99eab0b7fa0"
+      },
+      "er": {
+        "src": "data/camera-comparisons/wrench-er.mp4?v=6c2143d03e4b",
+        "poster": "data/camera-comparisons/wrench-er.webp?v=5665b562fd4d"
+      }
+    },
+    "boba": {
+      "wrists": {
+        "src": "data/camera-comparisons/boba-wrists.mp4?v=c95cfedbed5c",
+        "poster": "data/camera-comparisons/boba-wrists.webp?v=a3c69335720a"
+      },
+      "er": {
+        "src": "data/camera-comparisons/boba-er.mp4?v=96b88a1990ff",
+        "poster": "data/camera-comparisons/boba-er.webp?v=32cf55288fcf"
+      }
+    },
+    "pot-place": {
+      "wrists": {
+        "src": "data/camera-comparisons/pot-place-wrists.mp4?v=51120914fdc5",
+        "poster": "data/camera-comparisons/pot-place-wrists.webp?v=177ceef7d7b7"
+      },
+      "er": {
+        "src": "data/camera-comparisons/pot-place-er.mp4?v=ff844721e550",
+        "poster": "data/camera-comparisons/pot-place-er.webp?v=fc8abdd64ec8"
+      }
+    }
+  }
+}

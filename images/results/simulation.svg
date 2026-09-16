@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="275" viewBox="0 0 760 275" role="img" aria-labelledby="title desc">
+<title id="title">Simulation task success</title>
+<desc id="desc">Average: Passive stereo 54.0%, Ego + Wrist 75.0%, EyeRobot 2.0 74.0%; Tape: Passive stereo 55.0%, Ego + Wrist 81.0%, EyeRobot 2.0 79.0%; Pot lid: Passive stereo 69.0%, Ego + Wrist 90.0%, EyeRobot 2.0 91.0%; Tiger: Passive stereo 87.0%, Ego + Wrist 96.0%, EyeRobot 2.0 98.0%; Medical tray: Passive stereo 44.0%, Ego + Wrist 85.0%, EyeRobot 2.0 78.0%; Plate in rack: Passive stereo 41.0%, Ego + Wrist 74.0%, EyeRobot 2.0 70.0%; Hang spoon: Passive stereo 26.0%, Ego + Wrist 27.0%, EyeRobot 2.0 30.0%</desc>
+<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#f2986f"/><path d="M0 0V7" stroke="#fff" stroke-width="1"/></pattern></defs>
+<style>text{font-family:"Avenir Next",Avenir,"Open Sans",sans-serif;fill:#555;font-size:13px}.tick{fill:#8c9093;font-size:11px}.value{fill:#333;font-size:11px}.grid{stroke:#e8ebed;stroke-width:1}</style>
+<line class="grid" x1="42" x2="748" y1="240.0" y2="240.0"/><text class="tick" x="34" y="244.0" text-anchor="end">0</text>
+<line class="grid" x1="42" x2="748" y1="188.0" y2="188.0"/><text class="tick" x="34" y="192.0" text-anchor="end">25</text>
+<line class="grid" x1="42" x2="748" y1="136.0" y2="136.0"/><text class="tick" x="34" y="140.0" text-anchor="end">50</text>
+<line class="grid" x1="42" x2="748" y1="84.0" y2="84.0"/><text class="tick" x="34" y="88.0" text-anchor="end">75</text>
+<line class="grid" x1="42" x2="748" y1="32.0" y2="32.0"/><text class="tick" x="34" y="36.0" text-anchor="end">100%</text>
+<rect x="59.422857142857154" y="127.68" width="24.194285714285712" height="112.32" rx="1" fill="#7fc0a3"/><text class="value" x="71.52000000000001" y="119.68" text-anchor="middle">54</text>
+<rect x="85.61714285714287" y="84.0" width="24.194285714285712" height="156.0" rx="1" fill="#5c8fc5"/><text class="value" x="97.71428571428572" y="76.0" text-anchor="middle">75</text>
+<rect x="111.81142857142858" y="86.08000000000001" width="24.194285714285712" height="153.92" rx="1" fill="url(#hatch)"/><text class="value" x="123.90857142857143" y="78.08000000000001" text-anchor="middle">74</text>
+<text x="97.71428571428572" y="266" text-anchor="middle">Average</text>
+<rect x="158.85142857142858" y="125.6" width="24.194285714285712" height="114.4" rx="1" fill="#7fc0a3"/><text class="value" x="170.94857142857143" y="117.6" text-anchor="middle">55</text>
+<rect x="185.04571428571427" y="71.52000000000001" width="24.194285714285712" height="168.48" rx="1" fill="#5c8fc5"/><text class="value" x="197.14285714285714" y="63.52000000000001" text-anchor="middle">81</text>
+<rect x="211.24" y="75.68" width="24.194285714285712" height="164.32" rx="1" fill="url(#hatch)"/><text class="value" x="223.33714285714285" y="67.68" text-anchor="middle">79</text>
+<text x="197.14285714285714" y="266" text-anchor="middle">Tape</text>
+<rect x="258.28000000000003" y="96.47999999999999" width="24.194285714285712" height="143.52" rx="1" fill="#7fc0a3"/><text class="value" x="270.37714285714287" y="88.47999999999999" text-anchor="middle">69</text>
+<rect x="284.4742857142857" y="52.80000000000001" width="24.194285714285712" height="187.2" rx="1" fill="#5c8fc5"/><text class="value" x="296.57142857142856" y="44.80000000000001" text-anchor="middle">90</text>
+<rect x="310.6685714285714" y="50.72" width="24.194285714285712" height="189.28" rx="1" fill="url(#hatch)"/><text class="value" x="322.76571428571424" y="42.72" text-anchor="middle">91</text>
+<text x="296.57142857142856" y="266" text-anchor="middle">Pot lid</text>
+<rect x="357.7085714285715" y="59.03999999999999" width="24.194285714285712" height="180.96" rx="1" fill="#7fc0a3"/><text class="value" x="369.8057142857143" y="51.03999999999999" text-anchor="middle">87</text>
+<rect x="383.90285714285716" y="40.31999999999999" width="24.194285714285712" height="199.68" rx="1" fill="#5c8fc5"/><text class="value" x="396.0" y="32.31999999999999" text-anchor="middle">96</text>
+<rect x="410.09714285714284" y="36.16" width="24.194285714285712" height="203.84" rx="1" fill="url(#hatch)"/><text class="value" x="422.1942857142857" y="28.159999999999997" text-anchor="middle">98</text>
+<text x="396.0" y="266" text-anchor="middle">Tiger</text>
+<rect x="457.1371428571429" y="148.48000000000002" width="24.194285714285712" height="91.52" rx="1" fill="#7fc0a3"/><text class="value" x="469.23428571428576" y="140.48000000000002" text-anchor="middle">44</text>
+<rect x="483.3314285714286" y="63.19999999999999" width="24.194285714285712" height="176.8" rx="1" fill="#5c8fc5"/><text class="value" x="495.42857142857144" y="55.19999999999999" text-anchor="middle">85</text>
+<rect x="509.5257142857143" y="77.75999999999999" width="24.194285714285712" height="162.24" rx="1" fill="url(#hatch)"/><text class="value" x="521.6228571428571" y="69.75999999999999" text-anchor="middle">78</text>
+<text x="495.42857142857144" y="266" text-anchor="middle">Medical tray</text>
+<rect x="556.5657142857143" y="154.72" width="24.194285714285712" height="85.28" rx="1" fill="#7fc0a3"/><text class="value" x="568.6628571428572" y="146.72" text-anchor="middle">41</text>
+<rect x="582.76" y="86.08000000000001" width="24.194285714285712" height="153.92" rx="1" fill="#5c8fc5"/><text class="value" x="594.8571428571429" y="78.08000000000001" text-anchor="middle">74</text>
+<rect x="608.9542857142857" y="94.4" width="24.194285714285712" height="145.6" rx="1" fill="url(#hatch)"/><text class="value" x="621.0514285714286" y="86.4" text-anchor="middle">70</text>
+<text x="594.8571428571429" y="266" text-anchor="middle">Plate in rack</text>
+<rect x="655.9942857142858" y="185.92000000000002" width="24.194285714285712" height="54.08" rx="1" fill="#7fc0a3"/><text class="value" x="668.0914285714287" y="177.92000000000002" text-anchor="middle">26</text>
+<rect x="682.1885714285714" y="183.84" width="24.194285714285712" height="56.16" rx="1" fill="#5c8fc5"/><text class="value" x="694.2857142857143" y="175.84" text-anchor="middle">27</text>
+<rect x="708.3828571428571" y="177.6" width="24.194285714285712" height="62.4" rx="1" fill="url(#hatch)"/><text class="value" x="720.48" y="169.6" text-anchor="middle">30</text>
+<text x="694.2857142857143" y="266" text-anchor="middle">Hang spoon</text>
+</svg>

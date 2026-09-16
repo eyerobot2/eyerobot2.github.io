@@ -1,0 +1,173 @@
+{
+  "definition": "Mean deepest consecutive funnel stage reached / total funnel depth, requiring all prior stages.",
+  "tasks": {
+    "boba": {
+      "passive": 46.0,
+      "wrist": 56.0,
+      "er": 72.0
+    },
+    "marker": {
+      "passive": 27.333333333333332,
+      "wrist": 74.66666666666667,
+      "er": 81.33333333333333
+    },
+    "pot-place": {
+      "passive": 50.0,
+      "wrist": 66.0,
+      "er": 76.0
+    },
+    "tea": {
+      "passive": 48.0,
+      "wrist": 88.0,
+      "er": 90.0
+    },
+    "toaster": {
+      "passive": 57.333333333333336,
+      "wrist": 66.66666666666667,
+      "er": 74.66666666666667
+    },
+    "tape": {
+      "passive": 64.58333333333333,
+      "wrist": 81.77083333333333,
+      "er": 94.79166666666667
+    },
+    "wrench": {
+      "passive": 42.666666666666664,
+      "wrist": 78.66666666666667,
+      "er": 80.0
+    }
+  },
+  "sources": {
+    "viewer/data/episodes/exo-ee__boba.json": {
+      "sha256": "9f8d15e21e92cc42aaffa0f742e6ac8f96d1049cf79757735e8d24fb8f52522e",
+      "trials": 25,
+      "stages": 4,
+      "completedStageTotal": 46
+    },
+    "viewer/data/episodes/exo-wrist-ee__boba.json": {
+      "sha256": "0046cf2425a63318d220fc61336db2238116062a19fa9b49ea5752dd44bdc36c",
+      "trials": 25,
+      "stages": 4,
+      "completedStageTotal": 56
+    },
+    "viewer/data/episodes/eyeball__boba.json": {
+      "sha256": "79ebab7902f60723f6ce680b56be9a192432e4671d231aceb1611c55b560b5c6",
+      "trials": 25,
+      "stages": 4,
+      "completedStageTotal": 72
+    },
+    "viewer/data/episodes/exo-ee__marker.json": {
+      "sha256": "ea3167af610602312c719674520d6195501c6d5d35a5d2a3abbe2c97f72b0d53",
+      "trials": 25,
+      "stages": 6,
+      "completedStageTotal": 41
+    },
+    "viewer/data/episodes/exo-wrist-ee__marker.json": {
+      "sha256": "18eafd0846e557e2d6891347dc4af3264208e27548f54ee3f949f00074ffcc18",
+      "trials": 25,
+      "stages": 6,
+      "completedStageTotal": 112
+    },
+    "viewer/data/episodes/eyeball__marker.json": {
+      "sha256": "1e674611b9ec5c334f7f8552f1268d69f75fd1ff8599ff181e87beace5c28404",
+      "trials": 25,
+      "stages": 6,
+      "completedStageTotal": 122
+    },
+    "viewer/data/episodes/exo-ee__pot-place.json": {
+      "sha256": "9c9fad3534ea8bbf954e882cc82aa72f9c2ff4f7bdb981a598934ff2bb59e264",
+      "trials": 25,
+      "stages": 2,
+      "completedStageTotal": 25
+    },
+    "viewer/data/episodes/exo-wrist-ee__pot-place.json": {
+      "sha256": "365d70a16f5743e6a1afc89d9f22517af442016572d6feee4461fbc8c379bd87",
+      "trials": 25,
+      "stages": 2,
+      "completedStageTotal": 33
+    },
+    "viewer/data/episodes/eyeball__pot-place.json": {
+      "sha256": "7e0170ce3e51bb957b9903c694b0471e2465ef658a32c6e45c25e701eef94291",
+      "trials": 25,
+      "stages": 2,
+      "completedStageTotal": 38
+    },
+    "viewer/data/episodes/exo-ee__tea.json": {
+      "sha256": "39c4618cbc96323a608edd5343a6885cabff285b37bc6f231a607e3fb088669a",
+      "trials": 25,
+      "stages": 2,
+      "completedStageTotal": 24
+    },
+    "viewer/data/episodes/exo-wrist-ee__tea.json": {
+      "sha256": "4598a64bebc4bcbc5888e96e80313a57dcd4d94af09c14746f9b312844a47e6e",
+      "trials": 25,
+      "stages": 2,
+      "completedStageTotal": 44
+    },
+    "viewer/data/episodes/eyeball__tea.json": {
+      "sha256": "e525b9df805b210e71bd2458a6363a0586f44dcb28b0e8d42f9661637eaad9a5",
+      "trials": 25,
+      "stages": 2,
+      "completedStageTotal": 45
+    },
+    "viewer/data/episodes/exo-ee__toaster.json": {
+      "sha256": "4c9b19f5078da91842e1e0f04233dd204ae314f65184dfb0981fdd1b579060d1",
+      "trials": 25,
+      "stages": 6,
+      "completedStageTotal": 86
+    },
+    "viewer/data/episodes/exo-wrist-ee__toaster.json": {
+      "sha256": "76ad43a7a7c013a2e2f8748ab19054129873ac84d7f0e8e52e3930631350d4a5",
+      "trials": 25,
+      "stages": 6,
+      "completedStageTotal": 100
+    },
+    "viewer/data/episodes/eyeball__toaster.json": {
+      "sha256": "2ce34b06518f89f4406cb0f2fa8f18e6e09cc5a527a7c5b3f36cb9a16a587b6d",
+      "trials": 25,
+      "stages": 6,
+      "completedStageTotal": 112
+    },
+    "viewer/data/episodes/exo-ee__tape.json": {
+      "sha256": "8d2e34cb967eb6058a0bc4859e741a15c6c7baa416f7ee5bcf0b75f3a7a2b406",
+      "trials": 64,
+      "stages": 3,
+      "completedStageTotal": 124
+    },
+    "viewer/data/episodes/exo-wrist-ee__tape.json": {
+      "sha256": "8fd0a955b7b88d755d39e032e9e87fb490fef4f15de1cd67dafedf5e7ed8ef38",
+      "trials": 64,
+      "stages": 3,
+      "completedStageTotal": 157
+    },
+    "viewer/data/episodes/eyeball__tape.json": {
+      "sha256": "c0d89f8c125573d5a650bf11154f51b0fc39e3b6b680654680c5860ce488a135",
+      "trials": 64,
+      "stages": 3,
+      "completedStageTotal": 182
+    },
+    "viewer/data/episodes/exo-ee__wrench.json": {
+      "sha256": "9415c53bcd6d63382a1b7c57904d6fa4cf7056579c6ba4041f0be1e97ccb36be",
+      "trials": 25,
+      "stages": 3,
+      "completedStageTotal": 32
+    },
+    "viewer/data/episodes/exo-wrist-ee__wrench.json": {
+      "sha256": "ccdc86d571577661a7ba53b809a12c90cf255ef949e934c7acb1a93a1dab2f21",
+      "trials": 25,
+      "stages": 3,
+      "completedStageTotal": 59
+    },
+    "viewer/data/episodes/eyeball__wrench.json": {
+      "sha256": "7d7081dd30190a2554ebb1870fd8cf66c3c26a99d2645c3cdbcf6d2b2bfddfd2",
+      "trials": 25,
+      "stages": 3,
+      "completedStageTotal": 60
+    }
+  },
+  "average": {
+    "passive": 47.98809523809524,
+    "wrist": 73.11011904761905,
+    "er": 81.2559523809524
+  }
+}

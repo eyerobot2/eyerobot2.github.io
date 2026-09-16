@@ -1,0 +1,369 @@
+{
+  "description": "Left-eye second-tier gaze view reconstructed from logged gaze and calibrated raw RGB.",
+  "timing": "Raw video frame index matches the existing comparison. Eye angles and depth are linearly interpolated at left_ts.h5 exposure timestamps; duplicate state timestamps retain the last update; state endpoints and shorter videos hold their last sample.",
+  "projection": "Same equirectangular-coordinate composition as replay_demo._project_pinhole_pair; CPU cv2.remap for the final bilinear color sample. No smoothing or target corrections.",
+  "clips": [
+    {
+      "video": "tape_012.mp4",
+      "episode": "tape/tape_eyeball/episode_012",
+      "source_sha256": "ed26d3abc73a4b3a17b0626778d608465c6e1d3009b5a2d7ec0f0a529d657851",
+      "raw_left_sha256": "db6e95ca15fbcc983dd9a619e2d784c4970568546f76c65ba670d2251125b374",
+      "state_sha256": "de107fe48ab650adf2d8446303b3df0566fbb99223652beb35ff55a52892ea16",
+      "output_sha256": "f383d9bf619a1ed67a1046358ad2c246a02fafc6c022dc340b048c9110d4441d",
+      "duplicate_state_timestamps": 1,
+      "frames": 329,
+      "raw_frames": 329,
+      "fps": 30.0,
+      "inset": {
+        "eye": "left",
+        "crop_level": 1,
+        "fov_degrees": 57.4108216778831,
+        "x": 1354,
+        "y": 14,
+        "width": 232,
+        "height": 260
+      },
+      "alignment": [
+        {
+          "frame": 0,
+          "raw_to_comparison_rms": 2.073493261516795
+        },
+        {
+          "frame": 100,
+          "raw_to_comparison_rms": 2.4898407468037878
+        },
+        {
+          "frame": 328,
+          "raw_to_comparison_rms": 2.3063919333018834
+        }
+      ],
+      "minimum_valid_fraction": 0.6491805170821792,
+      "bytes_before": 2280479,
+      "bytes_after": 2458316
+    },
+    {
+      "video": "tape_013.mp4",
+      "episode": "tape/tape_eyeball/episode_013",
+      "source_sha256": "b90a1b7e87babba021c0d365a58c448dddf3a45688fb7000d7646dcac8cfc0e5",
+      "raw_left_sha256": "bbb2064b12715df230a68aaed325f68a899d67c3db10dec39c7ce15b8f8487b4",
+      "state_sha256": "a96c86b1731ea80b925674a8018be3ae819db98716bfe994d715f5333b3b644f",
+      "output_sha256": "99e5a11002f8ac951a9653d36d54618aaf3fa6729229b4445a8164a2c981ee57",
+      "duplicate_state_timestamps": 0,
+      "frames": 401,
+      "raw_frames": 312,
+      "fps": 30.0,
+      "inset": {
+        "eye": "left",
+        "crop_level": 1,
+        "fov_degrees": 57.4108216778831,
+        "x": 1354,
+        "y": 14,
+        "width": 232,
+        "height": 260
+      },
+      "alignment": [
+        {
+          "frame": 0,
+          "raw_to_comparison_rms": 2.1134900704232744
+        },
+        {
+          "frame": 100,
+          "raw_to_comparison_rms": 2.6858576377015964
+        },
+        {
+          "frame": 311,
+          "raw_to_comparison_rms": 2.2297471206892996
+        }
+      ],
+      "minimum_valid_fraction": 0.7303593413357956,
+      "bytes_before": 3025432,
+      "bytes_after": 3222435
+    },
+    {
+      "video": "tape_014.mp4",
+      "episode": "tape/tape_eyeball/episode_014",
+      "source_sha256": "1c7384bfd35e095a9a3e088c24be24486024387bf68d98d9a4e405f5116f336c",
+      "raw_left_sha256": "23c4ad8e86e9b5b4110ebaddac0c05ee3c1eadcd44b5471703ebf8cc247316c8",
+      "state_sha256": "4ae7cb2759a845962f1a1a938b5f447a074918163688f475222cfa00402574aa",
+      "output_sha256": "1b983148229bff50ad3a7eb6fd605b4d62680f5c5cf2bcb956410d5eeca6429d",
+      "duplicate_state_timestamps": 1,
+      "frames": 312,
+      "raw_frames": 312,
+      "fps": 30.0,
+      "inset": {
+        "eye": "left",
+        "crop_level": 1,
+        "fov_degrees": 57.4108216778831,
+        "x": 1354,
+        "y": 14,
+        "width": 232,
+        "height": 260
+      },
+      "alignment": [
+        {
+          "frame": 0,
+          "raw_to_comparison_rms": 2.166183599995367
+        },
+        {
+          "frame": 100,
+          "raw_to_comparison_rms": 2.6739002152494606
+        },
+        {
+          "frame": 311,
+          "raw_to_comparison_rms": 2.47979053774933
+        }
+      ],
+      "minimum_valid_fraction": 0.6832102185287781,
+      "bytes_before": 2269059,
+      "bytes_after": 2474247
+    },
+    {
+      "video": "tape_022.mp4",
+      "episode": "tape/tape_eyeball/episode_022",
+      "source_sha256": "7ca871ea8c3b9b897563e83747619506711e6c69cd50b3e2ff8a5d72871638e9",
+      "raw_left_sha256": "86446b80d38fe3b298a670a0f2b8d0dddc4f0e0f9ced44ab662fe039243da5b8",
+      "state_sha256": "7091a66a4bb41ea9177dc5098c16d07b511709a70f41b816e105a31ab96e1da1",
+      "output_sha256": "fa6c155dab65f023d90be71a629e1f4019331bcb885b85efac9dc8966f2864c0",
+      "duplicate_state_timestamps": 0,
+      "frames": 289,
+      "raw_frames": 289,
+      "fps": 30.0,
+      "inset": {
+        "eye": "left",
+        "crop_level": 1,
+        "fov_degrees": 57.4108216778831,
+        "x": 1354,
+        "y": 14,
+        "width": 232,
+        "height": 260
+      },
+      "alignment": [
+        {
+          "frame": 0,
+          "raw_to_comparison_rms": 2.0666470093151155
+        },
+        {
+          "frame": 100,
+          "raw_to_comparison_rms": 2.4972537694212997
+        },
+        {
+          "frame": 288,
+          "raw_to_comparison_rms": 2.7320344983180576
+        }
+      ],
+      "minimum_valid_fraction": 0.927189135118498,
+      "bytes_before": 2093017,
+      "bytes_after": 2216433
+    },
+    {
+      "video": "tea_008.mp4",
+      "episode": "tea/eyeball_tea/episode_008",
+      "source_sha256": "900a36f114c9246644a070df9fd0c96c7dd0d8811228b4cad14f058293d181bf",
+      "raw_left_sha256": "08bd5cc1e9ca4a412a498c2846b8e40a34e371d99a0cded159541a5876005dae",
+      "state_sha256": "434b15a0a3d9d4003d0fed699b8224225e84741d97d734ea90c3b2c56abdd579",
+      "output_sha256": "05e446556ebe31fcf17ec9a50f35d1d20a179ce08f31dbb580b480a309e7a4d5",
+      "duplicate_state_timestamps": 0,
+      "frames": 253,
+      "raw_frames": 253,
+      "fps": 30.0,
+      "inset": {
+        "eye": "left",
+        "crop_level": 1,
+        "fov_degrees": 57.4108216778831,
+        "x": 1354,
+        "y": 14,
+        "width": 232,
+        "height": 260
+      },
+      "alignment": [
+        {
+          "frame": 0,
+          "raw_to_comparison_rms": 2.203053436583971
+        },
+        {
+          "frame": 100,
+          "raw_to_comparison_rms": 2.569621945820911
+        },
+        {
+          "frame": 252,
+          "raw_to_comparison_rms": 2.6160944172563805
+        }
+      ],
+      "minimum_valid_fraction": 0.9548322560787935,
+      "bytes_before": 1551650,
+      "bytes_after": 1732534
+    },
+    {
+      "video": "wrench_000.mp4",
+      "episode": "wrench/wrench_eyeball/episode_000",
+      "source_sha256": "818ae4434c0e942e42505157d69af317afef069f4a611dbf2f6ef848c9a5741e",
+      "raw_left_sha256": "5d08827976779fed62b200a4d759649e597404a223481af348a51ff69e5ff0e6",
+      "state_sha256": "3e51294e3099364ad2d1fb4534688b287d65266823b1ae0a5733d910e92afaf2",
+      "output_sha256": "6b342bc7ecef1ed991e5d998b6798421d6cd187ab17834e44a9a7f9729cdb7bb",
+      "duplicate_state_timestamps": 0,
+      "frames": 508,
+      "raw_frames": 508,
+      "fps": 30.0,
+      "inset": {
+        "eye": "left",
+        "crop_level": 1,
+        "fov_degrees": 57.4108216778831,
+        "x": 1354,
+        "y": 14,
+        "width": 232,
+        "height": 260
+      },
+      "alignment": [
+        {
+          "frame": 0,
+          "raw_to_comparison_rms": 2.205235405675422
+        },
+        {
+          "frame": 100,
+          "raw_to_comparison_rms": 2.5456365172148554
+        },
+        {
+          "frame": 507,
+          "raw_to_comparison_rms": 2.720250320385158
+        }
+      ],
+      "minimum_valid_fraction": 0.9989996922129886,
+      "bytes_before": 2995235,
+      "bytes_after": 3255103
+    },
+    {
+      "video": "wrench_001.mp4",
+      "episode": "wrench/wrench_eyeball/episode_001",
+      "source_sha256": "531d5fb3b2e037c2567745048681835abb92957de40e4b79e4a4c5023dccf8a3",
+      "raw_left_sha256": "1faf2f232665a3819a13515c163c2eded23d52ac7297915a25a4d97e8e88107e",
+      "state_sha256": "4321b5df337d187090338ac6551014a5040b9af7a00b97025fd89bd4d7bc0de5",
+      "output_sha256": "90c799a5b01653e51a17234223973855ee19bcdcbd7a23d3c9f324197e05e4c0",
+      "duplicate_state_timestamps": 0,
+      "frames": 464,
+      "raw_frames": 426,
+      "fps": 30.0,
+      "inset": {
+        "eye": "left",
+        "crop_level": 1,
+        "fov_degrees": 57.4108216778831,
+        "x": 1354,
+        "y": 14,
+        "width": 232,
+        "height": 260
+      },
+      "alignment": [
+        {
+          "frame": 0,
+          "raw_to_comparison_rms": 2.2364486977746165
+        },
+        {
+          "frame": 100,
+          "raw_to_comparison_rms": 2.4979994773596106
+        },
+        {
+          "frame": 425,
+          "raw_to_comparison_rms": 2.283308698163941
+        }
+      ],
+      "minimum_valid_fraction": 0.9482725453985842,
+      "bytes_before": 2785635,
+      "bytes_after": 2956251
+    },
+    {
+      "video": "wrench_005.mp4",
+      "episode": "wrench/wrench_eyeball/episode_005",
+      "source_sha256": "8f7e879485440c886bc85d46b218ee208eef60f027c09471fb1baebf3050f6a9",
+      "raw_left_sha256": "c54647568c4eed8cf1c3c53f530afad56ce778481129b63a18307a4a59965960",
+      "state_sha256": "9ed06242841ffcbc8a7875380d6e4f580a2297ba204b29d15b08081b8e6a6c42",
+      "output_sha256": "72558c634c137e7d66ae595c2350ef5ad1308d7c81b6435823bff7f3149e7e9c",
+      "duplicate_state_timestamps": 0,
+      "frames": 442,
+      "raw_frames": 442,
+      "fps": 30.0,
+      "inset": {
+        "eye": "left",
+        "crop_level": 1,
+        "fov_degrees": 57.4108216778831,
+        "x": 1354,
+        "y": 14,
+        "width": 232,
+        "height": 260
+      },
+      "alignment": [
+        {
+          "frame": 0,
+          "raw_to_comparison_rms": 2.296009672598673
+        },
+        {
+          "frame": 100,
+          "raw_to_comparison_rms": 2.612175019659543
+        },
+        {
+          "frame": 441,
+          "raw_to_comparison_rms": 2.7347879767502596
+        }
+      ],
+      "minimum_valid_fraction": 0.8112880886426593,
+      "bytes_before": 2371875,
+      "bytes_after": 2668399
+    },
+    {
+      "video": "wrench_009.mp4",
+      "episode": "wrench/wrench_eyeball/episode_009",
+      "source_sha256": "2039aea74babd3def35b68fdaae10466347fba2cd6c226d6c5d8e6d35f8afb34",
+      "raw_left_sha256": "7b8116b4d57e07b57ccedb734e9aa7053b34a34fafc2ad652837e128a0682a9f",
+      "state_sha256": "594bf0797ccf0adb2d45a7f7adb77c836c42b036246cca4724b6dbbda0a3be1e",
+      "output_sha256": "126be1e0ca5df1740ffcf9466a9f5587374b0bef23c8f7d5f4e4dc3937eddacf",
+      "duplicate_state_timestamps": 0,
+      "frames": 442,
+      "raw_frames": 426,
+      "fps": 30.0,
+      "inset": {
+        "eye": "left",
+        "crop_level": 1,
+        "fov_degrees": 57.4108216778831,
+        "x": 1354,
+        "y": 14,
+        "width": 232,
+        "height": 260
+      },
+      "alignment": [
+        {
+          "frame": 0,
+          "raw_to_comparison_rms": 2.305653076920097
+        },
+        {
+          "frame": 100,
+          "raw_to_comparison_rms": 2.5103297702803022
+        },
+        {
+          "frame": 425,
+          "raw_to_comparison_rms": 2.347555761969363
+        }
+      ],
+      "minimum_valid_fraction": 1.0,
+      "bytes_before": 2708060,
+      "bytes_after": 2900589
+    }
+  ],
+  "replay_repository_commit": "e2303012ee63b8dca3d9da95a9ff0b7939062cff",
+  "geometry_source_sha256": {
+    "eye/camera.py": "050f523dceff25e6a926e780418fed7676fdb9e1c9d3a81efaaa7d13647ed757",
+    "eye/stereo.py": "743000b00771bfd33263e8dc9db7c16db757121f65b8386dfca19f28d905d89b",
+    "eye/elp_equirect.py": "2b620a58584f95094a7e473add59ce006165f66c11c6ad643a9e81b3b02c4a37"
+  },
+  "projection_verification": [
+    {
+      "frame": 0,
+      "rms_vs_original_replay": 0.5206320786913446
+    },
+    {
+      "frame": 120,
+      "rms_vs_original_replay": 0.5065678715783707
+    },
+    {
+      "frame": 328,
+      "rms_vs_original_replay": 0.4940655310263957
+    }
+  ]
+}

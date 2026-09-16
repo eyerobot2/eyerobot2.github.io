@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="240" viewBox="0 0 540 240" role="img" aria-labelledby="title desc">
+<title id="title">Average task success</title>
+<desc id="desc">All seven tasks: Passive stereo 27.017857142857142%, EyeRobot 2.0 66.53571428571429%</desc>
+<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#f2986f"/><path d="M0 0V7" stroke="#fff" stroke-width="1"/></pattern></defs>
+<style>text{font-family:"Avenir Next",Avenir,"Open Sans",sans-serif;fill:#555;font-size:13px}.tick{fill:#8c9093;font-size:11px}.value{fill:#333;font-size:11px}.grid{stroke:#e8ebed;stroke-width:1}</style>
+<line class="grid" x1="42" x2="528" y1="205.0" y2="205.0"/><text class="tick" x="34" y="209.0" text-anchor="end">0</text>
+<line class="grid" x1="42" x2="528" y1="161.75" y2="161.75"/><text class="tick" x="34" y="165.75" text-anchor="end">25</text>
+<line class="grid" x1="42" x2="528" y1="118.5" y2="118.5"/><text class="tick" x="34" y="122.5" text-anchor="end">50</text>
+<line class="grid" x1="42" x2="528" y1="75.25" y2="75.25"/><text class="tick" x="34" y="79.25" text-anchor="end">75</text>
+<line class="grid" x1="42" x2="528" y1="32.0" y2="32.0"/><text class="tick" x="34" y="36.0" text-anchor="end">100%</text>
+<rect x="215.0" y="158.25910714285715" width="70" height="46.74089285714285" rx="1" fill="#7fc0a3"/><text class="value" x="250.0" y="150.25910714285715" text-anchor="middle">27</text>
+<rect x="287.0" y="89.89321428571428" width="70" height="115.10678571428572" rx="1" fill="url(#hatch)"/><text class="value" x="322.0" y="81.89321428571428" text-anchor="middle">67</text>
+<text x="286.0" y="231" text-anchor="middle">All seven tasks</text>
+</svg>

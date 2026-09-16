@@ -1,0 +1,563 @@
+{
+  "camera-passive": {
+    "methods": [
+      {
+        "key": "passive",
+        "label": "Passive stereo",
+        "color": "#7fc0a3"
+      },
+      {
+        "key": "er",
+        "label": "EyeRobot 2.0",
+        "color": "#f2986f",
+        "hatch": true
+      }
+    ],
+    "rows": [
+      {
+        "key": "average",
+        "label": "All seven tasks",
+        "values": {
+          "success": {
+            "passive": 27.017857142857142,
+            "wrist": 52.232142857142854,
+            "er": 66.53571428571429
+          },
+          "progression": {
+            "passive": 47.988095238095234,
+            "wrist": 73.11011904761905,
+            "er": 81.25595238095238
+          }
+        }
+      }
+    ],
+    "defaultMetric": "success",
+    "compact": true,
+    "metrics": [
+      {
+        "key": "success",
+        "label": "Success rate",
+        "title": "Average task success",
+        "caption": "Success rate is the percentage of trials that complete the full task. Mean across seven equally weighted tasks. 25 trials per task and policy; 64 for tape."
+      },
+      {
+        "key": "progression",
+        "label": "Task progression",
+        "title": "Average task progression",
+        "caption": "Task progression is the average percentage of task stages completed in order. Mean across seven equally weighted tasks. 25 trials per task and policy; 64 for tape."
+      }
+    ]
+  },
+  "camera-clear": {
+    "methods": [
+      {
+        "key": "wrist",
+        "label": "Ego + Wrist",
+        "color": "#5c8fc5"
+      },
+      {
+        "key": "er",
+        "label": "EyeRobot 2.0",
+        "color": "#f2986f",
+        "hatch": true
+      }
+    ],
+    "rows": [
+      {
+        "key": "marker",
+        "label": "Marker",
+        "values": {
+          "success": {
+            "passive": 4.0,
+            "wrist": 56.0,
+            "er": 68.0
+          },
+          "progression": {
+            "passive": 27.333333333333332,
+            "wrist": 74.66666666666667,
+            "er": 81.33333333333333
+          }
+        }
+      },
+      {
+        "key": "tea",
+        "label": "Tea",
+        "values": {
+          "success": {
+            "passive": 28.0,
+            "wrist": 80.0,
+            "er": 80.0
+          },
+          "progression": {
+            "passive": 48.0,
+            "wrist": 88.0,
+            "er": 90.0
+          }
+        }
+      },
+      {
+        "key": "toaster",
+        "label": "Toaster",
+        "values": {
+          "success": {
+            "passive": 36.0,
+            "wrist": 52.0,
+            "er": 52.0
+          },
+          "progression": {
+            "passive": 57.333333333333336,
+            "wrist": 66.66666666666667,
+            "er": 74.66666666666667
+          }
+        }
+      },
+      {
+        "key": "wrench",
+        "label": "Wrench",
+        "values": {
+          "success": {
+            "passive": 32.0,
+            "wrist": 68.0,
+            "er": 76.0
+          },
+          "progression": {
+            "passive": 42.666666666666664,
+            "wrist": 78.66666666666667,
+            "er": 80.0
+          }
+        }
+      }
+    ],
+    "defaultMetric": "success",
+    "compact": false,
+    "metrics": [
+      {
+        "key": "success",
+        "label": "Success rate",
+        "title": "Success with unobstructed wrist views",
+        "caption": "Success rate is the percentage of trials that complete the full task. 25 trials per task and policy."
+      },
+      {
+        "key": "progression",
+        "label": "Task progression",
+        "title": "Task progression with unobstructed wrist views",
+        "caption": "Task progression is the average percentage of task stages completed in order. 25 trials per task and policy."
+      }
+    ]
+  },
+  "camera-occluded": {
+    "methods": [
+      {
+        "key": "passive",
+        "label": "Passive stereo",
+        "color": "#7fc0a3"
+      },
+      {
+        "key": "wrist",
+        "label": "Ego + Wrist",
+        "color": "#5c8fc5"
+      },
+      {
+        "key": "er",
+        "label": "EyeRobot 2.0",
+        "color": "#f2986f",
+        "hatch": true
+      }
+    ],
+    "rows": [
+      {
+        "key": "boba",
+        "label": "Boba",
+        "values": {
+          "success": {
+            "passive": 8.0,
+            "wrist": 12.0,
+            "er": 44.0
+          },
+          "progression": {
+            "passive": 46.0,
+            "wrist": 56.0,
+            "er": 72.0
+          }
+        }
+      },
+      {
+        "key": "pot-place",
+        "label": "Pot lid",
+        "values": {
+          "success": {
+            "passive": 28.0,
+            "wrist": 32.0,
+            "er": 52.0
+          },
+          "progression": {
+            "passive": 50.0,
+            "wrist": 66.0,
+            "er": 76.0
+          }
+        }
+      }
+    ],
+    "defaultMetric": "success",
+    "compact": false,
+    "metrics": [
+      {
+        "key": "success",
+        "label": "Success rate",
+        "title": "Success under tool occlusion",
+        "caption": "Success rate is the percentage of trials that complete the full task. 25 trials per task and policy."
+      },
+      {
+        "key": "progression",
+        "label": "Task progression",
+        "title": "Task progression under tool occlusion",
+        "caption": "Task progression is the average percentage of task stages completed in order. 25 trials per task and policy."
+      }
+    ]
+  },
+  "simulation": {
+    "methods": [
+      {
+        "key": "passive",
+        "label": "Passive stereo",
+        "color": "#7fc0a3"
+      },
+      {
+        "key": "wrist",
+        "label": "Ego + Wrist",
+        "color": "#5c8fc5"
+      },
+      {
+        "key": "er",
+        "label": "EyeRobot 2.0",
+        "color": "#f2986f",
+        "hatch": true
+      }
+    ],
+    "rows": [
+      {
+        "key": "average",
+        "label": "Average",
+        "values": {
+          "success": {
+            "passive": 54.0,
+            "wrist": 75.0,
+            "er": 74.0
+          }
+        }
+      },
+      {
+        "key": "tape",
+        "label": "Tape",
+        "values": {
+          "success": {
+            "passive": 55.0,
+            "wrist": 81.0,
+            "er": 79.0
+          }
+        }
+      },
+      {
+        "key": "pot",
+        "label": "Pot lid",
+        "values": {
+          "success": {
+            "passive": 69.0,
+            "wrist": 90.0,
+            "er": 91.0
+          }
+        }
+      },
+      {
+        "key": "tiger",
+        "label": "Tiger",
+        "values": {
+          "success": {
+            "passive": 87.0,
+            "wrist": 96.0,
+            "er": 98.0
+          }
+        }
+      },
+      {
+        "key": "tray",
+        "label": "Medical tray",
+        "values": {
+          "success": {
+            "passive": 44.0,
+            "wrist": 85.0,
+            "er": 78.0
+          }
+        }
+      },
+      {
+        "key": "plate",
+        "label": "Plate in rack",
+        "values": {
+          "success": {
+            "passive": 41.0,
+            "wrist": 74.0,
+            "er": 70.0
+          }
+        }
+      },
+      {
+        "key": "spoon",
+        "label": "Hang spoon",
+        "values": {
+          "success": {
+            "passive": 26.0,
+            "wrist": 27.0,
+            "er": 30.0
+          }
+        }
+      }
+    ],
+    "defaultMetric": "success",
+    "metrics": [
+      {
+        "key": "success",
+        "label": "Success rate",
+        "title": "Simulation task success",
+        "caption": "Success rate is the percentage of trials that complete the full task. 1,800 simulation trials."
+      }
+    ]
+  },
+  "action-ablation": {
+    "methods": [
+      {
+        "key": "world",
+        "label": "World-relative actions",
+        "color": "#5c8fc5"
+      },
+      {
+        "key": "er",
+        "label": "EyeRobot 2.0",
+        "color": "#f2986f",
+        "hatch": true
+      }
+    ],
+    "rows": [
+      {
+        "key": "average",
+        "label": "Average",
+        "description": "Task average",
+        "decimals": 1,
+        "values": {
+          "success": {
+            "world": 52.5,
+            "er": 74.3
+          }
+        }
+      },
+      {
+        "key": "tape",
+        "label": "Tape",
+        "description": "Tape handover (random)",
+        "decimals": 0,
+        "values": {
+          "success": {
+            "world": 56,
+            "er": 79
+          }
+        }
+      },
+      {
+        "key": "pot",
+        "label": "Pot",
+        "description": "Pot lid",
+        "decimals": 0,
+        "values": {
+          "success": {
+            "world": 58,
+            "er": 91
+          }
+        }
+      },
+      {
+        "key": "tiger",
+        "label": "Tiger",
+        "description": "Tiger (right half)",
+        "decimals": 0,
+        "values": {
+          "success": {
+            "world": 81,
+            "er": 98
+          }
+        }
+      },
+      {
+        "key": "tray",
+        "label": "Tray",
+        "description": "Medical tray",
+        "decimals": 0,
+        "values": {
+          "success": {
+            "world": 45,
+            "er": 78
+          }
+        }
+      },
+      {
+        "key": "plate",
+        "label": "Plate",
+        "description": "Plate in rack",
+        "decimals": 0,
+        "values": {
+          "success": {
+            "world": 55,
+            "er": 70
+          }
+        }
+      },
+      {
+        "key": "spoon",
+        "label": "Spoon",
+        "description": "Hang spoon",
+        "decimals": 0,
+        "values": {
+          "success": {
+            "world": 20,
+            "er": 30
+          }
+        }
+      }
+    ],
+    "defaultMetric": "success",
+    "metrics": [
+      {
+        "key": "success",
+        "label": "Success rate",
+        "title": "Fixation-relative action ablation",
+        "caption": "Success rate is the percentage of trials that complete the full task."
+      }
+    ]
+  },
+  "distractors": {
+    "methods": [
+      {
+        "key": "passive",
+        "label": "Passive stereo",
+        "color": "#7fc0a3"
+      },
+      {
+        "key": "wrist",
+        "label": "Ego + Wrist",
+        "color": "#5c8fc5"
+      },
+      {
+        "key": "er",
+        "label": "EyeRobot 2.0",
+        "color": "#f2986f",
+        "hatch": true
+      }
+    ],
+    "rows": [
+      {
+        "key": "average",
+        "label": "Average",
+        "values": {
+          "progression": {
+            "passive": 6.444444444444445,
+            "wrist": 25.11111111111111,
+            "er": 44.666666666666664
+          },
+          "grasp": {
+            "passive": 16.0,
+            "wrist": 46.666666666666664,
+            "er": 74.66666666666667
+          },
+          "success": {
+            "passive": 0.0,
+            "wrist": 10.666666666666666,
+            "er": 22.666666666666668
+          }
+        }
+      },
+      {
+        "key": "wrench",
+        "label": "Wrench",
+        "values": {
+          "progression": {
+            "passive": 4.0,
+            "wrist": 26.666666666666668,
+            "er": 42.666666666666664
+          },
+          "grasp": {
+            "passive": 12.0,
+            "wrist": 40.0,
+            "er": 80.0
+          },
+          "success": {
+            "passive": 0.0,
+            "wrist": 16.0,
+            "er": 20.0
+          }
+        }
+      },
+      {
+        "key": "tea",
+        "label": "Tea",
+        "values": {
+          "progression": {
+            "passive": 6.0,
+            "wrist": 30.0,
+            "er": 34.0
+          },
+          "grasp": {
+            "passive": 12.0,
+            "wrist": 44.0,
+            "er": 52.0
+          },
+          "success": {
+            "passive": 0.0,
+            "wrist": 16.0,
+            "er": 16.0
+          }
+        }
+      },
+      {
+        "key": "tape",
+        "label": "Tape",
+        "values": {
+          "progression": {
+            "passive": 9.333333333333334,
+            "wrist": 18.666666666666668,
+            "er": 57.333333333333336
+          },
+          "grasp": {
+            "passive": 24.0,
+            "wrist": 56.0,
+            "er": 92.0
+          },
+          "success": {
+            "passive": 0.0,
+            "wrist": 0.0,
+            "er": 32.0
+          }
+        }
+      }
+    ],
+    "defaultMetric": "progression",
+    "metrics": [
+      {
+        "key": "progression",
+        "label": "Task progression",
+        "title": "Task progression with distractors",
+        "caption": "Mean percentage of task stages completed. 25 trials per task bar."
+      },
+      {
+        "key": "grasp",
+        "label": "First grasp",
+        "title": "First-grasp success with distractors",
+        "caption": "Percentage of trials completing the first grasp. 25 trials per task bar."
+      },
+      {
+        "key": "success",
+        "label": "Full-task success",
+        "title": "Task success with distractors",
+        "caption": "Percentage of trials completing the full task. 25 trials per task bar."
+      }
+    ]
+  }
+}

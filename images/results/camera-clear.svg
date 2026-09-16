@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="275" viewBox="0 0 760 275" role="img" aria-labelledby="title desc">
+<title id="title">Success with unobstructed wrist views</title>
+<desc id="desc">Marker: Ego + Wrist 56.0%, EyeRobot 2.0 68.0%; Tea: Ego + Wrist 80.0%, EyeRobot 2.0 80.0%; Toaster: Ego + Wrist 52.0%, EyeRobot 2.0 52.0%; Wrench: Ego + Wrist 68.0%, EyeRobot 2.0 76.0%</desc>
+<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#f2986f"/><path d="M0 0V7" stroke="#fff" stroke-width="1"/></pattern></defs>
+<style>text{font-family:"Avenir Next",Avenir,"Open Sans",sans-serif;fill:#555;font-size:13px}.tick{fill:#8c9093;font-size:11px}.value{fill:#333;font-size:11px}.grid{stroke:#e8ebed;stroke-width:1}</style>
+<line class="grid" x1="42" x2="748" y1="240.0" y2="240.0"/><text class="tick" x="34" y="244.0" text-anchor="end">0</text>
+<line class="grid" x1="42" x2="748" y1="188.0" y2="188.0"/><text class="tick" x="34" y="192.0" text-anchor="end">25</text>
+<line class="grid" x1="42" x2="748" y1="136.0" y2="136.0"/><text class="tick" x="34" y="140.0" text-anchor="end">50</text>
+<line class="grid" x1="42" x2="748" y1="84.0" y2="84.0"/><text class="tick" x="34" y="88.0" text-anchor="end">75</text>
+<line class="grid" x1="42" x2="748" y1="32.0" y2="32.0"/><text class="tick" x="34" y="36.0" text-anchor="end">100%</text>
+<rect x="98.0" y="123.52" width="36" height="116.48" rx="1" fill="#5c8fc5"/><text class="value" x="116.0" y="115.52" text-anchor="middle">56</text>
+<rect x="136.0" y="98.56" width="36" height="141.44" rx="1" fill="url(#hatch)"/><text class="value" x="154.0" y="90.56" text-anchor="middle">68</text>
+<text x="135.0" y="266" text-anchor="middle">Marker</text>
+<rect x="272.0" y="73.6" width="36" height="166.4" rx="1" fill="#5c8fc5"/><text class="value" x="290.0" y="65.6" text-anchor="middle">80</text>
+<rect x="310.0" y="73.6" width="36" height="166.4" rx="1" fill="url(#hatch)"/><text class="value" x="328.0" y="65.6" text-anchor="middle">80</text>
+<text x="309.0" y="266" text-anchor="middle">Tea</text>
+<rect x="446.0" y="131.84" width="36" height="108.16" rx="1" fill="#5c8fc5"/><text class="value" x="464.0" y="123.84" text-anchor="middle">52</text>
+<rect x="484.0" y="131.84" width="36" height="108.16" rx="1" fill="url(#hatch)"/><text class="value" x="502.0" y="123.84" text-anchor="middle">52</text>
+<text x="483.0" y="266" text-anchor="middle">Toaster</text>
+<rect x="620.0" y="98.56" width="36" height="141.44" rx="1" fill="#5c8fc5"/><text class="value" x="638.0" y="90.56" text-anchor="middle">68</text>
+<rect x="658.0" y="81.91999999999999" width="36" height="158.08" rx="1" fill="url(#hatch)"/><text class="value" x="676.0" y="73.91999999999999" text-anchor="middle">76</text>
+<text x="657.0" y="266" text-anchor="middle">Wrench</text>
+</svg>

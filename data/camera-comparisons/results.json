@@ -1,0 +1,288 @@
+{
+  "intro": "We compare against two baselines that use the same policy architecture and are trained on the same demonstrations: passive stereo (\"No Gaze\"), and one ego image along with two wrist-mounted cameras (\"Ego + Wrist\").",
+  "sections": {
+    "passive": {
+      "title": "EyeRobot 2.0 outperforms passive stereo with the same visual inputs",
+      "text": "Both policies start from the exact same source stereo images and are trained on the same demonstrations. By learning where to look within those images, EyeRobot 2.0 raises average success from 27% to 67%. Passive stereo struggles with spatial understanding; learning about 3D servoing is harder from a static perspective than from a fixation-centered perspective.",
+      "foot": "Passive stereo also lacks the localized resolution necessary for precise tasks, particularly noticeable in its near-zero performance on the marker task. Matching the resolution of EyeRobot 2.0\u2019s fovea with uniform resolution would require over 10\u00d7 the number of tokens."
+    },
+    "clear": {
+      "title": "EyeRobot 2.0 matches wrist cameras in precise tasks without tool occlusions",
+      "text": "Using the same input images as passive stereo, active fixation closes the performance gap between wrist-free and wrist-camera policies. We evaluate marker, tea, toaster, and wrench with unobstructed wrist camera views. These tasks require precise grasping and tolerances, making clear wrist views particularly helpful. Even on these tasks, EyeRobot 2.0 matches or exceeds the performance of the wrist camera baseline.",
+      "foot": null
+    },
+    "occluded": {
+      "title": "EyeRobot 2.0 outperforms wrist cameras under tool occlusion",
+      "text": "When wrist cameras have a clear view, EyeRobot 2.0 matches the ego + wrist baseline. When they don\u2019t, the gap widens. We intentionally collected tasks that are hard to see from the YAM\u2019s wrist cameras because grasped objects block their views. In boba and pot lid, the wrist-camera policy must rely on its ego-centric view for useful information, and performance drops to roughly that of passive stereo.",
+      "foot": "Different wrist camera designs, such as dual cameras or fisheye views, can alleviate these problems, but cannot always maintain good observability. Teleoperators may also have to use unintuitive manipulation strategies to keep objects visible, which can harm data quality."
+    }
+  },
+  "tasks": [
+    {
+      "key": "marker",
+      "name": "Marker",
+      "group": "clear",
+      "results": {
+        "passive": {
+          "successes": 1,
+          "trials": 25,
+          "percent": 4.0,
+          "progression": 27.333333333333332
+        },
+        "wrist": {
+          "successes": 14,
+          "trials": 25,
+          "percent": 56.0,
+          "progression": 74.66666666666667
+        },
+        "er": {
+          "successes": 17,
+          "trials": 25,
+          "percent": 68.0,
+          "progression": 81.33333333333333
+        }
+      },
+      "episode": "episode-000",
+      "clips": {
+        "wrists": {
+          "src": "data/camera-comparisons/marker-wrists.mp4?v=6db5855b06ec",
+          "poster": "data/camera-comparisons/marker-wrists.webp?v=07322beb1a6c"
+        },
+        "er": {
+          "src": "data/camera-comparisons/marker-er.mp4?v=efc5f31b2c37",
+          "poster": "data/camera-comparisons/marker-er.webp?v=0d265be4b014"
+        }
+      },
+      "outcomes": {
+        "wrist": "success",
+        "er": "success"
+      }
+    },
+    {
+      "key": "tea",
+      "name": "Tea",
+      "group": "clear",
+      "results": {
+        "passive": {
+          "successes": 7,
+          "trials": 25,
+          "percent": 28.0,
+          "progression": 48.0
+        },
+        "wrist": {
+          "successes": 20,
+          "trials": 25,
+          "percent": 80.0,
+          "progression": 88.0
+        },
+        "er": {
+          "successes": 20,
+          "trials": 25,
+          "percent": 80.0,
+          "progression": 90.0
+        }
+      },
+      "episode": "episode-002",
+      "clips": {
+        "wrists": {
+          "src": "data/camera-comparisons/tea-wrists.mp4?v=33dc527fca6d",
+          "poster": "data/camera-comparisons/tea-wrists.webp?v=ce13b05aee03"
+        },
+        "er": {
+          "src": "data/camera-comparisons/tea-er.mp4?v=66acecb43008",
+          "poster": "data/camera-comparisons/tea-er.webp?v=21d7a6feb64e"
+        }
+      },
+      "outcomes": {
+        "wrist": "success",
+        "er": "success"
+      }
+    },
+    {
+      "key": "toaster",
+      "name": "Toaster",
+      "group": "clear",
+      "results": {
+        "passive": {
+          "successes": 9,
+          "trials": 25,
+          "percent": 36.0,
+          "progression": 57.333333333333336
+        },
+        "wrist": {
+          "successes": 13,
+          "trials": 25,
+          "percent": 52.0,
+          "progression": 66.66666666666667
+        },
+        "er": {
+          "successes": 13,
+          "trials": 25,
+          "percent": 52.0,
+          "progression": 74.66666666666667
+        }
+      },
+      "episode": "episode-000",
+      "clips": {
+        "wrists": {
+          "src": "data/camera-comparisons/toaster-wrists.mp4?v=873d53b08e62",
+          "poster": "data/camera-comparisons/toaster-wrists.webp?v=20e4dd851fc0"
+        },
+        "er": {
+          "src": "data/camera-comparisons/toaster-er.mp4?v=124204f86637",
+          "poster": "data/camera-comparisons/toaster-er.webp?v=a6afc0940f03"
+        }
+      },
+      "outcomes": {
+        "wrist": "success",
+        "er": "success"
+      }
+    },
+    {
+      "key": "wrench",
+      "name": "Wrench",
+      "group": "clear",
+      "results": {
+        "passive": {
+          "successes": 8,
+          "trials": 25,
+          "percent": 32.0,
+          "progression": 42.666666666666664
+        },
+        "wrist": {
+          "successes": 17,
+          "trials": 25,
+          "percent": 68.0,
+          "progression": 78.66666666666667
+        },
+        "er": {
+          "successes": 19,
+          "trials": 25,
+          "percent": 76.0,
+          "progression": 80.0
+        }
+      },
+      "episode": "episode-000",
+      "clips": {
+        "wrists": {
+          "src": "data/camera-comparisons/wrench-wrists.mp4?v=39ba07e69c18",
+          "poster": "data/camera-comparisons/wrench-wrists.webp?v=d99eab0b7fa0"
+        },
+        "er": {
+          "src": "data/camera-comparisons/wrench-er.mp4?v=6c2143d03e4b",
+          "poster": "data/camera-comparisons/wrench-er.webp?v=5665b562fd4d"
+        }
+      },
+      "outcomes": {
+        "wrist": "success",
+        "er": "success"
+      }
+    },
+    {
+      "key": "boba",
+      "name": "Boba",
+      "group": "occluded",
+      "results": {
+        "passive": {
+          "successes": 2,
+          "trials": 25,
+          "percent": 8.0,
+          "progression": 46.0
+        },
+        "wrist": {
+          "successes": 3,
+          "trials": 25,
+          "percent": 12.0,
+          "progression": 56.0
+        },
+        "er": {
+          "successes": 11,
+          "trials": 25,
+          "percent": 44.0,
+          "progression": 72.0
+        }
+      },
+      "episode": "episode-001",
+      "clips": {
+        "wrists": {
+          "src": "data/camera-comparisons/boba-wrists.mp4?v=c95cfedbed5c",
+          "poster": "data/camera-comparisons/boba-wrists.webp?v=a3c69335720a"
+        },
+        "er": {
+          "src": "data/camera-comparisons/boba-er.mp4?v=96b88a1990ff",
+          "poster": "data/camera-comparisons/boba-er.webp?v=32cf55288fcf"
+        }
+      },
+      "outcomes": {
+        "wrist": "failure",
+        "er": "success"
+      }
+    },
+    {
+      "key": "pot-place",
+      "name": "Pot lid",
+      "group": "occluded",
+      "results": {
+        "passive": {
+          "successes": 7,
+          "trials": 25,
+          "percent": 28.0,
+          "progression": 50.0
+        },
+        "wrist": {
+          "successes": 8,
+          "trials": 25,
+          "percent": 32.0,
+          "progression": 66.0
+        },
+        "er": {
+          "successes": 13,
+          "trials": 25,
+          "percent": 52.0,
+          "progression": 76.0
+        }
+      },
+      "episode": "episode-004",
+      "clips": {
+        "wrists": {
+          "src": "data/camera-comparisons/pot-place-wrists.mp4?v=51120914fdc5",
+          "poster": "data/camera-comparisons/pot-place-wrists.webp?v=177ceef7d7b7"
+        },
+        "er": {
+          "src": "data/camera-comparisons/pot-place-er.mp4?v=ff844721e550",
+          "poster": "data/camera-comparisons/pot-place-er.webp?v=fc8abdd64ec8"
+        }
+      },
+      "outcomes": {
+        "wrist": "failure",
+        "er": "success"
+      }
+    },
+    {
+      "key": "tape",
+      "name": "Tape",
+      "group": "other",
+      "results": {
+        "passive": {
+          "successes": 34,
+          "trials": 64,
+          "percent": 53.125,
+          "progression": 64.58333333333333
+        },
+        "wrist": {
+          "successes": 42,
+          "trials": 64,
+          "percent": 65.625,
+          "progression": 81.77083333333333
+        },
+        "er": {
+          "successes": 60,
+          "trials": 64,
+          "percent": 93.75,
+          "progression": 94.79166666666667
+        }
+      }
+    }
+  ],
+  "videoCaption": "Autonomous \u00b7 1\u00d7 speed"
+}

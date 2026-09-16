@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="275" viewBox="0 0 760 275" role="img" aria-labelledby="title desc">
+<title id="title">Task progression with distractors</title>
+<desc id="desc">Average: Passive stereo 6.444444444444445%, Ego + Wrist 25.11111111111111%, EyeRobot 2.0 44.666666666666664%; Wrench: Passive stereo 4.0%, Ego + Wrist 26.666666666666668%, EyeRobot 2.0 42.666666666666664%; Tea: Passive stereo 6.0%, Ego + Wrist 30.0%, EyeRobot 2.0 34.0%; Tape: Passive stereo 9.333333333333334%, Ego + Wrist 18.666666666666668%, EyeRobot 2.0 57.333333333333336%</desc>
+<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#f2986f"/><path d="M0 0V7" stroke="#fff" stroke-width="1"/></pattern></defs>
+<style>text{font-family:"Avenir Next",Avenir,"Open Sans",sans-serif;fill:#555;font-size:13px}.tick{fill:#8c9093;font-size:11px}.value{fill:#333;font-size:11px}.grid{stroke:#e8ebed;stroke-width:1}</style>
+<line class="grid" x1="42" x2="748" y1="240.0" y2="240.0"/><text class="tick" x="34" y="244.0" text-anchor="end">0</text>
+<line class="grid" x1="42" x2="748" y1="188.0" y2="188.0"/><text class="tick" x="34" y="192.0" text-anchor="end">25</text>
+<line class="grid" x1="42" x2="748" y1="136.0" y2="136.0"/><text class="tick" x="34" y="140.0" text-anchor="end">50</text>
+<line class="grid" x1="42" x2="748" y1="84.0" y2="84.0"/><text class="tick" x="34" y="88.0" text-anchor="end">75</text>
+<line class="grid" x1="42" x2="748" y1="32.0" y2="32.0"/><text class="tick" x="34" y="36.0" text-anchor="end">100%</text>
+<rect x="79.0" y="226.59555555555556" width="36" height="13.404444444444445" rx="1" fill="#7fc0a3"/><text class="value" x="97.0" y="218.59555555555556" text-anchor="middle">6</text>
+<rect x="117.0" y="187.76888888888888" width="36" height="52.23111111111111" rx="1" fill="#5c8fc5"/><text class="value" x="135.0" y="179.76888888888888" text-anchor="middle">25</text>
+<rect x="155.0" y="147.09333333333333" width="36" height="92.90666666666667" rx="1" fill="url(#hatch)"/><text class="value" x="173.0" y="139.09333333333333" text-anchor="middle">45</text>
+<text x="135.0" y="266" text-anchor="middle">Average</text>
+<rect x="253.0" y="231.68" width="36" height="8.32" rx="1" fill="#7fc0a3"/><text class="value" x="271.0" y="223.68" text-anchor="middle">4</text>
+<rect x="291.0" y="184.53333333333333" width="36" height="55.46666666666667" rx="1" fill="#5c8fc5"/><text class="value" x="309.0" y="176.53333333333333" text-anchor="middle">27</text>
+<rect x="329.0" y="151.25333333333333" width="36" height="88.74666666666666" rx="1" fill="url(#hatch)"/><text class="value" x="347.0" y="143.25333333333333" text-anchor="middle">43</text>
+<text x="309.0" y="266" text-anchor="middle">Wrench</text>
+<rect x="427.0" y="227.52" width="36" height="12.48" rx="1" fill="#7fc0a3"/><text class="value" x="445.0" y="219.52" text-anchor="middle">6</text>
+<rect x="465.0" y="177.6" width="36" height="62.4" rx="1" fill="#5c8fc5"/><text class="value" x="483.0" y="169.6" text-anchor="middle">30</text>
+<rect x="503.0" y="169.28" width="36" height="70.72" rx="1" fill="url(#hatch)"/><text class="value" x="521.0" y="161.28" text-anchor="middle">34</text>
+<text x="483.0" y="266" text-anchor="middle">Tea</text>
+<rect x="601.0" y="220.58666666666667" width="36" height="19.413333333333334" rx="1" fill="#7fc0a3"/><text class="value" x="619.0" y="212.58666666666667" text-anchor="middle">9</text>
+<rect x="639.0" y="201.17333333333335" width="36" height="38.82666666666667" rx="1" fill="#5c8fc5"/><text class="value" x="657.0" y="193.17333333333335" text-anchor="middle">19</text>
+<rect x="677.0" y="120.74666666666666" width="36" height="119.25333333333334" rx="1" fill="url(#hatch)"/><text class="value" x="695.0" y="112.74666666666666" text-anchor="middle">57</text>
+<text x="657.0" y="266" text-anchor="middle">Tape</text>
+</svg>
