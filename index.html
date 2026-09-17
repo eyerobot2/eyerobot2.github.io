@@ -1483,7 +1483,6 @@
 </figure></div>
 </div></div>
 <div class="results-gallery-footer">
-<p class="distractor-example-index" data-carousel-counter aria-live="polite">Tape · trial 000 · 1 / 5</p>
 <div class="results-gallery-arrows">
 <button type="button" class="carousel-button carousel-button--left" data-carousel="distractor-carousel" aria-label="Previous example">←</button>
 <button type="button" class="carousel-button carousel-button--right" data-carousel="distractor-carousel" aria-label="Next example">→</button>
@@ -1693,9 +1692,11 @@
                 <h1>Failures</h1>
             </div>
             <p class="paragraph">
-                See our <a href="viewer/">eval browser</a> to view all failures, we've picked some interesting ones here.
+                EyeRobot 2.0's failures most often come from narrowly missing a stage and entering an unrecoverable state. It also experiences the common failure cases of low-data policies trained without DAgger data,
+                namely very minimal recovery capabilities, and a tendency to sometimes get stuck if it enters an odd state (see toaster example).
+
             </p>
-            <div class="carousel-container">
+            <div class="carousel-container failures-carousel-container">
                 <div class="carousel-track-container">
                     <div class="carousel-track" id="failures-carousel">
                         <!-- Ambiguity collapse — boba, episode_005 -->
@@ -1705,9 +1706,16 @@
                                 Your browser does not support the video tag.
                             </video>
                         </div>
+                        <!-- Pull-tray failure — toaster, episode_009 (oven opened; tray not pulled) -->
+                        <div class="carousel-slide">
+                            <video aria-label="Toaster: pull-tray failure, episode 009" loop muted playsinline style="width: 100%; aspect-ratio: 640 / 480; height: auto;" preload="none" width="640" height="480" data-poster="data/web-posters/posters/failure_toaster_pull_tray_009.webp?v=39a190d8a36a">
+                                <source data-src="data/failure_toaster_pull_tray_009.mp4?v=ace8a8cabe1a" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
                         <!-- Thrashing — marker, episode_004 -->
                         <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%; aspect-ratio: 640 / 480; height: auto;" preload="none" width="640" height="480" data-poster="data/web-posters/posters/failure_thrashing_marker.webp">
+                            <video aria-label="Marker: cap-insertion failure, episode 004" loop muted playsinline style="width: 100%; aspect-ratio: 640 / 480; height: auto;" preload="none" width="640" height="480" data-poster="data/web-posters/posters/failure_thrashing_marker.webp">
                                 <source data-src="data/failure_thrashing_marker.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -1740,6 +1748,7 @@
                     <button class="carousel-indicator" data-slide="1"></button>
                     <button class="carousel-indicator" data-slide="2"></button>
                     <button class="carousel-indicator" data-slide="3"></button>
+                    <button class="carousel-indicator" data-slide="4"></button>
                 </div>
             </div>
         </div>
@@ -1758,17 +1767,6 @@
   url={https://arxiv.org/abs/[ARXIV_ID]}
 }</pre>
         </div>
-
-        <footer>
-            <div class="section" style="margin-top: 40px;">
-                <p class="paragraph">
-                    The website template is adapted from the
-                    <a class="author-text" href="https://eyerobot.net/">Eye, Robot</a> and
-                    <a class="author-text" href="https://robot-see-robot-do.github.io/">RSRD</a>
-                    project pages.
-                </p>
-            </div>
-        </footer>
     </div>
 
     <script src="carousels.js?v=task-groups1" defer></script>

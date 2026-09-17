@@ -2642,8 +2642,15 @@ input:checked + .slider:before {
 
 /* Curated behavior examples share the main results controls and video treatment. */
 .behavior-carousel-container .distractor-behavior-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
     gap: 5px;
     margin: 8px auto 20px;
+}
+.behavior-carousel-container .distractor-behavior-tabs button {
+    padding: 9px 8px;
+    font-size: 13px;
 }
 .behavior-carousel-container .carousel-slide {
     flex: 0 0 100%;
@@ -2698,4 +2705,19 @@ input:checked + .slider:before {
 @media (max-width: 550px) {
     .distractor-outcomes { top: 5px; }
     .distractor-outcome { margin-left: 5px; padding: 2px 4px; font-size: 10px; }
+}
+
+/* Match the bottom failure examples to the inset video carousels. */
+.carousel-container.failures-carousel-container {
+    width: 80%;
+}
+.failures-carousel-container video { border-radius: 4px; }
+.distractor-video {
+    overflow: hidden;
+    border-radius: 4px;
+}
+@media (max-width: 550px) {
+    .carousel-container.failures-carousel-container {
+        width: 100%;
+    }
 }

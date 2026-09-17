@@ -281,7 +281,7 @@ function setupVideoPlaybackControls() {
   // Controls only observe media events: source attachment and preloading stay
   // with SiteMedia, so offscreen slides do not load just to populate a timeline.
   document.querySelectorAll(
-    ".distractor-comparison, #real-results-carousel .results-grid-item, #policy-carousel .carousel-slide"
+    ".distractor-comparison, #real-results-carousel .results-grid-item, #policy-carousel .carousel-slide, #failures-carousel .carousel-slide"
   ).forEach(figure => {
     const video = figure.querySelector("video");
     if (!video || figure.querySelector(".distractor-playback-controls")) return;
@@ -312,7 +312,9 @@ function setupVideoPlaybackControls() {
     time.textContent = "0:00 / --:--";
 
     controls.append(toggle, scrubber, time);
-    figure.appendChild(controls);
+    const caption = figure.matches(".distractor-comparison") ? figure.querySelector("figcaption") : null;
+    if (caption) figure.insertBefore(controls, caption);
+    else figure.appendChild(controls);
     video.controls = false;
 
     let scrubbing = false;

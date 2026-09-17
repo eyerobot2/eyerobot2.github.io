@@ -1,0 +1,21 @@
+{
+  "task": "toaster",
+  "episode": "episode_009",
+  "policy": "eyeball",
+  "source": "viewer/videos/eyeball/toaster/episode-009/replay.mp4",
+  "source_sha256": "ea0a7326ef3e6985fa7b0e35372b3f7c2a8b22666aa83f0e46025c0abe85ebf1",
+  "evaluation": "viewer/data/episode_compare/toaster__episode-009.json",
+  "stages": {
+    "open_oven": 1,
+    "pull_tray": 0,
+    "pick_pan": 0,
+    "place pan": 0,
+    "push_tray": 0,
+    "close_oven": 0,
+    "task_success": 0
+  },
+  "video_sha256": "ace8a8cabe1a5ccd6edc85d43777e94cab513273223a1d8997a4aa17b1c8ae75",
+  "poster": "data/web-posters/posters/failure_toaster_pull_tray_009.webp",
+  "poster_sha256": "39a190d8a36aa8d784c344778d66b09247dacbdc300a5fe573c1ed7c0844ae6c",
+  "processing": "Full replay, video stream copied without re-encoding; MP4 metadata moved to front for streaming."
+}
