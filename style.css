@@ -968,9 +968,9 @@ h1.tldr {
     margin: 0;
 }
 
-.distractor-comparison::after {
+.distractor-video::after {
     position: absolute;
-    bottom: 42px;
+    bottom: 8px;
     left: 8px;
     z-index: 1;
     padding: 3px 6px;
@@ -2623,3 +2623,79 @@ input:checked + .slider:before {
 .ablation-sankey img { display: block; width: 100%; min-width: 580px; height: auto; }
 
 #action-frame-ablation { scroll-margin-top: 24px; }
+
+/* Selected clutter examples: task tabs and captions belong to each video. */
+.distractor-video { position: relative; }
+.distractor-carousel-container [hidden] { display: none !important; }
+.distractor-task-tabs { margin: 0 auto 16px; }
+.distractor-carousel-container .distractor-example-caption {
+    margin: 12px 0 0;
+    text-align: left;
+    line-height: 1.5;
+}
+.distractor-example-index {
+    margin: 0;
+    font-family: "Avenir Next", Avenir, "Open Sans", sans-serif;
+    font-size: 12px;
+    color: #7b7b7b;
+}
+
+/* Curated behavior examples share the main results controls and video treatment. */
+.behavior-carousel-container .distractor-behavior-tabs {
+    gap: 5px;
+    margin: 8px auto 20px;
+}
+.behavior-carousel-container .carousel-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+.behavior-carousel-container .distractor-behavior-heading {
+    width: 100%;
+    margin: 0 0 20px;
+    color: #444;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+}
+.behavior-carousel-container .distractor-example-caption {
+    margin: 12px 0 0;
+    line-height: 1.5;
+}
+@media (max-width: 600px) {
+    .behavior-carousel-container .distractor-behavior-tabs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .behavior-carousel-container .carousel-track { transition: none; }
+}
+
+/* Final task outcomes, aligned with the left/right policy views. */
+.distractor-outcomes {
+    position: absolute;
+    inset: 8px 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    pointer-events: none;
+}
+.distractor-outcome {
+    justify-self: start;
+    margin-left: 8px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.92);
+    font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+.distractor-outcome--success { color: #32634d; }
+.distractor-outcome--failure { color: #87554d; }
+@media (max-width: 550px) {
+    .distractor-outcomes { top: 5px; }
+    .distractor-outcome { margin-left: 5px; padding: 2px 4px; font-size: 10px; }
+}

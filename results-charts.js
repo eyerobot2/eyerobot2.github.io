@@ -68,6 +68,10 @@
                 }
                 rows.forEach((row, index) => {
                     const center = 48 + space * (index + .5);
+                    if (row.key === config.dividerAfter && index < rows.length - 1) {
+                        const dividerX = center + space / 2;
+                        markup.push(`<line class="rp-divider" x1="${dividerX}" x2="${dividerX}" y1="${top}" y2="${base}" stroke="#b9c0c5" stroke-width="1.5"/>`);
+                    }
                     markup.push(`<g class="rp-task" data-task="${row.key}">`);
                     config.methods.forEach((method, mi) => {
                         const value = row.values[metric][method.key];

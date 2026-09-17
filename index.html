@@ -1193,9 +1193,9 @@
                 </a>
             </div>
 
-<h2 id="camera-comparisons">Camera comparisons</h2>
+<h2 id="camera-comparisons">How does it compare to SOTA camera configs?</h2>
 <div class="camera-comparisons">
-<section class="camera-chapter" id="camera-passive"><h3>EyeRobot 2.0 outperforms passive stereo with the same visual inputs</h3><p class="paragraph">Both policies start from the <strong>exact same source stereo images</strong> and are trained on the same demonstrations. By learning where to look within those images, EyeRobot 2.0 raises average success from <strong>27% to 67%</strong>. Passive stereo struggles with spatial understanding; learning about 3D servoing is harder from a static perspective than from a fixation-centered perspective.</p>
+<section class="camera-chapter" id="camera-passive"><h3>Active stereo >> passive stereo</h3><p class="paragraph">Both policies start from the <strong>exact same source stereo images</strong> and are trained on the same demonstrations. By learning where to look within those images, EyeRobot 2.0 raises average success from <strong>27% to 67%</strong>. Passive stereo struggles with spatial understanding; learning about 3D servoing is harder from a static perspective than from a fixation-centered perspective.</p>
 <figure class="results-plot results-plot--compact" data-results-chart="camera-passive">
     <div class="results-plot-title">Average task success</div>
     <img class="results-plot-fallback" src="images/results/camera-passive.svg" alt="Average task success" width="540" height="240" loading="lazy" decoding="async" />
@@ -1209,57 +1209,7 @@
                     This is even more problematic at higher resolutions; foveation requires roughly linear scaling, dense tokenization requires quadratic.</figcaption>
             </figure>
 </section>
-<section class="camera-chapter" id="camera-clear"><h3>EyeRobot 2.0 matches wrist cameras in precise tasks without tool occlusions</h3><p class="paragraph">Using the same input images as passive stereo, active fixation closes the performance gap between wrist-free and wrist-camera policies. We evaluate marker, tea, toaster, and wrench with unobstructed wrist camera views. These tasks require precise grasping and tolerances, making clear wrist views particularly helpful. Even on these tasks, EyeRobot 2.0 matches or exceeds the performance of the wrist camera baseline.</p>
-<figure class="results-plot" data-results-chart="camera-clear">
-    <div class="results-plot-title">Success with unobstructed wrist views</div>
-    <img class="results-plot-fallback" src="images/results/camera-clear.svg" alt="Success with unobstructed wrist views" width="760" height="275" loading="lazy" decoding="async" />
-    <div class="results-legend"><span><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</span><span><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</span></div>
-    <figcaption class="carousel-caption">Success rate is the percentage of trials that complete the full task.</figcaption>
-</figure>
-<div class="camera-samples" data-camera-group="clear"><div class="results-controls camera-task-buttons" role="group" aria-label="Clear task examples"><button type="button" data-camera-index="0" aria-controls="camera-clear-marker" aria-pressed="true">Marker</button><button type="button" data-camera-index="1" aria-controls="camera-clear-tea" aria-pressed="false">Tea</button><button type="button" data-camera-index="2" aria-controls="camera-clear-toaster" aria-pressed="false">Toaster</button><button type="button" data-camera-index="3" aria-controls="camera-clear-wrench" aria-pressed="false">Wrench</button></div>
-<div class="camera-trial" id="camera-clear-marker" data-camera-task="marker"><div class="camera-video-pair">
-<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Marker: Ego + Wrist, left and right wrist cameras, episode-000" data-poster="data/camera-comparisons/marker-wrists.webp?v=07322beb1a6c"><source data-src="data/camera-comparisons/marker-wrists.mp4?v=6db5855b06ec" type="video/mp4"></video>
-<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
-</div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
-</figure>
-<figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Marker: EyeRobot 2.0, stereo gaze replay, episode-000" data-poster="data/camera-comparisons/marker-er.webp?v=0d265be4b014"><source data-src="data/camera-comparisons/marker-er.mp4?v=efc5f31b2c37" type="video/mp4"></video>
-</div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
-<p class="camera-view-note">Stereo gaze replay</p>
-</figure>
-</div><p class="carousel-caption">Autonomous · 1× speed</p></div>
-<div class="camera-trial" id="camera-clear-tea" data-camera-task="tea" hidden inert><div class="camera-video-pair">
-<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Tea: Ego + Wrist, left and right wrist cameras, episode-002" data-poster="data/camera-comparisons/tea-wrists.webp?v=ce13b05aee03"><source data-src="data/camera-comparisons/tea-wrists.mp4?v=33dc527fca6d" type="video/mp4"></video>
-<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
-</div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
-</figure>
-<figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Tea: EyeRobot 2.0, stereo gaze replay, episode-002" data-poster="data/camera-comparisons/tea-er.webp?v=21d7a6feb64e"><source data-src="data/camera-comparisons/tea-er.mp4?v=66acecb43008" type="video/mp4"></video>
-</div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
-<p class="camera-view-note">Stereo gaze replay</p>
-</figure>
-</div><p class="carousel-caption">Autonomous · 1× speed</p></div>
-<div class="camera-trial" id="camera-clear-toaster" data-camera-task="toaster" hidden inert><div class="camera-video-pair">
-<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Toaster: Ego + Wrist, left and right wrist cameras, episode-000" data-poster="data/camera-comparisons/toaster-wrists.webp?v=20e4dd851fc0"><source data-src="data/camera-comparisons/toaster-wrists.mp4?v=873d53b08e62" type="video/mp4"></video>
-<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
-</div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
-</figure>
-<figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Toaster: EyeRobot 2.0, stereo gaze replay, episode-000" data-poster="data/camera-comparisons/toaster-er.webp?v=a6afc0940f03"><source data-src="data/camera-comparisons/toaster-er.mp4?v=124204f86637" type="video/mp4"></video>
-</div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
-<p class="camera-view-note">Stereo gaze replay</p>
-</figure>
-</div><p class="carousel-caption">Autonomous · 1× speed</p></div>
-<div class="camera-trial" id="camera-clear-wrench" data-camera-task="wrench" hidden inert><div class="camera-video-pair">
-<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Wrench: Ego + Wrist, left and right wrist cameras, episode-000" data-poster="data/camera-comparisons/wrench-wrists.webp?v=d99eab0b7fa0"><source data-src="data/camera-comparisons/wrench-wrists.mp4?v=39ba07e69c18" type="video/mp4"></video>
-<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
-</div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
-</figure>
-<figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Wrench: EyeRobot 2.0, stereo gaze replay, episode-000" data-poster="data/camera-comparisons/wrench-er.webp?v=5665b562fd4d"><source data-src="data/camera-comparisons/wrench-er.mp4?v=6c2143d03e4b" type="video/mp4"></video>
-</div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
-<p class="camera-view-note">Stereo gaze replay</p>
-</figure>
-</div><p class="carousel-caption">Autonomous · 1× speed</p></div>
-</div>
-</section>
-<section class="camera-chapter" id="camera-occluded"><h3>EyeRobot 2.0 outperforms wrist cameras under tool occlusion</h3><p class="paragraph">When wrist cameras have a clear view, EyeRobot 2.0 matches the ego + wrist baseline. When they don’t, the gap widens. We intentionally collected tasks that are hard to see from the YAM’s wrist cameras because grasped objects block their views. In boba and pot lid, the wrist-camera policy must rely on its ego-centric view for useful information, and performance drops to roughly that of passive stereo.</p>
+<section class="camera-chapter" id="camera-occluded"><h3>Active stereo > wrist cameras under tool occlusion</h3><p class="paragraph">When wrist cameras have a clear view, EyeRobot 2.0 matches the ego + wrist baseline. When they don’t, the gap widens. We intentionally collected tasks that are hard to see from the YAM’s wrist cameras because grasped objects block their views. In boba and pot lid, the wrist-camera policy must rely on its ego-centric view for useful information, and performance drops to roughly that of passive stereo.</p>
 <figure class="results-plot" data-results-chart="camera-occluded">
     <div class="results-plot-title">Success under tool occlusion</div>
     <img class="results-plot-fallback" src="images/results/camera-occluded.svg" alt="Success under tool occlusion" width="760" height="275" loading="lazy" decoding="async" />
@@ -1290,130 +1240,267 @@
 </div>
 <p class="paragraph">Different wrist camera designs, such as dual cameras or fisheye views, can alleviate these problems, but cannot always maintain good observability. Teleoperators may also have to use unintuitive manipulation strategies to keep objects visible, which can harm data quality.</p>
 </section>
+<section class="camera-chapter" id="camera-clear"><h3>Active stereo = wrist cameras in unoccluded tasks</h3><p class="paragraph">Using the same input images as passive stereo, active fixation closes the performance gap between wrist-free and wrist-camera policies. We evaluate marker, tea, toaster, and wrench with unobstructed wrist camera views. These tasks require precise grasping and tolerances, making clear wrist views particularly helpful. Even on these tasks, EyeRobot 2.0 matches or exceeds the performance of the wrist camera baseline.</p>
+<figure class="results-plot" data-results-chart="camera-clear">
+    <div class="results-plot-title">Success with unobstructed wrist views</div>
+    <img class="results-plot-fallback" src="images/results/camera-clear.svg" alt="Success with unobstructed wrist views" width="760" height="275" loading="lazy" decoding="async" />
+    <div class="results-legend"><span><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</span><span><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</span></div>
+    <figcaption class="carousel-caption">Success rate is the percentage of trials that complete the full task.</figcaption>
+</figure>
+<div class="camera-samples" data-camera-group="clear"><div class="results-controls camera-task-buttons" role="group" aria-label="Clear task examples"><button type="button" data-camera-index="0" aria-controls="camera-clear-toaster" aria-pressed="true">Toaster</button><button type="button" data-camera-index="1" aria-controls="camera-clear-wrench" aria-pressed="false">Wrench</button><button type="button" data-camera-index="2" aria-controls="camera-clear-marker" aria-pressed="false">Marker</button><button type="button" data-camera-index="3" aria-controls="camera-clear-tea" aria-pressed="false">Tea</button></div>
+<div class="camera-trial" id="camera-clear-toaster" data-camera-task="toaster"><div class="camera-video-pair">
+<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Toaster: Ego + Wrist, left and right wrist cameras, episode-000" data-poster="data/camera-comparisons/toaster-wrists.webp?v=20e4dd851fc0"><source data-src="data/camera-comparisons/toaster-wrists.mp4?v=873d53b08e62" type="video/mp4"></video>
+<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
+</div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
+</figure>
+<figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Toaster: EyeRobot 2.0, stereo gaze replay, episode-000" data-poster="data/camera-comparisons/toaster-er.webp?v=a6afc0940f03"><source data-src="data/camera-comparisons/toaster-er.mp4?v=124204f86637" type="video/mp4"></video>
+</div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
+<p class="camera-view-note">Stereo gaze replay</p>
+</figure>
+</div><p class="carousel-caption">Autonomous · 1× speed</p></div>
+<div class="camera-trial" id="camera-clear-wrench" data-camera-task="wrench" hidden inert><div class="camera-video-pair">
+<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Wrench: Ego + Wrist, left and right wrist cameras, episode-000" data-poster="data/camera-comparisons/wrench-wrists.webp?v=d99eab0b7fa0"><source data-src="data/camera-comparisons/wrench-wrists.mp4?v=39ba07e69c18" type="video/mp4"></video>
+<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
+</div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
+</figure>
+<figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Wrench: EyeRobot 2.0, stereo gaze replay, episode-000" data-poster="data/camera-comparisons/wrench-er.webp?v=5665b562fd4d"><source data-src="data/camera-comparisons/wrench-er.mp4?v=6c2143d03e4b" type="video/mp4"></video>
+</div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
+<p class="camera-view-note">Stereo gaze replay</p>
+</figure>
+</div><p class="carousel-caption">Autonomous · 1× speed</p></div>
+<div class="camera-trial" id="camera-clear-marker" data-camera-task="marker" hidden inert><div class="camera-video-pair">
+<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Marker: Ego + Wrist, left and right wrist cameras, episode-000" data-poster="data/camera-comparisons/marker-wrists.webp?v=07322beb1a6c"><source data-src="data/camera-comparisons/marker-wrists.mp4?v=6db5855b06ec" type="video/mp4"></video>
+<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
+</div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
+</figure>
+<figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Marker: EyeRobot 2.0, stereo gaze replay, episode-000" data-poster="data/camera-comparisons/marker-er.webp?v=0d265be4b014"><source data-src="data/camera-comparisons/marker-er.mp4?v=efc5f31b2c37" type="video/mp4"></video>
+</div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
+<p class="camera-view-note">Stereo gaze replay</p>
+</figure>
+</div><p class="carousel-caption">Autonomous · 1× speed</p></div>
+<div class="camera-trial" id="camera-clear-tea" data-camera-task="tea" hidden inert><div class="camera-video-pair">
+<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Tea: Ego + Wrist, left and right wrist cameras, episode-002" data-poster="data/camera-comparisons/tea-wrists.webp?v=ce13b05aee03"><source data-src="data/camera-comparisons/tea-wrists.mp4?v=33dc527fca6d" type="video/mp4"></video>
+<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
+</div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
+</figure>
+<figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Tea: EyeRobot 2.0, stereo gaze replay, episode-002" data-poster="data/camera-comparisons/tea-er.webp?v=21d7a6feb64e"><source data-src="data/camera-comparisons/tea-er.mp4?v=66acecb43008" type="video/mp4"></video>
+</div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
+<p class="camera-view-note">Stereo gaze replay</p>
+</figure>
+</div><p class="carousel-caption">Autonomous · 1× speed</p></div>
 </div>
-            <h2>Distractor objects</h2>
+</section>
+</div>
+            <h2>Robustness to visual clutter</h2>
             <p class="paragraph">
                 We evaluated 3 tasks with unseen distractor objects scattered throughout the workspace. All comparisons use the <i>exact same object positions</i> to ensure comparability.
                 Notice how in these examples the wrist camera often reaches for the largest or most distinct object in its view. Once it begins reaching the policy cannot recover since the wrist camera loses sight
                 of the target. In contrast, EyeRobot 2.0 reaches for the correct object when its gaze is correctly directed at it, and mostly misses grasps when it is looking in the wrong place.
                 Decoupling vision and action could improve robustness in cluttered scenes by literally ignoring irrelevant information, as foveation does.
             </p>
+<!-- Curated behavior examples, followed by aggregate results and the full trial carousel. -->
+<div class="carousel-container behavior-carousel-container" role="region" aria-label="Behaviors in visual clutter">
+<div class="carousel-nav results-controls distractor-behavior-tabs" role="group" aria-label="Choose a behavior">
+<button type="button" aria-controls="distractor-behavior-carousel" aria-pressed="true" aria-label="Ignoring distractors">Ignoring distractors</button>
+<button type="button" aria-controls="distractor-behavior-carousel" aria-pressed="false" aria-label="Persistent retries">Persistent retries</button>
+<button type="button" aria-controls="distractor-behavior-carousel" aria-pressed="false" aria-label="Closer misses">Closer misses</button>
+<button type="button" aria-controls="distractor-behavior-carousel" aria-pressed="false" aria-label="Gaze predicts failures">Gaze predicts failures</button>
+</div>
+<div class="carousel-track-container"><div class="carousel-track" id="distractor-behavior-carousel">
+<div class="carousel-slide current-slide" data-behavior="distractors">
+<h3 class="distractor-behavior-heading">Correct gaze guides the gripper; wrist policies often grasp the first object in view.</h3>
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Tea trial 008: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/tea_008.webp?v=bd3ef76cba87">
+<source data-src="data/distractor_comparisons/tea_008.mp4?v=7cb50b1e742d" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--success" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — success" aria-label="EyeRobot 2.0: final task outcome — success"><span aria-hidden="true">✓</span> Success</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">EyeRobot 2.0 completes the task, while the wrist-camera policy picks up a distractor.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-behavior="retries">
+<h3 class="distractor-behavior-heading">EyeRobot 2.0 retries while wrist policies lose sight of the object.</h3>
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Tape trial 001: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/tape_001.webp?v=d1d7568a5e1c">
+<source data-src="data/distractor_comparisons/tape_001.mp4?v=86894fc08d8a" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--success" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — success" aria-label="EyeRobot 2.0: final task outcome — success"><span aria-hidden="true">✓</span> Success</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">EyeRobot 2.0 retries the yellow-tape grasp and completes the task. The wrist-camera policy reaches for the wrong object.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-behavior="near-misses">
+<h3 class="distractor-behavior-heading">With correct gaze, EyeRobot 2.0’s misses tend to be subtle rather than catastrophic.</h3>
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Wrench trial 006: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/wrench_006.webp?v=a334ba5981b6">
+<source data-src="data/distractor_comparisons/wrench_006.mp4?v=233d3bf8ec01" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--failure" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — failure" aria-label="EyeRobot 2.0: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">Both policies fail. EyeRobot 2.0 narrowly misses the box tab, while the wrist-camera policy reaches for the wrong object.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-behavior="gaze">
+<h3 class="distractor-behavior-heading">Incorrect gaze can cause catastrophic failures: looking at the wrong object leads to reaching for it.</h3>
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Tea trial 003: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/tea_003.webp?v=863afbdc524d">
+<source data-src="data/distractor_comparisons/tea_003.mp4?v=2bf75dc90819" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--failure" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — failure" aria-label="EyeRobot 2.0: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">EyeRobot 2.0 looks in the wrong place and picks up the wrong object. The wrist-camera policy picks up the tea, but then fails to find the cup.</figcaption>
+</figure></div>
+</div></div>
+<div class="results-gallery-footer"><div class="results-gallery-arrows">
+<button type="button" class="carousel-button carousel-button--left" aria-label="Previous behavior">←</button>
+<button type="button" class="carousel-button carousel-button--right" aria-label="Next behavior">→</button>
+</div></div>
+</div>
+
             <!-- Paper Table 5, p. 18: 25 real trials per task/policy.
                  The paper labels No Gaze "Exo (Stereo)".
                  Progression = sum of subtask counts / (25 * number of stages);
                  wrench and tape have 3 stages, tea has 2. The completion column is not an extra stage. -->
+<p class="paragraph">EyeRobot 2.0 has higher success and progression rates, as it can ignore distractor objects and focus on the correct objects.</p>
 <figure class="results-plot" data-results-chart="distractors">
-    <div class="results-plot-title">Task progression with distractors</div>
-    <img class="results-plot-fallback" src="images/results/distractors.svg" alt="Task progression with distractors" width="760" height="275" loading="lazy" decoding="async" />
+    <div class="results-plot-title">Average performance with distractors</div>
+    <img class="results-plot-fallback" src="images/results/distractors.svg" alt="Average performance with distractors" width="760" height="275" loading="lazy" decoding="async" />
     <div class="results-legend"><span><i class="results-swatch" style="--series-color:#7fc0a3" aria-hidden="true"></i>Passive stereo</span><span><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</span><span><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</span></div>
-    <figcaption class="carousel-caption">Mean percentage of task stages completed. 25 trials per task bar.</figcaption>
+    <figcaption class="carousel-caption">Success: full task completed. Progression: mean percentage of task stages completed. First grasp: completion of the initial grasp stage. Averages weight the three tasks equally; 25 trials per task and policy.</figcaption>
 </figure>
+            <p class="paragraph">See more evaluation successes and failures for each task here.</p>
             <div class="carousel-container distractor-carousel-container">
-                <div class="carousel-track-container">
-                    <div class="carousel-track" id="distractor-carousel">
-                        <div class="carousel-slide current-slide">
-                            <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_012.webp?v=536e1dcd7cd9">
-                                    <source data-src="data/distractor_comparisons/tape_012.mp4?v=b04b8bc0383f" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </figure>
-                        </div>
-                        <div class="carousel-slide">
-                            <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_013.webp?v=2018ddd9769b">
-                                    <source data-src="data/distractor_comparisons/tape_013.mp4?v=3f9313d9568c" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </figure>
-                        </div>
-                        <div class="carousel-slide">
-                            <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_014.webp?v=42d52a5fa6b9">
-                                    <source data-src="data/distractor_comparisons/tape_014.mp4?v=4d1a229cfc06" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </figure>
-                        </div>
-                        <div class="carousel-slide">
-                            <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tape_022.webp?v=43edf48888a6">
-                                    <source data-src="data/distractor_comparisons/tape_022.mp4?v=c60a667b5566" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </figure>
-                        </div>
-                        <div class="carousel-slide">
-                            <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_005.webp?v=24628701d292">
-                                    <source data-src="data/distractor_comparisons/wrench_005.mp4?v=477c54cc9ddb" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </figure>
-                        </div>
-                        <div class="carousel-slide">
-                            <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_000.webp?v=43854b6db706">
-                                    <source data-src="data/distractor_comparisons/wrench_000.mp4?v=0be1c3f70373" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </figure>
-                        </div>
-                        <div class="carousel-slide">
-                            <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_001.webp?v=838bac8ff335">
-                                    <source data-src="data/distractor_comparisons/wrench_001.mp4?v=6de1c070a25e" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </figure>
-                        </div>
-                        <div class="carousel-slide">
-                            <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/wrench_009.webp?v=a37d467d7316">
-                                    <source data-src="data/distractor_comparisons/wrench_009.mp4?v=0317c05f7f5f" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </figure>
-                        </div>
-                        <div class="carousel-slide">
-                            <figure class="distractor-comparison">
-                                <div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
-                                <video controls loop muted playsinline preload="none" width="1600" height="600" style="aspect-ratio: 1600 / 600; height: auto;" data-poster="data/web-posters/posters/distractor_comparisons/tea_008.webp?v=bd3ef76cba87">
-                                    <source data-src="data/distractor_comparisons/tea_008.mp4?v=7cb50b1e742d" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-                <div class="results-gallery-footer">
-                    <p class="carousel-caption">On eval trials with unseen distractors in the same configuration, ego + wrist policies often move towards the first object seen by the wrist cameras and get confused while EyeRobot 2.0 can ignore them.</p>
-                    <div class="results-gallery-arrows">
-                        <button type="button" class="carousel-button carousel-button--left" data-carousel="distractor-carousel" aria-label="Previous slide">←</button>
-                        <button type="button" class="carousel-button carousel-button--right" data-carousel="distractor-carousel" aria-label="Next slide">→</button>
-                    </div>
-                </div>
-                <div class="carousel-nav">
-                    <button class="carousel-indicator current-slide" data-slide="0" aria-label="Show distractor comparison 1"></button>
-                    <button class="carousel-indicator" data-slide="1" aria-label="Show distractor comparison 2"></button>
-                    <button class="carousel-indicator" data-slide="2" aria-label="Show distractor comparison 3"></button>
-                    <button class="carousel-indicator" data-slide="3" aria-label="Show distractor comparison 4"></button>
-                    <button class="carousel-indicator" data-slide="4" aria-label="Show distractor comparison 5"></button>
-                    <button class="carousel-indicator" data-slide="5" aria-label="Show distractor comparison 6"></button>
-                    <button class="carousel-indicator" data-slide="6" aria-label="Show distractor comparison 7"></button>
-                    <button class="carousel-indicator" data-slide="7" aria-label="Show distractor comparison 8"></button>
-                    <button class="carousel-indicator" data-slide="8" aria-label="Show distractor comparison 9"></button>
-                </div>
-
-            </div>
+<div class="results-controls distractor-task-tabs" role="group" aria-label="Choose a distractor task">
+<button type="button" data-carousel-task="tape" aria-controls="distractor-carousel" aria-pressed="true">Tape</button>
+<button type="button" data-carousel-task="tea" aria-controls="distractor-carousel" aria-pressed="false">Tea</button>
+<button type="button" data-carousel-task="wrench" aria-controls="distractor-carousel" aria-pressed="false">Wrench</button>
+</div>
+<div class="carousel-track-container"><div class="carousel-track" id="distractor-carousel">
+<div class="carousel-slide current-slide" data-carousel-group="tape" data-example-key="tape_000" data-example-label="Tape · trial 000">
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Tape · trial 000: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/tape_000.webp?v=d5fcee0a1aea">
+<source data-src="data/distractor_comparisons/tape_000.mp4?v=aaef2f1534be" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--failure" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — failure" aria-label="EyeRobot 2.0: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">The wrist-camera policy initially reaches for the wrong object. EyeRobot 2.0 picks up the tape, but drops it during placement after its gaze shifts away.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-carousel-group="tape" data-example-key="tape_001" data-example-label="Tape · trial 001">
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Tape · trial 001: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/tape_001.webp?v=d1d7568a5e1c">
+<source data-src="data/distractor_comparisons/tape_001.mp4?v=86894fc08d8a" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--success" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — success" aria-label="EyeRobot 2.0: final task outcome — success"><span aria-hidden="true">✓</span> Success</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">The wrist-camera policy reaches for the wrong object. EyeRobot 2.0 retries the yellow-tape grasp and completes the task.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-carousel-group="tape" data-example-key="tape_008" data-example-label="Tape · trial 008">
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Tape · trial 008: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/tape_008.webp?v=966bc5c7ab83">
+<source data-src="data/distractor_comparisons/tape_008.mp4?v=319de6e24f2d" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--failure" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — failure" aria-label="EyeRobot 2.0: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">Both policies fail: the wrist-camera policy makes a large error, while EyeRobot 2.0 narrowly misses the tape and makes several unsuccessful retries.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-carousel-group="tape" data-example-key="tape_013" data-example-label="Tape · trial 013">
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Tape · trial 013: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/tape_013.webp?v=2018ddd9769b">
+<source data-src="data/distractor_comparisons/tape_013.mp4?v=3f9313d9568c" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--success" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — success" aria-label="EyeRobot 2.0: final task outcome — success"><span aria-hidden="true">✓</span> Success</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">The wrist-camera policy reaches for the wrong object during handover, while EyeRobot 2.0 completes the task.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-carousel-group="tape" data-example-key="tape_022" data-example-label="Tape · trial 022">
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Tape · trial 022: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/tape_022.webp?v=43edf48888a6">
+<source data-src="data/distractor_comparisons/tape_022.mp4?v=c60a667b5566" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--success" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — success" aria-label="EyeRobot 2.0: final task outcome — success"><span aria-hidden="true">✓</span> Success</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">The wrist-camera policy grasps a distractor at the start. EyeRobot 2.0 completes the task.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-carousel-group="tea" data-example-key="tea_002" data-example-label="Tea · trial 002" hidden>
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Tea · trial 002: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/tea_002.webp?v=728773db5119">
+<source data-src="data/distractor_comparisons/tea_002.mp4?v=2afa10c16952" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--failure" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — failure" aria-label="EyeRobot 2.0: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">The wrist-camera policy reaches for the scissors directly in front of it. EyeRobot 2.0 picks up the tea but misses the drop into the cup.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-carousel-group="tea" data-example-key="tea_003" data-example-label="Tea · trial 003" hidden>
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Tea · trial 003: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/tea_003.webp?v=863afbdc524d">
+<source data-src="data/distractor_comparisons/tea_003.mp4?v=2bf75dc90819" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--failure" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — failure" aria-label="EyeRobot 2.0: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">EyeRobot 2.0 looks in the wrong place and picks up the wrong object. The wrist-camera policy picks up the tea, which starts directly in its view, but then fails to find the cup.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-carousel-group="tea" data-example-key="tea_008" data-example-label="Tea · trial 008" hidden>
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Tea · trial 008: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/tea_008.webp?v=bd3ef76cba87">
+<source data-src="data/distractor_comparisons/tea_008.mp4?v=7cb50b1e742d" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--success" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — success" aria-label="EyeRobot 2.0: final task outcome — success"><span aria-hidden="true">✓</span> Success</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">The wrist-camera policy picks up a distractor, while EyeRobot 2.0 completes the task.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-carousel-group="tea" data-example-key="tea_017" data-example-label="Tea · trial 017" hidden>
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Tea · trial 017: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/tea_017.webp?v=6d38848fd045">
+<source data-src="data/distractor_comparisons/tea_017.mp4?v=05ed6e740b17" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--success" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — success" aria-label="Ego + Wrist: final task outcome — success"><span aria-hidden="true">✓</span> Success</span><span class="distractor-outcome distractor-outcome--failure" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — failure" aria-label="EyeRobot 2.0: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">The tea bag starts in the wrist camera’s view, and the wrist-camera policy completes the task. EyeRobot 2.0 narrowly misses the initial grasp.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-carousel-group="wrench" data-example-key="wrench_000" data-example-label="Wrench · trial 000" hidden>
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Wrench · trial 000: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/wrench_000.webp?v=43854b6db706">
+<source data-src="data/distractor_comparisons/wrench_000.mp4?v=0be1c3f70373" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--success" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — success" aria-label="EyeRobot 2.0: final task outcome — success"><span aria-hidden="true">✓</span> Success</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">The wrist-camera policy veers toward the red cube in front of it and fails to open the lid. EyeRobot 2.0 completes the task.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-carousel-group="wrench" data-example-key="wrench_006" data-example-label="Wrench · trial 006" hidden>
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Wrench · trial 006: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/wrench_006.webp?v=a334ba5981b6">
+<source data-src="data/distractor_comparisons/wrench_006.mp4?v=233d3bf8ec01" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--failure" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — failure" aria-label="Ego + Wrist: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span><span class="distractor-outcome distractor-outcome--failure" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — failure" aria-label="EyeRobot 2.0: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">Both policies fail. The wrist-camera policy reaches for the wrong object, while EyeRobot 2.0 narrowly misses the box tab.</figcaption>
+</figure></div>
+<div class="carousel-slide" data-carousel-group="wrench" data-example-key="wrench_023" data-example-label="Wrench · trial 023" hidden>
+<figure class="distractor-comparison">
+<div class="distractor-policy-labels"><span>Ego + Wrist</span><span>EyeRobot 2.0</span></div>
+<div class="distractor-video"><video controls loop muted playsinline preload="none" width="1600" height="600" aria-label="Wrench · trial 023: Ego plus Wrist and EyeRobot 2.0" data-poster="data/web-posters/posters/distractor_comparisons/wrench_023.webp?v=0eba8ed48b6e">
+<source data-src="data/distractor_comparisons/wrench_023.mp4?v=9273a186479e" type="video/mp4">Your browser does not support the video tag.
+</video>
+<div class="distractor-outcomes"><span class="distractor-outcome distractor-outcome--success" data-policy="ego_wrist" title="Ego + Wrist: final task outcome — success" aria-label="Ego + Wrist: final task outcome — success"><span aria-hidden="true">✓</span> Success</span><span class="distractor-outcome distractor-outcome--failure" data-policy="eyerobot" title="EyeRobot 2.0: final task outcome — failure" aria-label="EyeRobot 2.0: final task outcome — failure"><span aria-hidden="true">✕</span> Failure</span></div></div>
+<figcaption class="carousel-caption distractor-example-caption">EyeRobot 2.0’s gaze shifts toward the red cube, and the policy fails to open the wrench box.</figcaption>
+</figure></div>
+</div></div>
+<div class="results-gallery-footer">
+<p class="distractor-example-index" data-carousel-counter aria-live="polite">Tape · trial 000 · 1 / 5</p>
+<div class="results-gallery-arrows">
+<button type="button" class="carousel-button carousel-button--left" data-carousel="distractor-carousel" aria-label="Previous example">←</button>
+<button type="button" class="carousel-button carousel-button--right" data-carousel="distractor-carousel" aria-label="Next example">→</button>
+</div></div><div class="carousel-nav" aria-label="Choose an example">
+<button class="carousel-indicator current-slide" data-slide="0" aria-label="Show tape trial 000"></button>
+<button class="carousel-indicator" data-slide="1" aria-label="Show tape trial 001"></button>
+<button class="carousel-indicator" data-slide="2" aria-label="Show tape trial 008"></button>
+<button class="carousel-indicator" data-slide="3" aria-label="Show tape trial 013"></button>
+<button class="carousel-indicator" data-slide="4" aria-label="Show tape trial 022"></button>
+<button class="carousel-indicator" data-slide="5" aria-label="Show tea trial 002" hidden></button>
+<button class="carousel-indicator" data-slide="6" aria-label="Show tea trial 003" hidden></button>
+<button class="carousel-indicator" data-slide="7" aria-label="Show tea trial 008" hidden></button>
+<button class="carousel-indicator" data-slide="8" aria-label="Show tea trial 017" hidden></button>
+<button class="carousel-indicator" data-slide="9" aria-label="Show wrench trial 000" hidden></button>
+<button class="carousel-indicator" data-slide="10" aria-label="Show wrench trial 006" hidden></button>
+<button class="carousel-indicator" data-slide="11" aria-label="Show wrench trial 023" hidden></button>
+</div></div>
 
 
         </div>
@@ -1684,7 +1771,7 @@
         </footer>
     </div>
 
-    <script src="carousels.js?v=media2" defer></script>
+    <script src="carousels.js?v=task-groups1" defer></script>
 
 </body>
 

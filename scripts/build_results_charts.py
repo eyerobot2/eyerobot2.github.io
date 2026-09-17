@@ -44,6 +44,9 @@ def svg(chart):
         parts.append(f'<line class="grid" x1="42" x2="{w-12}" y1="{y}" y2="{y}"/><text class="tick" x="34" y="{y+4}" text-anchor="end">{v}{"%" if v==100 else ""}</text>')
     for i,row in enumerate(rows):
         center=48+space*(i+.5)
+        if row['key']==chart.get('dividerAfter') and i<len(rows)-1:
+            divider_x=center+space/2
+            parts.append(f'<line class="rp-divider" x1="{divider_x}" x2="{divider_x}" y1="{top}" y2="{base}" stroke="#b9c0c5" stroke-width="1.5"/>')
         for j,m in enumerate(methods):
             value=row['values'][key][m['key']]; height=(base-top)*value/100
             x=center+(j-(len(methods)-1)/2)*(bw+2)
@@ -75,18 +78,19 @@ def main():
     simrows=[]
     for i,(key,label) in enumerate([('average','Average'),('tape','Tape'),('pot','Pot lid'),('tiger','Tiger'),('tray','Medical tray'),('plate','Plate in rack'),('spoon','Hang spoon')]):
         simrows.append(dict(key=key,label=label,values={'success':{m['key']:round(float(rects[i*3+j].attrib['height'])/1.44,6) for j,m in enumerate(METHODS)}}))
-    charts['simulation']=dict(methods=METHODS,rows=simrows,defaultMetric='success',metrics=[metric('success','Success rate','Simulation task success',SUCCESS+' 1,800 simulation trials.')])
+    charts['simulation']=dict(methods=METHODS,rows=simrows,dividerAfter='average',defaultMetric='success',metrics=[metric('success','Success rate','Simulation task success',SUCCESS+' 1,800 simulation trials.')])
     ablation=module(ROOT/'scripts/generate_action_ablation_chart.py')
     rows=[dict(key=label.lower(),label=label.capitalize() if label in ['tape','pot','tiger','tray','plate','spoon'] else label,description=task,decimals=1 if label=='Average' else 0,values={'success':{'world':world,'er':full}}) for label,task,full,world,_ in ablation.DATA]
-    charts['action-ablation']=dict(methods=[dict(key='world',label='World-relative actions',color='#5c8fc5'),METHODS[2]],rows=rows,defaultMetric='success',metrics=[metric('success','Success rate','Fixation-relative action ablation',SUCCESS)])
-    distractor=module(ROOT/'scripts/generate_distractor_charts.py');values=distractor.values();policies=['Exo (Stereo)','Ego + Wrist','AVF'];rows=[]
-    for key,label in [('average','Average'),('wrench','Wrench'),('tea','Tea'),('tape','Tape')]:
-        vals={metric:{m['key']:float(sum(values[t,policy][metric] for t in ['wrench','tea','tape'])/3 if key=='average' else values[key,policy][metric]) for m,policy in zip(METHODS,policies)} for metric in ['progression','grasp','success']}
-        rows.append(dict(key=key,label=label,values=vals))
-    charts['distractors']=dict(methods=METHODS,rows=rows,defaultMetric='progression',metrics=[
-        metric('progression','Task progression','Task progression with distractors','Mean percentage of task stages completed. 25 trials per task bar.'),
-        metric('grasp','First grasp','First-grasp success with distractors','Percentage of trials completing the first grasp. 25 trials per task bar.'),
-        metric('success','Full-task success','Task success with distractors','Percentage of trials completing the full task. 25 trials per task bar.')])
+    charts['action-ablation']=dict(methods=[dict(key='world',label='World-relative actions',color='#5c8fc5'),METHODS[2]],rows=rows,dividerAfter='average',defaultMetric='success',metrics=[metric('success','Success rate','Fixation-relative action ablation',SUCCESS)])
+    distractor=module(ROOT/'scripts/generate_distractor_charts.py');values=distractor.values();policies=['Exo (Stereo)','Ego + Wrist','AVF']
+    # Three metric groups, each averaged equally across the three tasks.
+    rows=[]
+    for key,label in [('success','Success'),('progression','Progression'),('grasp','First grasp')]:
+        averages={m['key']:float(sum(values[task,policy][key] for task in ['wrench','tea','tape'])/3) for m,policy in zip(METHODS,policies)}
+        rows.append(dict(key=key,label=label,values={'summary':averages}))
+    charts['distractors']=dict(methods=METHODS,rows=rows,defaultMetric='summary',metrics=[
+        metric('summary','Average performance','Average performance with distractors',
+               'Success: full task completed. Progression: mean percentage of task stages completed. First grasp: completion of the initial grasp stage. Averages weight the three tasks equally; 25 trials per task and policy.')])
     (ROOT/'data/results-charts.json').write_text(json.dumps(charts,indent=2)+'\n')
     (ROOT/'images/results').mkdir(exist_ok=True)
     for key,chart in charts.items():(ROOT/f'images/results/{key}.svg').write_text(svg(chart))

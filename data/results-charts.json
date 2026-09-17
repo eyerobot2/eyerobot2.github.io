@@ -313,6 +313,7 @@
         }
       }
     ],
+    "dividerAfter": "average",
     "defaultMetric": "success",
     "metrics": [
       {
@@ -423,6 +424,7 @@
         }
       }
     ],
+    "dividerAfter": "average",
     "defaultMetric": "success",
     "metrics": [
       {
@@ -454,20 +456,10 @@
     ],
     "rows": [
       {
-        "key": "average",
-        "label": "Average",
+        "key": "success",
+        "label": "Success",
         "values": {
-          "progression": {
-            "passive": 6.444444444444445,
-            "wrist": 25.11111111111111,
-            "er": 44.666666666666664
-          },
-          "grasp": {
-            "passive": 16.0,
-            "wrist": 46.666666666666664,
-            "er": 74.66666666666667
-          },
-          "success": {
+          "summary": {
             "passive": 0.0,
             "wrist": 10.666666666666666,
             "er": 22.666666666666668
@@ -475,88 +467,35 @@
         }
       },
       {
-        "key": "wrench",
-        "label": "Wrench",
-        "values": {
-          "progression": {
-            "passive": 4.0,
-            "wrist": 26.666666666666668,
-            "er": 42.666666666666664
-          },
-          "grasp": {
-            "passive": 12.0,
-            "wrist": 40.0,
-            "er": 80.0
-          },
-          "success": {
-            "passive": 0.0,
-            "wrist": 16.0,
-            "er": 20.0
-          }
-        }
-      },
-      {
-        "key": "tea",
-        "label": "Tea",
-        "values": {
-          "progression": {
-            "passive": 6.0,
-            "wrist": 30.0,
-            "er": 34.0
-          },
-          "grasp": {
-            "passive": 12.0,
-            "wrist": 44.0,
-            "er": 52.0
-          },
-          "success": {
-            "passive": 0.0,
-            "wrist": 16.0,
-            "er": 16.0
-          }
-        }
-      },
-      {
-        "key": "tape",
-        "label": "Tape",
-        "values": {
-          "progression": {
-            "passive": 9.333333333333334,
-            "wrist": 18.666666666666668,
-            "er": 57.333333333333336
-          },
-          "grasp": {
-            "passive": 24.0,
-            "wrist": 56.0,
-            "er": 92.0
-          },
-          "success": {
-            "passive": 0.0,
-            "wrist": 0.0,
-            "er": 32.0
-          }
-        }
-      }
-    ],
-    "defaultMetric": "progression",
-    "metrics": [
-      {
         "key": "progression",
-        "label": "Task progression",
-        "title": "Task progression with distractors",
-        "caption": "Mean percentage of task stages completed. 25 trials per task bar."
+        "label": "Progression",
+        "values": {
+          "summary": {
+            "passive": 6.444444444444445,
+            "wrist": 25.11111111111111,
+            "er": 44.666666666666664
+          }
+        }
       },
       {
         "key": "grasp",
         "label": "First grasp",
-        "title": "First-grasp success with distractors",
-        "caption": "Percentage of trials completing the first grasp. 25 trials per task bar."
-      },
+        "values": {
+          "summary": {
+            "passive": 16.0,
+            "wrist": 46.666666666666664,
+            "er": 74.66666666666667
+          }
+        }
+      }
+    ],
+    "defaultMetric": "summary",
+    "metrics": [
       {
-        "key": "success",
-        "label": "Full-task success",
-        "title": "Task success with distractors",
-        "caption": "Percentage of trials completing the full task. 25 trials per task bar."
+        "key": "summary",
+        "label": "Average performance",
+        "title": "Average performance with distractors",
+        "caption": "Success: full task completed. Progression: mean percentage of task stages completed. First grasp: completion of the initial grasp stage. Averages weight the three tasks equally; 25 trials per task and policy."
       }
     ]
   }

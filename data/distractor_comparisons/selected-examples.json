@@ -1,0 +1,574 @@
+{
+  "note": "Selected examples and lightly edited per-video captions from the September 17 review. These captions describe individual examples, not aggregate failure frequencies.",
+  "examples": [
+    {
+      "key": "tape_000",
+      "task": "tape",
+      "trial": 0,
+      "caption": "The wrist-camera policy initially reaches for the wrong object. EyeRobot 2.0 picks up the tape, but drops it during placement after its gaze shifts away.",
+      "video": "data/distractor_comparisons/tape_000.mp4?v=aaef2f1534be",
+      "poster": "data/web-posters/posters/distractor_comparisons/tape_000.webp?v=d5fcee0a1aea",
+      "video_sha256": "aaef2f1534be6012d7859a7cdb149dda3ab1a94e392ebda98dbe5fb6525bd744",
+      "poster_sha256": "d5fcee0a1aea7577b48702e12c390c1e7604798dcb98ef2f970671d13e88da64",
+      "outcomes": {
+        "ego_wrist": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "pick_yellow",
+              "complete": false
+            },
+            {
+              "stage": "handoff",
+              "complete": false
+            },
+            {
+              "stage": "place_yellow",
+              "complete": false
+            }
+          ],
+          "source": "tape/tape_exo_wrist/episode_000/eval_events.csv",
+          "source_sha256": "a795be3243ab51bc0b2d5923dffca3494937aab292c81b3b8970c323808829fa"
+        },
+        "eyerobot": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "pick_yellow",
+              "complete": true
+            },
+            {
+              "stage": "handoff",
+              "complete": true
+            },
+            {
+              "stage": "place_yellow",
+              "complete": false
+            }
+          ],
+          "source": "tape/tape_eyeball/episode_000/eval_events.csv",
+          "source_sha256": "532616cc3a8a10e5a99bc1d9312b9c7e766f42f0c0013e71d13c02c85ccbcc4c"
+        }
+      }
+    },
+    {
+      "key": "tape_001",
+      "task": "tape",
+      "trial": 1,
+      "caption": "The wrist-camera policy reaches for the wrong object. EyeRobot 2.0 retries the yellow-tape grasp and completes the task.",
+      "video": "data/distractor_comparisons/tape_001.mp4?v=86894fc08d8a",
+      "poster": "data/web-posters/posters/distractor_comparisons/tape_001.webp?v=d1d7568a5e1c",
+      "video_sha256": "86894fc08d8a30420416e95f6dc1e095344b1f7d755e4306e8f3092aa19335d1",
+      "poster_sha256": "d1d7568a5e1ca70064ae2cacc88fde9b15ee7a7ef3ff6198108ad71e0a79eaf3",
+      "outcomes": {
+        "ego_wrist": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "pick_yellow",
+              "complete": false
+            },
+            {
+              "stage": "handoff",
+              "complete": false
+            },
+            {
+              "stage": "place_yellow",
+              "complete": false
+            }
+          ],
+          "source": "tape/tape_exo_wrist/episode_001/eval_events.csv",
+          "source_sha256": "a795be3243ab51bc0b2d5923dffca3494937aab292c81b3b8970c323808829fa"
+        },
+        "eyerobot": {
+          "success": true,
+          "stages": [
+            {
+              "stage": "pick_yellow",
+              "complete": true
+            },
+            {
+              "stage": "handoff",
+              "complete": true
+            },
+            {
+              "stage": "place_yellow",
+              "complete": true
+            }
+          ],
+          "source": "tape/tape_eyeball/episode_001/eval_events.csv",
+          "source_sha256": "e9878c16f7dfa8804de6dd825ea73035f6ac7c5e9b46af62bf0c153cba6b1328"
+        }
+      }
+    },
+    {
+      "key": "tape_008",
+      "task": "tape",
+      "trial": 8,
+      "caption": "Both policies fail: the wrist-camera policy makes a large error, while EyeRobot 2.0 narrowly misses the tape and makes several unsuccessful retries.",
+      "video": "data/distractor_comparisons/tape_008.mp4?v=319de6e24f2d",
+      "poster": "data/web-posters/posters/distractor_comparisons/tape_008.webp?v=966bc5c7ab83",
+      "video_sha256": "319de6e24f2d6b3c39add6fdf6b06b1f3c3310f82616ca25530e0abb0b7c8135",
+      "poster_sha256": "966bc5c7ab8372424f2918a19c6326e14f9e53b808b10454f0590f0057e27ffb",
+      "outcomes": {
+        "ego_wrist": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "pick_yellow",
+              "complete": false
+            },
+            {
+              "stage": "handoff",
+              "complete": false
+            },
+            {
+              "stage": "place_yellow",
+              "complete": false
+            }
+          ],
+          "source": "tape/tape_exo_wrist/episode_008/eval_events.csv",
+          "source_sha256": "a795be3243ab51bc0b2d5923dffca3494937aab292c81b3b8970c323808829fa"
+        },
+        "eyerobot": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "pick_yellow",
+              "complete": false
+            },
+            {
+              "stage": "handoff",
+              "complete": false
+            },
+            {
+              "stage": "place_yellow",
+              "complete": false
+            }
+          ],
+          "source": "tape/tape_eyeball/episode_008/eval_events.csv",
+          "source_sha256": "a795be3243ab51bc0b2d5923dffca3494937aab292c81b3b8970c323808829fa"
+        }
+      }
+    },
+    {
+      "key": "tape_013",
+      "task": "tape",
+      "trial": 13,
+      "caption": "The wrist-camera policy reaches for the wrong object during handover, while EyeRobot 2.0 completes the task.",
+      "video": "data/distractor_comparisons/tape_013.mp4?v=3f9313d9568c",
+      "poster": "data/web-posters/posters/distractor_comparisons/tape_013.webp?v=2018ddd9769b",
+      "video_sha256": "3f9313d9568c15f2cc3a8921b7a7087f494ee01edce2e786e712bba91f050b29",
+      "poster_sha256": "2018ddd9769b79858dca469befe5afd6051aec41a71feb96d33210cb9a5fbe85",
+      "outcomes": {
+        "ego_wrist": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "pick_yellow",
+              "complete": true
+            },
+            {
+              "stage": "handoff",
+              "complete": false
+            },
+            {
+              "stage": "place_yellow",
+              "complete": false
+            }
+          ],
+          "source": "tape/tape_exo_wrist/episode_013/eval_events.csv",
+          "source_sha256": "c90c58eee657a28cce263972122f87aa9b88ab36a32889be93077bdca153a0ad"
+        },
+        "eyerobot": {
+          "success": true,
+          "stages": [
+            {
+              "stage": "pick_yellow",
+              "complete": true
+            },
+            {
+              "stage": "handoff",
+              "complete": true
+            },
+            {
+              "stage": "place_yellow",
+              "complete": true
+            }
+          ],
+          "source": "tape/tape_eyeball/episode_013/eval_events.csv",
+          "source_sha256": "d5a330642992c540692d4635f76bbe8b2ca209f401c476af936ff7ca1c8f7d76"
+        }
+      }
+    },
+    {
+      "key": "tape_022",
+      "task": "tape",
+      "trial": 22,
+      "caption": "The wrist-camera policy grasps a distractor at the start. EyeRobot 2.0 completes the task.",
+      "video": "data/distractor_comparisons/tape_022.mp4?v=c60a667b5566",
+      "poster": "data/web-posters/posters/distractor_comparisons/tape_022.webp?v=43edf48888a6",
+      "video_sha256": "c60a667b556675614190297afcb7bc519bcb4d72cc099cc15a4826e82e5c5e6b",
+      "poster_sha256": "43edf48888a64f4234de96abd6922afc4fb47560381727e002cfd65174a8d25d",
+      "outcomes": {
+        "ego_wrist": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "pick_yellow",
+              "complete": false
+            },
+            {
+              "stage": "handoff",
+              "complete": false
+            },
+            {
+              "stage": "place_yellow",
+              "complete": false
+            }
+          ],
+          "source": "tape/tape_exo_wrist/episode_022/eval_events.csv",
+          "source_sha256": "a795be3243ab51bc0b2d5923dffca3494937aab292c81b3b8970c323808829fa"
+        },
+        "eyerobot": {
+          "success": true,
+          "stages": [
+            {
+              "stage": "pick_yellow",
+              "complete": true
+            },
+            {
+              "stage": "handoff",
+              "complete": true
+            },
+            {
+              "stage": "place_yellow",
+              "complete": true
+            }
+          ],
+          "source": "tape/tape_eyeball/episode_022/eval_events.csv",
+          "source_sha256": "a3ad1a60ebb7190f4d244c62283c87d4eb27a3d4444dee434f0ea91eb8c940cb"
+        }
+      }
+    },
+    {
+      "key": "tea_002",
+      "task": "tea",
+      "trial": 2,
+      "caption": "The wrist-camera policy reaches for the scissors directly in front of it. EyeRobot 2.0 picks up the tea but misses the drop into the cup.",
+      "video": "data/distractor_comparisons/tea_002.mp4?v=2afa10c16952",
+      "poster": "data/web-posters/posters/distractor_comparisons/tea_002.webp?v=728773db5119",
+      "video_sha256": "2afa10c1695205d24b29d05870a89f376d31f8554e95a9b3e542120f682c63d8",
+      "poster_sha256": "728773db51191fb9a3d1d7522f5ff4f261f78042605a552b3c7ae5110ccfbf47",
+      "outcomes": {
+        "ego_wrist": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "grab_tea",
+              "complete": false
+            },
+            {
+              "stage": "tea_in_cup",
+              "complete": false
+            }
+          ],
+          "source": "tea/exo wrist hero tea/episode_002/eval_events.csv",
+          "source_sha256": "328754326df9ffab74fe0d16f65ad2a06c177b3bd70eed2711512b3cae3acaf3"
+        },
+        "eyerobot": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "grab_tea",
+              "complete": true
+            },
+            {
+              "stage": "tea_in_cup",
+              "complete": false
+            }
+          ],
+          "source": "tea/eyeball_tea/episode_002/eval_events.csv",
+          "source_sha256": "ebc73e16c2fa13a8ba975a6aa2700cfb5d3e27268f4be6bc5e44f25c521a2c52"
+        }
+      }
+    },
+    {
+      "key": "tea_003",
+      "task": "tea",
+      "trial": 3,
+      "caption": "EyeRobot 2.0 looks in the wrong place and picks up the wrong object. The wrist-camera policy picks up the tea, which starts directly in its view, but then fails to find the cup.",
+      "video": "data/distractor_comparisons/tea_003.mp4?v=2bf75dc90819",
+      "poster": "data/web-posters/posters/distractor_comparisons/tea_003.webp?v=863afbdc524d",
+      "video_sha256": "2bf75dc90819a34fe910b0b2a3c34e593ba436e9b23962fdeb3658b1b173c66a",
+      "poster_sha256": "863afbdc524df981426a34c33d9340422d827ace0d552f4fe5554c44bdedf72e",
+      "outcomes": {
+        "ego_wrist": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "grab_tea",
+              "complete": false
+            },
+            {
+              "stage": "tea_in_cup",
+              "complete": false
+            }
+          ],
+          "source": "tea/exo wrist hero tea/episode_003/eval_events.csv",
+          "source_sha256": "328754326df9ffab74fe0d16f65ad2a06c177b3bd70eed2711512b3cae3acaf3"
+        },
+        "eyerobot": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "grab_tea",
+              "complete": false
+            },
+            {
+              "stage": "tea_in_cup",
+              "complete": false
+            }
+          ],
+          "source": "tea/eyeball_tea/episode_003/eval_events.csv",
+          "source_sha256": "328754326df9ffab74fe0d16f65ad2a06c177b3bd70eed2711512b3cae3acaf3"
+        }
+      }
+    },
+    {
+      "key": "tea_008",
+      "task": "tea",
+      "trial": 8,
+      "caption": "The wrist-camera policy picks up a distractor, while EyeRobot 2.0 completes the task.",
+      "video": "data/distractor_comparisons/tea_008.mp4?v=7cb50b1e742d",
+      "poster": "data/web-posters/posters/distractor_comparisons/tea_008.webp?v=bd3ef76cba87",
+      "video_sha256": "7cb50b1e742d22aa11a4bff776debe95743ed2808769c6f11cf13ccab0f1795d",
+      "poster_sha256": "bd3ef76cba87eb5cc8f51fbabeb31f3cd2cfbe2539dcfd6c8d3eec855bf10655",
+      "outcomes": {
+        "ego_wrist": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "grab_tea",
+              "complete": false
+            },
+            {
+              "stage": "tea_in_cup",
+              "complete": false
+            }
+          ],
+          "source": "tea/exo wrist hero tea/episode_008/eval_events.csv",
+          "source_sha256": "328754326df9ffab74fe0d16f65ad2a06c177b3bd70eed2711512b3cae3acaf3"
+        },
+        "eyerobot": {
+          "success": true,
+          "stages": [
+            {
+              "stage": "grab_tea",
+              "complete": true
+            },
+            {
+              "stage": "tea_in_cup",
+              "complete": true
+            }
+          ],
+          "source": "tea/eyeball_tea/episode_008/eval_events.csv",
+          "source_sha256": "7fab204f99ca08448a399e4f71fd7703714b6e4368797fc833f6e292445d23e8"
+        }
+      }
+    },
+    {
+      "key": "tea_017",
+      "task": "tea",
+      "trial": 17,
+      "caption": "The tea bag starts in the wrist camera’s view, and the wrist-camera policy completes the task. EyeRobot 2.0 narrowly misses the initial grasp.",
+      "video": "data/distractor_comparisons/tea_017.mp4?v=05ed6e740b17",
+      "poster": "data/web-posters/posters/distractor_comparisons/tea_017.webp?v=6d38848fd045",
+      "video_sha256": "05ed6e740b17d088b27f53fd0e8cd5f66bb6fd65ec44e03f4145da38b4266550",
+      "poster_sha256": "6d38848fd045450a78c09ac66e8fa4b743709d6ddefaf800ec7020a9f6feba00",
+      "outcomes": {
+        "ego_wrist": {
+          "success": true,
+          "stages": [
+            {
+              "stage": "grab_tea",
+              "complete": true
+            },
+            {
+              "stage": "tea_in_cup",
+              "complete": true
+            }
+          ],
+          "source": "tea/exo wrist hero tea/episode_017/eval_events.csv",
+          "source_sha256": "23db6c7613b6a1edcf803ab473b648c5ce681f347dc539114270959421ce3c45"
+        },
+        "eyerobot": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "grab_tea",
+              "complete": false
+            },
+            {
+              "stage": "tea_in_cup",
+              "complete": false
+            }
+          ],
+          "source": "tea/eyeball_tea/episode_017/eval_events.csv",
+          "source_sha256": "328754326df9ffab74fe0d16f65ad2a06c177b3bd70eed2711512b3cae3acaf3"
+        }
+      }
+    },
+    {
+      "key": "wrench_000",
+      "task": "wrench",
+      "trial": 0,
+      "caption": "The wrist-camera policy veers toward the red cube in front of it and fails to open the lid. EyeRobot 2.0 completes the task.",
+      "video": "data/distractor_comparisons/wrench_000.mp4?v=0be1c3f70373",
+      "poster": "data/web-posters/posters/distractor_comparisons/wrench_000.webp?v=43854b6db706",
+      "video_sha256": "0be1c3f70373372f64c7d3ed1905089b4dbbaf50fd2c6a2158264d4adfc522fd",
+      "poster_sha256": "43854b6db706fd699d393b56c3a09e11929f7dfdec328afde48d2b5d84e40d6e",
+      "outcomes": {
+        "ego_wrist": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "grab_tab",
+              "complete": true
+            },
+            {
+              "stage": "open_box",
+              "complete": false
+            },
+            {
+              "stage": "grab_wrench",
+              "complete": false
+            }
+          ],
+          "source": "wrench/wrench_exo_wrist/episode_000/eval_events.csv",
+          "source_sha256": "d0294048717b2688fbc59653a3e615f6e4b2d5e8dd03c17caa69830ac86094b5"
+        },
+        "eyerobot": {
+          "success": true,
+          "stages": [
+            {
+              "stage": "grab_tab",
+              "complete": true
+            },
+            {
+              "stage": "open_box",
+              "complete": true
+            },
+            {
+              "stage": "grab_wrench",
+              "complete": true
+            }
+          ],
+          "source": "wrench/wrench_eyeball/episode_000/eval_events.csv",
+          "source_sha256": "9e8c703107c3465124a5ac08d91a9af16ef3447019c45cad6a7bc0b581c590c2"
+        }
+      }
+    },
+    {
+      "key": "wrench_006",
+      "task": "wrench",
+      "trial": 6,
+      "caption": "Both policies fail. The wrist-camera policy reaches for the wrong object, while EyeRobot 2.0 narrowly misses the box tab.",
+      "video": "data/distractor_comparisons/wrench_006.mp4?v=233d3bf8ec01",
+      "poster": "data/web-posters/posters/distractor_comparisons/wrench_006.webp?v=a334ba5981b6",
+      "video_sha256": "233d3bf8ec017513e93f7e1c3ec832dced7068dded6ef4d69d1c66b2571225e6",
+      "poster_sha256": "a334ba5981b6534bfd5e02aa9c160f1d6f206e21f01a128aabc22ca9ee82b39b",
+      "outcomes": {
+        "ego_wrist": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "grab_tab",
+              "complete": false
+            },
+            {
+              "stage": "open_box",
+              "complete": false
+            },
+            {
+              "stage": "grab_wrench",
+              "complete": false
+            }
+          ],
+          "source": "wrench/wrench_exo_wrist/episode_006/eval_events.csv",
+          "source_sha256": "9b0ea557ba0b37d1a5c420824884aa7d579bb22940d40b3f79604f5261225cd9"
+        },
+        "eyerobot": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "grab_tab",
+              "complete": false
+            },
+            {
+              "stage": "open_box",
+              "complete": false
+            },
+            {
+              "stage": "grab_wrench",
+              "complete": false
+            }
+          ],
+          "source": "wrench/wrench_eyeball/episode_006/eval_events.csv",
+          "source_sha256": "9b0ea557ba0b37d1a5c420824884aa7d579bb22940d40b3f79604f5261225cd9"
+        }
+      }
+    },
+    {
+      "key": "wrench_023",
+      "task": "wrench",
+      "trial": 23,
+      "caption": "EyeRobot 2.0’s gaze shifts toward the red cube, and the policy fails to open the wrench box.",
+      "video": "data/distractor_comparisons/wrench_023.mp4?v=9273a186479e",
+      "poster": "data/web-posters/posters/distractor_comparisons/wrench_023.webp?v=0eba8ed48b6e",
+      "video_sha256": "9273a186479e5c0e5fab33fb14f8d6e981029446bb983ea1140f0abd36f62966",
+      "poster_sha256": "0eba8ed48b6e56c34ef9ef550e4dfc7b39449b604e343a9c4499df509b252bbb",
+      "outcomes": {
+        "ego_wrist": {
+          "success": true,
+          "stages": [
+            {
+              "stage": "grab_tab",
+              "complete": true
+            },
+            {
+              "stage": "open_box",
+              "complete": true
+            },
+            {
+              "stage": "grab_wrench",
+              "complete": true
+            }
+          ],
+          "source": "wrench/wrench_exo_wrist/episode_023/eval_events.csv",
+          "source_sha256": "2b390288bc97fdcf3d0d1307df26ce047300fa1e04d2e087087c78239e63a128"
+        },
+        "eyerobot": {
+          "success": false,
+          "stages": [
+            {
+              "stage": "grab_tab",
+              "complete": true
+            },
+            {
+              "stage": "open_box",
+              "complete": false
+            },
+            {
+              "stage": "grab_wrench",
+              "complete": false
+            }
+          ],
+          "source": "wrench/wrench_eyeball/episode_023/eval_events.csv",
+          "source_sha256": "679c4daf4a39648f4efaae8bf8bd594b625e8c2039bd77f2919cb842f77b64b5"
+        }
+      }
+    }
+  ],
+  "outcome_definition": "Success means all recorded task stages are complete in eval_events.csv. Badges show the final task outcome, not the state at the current playback time."
+}

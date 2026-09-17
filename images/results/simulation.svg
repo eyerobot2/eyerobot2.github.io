@@ -8,6 +8,7 @@
 <line class="grid" x1="42" x2="748" y1="136.0" y2="136.0"/><text class="tick" x="34" y="140.0" text-anchor="end">50</text>
 <line class="grid" x1="42" x2="748" y1="84.0" y2="84.0"/><text class="tick" x="34" y="88.0" text-anchor="end">75</text>
 <line class="grid" x1="42" x2="748" y1="32.0" y2="32.0"/><text class="tick" x="34" y="36.0" text-anchor="end">100%</text>
+<line class="rp-divider" x1="147.42857142857144" x2="147.42857142857144" y1="32" y2="240" stroke="#b9c0c5" stroke-width="1.5"/>
 <rect x="59.422857142857154" y="127.68" width="24.194285714285712" height="112.32" rx="1" fill="#7fc0a3"/><text class="value" x="71.52000000000001" y="119.68" text-anchor="middle">54</text>
 <rect x="85.61714285714287" y="84.0" width="24.194285714285712" height="156.0" rx="1" fill="#5c8fc5"/><text class="value" x="97.71428571428572" y="76.0" text-anchor="middle">75</text>
 <rect x="111.81142857142858" y="86.08000000000001" width="24.194285714285712" height="153.92" rx="1" fill="url(#hatch)"/><text class="value" x="123.90857142857143" y="78.08000000000001" text-anchor="middle">74</text>

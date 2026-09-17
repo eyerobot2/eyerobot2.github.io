@@ -101,16 +101,16 @@ async function main() {
         }
         await page.setViewportSize({ width: 390, height: 844 });
 
-        await page.route('**/data/distractor_comparisons/tape_012.mp4*', async route => {
+        await page.route('**/data/distractor_comparisons/tape_000.mp4*', async route => {
             await new Promise(resolve => setTimeout(resolve, 2000));
             await route.continue().catch(() => {}); // Navigation can cancel this request.
         });
-        const carousel = page.locator('.carousel-container').filter({ has: page.locator('.distractor-comparison') });
+        const carousel = page.locator('.distractor-carousel-container');
         await carousel.scrollIntoViewIfNeeded();
         await page.waitForTimeout(200);
         await carousel.locator('.carousel-button--right').click();
         await page.waitForFunction(() => {
-            const video = document.querySelector('.distractor-comparison').closest('.carousel-container')
+            const video = document.querySelector('#distractor-carousel .distractor-comparison').closest('.carousel-container')
                 .querySelector('.current-slide video');
             return video.readyState >= 3 && !video.paused;
         });
@@ -131,7 +131,7 @@ async function main() {
             delete document.hidden;
             document.dispatchEvent(new Event('visibilitychange'));
         });
-        await page.waitForFunction(() => !document.querySelector('.distractor-comparison')
+        await page.waitForFunction(() => !document.querySelector('#distractor-carousel .distractor-comparison')
             .closest('.carousel-container').querySelector('.current-slide video').paused);
         console.log('PASS: page visibility pauses and restores eligible playback');
 
@@ -145,12 +145,12 @@ async function main() {
         await page.waitForTimeout(300);
         assert(await selected.locator('video').evaluate(video => Math.abs(video.currentTime / video.duration - .5) < .1));
         await selected.locator('.distractor-play-toggle').click();
-        await page.waitForFunction(() => !document.querySelector('.distractor-comparison')
+        await page.waitForFunction(() => !document.querySelector('#distractor-carousel .distractor-comparison')
             .closest('.carousel-container').querySelector('.current-slide video').paused);
         await selected.locator('video').evaluate(video => { video.currentTime = 3; });
         await carousel.locator('.carousel-nav .current-slide').click();
         await page.waitForFunction(() => {
-            const video = document.querySelector('.distractor-comparison')
+            const video = document.querySelector('#distractor-carousel .distractor-comparison')
                 .closest('.carousel-container').querySelector('.current-slide video');
             return !video.paused && !video.seeking && video.currentTime < 1;
         });
@@ -158,7 +158,7 @@ async function main() {
         await carousel.locator('.carousel-button--right').click();
         await carousel.locator('.carousel-button--left').click();
         await page.waitForFunction(() => {
-            const video = document.querySelector('.distractor-comparison')
+            const video = document.querySelector('#distractor-carousel .distractor-comparison')
                 .closest('.carousel-container').querySelector('.current-slide video');
             return !video.paused && !video.seeking && video.currentTime < 1;
         });
@@ -200,16 +200,16 @@ async function main() {
         const recovery = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
         const rp = await recovery.newPage();
         let fail = true;
-        await rp.route('**/data/distractor_comparisons/tape_012.mp4*', route =>
+        await rp.route('**/data/distractor_comparisons/tape_000.mp4*', route =>
             fail ? route.fulfill({ status: 503, body: 'Temporarily unavailable' }) : route.continue());
         await rp.goto(base, { waitUntil: 'domcontentloaded' });
-        const rc = rp.locator('.carousel-container').filter({ has: rp.locator('.distractor-comparison') });
+        const rc = rp.locator('.distractor-carousel-container');
         await rc.scrollIntoViewIfNeeded();
         await rc.locator('.media-feedback button', { hasText: 'Retry' }).waitFor({ state: 'visible' });
         fail = false;
         await rc.locator('.media-feedback button').click();
         await rp.waitForFunction(() => {
-            const video = document.querySelector('.distractor-comparison video');
+            const video = document.querySelector('#distractor-carousel .distractor-comparison video');
             return !video.paused && video.readyState >= 3 && video.currentTime > 0;
         });
         console.log('PASS: failed download offers Retry and recovers');
@@ -227,13 +227,13 @@ async function main() {
         });
         const bp = await blocked.newPage();
         await bp.goto(base, { waitUntil: 'domcontentloaded' });
-        const bc = bp.locator('.carousel-container').filter({ has: bp.locator('.distractor-comparison') });
+        const bc = bp.locator('.distractor-carousel-container');
         await bc.scrollIntoViewIfNeeded();
         await bc.locator('.media-feedback button', { hasText: 'Play' }).waitFor({ state: 'visible' });
         await bp.evaluate(() => { window.allowPlayback = true; });
         await bc.locator('.media-feedback button').click();
         await bp.waitForFunction(() => {
-            const video = document.querySelector('.distractor-comparison video');
+            const video = document.querySelector('#distractor-carousel .distractor-comparison video');
             return !video.paused && video.readyState >= 3 && video.currentTime > 0;
         });
         console.log('PASS: autoplay rejection offers Play and recovers');
