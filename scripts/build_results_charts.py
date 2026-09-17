@@ -65,10 +65,10 @@ def main():
             for t in camera['tasks']:
                 if t['group']==group:
                     rows.append(dict(key=t['key'],label=t['name'],values={metric:{m['key']:t['results'][m['key']][field] for m in METHODS} for metric,field in [('success','percent'),('progression','progression')]}))
-        trials=' Mean across seven equally weighted tasks. 25 trials per task and policy; 64 for tape.' if group is None else ' 25 trials per task and policy.'
+        caption_suffix=' Mean across seven equally weighted tasks.' if group is None else ''
         ptitle='Average task progression' if group is None else title.replace('Success','Task progression')
         charts[key]=dict(methods=[m for m in METHODS if m['key'] in methodkeys],rows=rows,defaultMetric='success',compact=group is None,
-            metrics=[metric('success','Success rate',title,SUCCESS+trials),metric('progression','Task progression',ptitle,PROGRESSION+trials)])
+            metrics=[metric('success','Success rate',title,SUCCESS+caption_suffix),metric('progression','Task progression',ptitle,PROGRESSION+caption_suffix)])
     tree=ET.parse(ROOT/'images/figure_sim.svg');ns={'s':'http://www.w3.org/2000/svg'}
     rects=sorted([r for r in tree.findall('.//s:rect',ns) if r.attrib.get('width')=='18'],key=lambda r:float(r.attrib['x']))
     assert len(rects)==21

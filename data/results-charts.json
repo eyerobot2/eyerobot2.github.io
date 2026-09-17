@@ -38,13 +38,13 @@
         "key": "success",
         "label": "Success rate",
         "title": "Average task success",
-        "caption": "Success rate is the percentage of trials that complete the full task. Mean across seven equally weighted tasks. 25 trials per task and policy; 64 for tape."
+        "caption": "Success rate is the percentage of trials that complete the full task. Mean across seven equally weighted tasks."
       },
       {
         "key": "progression",
         "label": "Task progression",
         "title": "Average task progression",
-        "caption": "Task progression is the average percentage of task stages completed in order. Mean across seven equally weighted tasks. 25 trials per task and policy; 64 for tape."
+        "caption": "Task progression is the average percentage of task stages completed in order. Mean across seven equally weighted tasks."
       }
     ]
   },
@@ -135,13 +135,13 @@
         "key": "success",
         "label": "Success rate",
         "title": "Success with unobstructed wrist views",
-        "caption": "Success rate is the percentage of trials that complete the full task. 25 trials per task and policy."
+        "caption": "Success rate is the percentage of trials that complete the full task."
       },
       {
         "key": "progression",
         "label": "Task progression",
         "title": "Task progression with unobstructed wrist views",
-        "caption": "Task progression is the average percentage of task stages completed in order. 25 trials per task and policy."
+        "caption": "Task progression is the average percentage of task stages completed in order."
       }
     ]
   },
@@ -205,13 +205,13 @@
         "key": "success",
         "label": "Success rate",
         "title": "Success under tool occlusion",
-        "caption": "Success rate is the percentage of trials that complete the full task. 25 trials per task and policy."
+        "caption": "Success rate is the percentage of trials that complete the full task."
       },
       {
         "key": "progression",
         "label": "Task progression",
         "title": "Task progression under tool occlusion",
-        "caption": "Task progression is the average percentage of task stages completed in order. 25 trials per task and policy."
+        "caption": "Task progression is the average percentage of task stages completed in order."
       }
     ]
   },

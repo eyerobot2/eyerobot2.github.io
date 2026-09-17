@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1060" height="150" viewBox="0 0 1060 150" role="img" aria-labelledby="title desc">
 <title id="title">Stereo and foveation ablations</title>
-<desc id="desc">Per-task successes and mean success rates for EyeRobot 2.0 and its vision ablations. Values transcribed unchanged from ablation_table.png.</desc>
-<style>text{font-family:"Avenir Next",Avenir,"Open Sans",sans-serif;font-size:20px;fill:#333}.heading{font-weight:600}.value{text-anchor:middle}</style>
+<desc id="desc">Per-task successes and mean success rates for EyeRobot 2.0 and its vision ablations. Bold values mark the best result in each column. Values transcribed unchanged from ablation_table.png.</desc>
+<style>text{font-family:"Avenir Next",Avenir,"Open Sans",sans-serif;font-size:20px;fill:#333}.heading{font-weight:600}.value{text-anchor:middle}.best{font-weight:700}</style>
 <path d="M8 3H1052 M8 40H1052 M8 148H1052" stroke="#777" fill="none"/>
 <text class="heading" x="18" y="28">Policy</text>
 <text class="heading value" x="310" y="28">boba</text>
@@ -13,7 +13,7 @@
 <text class="heading value" x="910" y="28">wrench</text>
 <text class="heading value" x="1010" y="28">Mean</text>
 <text x="18" y="70">EyeRobot 2.0 − foveation</text>
-<text class="value" x="310" y="70">12/25</text>
+<text class="value best" x="310" y="70">12/25</text>
 <text class="value" x="410" y="70">5/25</text>
 <text class="value" x="510" y="70">10/25</text>
 <text class="value" x="610" y="70">12/25</text>
@@ -32,11 +32,11 @@
 <text class="value" x="1010" y="104">48.5%</text>
 <text x="18" y="138">EyeRobot 2.0</text>
 <text class="value" x="310" y="138">11/25</text>
-<text class="value" x="410" y="138">17/25</text>
-<text class="value" x="510" y="138">13/25</text>
-<text class="value" x="610" y="138">20/25</text>
-<text class="value" x="710" y="138">13/25</text>
-<text class="value" x="810" y="138">60/64</text>
-<text class="value" x="910" y="138">19/25</text>
-<text class="value" x="1010" y="138">66.5%</text>
+<text class="value best" x="410" y="138">17/25</text>
+<text class="value best" x="510" y="138">13/25</text>
+<text class="value best" x="610" y="138">20/25</text>
+<text class="value best" x="710" y="138">13/25</text>
+<text class="value best" x="810" y="138">60/64</text>
+<text class="value best" x="910" y="138">19/25</text>
+<text class="value best" x="1010" y="138">66.5%</text>
 </svg>
