@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="190" viewBox="0 0 260 190" role="img" aria-labelledby="title desc">
+<title id="title">Removing wrist inputs roughly halves task success</title>
+<desc id="desc">Mean success across seven equally weighted tasks: Ego + Wrist 52.2%, ego stereo 27.0%. Policies are trained on the same demonstrations.</desc>
+<style>text{font-family:"Avenir Next",Avenir,"Open Sans",sans-serif;fill:#666;font-size:12px}.value{fill:#333;font-size:16px;font-weight:500}</style>
+<text x="130" y="17" text-anchor="middle">Average task success</text>
+<line x1="18" y1="146" x2="242" y2="146" stroke="#dde2e5"/>
+<rect x="38" y="65.0402" width="50" height="80.9598" rx="2" fill="#5c8fc5"/>
+<rect x="172" y="104.1223" width="50" height="41.8777" rx="2" fill="#7fc0a3"/>
+<text class="value" x="63" y="56.0402" text-anchor="middle">52%</text>
+<text class="value" x="197" y="95.1223" text-anchor="middle">27%</text>
+<path d="M99 61C126 61 143 74 156 90" fill="none" stroke="#96a0a7" stroke-width="1.5"/>
+<path d="M147 87L156 90L155 80" fill="none" stroke="#96a0a7" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="134" y="50" text-anchor="middle" style="font-size:15px;fill:#78848d">≈½</text>
+<text x="63" y="168" text-anchor="middle">Ego + Wrist</text>
+<text x="197" y="168" text-anchor="middle">Ego stereo</text>
+</svg>

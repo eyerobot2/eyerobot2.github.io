@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', align);
         render();
     });
-    document.querySelectorAll('video:not(.carousel-track video):not(.fixation-panels video):not(.camera-comparisons video)')
+    document.querySelectorAll('video:not(.carousel-track video):not(.fixation-panels video):not(.camera-comparisons video):not(.intro-resolution-inset video)')
         .forEach(video => {
             if (!video.hidden && video.style.display !== 'none') SiteMedia.createPlayer(video, [video]);
         });

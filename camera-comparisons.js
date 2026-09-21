@@ -1,6 +1,9 @@
 /* Task selection uses the same bounded media loader as the main carousels. */
 (() => {
     'use strict';
+    document.querySelectorAll('[data-intro-boba-videos]').forEach(root => {
+        if (window.SiteMedia) SiteMedia.createPlayer(root, [root], { synchronize: true });
+    });
     document.querySelectorAll('.camera-samples').forEach(root => {
         const panels = [...root.querySelectorAll('.camera-trial')];
         const buttons = [...root.querySelectorAll('[data-camera-index]')];

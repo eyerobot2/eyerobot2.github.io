@@ -1,0 +1,26 @@
+{
+  "source": "sphynx:~/eyeball/recordings/supp_vid_wrench/episode_014/left.mp4",
+  "source_sha256": "6c50f217ef0d4cb906fbc3c1344b2712520b196230f3255c82e886720e2865a1",
+  "requested_time_seconds": 16.367,
+  "frame_index": 491,
+  "actual_time_seconds": 16.366666666666667,
+  "native_dimensions": [
+    1600,
+    1200
+  ],
+  "low_dimensions": [
+    256,
+    192
+  ],
+  "interpolation": "OpenCV INTER_LINEAR downsample and upsample",
+  "brightness_adjustment": {
+    "gamma_exponent": 0.65,
+    "formula": "255 * (pixel / 255) ** 0.65",
+    "applied_identically_to_both_resolutions": true
+  },
+  "duration_seconds": 8,
+  "fps": 30.0,
+  "boundary": "width * (1 - cos(2*pi*t/duration)) / 2; high resolution left, low resolution right; begins entirely low resolution",
+  "video_sha256": "684d4359a9ec08a8c6f50cc558ea2826f61f040544fd5695ebffa88898aa67e5",
+  "poster_sha256": "ff39a9e45d61ba2240ec20ce10dafef9b243ff3df8e5aa9486f72cd78701564e"
+}

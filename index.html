@@ -250,19 +250,113 @@
         <div class="section base-row add-top-padding">
             <div style="width: 100%;">
                 <!-- <h1>Overview</h1> -->
-                <h1>Do robots need wrist cameras?</h1>
+                <h1>How should robots see the world?</h1>
                 <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        Behavior cloning systems today overwhelmingly rely on wrist cameras for fine-grained manipulation. Their high-resolution gripper-centric observations
-                        improve precision and spatial reasoning via a sort of <b>physical attention</b> where it matters, enabling much better performance than ego or exo-centric views alone.
-                        In this work we explore an alternative method of physical attention inspired by the human visual system; policies which use <b>active gaze</b>
-                        to look at what matters during task execution.
+                        Precise manipulation requires high acuity vision. But how should we achieve this? With only ego-centric views this is non-trivial, a single 1920x1080 image requires 8100 tokens to represent!
+                        If we use more tractable image sizes, it's difficult to see what's going on in the scene.
+                    </p>
+
+                    <figure class="intro-resolution-figure intro-resolution-inset">
+                        <div class="intro-resolution-composition">
+                            <video class="intro-resolution-overview" loop muted playsinline preload="none" width="1600" height="1200" aria-label="Wrench overview: a sweep from 256-pixel resolution to full resolution and back" data-poster="data/intro-resolution/wrench-resolution-sweep.webp?v=ff39a9e45d61">
+                                <source data-src="data/intro-resolution/wrench-resolution-sweep.mp4?v=684d4359a9ec" type="video/mp4" />
+                            </video>
+                            <video class="intro-resolution-detail" loop muted playsinline preload="none" width="528" height="396" aria-label="Synchronized magnification of the gripper fingertips" data-poster="data/intro-resolution/wrench-fingertip-sweep.webp?v=09872ed44e84">
+                                <source data-src="data/intro-resolution/wrench-fingertip-sweep.mp4?v=9e10877935fd" type="video/mp4" />
+                            </video>
+                            <svg class="intro-resolution-guide" viewBox="0 0 1600 720" aria-hidden="true">
+                                <g fill="none" stroke="#8d979e" stroke-width="2" stroke-dasharray="4 8">
+                                    <path d="M624 300L992 132 M624 444L992 588" />
+                                    <rect x="432" y="300" width="192" height="144" />
+                                </g>
+                                <rect x="992" y="132" width="606" height="455" rx="4" fill="none" stroke="#bdc5ca" stroke-width="2" />
+                            </svg>
+                        </div>
+
+                    </figure>
+
+                    <p class="paragraph">
+                        The way the community solved this is with wrist cameras, which give high-res inputs right where manipulation is happening.
+                        But colocating vision with action has a number of problems:
+                    </p>
+
+                    <ol class="intro-problems">
+                        <li>
+                            <p class="paragraph">
+                                <strong class="intro-problem-heading">Manipulation necessarily occludes wrist cameras,</strong> especially when using tools, manipulating large objects, or doing whole-body manipulation.
+                                At worst, it can't see anything, at best you have to collect demonstrations unintuitively to maintain visibility.
+                            </p>
+
+                            <figure class="intro-boba-figure camera-comparisons">
+                                <div class="intro-boba-row" data-intro-boba-videos>
+                                    <div class="camera-video-frame intro-boba-view">
+                                        <video controls loop muted playsinline preload="none" width="640" height="480" aria-label="Boba: left wrist camera, episode-001" data-poster="data/camera-comparisons/boba-intro-wrist-left.jpg">
+                                            <source data-src="data/camera-comparisons/boba-intro-wrist-left.mp4" type="video/mp4">
+                                        </video>
+                                        <div class="camera-wrist-labels"><span>Left wrist</span></div>
+                                    </div>
+                                    <div class="camera-video-frame intro-boba-view">
+                                        <video controls loop muted playsinline preload="none" width="640" height="480" aria-label="Boba: right wrist camera, episode-001" data-poster="data/camera-comparisons/boba-intro-wrist-right.jpg">
+                                            <source data-src="data/camera-comparisons/boba-intro-wrist-right.mp4" type="video/mp4">
+                                        </video>
+                                        <div class="camera-wrist-labels"><span>Right wrist</span></div>
+                                    </div>
+                                </div>
+                                <figcaption class="camera-view-note"></figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <p class="paragraph">
+                                <strong class="intro-problem-heading">It frustrates gripper designs.</strong> Introducing wrist cameras makes manipulators bulkier, more brittle, and prone to motion blur, damage, and dirt.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="paragraph">
+                                <strong class="intro-problem-heading">It complicates transfer from human ego data,</strong> the most abundant and easiest form of data to scale. Imagine picking up something with a camera on your hand!
+                            </p>
+                        </li>
+                    </ol>
+
+                    <div class="paragraph-with-sidenote">
+                        <p class="paragraph">
+                            If we had policies which work well purely from ego views, our lives would be so much easier as roboticists!<sup class="footnote-marker"><a class="footnote-ref" id="umi-ref" href="#umi-note" aria-label="Footnote 1">1</a></sup>
+                            But, ego-only policies are notoriously difficult to get working, and often have much lower success rates.
+                        </p>
+                        <aside class="sidenote" id="umi-note" role="note">
+                            <a class="sidenote-number" href="#umi-ref" aria-label="Back to footnote 1">1</a> One benefit of wrist cameras is being arm-agnostic, which enables capture glove style data.
+                        </aside>
+                    </div>
+
+                    <aside class="takeaway-callout intro-baseline-callout" aria-label="Wrist camera baseline comparison">
+                        <div class="takeaway-text">
+                            <p class="takeaway-statement">Removing wrist cameras craters performance.</p>
+                            <p class="takeaway-detail">Trained on the same demonstrations across our 7 real-world tasks.</p>
+                        </div>
+                        <figure class="takeaway-figure">
+                            <img src="images/figure_ego_drop.svg" alt="Average task success drops from 52% with Ego + Wrist to 27% with ego stereo, approximately half." width="260" height="190" loading="lazy" decoding="async" />
+                        </figure>
+                    </aside>
+
+                    <p class="paragraph">
+                        So how could we get the benefits of wrist cameras -- resolution, spatial understanding, and gripper-centricity -- purely from an ego view, while preserving the ability to search the scene independently of manipulation?
                     </p>
 
                     <p class="paragraph">
-                        EyeRobot 2.0 can carry out precise, multi-step tasks like capping a marker, zipping a bag, or inserting a straw, all from a single ego-centric perspective.
-                        All policies below are single-task and trained from scratch on less than an hour of teleop data.
+                        Inspired by human vision, EyeRobot 2.0 uses <b>active gaze</b>
+                        to look at what matters, adaptively moving focus around the scene.
+                        This lets EyeRobot 2.0 carry out precise, multi-step tasks like capping a marker, zipping a bag, or inserting a straw, all from an ego-centric perspective.
                     </p>
+
+                <aside class="takeaway-callout intro-results-callout" aria-label="Key takeaway">
+                    <div class="takeaway-text">
+                        <p class="takeaway-statement">EyeRobot 2.0 matches the performance of wrist cameras, and beats them under tool occlusions!</p>
+                        <p class="takeaway-detail takeaway-experiments"><a href="#experiments">See experiments and full results →</a></p>
+                    </div>
+                    <figure class="takeaway-figure">
+                        <img src="images/figure_takeaway.svg" alt="Average real-world success rate: No Gaze 27%, Ego plus Wrist 52%, EyeRobot 2.0 67%, over 640 trials" width="260" height="170" loading="lazy" decoding="async" />
+                    </figure>
+                </aside>
                 </div>
             </div>
 
@@ -374,19 +468,9 @@
             </div>
 
             <div style="width: 100%;">
-                <!-- Abridged takeaway before the method section; full results live in Experiments below -->
-                <aside class="takeaway-callout" aria-label="Key takeaway">
-                    <div class="takeaway-text">
-                        <p class="takeaway-statement">Active gaze from a single stereo camera matches wrist-camera performance.</p>
-                        <p class="takeaway-detail">Across 640 real-world trials, we compare EyeRobot 2.0 with ego + wrist camera policies and passive stereo policies trained on the same demonstrations. Every one of our trials is browsable in the <a href="viewer/">Eval Browser</a>.</p>
-                        <p class="takeaway-detail takeaway-experiments"><a href="#experiments">See experiments and full results →</a></p>
-                    </div>
-                    <figure class="takeaway-figure">
-                        <img src="images/figure_takeaway.svg" alt="Average real-world success rate: No Gaze 27%, Ego plus Wrist 52%, EyeRobot 2.0 67%, over 640 trials" width="260" height="170" loading="lazy" decoding="async" />
-                    </figure>
-                </aside>
 
-                <h3>Stereo policies with active gaze</h3>
+
+                <h3>See what the policy sees</h3>
                 <div class="carousel-container policy-carousel-container" style="margin-top: 12px;">
                     <div class="carousel-track-container">
                         <!-- Slide order must match the results grid above, so "the same
@@ -489,12 +573,12 @@
                 <div class="paragraph-with-sidenote policy-rollout-intro">
                     <p class="paragraph">
                         The robot learns to coordinate its gaze with a two-stage reinforcement learning pipeline, <b>no gaze demonstrations required</b>!
-                        We first train a semantic gaze module, then use it to learn a gaze sequencing policy which directly optimizes BC accuracy as its reward. The eye motion shown here was exactly what the policy looked at during execution. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">1</a></sup> image processing, which allocates
+                        We first train a semantic gaze module, then use it to learn a gaze sequencing policy which directly optimizes BC accuracy as its reward. The eye motion shown here was exactly what the policy looked at during execution. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">2</a></sup> image processing, which allocates
                         high resolution image tokens towards the center.
                          <!-- This behavior was <i>never supervised</i> and emerged through RL. -->
                     </p>
                     <aside class="sidenote" id="foveation-note" role="note">
-                        <a class="sidenote-number" href="#foveation-ref" aria-label="Back to footnote">1</a> Foveation is a property prevalant in biological vision where organisms' retinas have very high
+                        <a class="sidenote-number" href="#foveation-ref" aria-label="Back to footnote">2</a> Foveation is a property prevalant in biological vision where organisms' retinas have very high
                         angular resolution in the center, and very poor resolution in the periphery.
                     </aside>
                 </div>
@@ -1000,12 +1084,12 @@
                 <p class="paragraph">
                     Loosely speaking, there's a few main ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
                     3) increase data manifold coverage by making the manifold itself more compact. Much of EyeRobot 2.0's design follows the third approach, reducing the complexity
-                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">2</a></sup>.
+                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">3</a></sup>.
                     This shares a motivation with equivariant learning: reducing variation by expressing observations and actions in a common frame, here defined by gaze.
                 </p>
 
                 <aside class="sidenote" id="fixation-relative-note" role="note">
-                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">2</a> Wrist cameras are an example of this too.
+                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">3</a> Wrist cameras are an example of this too.
                      Think about how easy it is to move left and right from an aligned wrist view, vs left and right from a distal fixed view.
                      Gripper-centric viewpoints make the servoing data manifold more compact.
                 </aside>
@@ -1130,14 +1214,14 @@
 
             <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        In total we evaluated <b>over 1,000 real-world rollouts</b> across all baselines and ablations for EyeRobot 2.0. We compare against two strong baselines that use the same policy architecture as EyeRobot 2.0 and are trained on the exact same demonstrations<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
+                        In total we evaluated <b>over 1,000 real-world rollouts</b> across all baselines and ablations for EyeRobot 2.0. We compare against two strong baselines that use the same policy architecture as EyeRobot 2.0 and are trained on the exact same demonstrations<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">4</a></sup>.
                         The first baseline uses the RGB stereo inputs directly ("No Gaze"), and the second uses one stereo image along with two wrist-mounted cameras ("Ego + Wrist").
                         Note that <i>both baselines have a significant observability advantage</i>, since EyeRobot 2.0's field of view is such that it cannot see the entire stereo image at once.
                         Both baselines are provided a full coverage view of the table, and with wrist cameras two additional high-resolution viewpoints of the gripper.
 
                     </p>
                     <aside class="sidenote" id="demonstrations-note" role="note">
-                        <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">3</a> We collect all data with wrist cameras for even comparison,
+                        <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">4</a> We collect all data with wrist cameras for even comparison,
                          for the main video results we actually took off the wrist cameras and EyeRobot 2.0 could handle the visual difference.
                     </aside>
             </div>
@@ -1770,6 +1854,7 @@
     </div>
 
     <script src="carousels.js?v=task-groups1" defer></script>
+    <script src="intro-resolution.js?v=inset1" defer></script>
 
 </body>
 
