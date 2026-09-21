@@ -22,9 +22,9 @@ async function main() {
             'Below-fold fixation videos must not download on initial navigation');
         assert(!requests.some(url => url.includes('/web-posters/posters/gaze_probs')),
             'Far-offscreen posters must stay deferred');
-        assert(!requests.some(url => /\/web-video\/(results-|policy_)/.test(url)),
+        assert(!requests.some(url => /\/(web-video\/(results-|policy_)|results-gaze\/)/.test(url)),
             'Intro scrub bars must not trigger video or metadata downloads on initial navigation');
-        assert.equal(await page.locator('#real-results-carousel .video-playback-controls, #policy-carousel .video-playback-controls').count(), 14);
+        assert.equal(await page.locator('#real-results-carousel .video-playback-controls').count(), 7);
         console.log('PASS: initial video/poster loading is selective');
 
         for (const width of [320, 390, 768, 1440]) {
@@ -59,7 +59,7 @@ async function main() {
 
         for (const width of [390, 1200]) {
             await page.setViewportSize({ width, height: 844 });
-            for (const id of ['real-results-carousel', 'policy-carousel']) {
+            for (const id of ['real-results-carousel']) {
                 const intro = page.locator('.carousel-container').filter({ has: page.locator(`#${id}`) });
                 await intro.scrollIntoViewIfNeeded();
                 await intro.locator('.carousel-nav .current-slide').click();
@@ -69,8 +69,25 @@ async function main() {
                 }, id);
                 const selected = intro.locator('.carousel-track .current-slide');
                 const slider = selected.locator('input[type="range"]');
+                const focusToggle = intro.locator('.results-focus-toggle');
+                for (const enlarged of [true, false]) {
+                    await focusToggle.click();
+                    await page.waitForTimeout(300);
+                    assert.equal(await focusToggle.getAttribute('aria-pressed'), String(enlarged));
+                    const dimensions = await selected.locator('.results-gaze-inset').evaluate(inset => {
+                        const frame = inset.getBoundingClientRect();
+                        const video = inset.querySelector('video').getBoundingClientRect();
+                        return { frameRatio: frame.width / frame.height, videoRatio: video.width / video.height };
+                    });
+                    assert(Math.abs(dimensions.videoRatio - 2) < .01, 'Stereo pixels retain their aspect ratio');
+                    assert(Math.abs(dimensions.frameRatio - (enlarged ? 2 : 1)) < .01,
+                        'Gaze expands from a single square eye to the stereo pair');
+                    assert(await selected.locator('video').evaluateAll(videos => videos.every(v => !v.paused)),
+                        'Focus changes preserve playback');
+                }
+
                 await selected.locator('.distractor-play-toggle').click();
-                assert(await selected.locator('video').evaluate(v => v.paused));
+                assert(await selected.locator('video').evaluateAll(videos => videos.every(v => v.paused)));
                 await slider.evaluate(input => {
                     input.value = '650';
                     input.dispatchEvent(new Event('input', { bubbles: true }));
@@ -78,6 +95,10 @@ async function main() {
                 await page.waitForFunction(id => {
                     const v = document.querySelector(`#${id} .current-slide video`);
                     return !v.seeking && Math.abs(v.currentTime / v.duration - .65) < .01;
+                }, id);
+                await page.waitForFunction(id => {
+                    const [robot, gaze] = document.querySelectorAll(`#${id} .current-slide video`);
+                    return gaze.readyState >= 2 && Math.abs(robot.currentTime - gaze.currentTime) < .2;
                 }, id);
                 await slider.focus();
                 await slider.press('Home');
@@ -90,7 +111,7 @@ async function main() {
                     return v.readyState >= 3 && !v.paused && v.currentTime < 2;
                 }, id);
                 assert(await intro.locator('video').evaluateAll(videos =>
-                    videos.filter(v => v.querySelector('source[src]')).length <= 2),
+                    videos.filter(v => v.querySelector('source[src]')).length <= 4),
                     'Intro controls must preserve the two-slide loading bound');
                 await page.waitForFunction(id => {
                     const r = document.querySelector(`#${id} .current-slide .video-playback-controls`).getBoundingClientRect();

@@ -817,6 +817,104 @@ h1.tldr {
 
 .real-results-carousel-container .results-grid-item::after { content: none; }
 
+.results-gaze-composition {
+    position: relative;
+    aspect-ratio: 100 / 52.25;
+}
+
+.results-robot-view {
+    box-sizing: border-box;
+    position: absolute;
+    width: 84%;
+    left: 0;
+    top: 0;
+    transform-origin: top left;
+}
+
+.real-results-carousel-container .results-robot-view video {
+    border-radius: 8px;
+}
+
+.results-gaze-inset {
+    box-sizing: border-box;
+    position: absolute;
+    width: 29%;
+    right: 0;
+    bottom: 0;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(29, 44, 57, 0.12);
+    transform-origin: top left;
+    z-index: 1;
+}
+
+.results-gaze-focused .results-gaze-inset {
+    width: 84%;
+    left: 0;
+    right: auto;
+    top: 0;
+    bottom: auto;
+    border-width: 0;
+    box-shadow: none;
+    z-index: 0;
+}
+
+.results-gaze-focused .results-robot-view {
+    width: 42%;
+    left: auto;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(29, 44, 57, 0.12);
+    z-index: 1;
+}
+
+.results-focus-toggle {
+    border: 1px solid #dce1e5;
+    border-radius: 6px;
+    background: #f4f6f7;
+    color: #596773;
+    padding: 6px 10px;
+    font: 12px 'Avenir Next', Avenir, sans-serif;
+    cursor: pointer;
+}
+
+.results-focus-toggle:hover { background: #e8edf0; }
+.results-focus-toggle:focus-visible { outline: 2px solid #7894aa; outline-offset: 3px; }
+
+.real-results-carousel-container .results-gaze-inset video {
+    width: 200%;
+    max-width: none;
+    aspect-ratio: 2;
+    height: auto;
+}
+
+.real-results-carousel-container.results-gaze-focused .results-gaze-inset video {
+    width: 100%;
+}
+
+.results-gaze-label {
+    position: absolute;
+    bottom: 9px;
+    left: 10px;
+    padding: 4px 7px;
+    border-radius: 4px;
+    background: rgba(37, 48, 57, 0.7);
+    color: #fff;
+    font: 11px 'Avenir Next', Avenir, sans-serif;
+    pointer-events: none;
+}
+
+@media (max-width: 550px) {
+    .results-gaze-inset { border-width: 3px; border-radius: 7px; }
+    .results-gaze-focused .results-robot-view { border-width: 3px; border-radius: 7px; }
+    .results-focus-toggle { padding: 5px 7px; font-size: 10px; }
+    .results-gaze-label { bottom: 5px; left: 5px; padding: 3px 5px; font-size: 9px; }
+}
+
 .results-gallery-footer {
     display: flex;
     align-items: center;

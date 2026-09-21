@@ -1,0 +1,175 @@
+{
+  "alignment": "alignment.json",
+  "processing": "Start after the configured manual anchor lead-in (15 frames; Tea 5 frames). Keep only shared duration at 30 fps. Stereo resized to 1024x512. No freeze padding.",
+  "tasks": [
+    {
+      "task": "marker",
+      "robot_start_seconds": 0.5,
+      "gaze_start_seconds": 1.2,
+      "frames": 766,
+      "fps": 30,
+      "duration_seconds": 25.533333333333335,
+      "sources": {
+        "robot": "data/web-video/results-sdr/result_02_marker.mp4",
+        "robot_av1": "data/web-video/results-av1/result_02_marker.mp4",
+        "gaze": "data/policy_marker.mp4"
+      },
+      "source_sha256": {
+        "robot": "c6cf91c6be882d969252c7e5fe203383baf992920171b14b5959a8c38ddbb369",
+        "robot_av1": "e384f6d517737472c4010fdc612e347701a10cf142a0f25ceaa3e902f132bad6",
+        "gaze": "637e53cb3c607bbe448c18745f7d83469986fc52d61cf3ec91e9f66f28ca6de4"
+      },
+      "output_sha256": {
+        "robot": "8bea3969c682d1940b4f138d43b1bf9b95b4b45d546b4452384746e4fcd24a77",
+        "robot_av1": "5c93c7ca1eebda6594a5dd2105b344eb34607d3e2a31059e1594b759828577cd",
+        "stereo": "0a2a22cc013fbc434c7113577e66039473c40b1317d6cd3901e2f98fa6c0827a"
+      },
+      "note": "Aligned by user-marked movement onset."
+    },
+    {
+      "task": "toaster",
+      "robot_start_seconds": 0.5,
+      "gaze_start_seconds": 1.3,
+      "frames": 858,
+      "fps": 30,
+      "duration_seconds": 28.6,
+      "sources": {
+        "robot": "data/web-video/results-sdr/result_06_toaster.mp4",
+        "robot_av1": "data/web-video/results-av1/result_06_toaster.mp4",
+        "gaze": "data/policy_toaster.mp4"
+      },
+      "source_sha256": {
+        "robot": "119b0e500ebd98d5b8bd69faf5b564fef49613f2f2646e954ab78482fbfec117",
+        "robot_av1": "43c119fcc2580bfce16e87fca3b6e88f0ad357fbf94c0981ac7d44c2f4b20714",
+        "gaze": "823e401e9347565355faafdb4065d0bbd81c541293e21b7764c690070e35f3e2"
+      },
+      "output_sha256": {
+        "robot": "871b8267dcbee5a8ce81be8845f70e6a4e602d391e4e65e5997531d0ce4e5bd8",
+        "robot_av1": "7f9a89f8d9dce1a06e423950f42858170f5cce993aa895b45d75c84cb89ea480",
+        "stereo": "54a70f33a4dc05f3cb304ca61809c47b41fb3a147be3b5aed518c932ef26178a"
+      },
+      "note": "Aligned by user-marked movement onset."
+    },
+    {
+      "task": "wrench",
+      "robot_start_seconds": 1.3,
+      "gaze_start_seconds": 1.4,
+      "frames": 510,
+      "fps": 30,
+      "duration_seconds": 17.0,
+      "sources": {
+        "robot": "data/web-video/results-sdr/result_07_wrench.mp4",
+        "robot_av1": "data/web-video/results-av1/result_07_wrench.mp4",
+        "gaze": "data/policy_wrench.mp4"
+      },
+      "source_sha256": {
+        "robot": "6051cec9e0e552ba4cb7b6374df681a7b48f3272bd47aa3994b0666f69757b8c",
+        "robot_av1": "3cd323e6e197995ac6e5b0ba6fd10a6cf0a0a78bf81cd29ea796021893897725",
+        "gaze": "79f9584be808524e7a232348810100f51de2eb144c5d62725743820ef3933100"
+      },
+      "output_sha256": {
+        "robot": "561aff97c717ad1d4cc4301865616c9462457c17abbfca1219bd7e30d1d88358",
+        "robot_av1": "573e00e1cced63ecae2aa24d29562473f91bab84807213a63c493ed3de6e9a12",
+        "stereo": "91b7e23dfd357931ceca86f62c09f1df3d1149a7ac4a14ebbf2b254b87f233cb"
+      },
+      "note": "Aligned by user-marked movement onset."
+    },
+    {
+      "task": "boba",
+      "robot_start_seconds": 0.5,
+      "gaze_start_seconds": 1.2333333333333334,
+      "frames": 437,
+      "fps": 30,
+      "duration_seconds": 14.566666666666666,
+      "sources": {
+        "robot": "data/web-video/results-sdr/result_01_boba.mp4",
+        "robot_av1": "data/web-video/results-av1/result_01_boba.mp4",
+        "gaze": "data/policy_boba.mp4"
+      },
+      "source_sha256": {
+        "robot": "8e23c793b66881196060b99c99e83334f10e0b1dd5d7564daec647b9f44008df",
+        "robot_av1": "00fbfcd97b58f06f0e5691c1e37a251f972a359bfd7f702100c532a9376a8e5e",
+        "gaze": "a7d7b132edbc4cfac1291758da87a380815b4bc645e02ed9862c2a938b644e5d"
+      },
+      "output_sha256": {
+        "robot": "bdc02f3505bbcd95833607dbc5b75eb29a122f783ad2aedce463266d6d23fed0",
+        "robot_av1": "3029e699cb66c6fa33dfc3068e85d947012dca6d199d38c3efb55dc586dd1725",
+        "stereo": "be0c56015ccba4b13b9efcc36a5c957d246e5582c50634acb9d10de304f66c07"
+      },
+      "note": "Aligned by user-marked movement onset."
+    },
+    {
+      "task": "tea",
+      "robot_start_seconds": 1.7333333333333334,
+      "gaze_start_seconds": 0.8999999999999999,
+      "frames": 222,
+      "fps": 30,
+      "duration_seconds": 7.4,
+      "sources": {
+        "robot": "data/results-gaze/sources/tea-001-iphone-hlg.mp4",
+        "robot_av1": "data/results-gaze/sources/tea-001-iphone-hlg.mp4",
+        "gaze": "data/policy_tea.mp4"
+      },
+      "source_sha256": {
+        "robot": "d84fe1b89142736bd6c898fbffccebc142983d4ba6f884b0b879644b3d776be6",
+        "robot_av1": "d84fe1b89142736bd6c898fbffccebc142983d4ba6f884b0b879644b3d776be6",
+        "gaze": "ce695320aa5828b3e01ccf36435a882e0ff487b2f3f67a0c0a23e00c0d7f9b51"
+      },
+      "output_sha256": {
+        "robot": "e42fa094ef3805cbebadd6383dc20c0396257d3f5af84438603c32d00cb2ff3c",
+        "robot_av1": "21d4d32ef38750999c42b5d672b575b19803daffda6be0616474d93b3fb98609",
+        "stereo": "625637113fabd3ff607c3aeb2331181a13ff767306e4ac99902146def14bb308"
+      },
+      "grading": "zscale=t=linear:npl=600,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=mobius:desat=0:peak=1.667,zscale=t=bt709:m=bt709:r=tv:dither=error_diffusion,format=yuv420p10le,deband=1thr=0.03:2thr=0.03:3thr=0.03:range=32:blur=1,scale=1600:900:flags=lanczos,",
+      "note": "Matching episode 001 confirmed by user. Tea starts five 30-fps frames after the manual movement anchors; other tasks retain fifteen."
+    },
+    {
+      "task": "tape",
+      "robot_start_seconds": 0.5,
+      "gaze_start_seconds": 1.2,
+      "frames": 298,
+      "fps": 30,
+      "duration_seconds": 9.933333333333334,
+      "sources": {
+        "robot": "data/web-video/results-sdr/result_04_tape.mp4",
+        "robot_av1": "data/web-video/results-av1/result_04_tape.mp4",
+        "gaze": "data/policy_tape.mp4"
+      },
+      "source_sha256": {
+        "robot": "0f99a2cfd8e9d3da33b54f4f808ab8e81662a07786fb0fb15d85616dbb1a0966",
+        "robot_av1": "27be56d116f53d722b8b10e9a80970b6c8e7e43cbdcf7f7dd4781219f4b196a6",
+        "gaze": "d8c5cd4193834e5ad0204ee3b537456d79089f5ad3d12975ad211314772d651d"
+      },
+      "output_sha256": {
+        "robot": "466d7a8230e1d581f1d84b07630b253c892484575cc8700ad2d3e751ab0e721c",
+        "robot_av1": "8244803a336e9a173f71e15edc2a61251cb5ae2120791ea6202460e1e40cc2df",
+        "stereo": "71122e958b8ec22bc573056ee8e3f3ebd7a750253370d6ec2daddfd63656712a"
+      },
+      "note": "Aligned by user-marked movement onset."
+    },
+    {
+      "task": "pot",
+      "robot_start_seconds": 0.7,
+      "gaze_start_seconds": 1.3,
+      "frames": 180,
+      "fps": 30,
+      "duration_seconds": 6.0,
+      "sources": {
+        "robot": "data/web-video/results-sdr/result_03_pot.mp4",
+        "robot_av1": "data/web-video/results-av1/result_03_pot.mp4",
+        "gaze": "data/policy_pot.mp4"
+      },
+      "source_sha256": {
+        "robot": "2e564c18234226f6cf4e9f4388a7f08cfa79bc2470ede47df193f0824523b8e9",
+        "robot_av1": "4605aa2bb77311b5ea88b747f86730c96a0b92e68ef4e7d975517c588a45e304",
+        "gaze": "cc44e639b2c05023a3ca04eaf8dd5a491bf4cac63ba3200513cc09b21bf1f094"
+      },
+      "output_sha256": {
+        "robot": "170c13f64eac938b80d070e7bb12183ec5878af9b33850aef961363bc61b6402",
+        "robot_av1": "14bba77a41b2f05a8ad836ac06913bf2f651a8ebfba094b8c1219da77ef572b8",
+        "stereo": "8e95239124ade316d5e302316490639adcbf074fece01077639f71e63133981f"
+      },
+      "note": "Aligned by user-marked movement onset."
+    }
+  ]
+}

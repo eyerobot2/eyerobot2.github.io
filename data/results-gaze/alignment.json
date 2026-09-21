@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "mapping": "gaze_master_seconds = current_website_robot_seconds + offset_seconds",
+  "start_after_anchor_seconds": 0.5,
+  "tasks": [
+    {
+      "task": "marker",
+      "robot_source": "data/web-video/results-sdr/result_02_marker.mp4",
+      "gaze_source": "data/policy_marker.mp4",
+      "robot_seconds": 0.0,
+      "gaze_seconds": 0.7,
+      "robot_frame": 0,
+      "gaze_frame": 21,
+      "offset_seconds": 0.7,
+      "fps": 30,
+      "updated_at": "2026-09-21T23:23:44.091Z"
+    },
+    {
+      "task": "toaster",
+      "robot_source": "data/web-video/results-sdr/result_06_toaster.mp4",
+      "gaze_source": "data/policy_toaster.mp4",
+      "robot_seconds": 0.0,
+      "gaze_seconds": 0.8,
+      "robot_frame": 0,
+      "gaze_frame": 24,
+      "offset_seconds": 0.8,
+      "fps": 30,
+      "updated_at": "2026-09-21T23:23:59.539Z"
+    },
+    {
+      "task": "wrench",
+      "robot_source": "data/web-video/results-sdr/result_07_wrench.mp4",
+      "gaze_source": "data/policy_wrench.mp4",
+      "robot_seconds": 0.8,
+      "gaze_seconds": 0.9,
+      "robot_frame": 24,
+      "gaze_frame": 27,
+      "offset_seconds": 0.1,
+      "fps": 30,
+      "updated_at": "2026-09-21T23:24:30.244Z"
+    },
+    {
+      "task": "boba",
+      "robot_source": "data/web-video/results-sdr/result_01_boba.mp4",
+      "gaze_source": "data/policy_boba.mp4",
+      "robot_seconds": 0.0,
+      "gaze_seconds": 0.7333333333333333,
+      "robot_frame": 0,
+      "gaze_frame": 22,
+      "offset_seconds": 0.7333333333333333,
+      "fps": 30,
+      "updated_at": "2026-09-21T23:24:48.423Z"
+    },
+    {
+      "task": "tea",
+      "robot_source": "data/results-gaze/sources/tea-001-iphone-hlg.mp4",
+      "gaze_source": "data/policy_tea.mp4",
+      "robot_seconds": 1.5666666666666667,
+      "gaze_seconds": 0.7333333333333333,
+      "robot_frame": 47,
+      "gaze_frame": 22,
+      "offset_seconds": -0.8333333333333334,
+      "fps": 30,
+      "updated_at": "2026-09-21",
+      "note": "Matching episode 001 confirmed by user. Tea starts five 30-fps frames after the manual movement anchors; other tasks retain fifteen.",
+      "robot_source_origin": "sphynx:~/avf_supp_raw_vids/success_iphone_vids/CC749221-2F1F-4B3D-BE21-30B91651D4C9.MP4",
+      "robot_color": "HLG",
+      "start_after_anchor_seconds": 0.16666666666666666
+    },
+    {
+      "task": "tape",
+      "robot_source": "data/web-video/results-sdr/result_04_tape.mp4",
+      "gaze_source": "data/policy_tape.mp4",
+      "robot_seconds": 0.0,
+      "gaze_seconds": 0.7,
+      "robot_frame": 0,
+      "gaze_frame": 21,
+      "offset_seconds": 0.7,
+      "fps": 30,
+      "updated_at": "2026-09-21T23:26:10.322Z"
+    },
+    {
+      "task": "pot",
+      "robot_source": "data/web-video/results-sdr/result_03_pot.mp4",
+      "gaze_source": "data/policy_pot.mp4",
+      "robot_seconds": 0.2,
+      "gaze_seconds": 0.8,
+      "robot_frame": 6,
+      "gaze_frame": 24,
+      "offset_seconds": 0.6,
+      "fps": 30,
+      "updated_at": "2026-09-21T23:26:36.694Z"
+    }
+  ]
+}

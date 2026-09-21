@@ -11,7 +11,51 @@ document.addEventListener('DOMContentLoaded', () => {
         const available = () => slides.map((slide, index) => ({slide, index}))
             .filter(({slide}) => !taskTabs.length || slide.dataset.carouselGroup === task)
             .map(({index}) => index);
-        const player = SiteMedia.createPlayer(container, slides);
+        const hasGazeInset = container.matches('.real-results-carousel-container');
+        const player = SiteMedia.createPlayer(container, slides, { synchronize: hasGazeInset });
+        if (hasGazeInset) {
+            const focusToggle = document.createElement('button');
+            focusToggle.type = 'button';
+            focusToggle.className = 'results-focus-toggle';
+            focusToggle.textContent = 'Enlarge gaze ↗';
+            focusToggle.setAttribute('aria-pressed', 'false');
+            container.querySelector('.results-gallery-arrows').prepend(focusToggle);
+            focusToggle.addEventListener('click', () => {
+                const views = [...container.querySelectorAll('.current-slide .results-robot-view, .current-slide .results-gaze-inset')];
+                views.forEach(view => view.getAnimations().forEach(animation => animation.cancel()));
+                const before = views.map(view => view.getBoundingClientRect());
+                const gazeIsLarge = container.classList.toggle('results-gaze-focused');
+                container.querySelectorAll('.results-gaze-label').forEach(label => {
+                    label.textContent = gazeIsLarge ? 'Policy gaze · left / right' : 'Policy gaze';
+                });
+                focusToggle.textContent = gazeIsLarge ? 'Enlarge robot ↗' : 'Enlarge gaze ↗';
+                focusToggle.setAttribute('aria-pressed', String(gazeIsLarge));
+                if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                views.forEach((view, index) => {
+                    const from = before[index], to = view.getBoundingClientRect();
+                    const dx = from.left - to.left, dy = from.top - to.top;
+                    const sx = from.width / to.width, sy = from.height / to.height;
+                    view.animate([
+                        { transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})` },
+                        { transform: `translate(${dx * .45}px, ${dy * .45 - 12}px) scale(${1 + (sx - 1) * .45}, ${1 + (sy - 1) * .45})`, offset: .5 },
+                        { transform: 'none' },
+                    ], { duration: 240, easing: 'cubic-bezier(.2,.7,.2,1)' });
+                });
+            });
+        }
+        if (hasGazeInset) slides.forEach(slide => {
+            const robot = slide.querySelector('.results-robot-view video');
+            const gaze = slide.querySelector('.results-gaze-inset video');
+            if (!robot || !gaze) return;
+            const followRobot = () => {
+                if (gaze.readyState < 2 || !Number.isFinite(gaze.duration)) return;
+                const time = Math.min(robot.currentTime, gaze.duration);
+                if (Math.abs(gaze.currentTime - time) > 0.18) gaze.currentTime = time;
+            };
+            robot.addEventListener('seeking', followRobot);
+            robot.addEventListener('timeupdate', followRobot);
+            gaze.addEventListener('loadeddata', followRobot);
+        });
         let active = 0;
         const align = () => {
             if (!viewport || !slides[active]) return;
