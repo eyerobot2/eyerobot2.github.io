@@ -59,6 +59,7 @@
         let inView = false;
         let near = false;
         let wantsPlayback = !reduced.matches;
+        let pausedByUser = false;
         let message = '';
         let releaseTimer;
         let warmTimer;
@@ -87,7 +88,7 @@
             status.textContent = failed ? 'Video could not load.' : message ||
                 (waiting ? 'Loading video…' : '');
             action.textContent = failed || slow ? 'Retry' : 'Play';
-            action.hidden = !failed && !slow && wantsPlayback && !message;
+            action.hidden = !failed && !slow && (wantsPlayback || pausedByUser) && !message;
             feedback.classList.toggle('is-visible', Boolean(status.textContent) || !action.hidden);
             if (waiting && !loadingTimer && !slow) {
                 loadingTimer = setTimeout(() => {
@@ -171,6 +172,7 @@
         const player = {
             select(index) {
                 pauseAll();
+                pausedByUser = false;
                 active = index;
                 current().forEach(video => {
                     // Explicit navigation restarts the clip, including after
@@ -188,6 +190,7 @@
             },
             toggle(video) {
                 wantsPlayback = video.paused;
+                pausedByUser = !wantsPlayback;
                 message = '';
                 update();
             },
@@ -240,6 +243,7 @@
                 // Native controls may pause the teaser. Programmatic pauses clear desired first.
                 if (state.desired && video.paused && allowed(video) && !video.ended) {
                     wantsPlayback = false;
+                    pausedByUser = true;
                     pauseAll();
                     updateFeedback();
                 }

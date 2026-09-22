@@ -2,7 +2,7 @@
 (() => {
     'use strict';
     document.querySelectorAll('[data-intro-boba-videos]').forEach(root => {
-        if (window.SiteMedia) SiteMedia.createPlayer(root, [root], { synchronize: true });
+        if (window.SiteMedia) SiteMedia.createPlayer(root, [root]);
     });
     document.querySelectorAll('.camera-samples').forEach(root => {
         const panels = [...root.querySelectorAll('.camera-trial')];

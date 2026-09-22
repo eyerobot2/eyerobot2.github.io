@@ -21,7 +21,7 @@
 }
 
 .intro-boba-figure { width: 80%; margin: 24px auto 32px; }
-.intro-boba-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-.intro-boba-view { aspect-ratio: 4 / 3; }
-.intro-boba-view .camera-wrist-labels { grid-template-columns: 1fr; }
+.intro-boba-row { display: block; }
+.intro-boba-view { aspect-ratio: 8 / 3; }
+.intro-boba-view .camera-wrist-labels { grid-template-columns: 1fr 1fr; }
 .intro-boba-row > .media-feedback { grid-column: 1 / -1; }

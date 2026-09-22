@@ -59,7 +59,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link href="style.css?v=results-gaze1" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=mobile-intro2" rel="stylesheet" type="text/css" />
     <link href="gaze-transformer.css" rel="stylesheet" />
     <script src="gaze-transformer.js" defer></script>
     <link href="simulated-gaze.css" rel="stylesheet" />
@@ -69,12 +69,12 @@
     <link href="fixation-actions.css" rel="stylesheet" type="text/css" />
     <script src="fixation-actions.js" defer></script>
     <link href="results-charts.css" rel="stylesheet" />
-    <link href="camera-comparisons.css" rel="stylesheet" />
+    <link href="camera-comparisons.css?v=mobile-intro2" rel="stylesheet" />
     <script src="results-charts.js" defer></script>
     <link href="fixation-panels.css" rel="stylesheet" type="text/css" />
     <link href="media.css?v=1" rel="stylesheet" />
-    <script src="media.js?v=2" defer></script>
-    <script src="camera-comparisons.js" defer></script>
+    <script src="media.js?v=pause-feedback2" defer></script>
+    <script src="camera-comparisons.js?v=mobile-intro2" defer></script>
     <script src="fixation-panels.js?v=media1" defer></script>
 
     <!-- Carousel + separator styles -->
@@ -291,16 +291,10 @@
                             <figure class="intro-boba-figure camera-comparisons">
                                 <div class="intro-boba-row" data-intro-boba-videos>
                                     <div class="camera-video-frame intro-boba-view">
-                                        <video controls loop muted playsinline preload="none" width="640" height="480" aria-label="Boba: left wrist camera, episode-001" data-poster="data/camera-comparisons/boba-intro-wrist-left.jpg">
-                                            <source data-src="data/camera-comparisons/boba-intro-wrist-left.mp4" type="video/mp4">
+                                        <video controls loop muted playsinline preload="none" width="960" height="360" aria-label="Boba: left and right wrist cameras, episode-001" data-poster="data/camera-comparisons/boba-intro-wrists.jpg?v=da0d8a793165">
+                                            <source data-src="data/camera-comparisons/boba-intro-wrists.mp4?v=eaaa1b7d8cb9" type="video/mp4">
                                         </video>
-                                        <div class="camera-wrist-labels"><span>Left wrist</span></div>
-                                    </div>
-                                    <div class="camera-video-frame intro-boba-view">
-                                        <video controls loop muted playsinline preload="none" width="640" height="480" aria-label="Boba: right wrist camera, episode-001" data-poster="data/camera-comparisons/boba-intro-wrist-right.jpg">
-                                            <source data-src="data/camera-comparisons/boba-intro-wrist-right.mp4" type="video/mp4">
-                                        </video>
-                                        <div class="camera-wrist-labels"><span>Right wrist</span></div>
+                                        <div class="camera-wrist-labels"><span>Left wrist</span><span>Right wrist</span></div>
                                     </div>
                                 </div>
                                 <figcaption class="camera-view-note"></figcaption>
@@ -321,7 +315,7 @@
                     <div class="paragraph-with-sidenote">
                         <p class="paragraph">
                             If we had policies which work well purely from ego views, our lives would be so much easier as roboticists!<sup class="footnote-marker"><a class="footnote-ref" id="umi-ref" href="#umi-note" aria-label="Footnote 1">1</a></sup>
-                            But, ego-only policies are notoriously difficult to get working, and often have much lower success rates.
+                            But, ego-only policies have notoriously much lower success rates.
                         </p>
                         <aside class="sidenote" id="umi-note" role="note">
                             <a class="sidenote-number" href="#umi-ref" aria-label="Back to footnote 1">1</a> One benefit of wrist cameras is being arm-agnostic, which enables capture glove style data.

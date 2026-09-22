@@ -88,6 +88,8 @@ async function main() {
 
                 await selected.locator('.distractor-play-toggle').click();
                 assert(await selected.locator('video').evaluateAll(videos => videos.every(v => v.paused)));
+                assert(await intro.locator('.media-feedback button').isHidden(),
+                    'Manual pause must not show a redundant Play prompt');
                 await slider.evaluate(input => {
                     input.value = '650';
                     input.dispatchEvent(new Event('input', { bubbles: true }));

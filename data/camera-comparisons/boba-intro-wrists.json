@@ -1,0 +1,7 @@
+{
+  "sources": [
+    "data/camera-comparisons/boba-intro-wrist-left.mp4",
+    "data/camera-comparisons/boba-intro-wrist-right.mp4"
+  ],
+  "processing": "Horizontally stack matching wrist views. End at shorter clip. 960x360 H264 yuv420p, 30fps, CRF26, two-second keyframes, faststart. One decoder and shared native controls for mobile."
+}

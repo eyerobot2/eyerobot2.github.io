@@ -2879,3 +2879,7 @@ input:checked + .slider:before {
 
 .intro-baseline-callout,
 .intro-results-callout { margin: 24px 0 32px; }
+
+@media (max-width: 550px) {
+    .intro-resolution-figure.intro-resolution-inset { width: 100%; }
+}
