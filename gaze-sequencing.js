@@ -13,8 +13,8 @@
     for (const part of parts) part.classList.toggle('is-active', mode !== 'all' && part.dataset.focus.split(' ').includes(mode));
   }
   for (const button of buttons) button.addEventListener('click', () => select(button.dataset.mode));
-  // Start with a concrete example; Overview restores the complete figure.
-  select('bc');
+  // Start with the complete figure; the other tabs highlight one pipeline each.
+  select('all');
   const viewport = root.querySelector('.figure-scroll');
   const hint = root.querySelector('.scroll-hint');
   function updateScrollHint() { hint.hidden = viewport.scrollWidth <= viewport.clientWidth + 1; }
