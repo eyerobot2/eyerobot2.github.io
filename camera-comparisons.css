@@ -20,7 +20,9 @@
     .camera-view-note { font-size: 11px; }
 }
 
-.intro-boba-figure { width: 80%; margin: 24px auto 32px; }
+/* Centered on the column, not the indented list item (ol 2.25rem + li 0.5rem). */
+.intro-problems .intro-boba-figure { --indent: 2.75rem; width: calc((100% + var(--indent)) * .8); margin: 24px 0 32px calc((100% + var(--indent)) * .1 - var(--indent)); }
+@media (max-width: 550px) { .intro-problems .intro-boba-figure { width: calc(100% + var(--indent)); margin-left: calc(-1 * var(--indent)); } }
 .intro-boba-row { display: block; }
 .intro-boba-view { aspect-ratio: 8 / 3; }
 .intro-boba-view .camera-wrist-labels { grid-template-columns: 1fr 1fr; }
