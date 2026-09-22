@@ -59,7 +59,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link href="style.css?v=token-callout3" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=gaze-inset1" rel="stylesheet" type="text/css" />
     <link href="gaze-transformer.css" rel="stylesheet" />
     <script src="gaze-transformer.js" defer></script>
     <link href="simulated-gaze.css" rel="stylesheet" />
@@ -340,29 +340,30 @@
                         </figure>
                     </aside>
 
-                    <p class="paragraph">
+                    <p class="paragraph intro-question">
                         So how could we get the benefits of wrist cameras -- resolution, spatial understanding, and gripper-centricity -- purely from an ego view, while preserving the ability to search the scene independently of manipulation?
                     </p>
 
-                    <p class="paragraph">
-                        Inspired by human vision, EyeRobot 2.0 uses <b>active gaze</b>
-                        to look at what matters, adaptively moving focus around the scene.
-                        This lets EyeRobot 2.0 carry out precise, multi-step tasks like capping a marker, zipping a bag, or inserting a straw, all from an ego-centric perspective.
-                    </p>
-
-                <aside class="takeaway-callout intro-results-callout" aria-label="Key takeaway">
-                    <div class="takeaway-text">
-                        <p class="takeaway-statement">EyeRobot 2.0 matches the performance of wrist cameras, and beats them under tool occlusions!</p>
-                        <p class="takeaway-detail takeaway-experiments"><a href="#experiments">See experiments and full results →</a></p>
-                    </div>
-                    <figure class="takeaway-figure">
-                        <img src="images/figure_takeaway.svg" alt="Average real-world success rate: No Gaze 27%, Ego plus Wrist 52%, EyeRobot 2.0 67%, over 640 trials" width="260" height="170" loading="lazy" decoding="async" />
-                    </figure>
-                </aside>
+                    <section class="intro-answer-card" aria-label="EyeRobot 2.0 answer and key result">
+                        <p class="intro-answer-line">Robots should <em>look around</em>.</p>
+                        <div class="intro-answer-body">
+                            <div class="intro-answer-text">
+                                <p class="paragraph">
+                                    Inspired by human vision, EyeRobot 2.0 uses <b>active gaze</b> to look at what matters,
+                                    carrying out precise, multi-step tasks from an ego-centric view.
+                                </p>
+                                <p class="paragraph">It <b>matches wrist cameras</b> and <b>beats them under tool occlusions</b>.</p>
+                                <p class="takeaway-detail"><a href="#experiments">See experiments and full results →</a></p>
+                            </div>
+                            <figure class="takeaway-figure">
+                                <img src="images/figure_takeaway.svg" alt="Average real-world success rate: No Gaze 27%, Ego plus Wrist 52%, EyeRobot 2.0 67%, over 640 trials" width="260" height="170" loading="lazy" decoding="async" />
+                            </figure>
+                        </div>
+                    </section>
                 </div>
             </div>
 
-            <h3>See what EyeRobot 2.0 sees</h3>
+            <h3>See what the policy sees</h3>
             <div class="carousel-container real-results-carousel-container" role="region" aria-label="Seven autonomous manipulation results">
                 <div class="carousel-track-container">
                     <div class="carousel-track" id="real-results-carousel">
