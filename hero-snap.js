@@ -1,6 +1,7 @@
-/* Desktop: the hero (title through teaser) fills the first screen. The first
-   downward wheel or key press anywhere in it glides to the intro; scrolling up is
-   never taken over. Touch devices and narrow windows keep native scrolling. */
+/* Desktop: the hero (title through teaser) fills the first screen. A downward
+   wheel or key press at the very top of the page glides to the intro; anywhere
+   else (including partway back up) scrolling stays native. Touch devices and
+   narrow windows keep native scrolling. */
 (() => {
   const hero = document.querySelector('.page-hero');
   const start = document.getElementById('section-index-start');
@@ -16,10 +17,15 @@
   measureTop();
   addEventListener('resize', measureTop);
 
-  const destination = () => Math.round(target.getBoundingClientRect().top + scrollY - 28);
+  // Land with the intro heading near the top and the teaser fully scrolled away.
+  const heading = target.querySelector('h1') || target;
+  const destination = () => Math.round(scrollY + Math.max(
+    heading.getBoundingClientRect().top - 16,
+    hero.getBoundingClientRect().bottom,
+  ));
   // In very short windows the hero overflows, and snapping would skip the teaser.
   const heroFits = () => hero.offsetTop + hero.offsetHeight <= innerHeight + 4;
-  const inHero = () => desktop.matches && heroFits() && scrollY < destination() - 2;
+  const atTop = () => desktop.matches && heroFits() && scrollY <= 4;
   let animating = false;
   let swallowUntil = 0;
 
@@ -54,7 +60,7 @@
       swallowUntil = now + 160;
       return;
     }
-    if (event.deltaY > 0 && inHero()) {
+    if (event.deltaY > 0 && atTop()) {
       event.preventDefault();
       swallowUntil = now + 160;
       snap();
@@ -71,7 +77,7 @@
       event.preventDefault();
       return;
     }
-    if (inHero()) {
+    if (atTop()) {
       event.preventDefault();
       snap();
     }
