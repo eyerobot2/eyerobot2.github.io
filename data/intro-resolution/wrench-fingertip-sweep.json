@@ -1,6 +1,6 @@
 {
   "source": "data/intro-resolution/wrench-resolution-sweep.mp4",
-  "source_sha256": "684d4359a9ec08a8c6f50cc558ea2826f61f040544fd5695ebffa88898aa67e5",
+  "source_sha256": "c80a2235a18aa7c27194a855ff94dc8ca513dfc39434522b04c9edfc415360d1",
   "source_time_seconds": 16.366666666666667,
   "crop_xywh": [
     720,
@@ -16,7 +16,7 @@
   "note": "Inset cropped from the identical decoded resolution sweep, preserving the same brightness and wipe phase. The 320\u00d7240 source crop is enlarged to 528\u00d7396 for playback.",
   "gamma_exponent": 0.65,
   "files": {
-    "wrench-fingertip-sweep.mp4": "9e10877935fd346db5522ca8d42ae48d44f255869392233d397407862b30d33e",
-    "wrench-fingertip-sweep.webp": "09872ed44e842620170ec6af5ad73e0140afd01774ccbfc5952cc8e7f908f33a"
+    "wrench-fingertip-sweep.mp4": "60a60346dd9ed24af03b4115ed534ae14525681baca1de17b5f4a10ce5ee5c1d",
+    "wrench-fingertip-sweep.webp": "f5d3762b22eb82ff670ad8bc67ba350d360aefedab9f5eddd632ab98a6df5040"
   }
 }

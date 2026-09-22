@@ -59,7 +59,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link href="style.css?v=mobile-intro2" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=token-callout3" rel="stylesheet" type="text/css" />
     <link href="gaze-transformer.css" rel="stylesheet" />
     <script src="gaze-transformer.js" defer></script>
     <link href="simulated-gaze.css" rel="stylesheet" />
@@ -237,11 +237,10 @@
                 <b>TL;DR</b>: Policies with active stereo gaze match or exceed wrist camera setups in performance
                 <!-- TL;DR</b>: Actively fixating stereo camera >= ego + wrist cameras -->
             </h1>
-            <video id="main-video" controls muted loop playsinline preload="none" width="1920" height="1080" style="aspect-ratio: 1920 / 1080; height: auto;" poster="data/web-posters/teaser.webp">
-                <source id="mp4" type="video/mp4" data-src="data/web-video/teaser.mp4">
+            <video id="main-video" controls muted loop playsinline preload="none" width="1080" height="540" style="aspect-ratio: 1080 / 540; height: auto;" poster="data/web-posters/teaser.webp?v=3ccf034893e4">
+                <source id="mp4" type="video/mp4" data-src="data/web-video/teaser.mp4?v=354407681082">
                 Your browser does not support the video tag.
             </video>
-            <p style="width: 100%; color: #2563eb; font-size: 13px; font-weight: 700; margin: 6px 0 0;">KH, Improve the teaser video</p>
         </div>
         <!-- ===========================================================
              Real-world results grid
@@ -253,22 +252,35 @@
                 <h1>How should robots see the world?</h1>
                 <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        Precise manipulation requires high acuity vision. But how should we achieve this? With only ego-centric views this is non-trivial, a single 1920x1080 image requires 8100 tokens to represent!
+                        Precise manipulation requires high acuity vision. But how should we achieve this? With only ego-centric views this is non-trivial, a single HD image requires 7500 tokens to represent!
                         If we use more tractable image sizes, it's difficult to see what's going on in the scene.
                     </p>
 
                     <figure class="intro-resolution-figure intro-resolution-inset">
                         <div class="intro-resolution-composition">
-                            <video class="intro-resolution-overview" loop muted playsinline preload="none" width="1600" height="1200" aria-label="Wrench overview: a sweep from 256-pixel resolution to full resolution and back" data-poster="data/intro-resolution/wrench-resolution-sweep.webp?v=ff39a9e45d61">
-                                <source data-src="data/intro-resolution/wrench-resolution-sweep.mp4?v=684d4359a9ec" type="video/mp4" />
+                            <div class="intro-resolution-panel intro-resolution-overview-panel">
+                                <video class="intro-resolution-overview" data-playback-rate="1.5" loop muted playsinline preload="none" width="1600" height="1200" aria-label="Wrench overview: a sweep from 256-pixel resolution to full resolution and back" data-poster="data/intro-resolution/wrench-resolution-sweep.webp?v=bf7757fd1c76">
+                                <source data-src="data/intro-resolution/wrench-resolution-sweep.mp4?v=c80a2235a18a" type="video/mp4" />
                             </video>
-                            <video class="intro-resolution-detail" loop muted playsinline preload="none" width="528" height="396" aria-label="Synchronized magnification of the gripper fingertips" data-poster="data/intro-resolution/wrench-fingertip-sweep.webp?v=09872ed44e84">
-                                <source data-src="data/intro-resolution/wrench-fingertip-sweep.mp4?v=9e10877935fd" type="video/mp4" />
+                                <svg class="intro-token-grid" data-token-view="overview" viewBox="0 0 1600 1200" aria-hidden="true"></svg>
+                            </div>
+                            <div class="intro-resolution-panel intro-resolution-detail-panel">
+                                <div class="intro-token-title">Visual tokens <span>16 × 16 pixel patches</span></div>
+                                <video class="intro-resolution-detail" data-playback-rate="1.5" loop muted playsinline preload="none" width="528" height="396" aria-label="Synchronized magnification of the gripper fingertips" data-poster="data/intro-resolution/wrench-fingertip-sweep.webp?v=f5d3762b22eb">
+                                <source data-src="data/intro-resolution/wrench-fingertip-sweep.mp4?v=60a60346dd9e" type="video/mp4" />
                             </video>
+                                <svg class="intro-token-grid" data-token-view="detail" viewBox="720 500 320 240" aria-hidden="true"></svg>
+                                <svg class="intro-token-callout" viewBox="720 500 320 240" aria-hidden="true">
+                                    <defs><marker id="intro-token-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#c26722" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+                                    <rect x="800" y="600" width="100" height="100" rx="1" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3.8" vector-effect="non-scaling-stroke"/>
+                                    <rect x="800" y="600" width="100" height="100" rx="1" fill="none" stroke="#c26722" stroke-width="1.8" vector-effect="non-scaling-stroke"/>
+                                    <path d="M766 762 C727 753 753 712 799 690" fill="none" stroke="#c26722" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke" marker-end="url(#intro-token-arrow)"/>
+                                </svg>
+                                <p class="intro-token-note">One token at low res!</p>
+                            </div>
                             <svg class="intro-resolution-guide" viewBox="0 0 1600 720" aria-hidden="true">
                                 <g fill="none" stroke="#8d979e" stroke-width="2" stroke-dasharray="4 8">
                                     <path d="M624 300L992 132 M624 444L992 588" />
-                                    <rect x="432" y="300" width="192" height="144" />
                                 </g>
                                 <rect x="992" y="132" width="606" height="455" rx="4" fill="none" stroke="#bdc5ca" stroke-width="2" />
                             </svg>
@@ -277,7 +289,7 @@
                     </figure>
 
                     <p class="paragraph">
-                        The way the community solved this is with wrist cameras, which give high-res inputs right where manipulation is happening.
+                        The most popular approach is wrist cameras, which give high-res inputs right where manipulation is happening.
                         But colocating vision with action has a number of problems:
                     </p>
 
@@ -285,7 +297,6 @@
                         <li>
                             <p class="paragraph">
                                 <strong class="intro-problem-heading">Manipulation necessarily occludes wrist cameras,</strong> especially when using tools, manipulating large objects, or doing whole-body manipulation.
-                                At worst, it can't see anything, at best you have to collect demonstrations unintuitively to maintain visibility.
                             </p>
 
                             <figure class="intro-boba-figure camera-comparisons">
@@ -302,7 +313,7 @@
                         </li>
                         <li>
                             <p class="paragraph">
-                                <strong class="intro-problem-heading">It frustrates gripper designs.</strong> Introducing wrist cameras makes manipulators bulkier, more brittle, and prone to motion blur, damage, and dirt.
+                                <strong class="intro-problem-heading">It complicates gripper designs.</strong> Introducing wrist cameras makes manipulators bulkier, more brittle, and prone to motion blur, damage, and dirt.
                             </p>
                         </li>
                         <li>
@@ -314,12 +325,9 @@
 
                     <div class="paragraph-with-sidenote">
                         <p class="paragraph">
-                            If we had policies which work well purely from ego views, our lives would be so much easier as roboticists!<sup class="footnote-marker"><a class="footnote-ref" id="umi-ref" href="#umi-note" aria-label="Footnote 1">1</a></sup>
+                            If we had policies which work well purely from ego views, our lives would be so much easier as roboticists!
                             But, ego-only policies have notoriously much lower success rates.
                         </p>
-                        <aside class="sidenote" id="umi-note" role="note">
-                            <a class="sidenote-number" href="#umi-ref" aria-label="Back to footnote 1">1</a> One benefit of wrist cameras is being arm-agnostic, which enables capture glove style data.
-                        </aside>
                     </div>
 
                     <aside class="takeaway-callout intro-baseline-callout" aria-label="Wrist camera baseline comparison">
@@ -354,7 +362,7 @@
                 </div>
             </div>
 
-            <h3>See what the policy sees</h3>
+            <h3>See what EyeRobot 2.0 sees</h3>
             <div class="carousel-container real-results-carousel-container" role="region" aria-label="Seven autonomous manipulation results">
                 <div class="carousel-track-container">
                     <div class="carousel-track" id="real-results-carousel">
@@ -533,12 +541,12 @@
                 <div class="paragraph-with-sidenote policy-rollout-intro">
                     <p class="paragraph">
                         The robot learns to coordinate its gaze with a two-stage reinforcement learning pipeline, <b>no gaze demonstrations required</b>!
-                        We first train a semantic gaze module, then use it to learn a gaze sequencing policy which directly optimizes BC accuracy as its reward. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">2</a></sup> image processing, which allocates
+                        We first train a semantic gaze module, then use it to learn a gaze sequencing policy which directly optimizes BC accuracy as its reward. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">1</a></sup> image processing, which allocates
                         high resolution image tokens towards the center.
                          <!-- This behavior was <i>never supervised</i> and emerged through RL. -->
                     </p>
                     <aside class="sidenote" id="foveation-note" role="note">
-                        <a class="sidenote-number" href="#foveation-ref" aria-label="Back to footnote">2</a> Foveation is a property prevalant in biological vision where organisms' retinas have very high
+                        <a class="sidenote-number" href="#foveation-ref" aria-label="Back to footnote">1</a> Foveation is a property prevalant in biological vision where organisms' retinas have very high
                         angular resolution in the center, and very poor resolution in the periphery.
                     </aside>
                 </div>
@@ -1044,12 +1052,12 @@
                 <p class="paragraph">
                     Loosely speaking, there's a few main ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
                     3) increase data manifold coverage by making the manifold itself more compact. Much of EyeRobot 2.0's design follows the third approach, reducing the complexity
-                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">3</a></sup>.
+                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">2</a></sup>.
                     This shares a motivation with equivariant learning: reducing variation by expressing observations and actions in a common frame, here defined by gaze.
                 </p>
 
                 <aside class="sidenote" id="fixation-relative-note" role="note">
-                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">3</a> Wrist cameras are an example of this too.
+                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">2</a> Wrist cameras are an example of this too.
                      Think about how easy it is to move left and right from an aligned wrist view, vs left and right from a distal fixed view.
                      Gripper-centric viewpoints make the servoing data manifold more compact.
                 </aside>
@@ -1174,14 +1182,14 @@
 
             <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        In total we evaluated <b>over 1,000 real-world rollouts</b> across all baselines and ablations for EyeRobot 2.0. We compare against two strong baselines that use the same policy architecture as EyeRobot 2.0 and are trained on the exact same demonstrations<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">4</a></sup>.
+                        In total we evaluated <b>over 1,000 real-world rollouts</b> across all baselines and ablations for EyeRobot 2.0. We compare against two strong baselines that use the same policy architecture as EyeRobot 2.0 and are trained on the exact same demonstrations<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
                         The first baseline uses the RGB stereo inputs directly ("No Gaze"), and the second uses one stereo image along with two wrist-mounted cameras ("Ego + Wrist").
                         Note that <i>both baselines have a significant observability advantage</i>, since EyeRobot 2.0's field of view is such that it cannot see the entire stereo image at once.
                         Both baselines are provided a full coverage view of the table, and with wrist cameras two additional high-resolution viewpoints of the gripper.
 
                     </p>
                     <aside class="sidenote" id="demonstrations-note" role="note">
-                        <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">4</a> We collect all data with wrist cameras for even comparison,
+                        <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">3</a> We collect all data with wrist cameras for even comparison,
                          for the main video results we actually took off the wrist cameras and EyeRobot 2.0 could handle the visual difference.
                     </aside>
             </div>
@@ -1814,7 +1822,7 @@
     </div>
 
     <script src="carousels.js?v=results-gaze1" defer></script>
-    <script src="intro-resolution.js?v=inset1" defer></script>
+    <script src="intro-resolution.js?v=token-callout2" defer></script>
 
 </body>
 

@@ -18,9 +18,10 @@
     "formula": "255 * (pixel / 255) ** 0.65",
     "applied_identically_to_both_resolutions": true
   },
+  "resolution_label_font_pixels": 42,
   "duration_seconds": 8,
   "fps": 30.0,
   "boundary": "width * (1 - cos(2*pi*t/duration)) / 2; high resolution left, low resolution right; begins entirely low resolution",
-  "video_sha256": "684d4359a9ec08a8c6f50cc558ea2826f61f040544fd5695ebffa88898aa67e5",
-  "poster_sha256": "ff39a9e45d61ba2240ec20ce10dafef9b243ff3df8e5aa9486f72cd78701564e"
+  "video_sha256": "c80a2235a18aa7c27194a855ff94dc8ca513dfc39434522b04c9edfc415360d1",
+  "poster_sha256": "bf7757fd1c768c81f4f72ffc92c2cae0e089697dfdf2f0433f80e7731d928a79"
 }
