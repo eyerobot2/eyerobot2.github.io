@@ -53,7 +53,8 @@
         players.forEach(resume => resume());
         document.querySelectorAll('video').forEach(video => {
             const owner = owners.get(video);
-            if (!owner?.canPrime(video) || primed.has(video)) return;
+            // Skip attached sources: play() on them buffers more, even if paused at once.
+            if (!owner?.canPrime(video) || primed.has(video) || recordFor(video).attached) return;
             primed.add(video);
             // No source attachment or background downloads. Pause immediately,
             // including when play() leaves a pending promise on an empty element.
