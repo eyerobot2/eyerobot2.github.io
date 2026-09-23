@@ -1,0 +1,17 @@
+{
+  "source": "data/intro-resolution/wrench-resolution-sweep.mp4",
+  "source_sha256": "c80a2235a18aa7c27194a855ff94dc8ca513dfc39434522b04c9edfc415360d1",
+  "output_dimensions": [
+    1280,
+    960
+  ],
+  "fps": 30,
+  "duration_seconds": 8,
+  "codec": "H.264 High, Level 4.0, yuv420p",
+  "encoding": "libx264 slow, CRF20, refs3, GOP30, faststart",
+  "source_bytes": 2198240,
+  "output_bytes": 972571,
+  "output_sha256": "435c50ea789fc4b0811bd7c00a21bac7e034f3488c2412b10c47503a26b88b2d",
+  "poster_sha256": "e979a4be9dcca5e45a7d28b0c87384245a69bb418dd92fa814172bef0a13f653",
+  "note": "Display derivative only. The inset retains its original crop and detail. Pixel coordinates for token overlays remain in the 1600x1200 source frame."
+}

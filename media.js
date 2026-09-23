@@ -38,6 +38,32 @@
         state.pending = null;
         video.pause();
     };
+    // Retry blocked players in a real gesture. Priming offscreen elements is
+    // best-effort: browsers need not retain permission after sources change.
+    const blocked = new Set();
+    const primed = new WeakSet();
+    let refused = false;
+    const unlock = event => {
+        if (!refused || reduced.matches || !event.isTrusted) return;
+        // Let controls handle their own gesture; don't turn a pause tap into play.
+        if (event.target.closest?.('button, input, select, textarea, a, video, [contenteditable], [role="button"]')) return;
+        if (event.type === 'keydown' && !['Enter', ' '].includes(event.key)) return;
+        const players = [...blocked];
+        blocked.clear();
+        players.forEach(resume => resume());
+        document.querySelectorAll('video').forEach(video => {
+            const owner = owners.get(video);
+            if (!owner?.canPrime(video) || primed.has(video)) return;
+            primed.add(video);
+            // No source attachment or background downloads. Pause immediately,
+            // including when play() leaves a pending promise on an empty element.
+            video.play()?.catch(() => {});
+            video.pause();
+        });
+    };
+    ['touchend', 'click', 'keydown'].forEach(type =>
+        document.addEventListener(type, unlock, { capture: true, passive: true }));
+
     const release = video => {
         const state = recordFor(video);
         if (!state.attached) return;
@@ -140,6 +166,8 @@
                     message = 'Tap Play to start.';
                     wantsPlayback = false;
                     pauseAll();
+                    refused = true;
+                    blocked.add(resumeAfterGesture);
                 } else {
                     failures.add(video);
                 }
@@ -148,11 +176,17 @@
                 if (state.pending === pending) state.pending = null;
             });
         };
-        const update = () => {
+        const resumeAfterGesture = () => {
+            if (pausedByUser || !message) return;
+            message = '';
+            wantsPlayback = !reduced.matches;
+            update(true);
+        };
+        const update = (fromGesture = false) => {
             videos.filter(video => !allowed(video)).forEach(pause);
             if (inView && !document.hidden && wantsPlayback) {
                 current().forEach(video => prepare(video, 'auto'));
-                if (!synchronize || current().every(video => video.readyState >= 2)) {
+                if (fromGesture === true || !synchronize || current().every(video => video.readyState >= 2)) {
                     if (synchronize && current().every(video => video.paused)) {
                         const time = current()[0].currentTime;
                         current().forEach(video => {
@@ -170,6 +204,10 @@
             updateFeedback();
         };
         const player = {
+            canPrime(video) {
+                return !pausedByUser && !reduced.matches && !document.hidden &&
+                    video.paused && (!inView || !current().includes(video));
+            },
             select(index) {
                 pauseAll();
                 pausedByUser = false;
@@ -192,7 +230,7 @@
                 wantsPlayback = video.paused;
                 pausedByUser = !wantsPlayback;
                 message = '';
-                update();
+                update(true);
             },
         };
         action.addEventListener('click', () => {
@@ -205,7 +243,8 @@
             slow = false;
             message = '';
             wantsPlayback = true;
-            update();
+            pausedByUser = false;
+            update(true);
         });
         videos.forEach(video => {
             owners.set(video, player);
