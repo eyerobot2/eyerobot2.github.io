@@ -20,9 +20,10 @@
 
 @media (max-width: 640px) {
     #gaze-transformer {
-        width: calc(100% + 32px);
-        margin-left: -16px;
-        margin-right: -16px;
+        /* Bleed into the 14px phone gutters (see body in style.css). */
+        width: calc(100% + 28px);
+        margin-left: -14px;
+        margin-right: -14px;
     }
 }
 

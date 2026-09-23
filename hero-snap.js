@@ -17,6 +17,39 @@
   measureTop();
   addEventListener('resize', measureTop);
 
+  // Size the TL;DR line to span almost the teaser's width. A bigger line leaves
+  // less height for the teaser, which narrows it, so iterate until they agree.
+  const tldr = hero.querySelector('h1.tldr');
+  const video = document.getElementById('main-video');
+  const fitTldr = () => {
+    if (!tldr || !video) return;
+    tldr.style.fontSize = '';
+    if (!desktop.matches) return;
+    const range = document.createRange();
+    range.selectNodeContents(tldr);
+    tldr.style.fontSize = '20px';
+    const widthAt20 = range.getBoundingClientRect().width;
+    // Never smaller than 20px (one line in the column) unless the window is too narrow.
+    const floor = Math.min(widthAt20, innerWidth - 48);
+    let size = 20;
+    for (let i = 0; i < 6; i++) {
+      tldr.style.fontSize = `${size}px`;
+      const target = Math.max(0.94 * video.getBoundingClientRect().width, floor);
+      const next = Math.min(44, 20 * target / widthAt20);
+      if (Math.abs(next - size) < 0.2) break;
+      size = next;
+    }
+  };
+  let fitQueued = false;
+  const queueFit = () => {
+    if (fitQueued) return;
+    fitQueued = true;
+    requestAnimationFrame(() => { fitQueued = false; fitTldr(); });
+  };
+  fitTldr();
+  addEventListener('resize', queueFit);
+  document.fonts?.ready.then(queueFit);
+
   // Land with the intro heading near the top and the teaser fully scrolled away.
   const heading = target.querySelector('h1') || target;
   const destination = () => Math.round(scrollY + Math.max(
@@ -28,6 +61,8 @@
   const atTop = () => desktop.matches && heroFits() && scrollY <= 4;
   let animating = false;
   let swallowUntil = 0;
+  let swallowCap = 0;
+  let lastDelta = 0;
 
   function snap() {
     if (animating) return;
@@ -50,19 +85,34 @@
     requestAnimationFrame(step);
   }
 
-  // Trackpads keep sending momentum wheel events for ~1s; swallow them until they
-  // pause so the page doesn't keep coasting past the intro once the snap lands.
+  // Trackpads keep sending momentum wheel events for ~1s; swallow them so the page
+  // doesn't coast past the intro once the snap lands. Momentum only decays, so a
+  // delta that grows (or reverses) is a fresh gesture and scrolls normally.
   addEventListener('wheel', event => {
     if (event.ctrlKey) return;
     const now = performance.now();
-    if (animating || now < swallowUntil) {
+    const delta = event.deltaY;
+    if (animating) {
       event.preventDefault();
+      lastDelta = delta;
       swallowUntil = now + 160;
       return;
     }
-    if (event.deltaY > 0 && atTop()) {
+    if (now < swallowUntil && now < swallowCap) {
+      const fresh = delta < 0 || Math.abs(delta) > Math.abs(lastDelta) * 1.2 + 2;
+      lastDelta = delta;
+      if (!fresh) {
+        event.preventDefault();
+        swallowUntil = now + 160;
+        return;
+      }
+      swallowUntil = 0;
+    }
+    if (delta > 0 && atTop()) {
       event.preventDefault();
+      lastDelta = delta;
       swallowUntil = now + 160;
+      swallowCap = now + 1200;
       snap();
     }
   }, { passive: false });

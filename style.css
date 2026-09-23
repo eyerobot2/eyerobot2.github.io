@@ -39,6 +39,14 @@ body {
     --content-width: 800px;
 }
 
+/* Phones: drop the wide page gutters (2em padding + the UA's 8px margin). */
+@media (max-width: 750px) {
+    body {
+        margin: 0;
+        padding: 20px 14px;
+    }
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
 }
@@ -380,19 +388,28 @@ iframe:not(.show) {
 display: none;
 }
 
+/* Title, authors, and links: left-aligned to the content column. */
+.masthead {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto 6px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e3e5e7;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    text-align: left;
+}
+
 .title {
-    margin-top: 0px;
-    margin-bottom: 12px;
+    margin: 0;
     font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
     color: #1a1a1a;
     font-size: 38px;
-    line-height: 52px;
+    line-height: 1.2;
     font-weight: 400;
     letter-spacing: 0;
-    text-align: center;
-    max-width: 20em;
-    margin-left: auto;
-    margin-right: auto;
+    text-wrap: pretty;
 }
 
 .title-name {
@@ -402,13 +419,14 @@ display: none;
 
 .tldr {
     font-family: 'Open Sans',sans-serif;
-    color: #333;
-    font-size: 18px;
-    line-height: 24px;
+    color: #1a1a1a;
+    font-size: 19px;
+    line-height: 1.3;
     font-weight: 500;
     letter-spacing: 0;
     display: block;
     width: 100%;
+    text-wrap: pretty;
 }
 
 h1.tldr {
@@ -434,49 +452,43 @@ h1.tldr {
     width: 100%;
 }
 
+.masthead-authors {
+    margin: 16px 0 0;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #777;
+}
+
 .author-text {
-    font-family: 'Open Sans',sans-serif;
-    /* 5.17:1 against white — passes WCAG AA for normal text. The previous
-       #488af3 was 3.38:1, which fails. */
-    color: #2563eb;
-    font-size: 18px;
-    font-weight: 400;
+    color: #333;
     text-decoration: none;
-    text-wrap: nowrap;
-    line-height: 32px;
+    white-space: nowrap;
 }
 
-.author-list {
-    display: grid;
-    gap: 0 20px;
-    max-width: 100%;
-}
+.author-text:hover { color: #2563eb; }
+.author-text sup { font-size: 0.68em; margin-left: 1px; }
 
-.author-line {
+.masthead-foot {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 20px;
-    row-gap: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 24px;
+    margin-top: 12px;
 }
 
-.text-star {
-    position: relative;
-    top: -7px;
-    display: inline-block;
-    margin: 0px;
-    font-size: 10px;
+.masthead-meta {
+    display: flex;
+    margin: 0;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #6a6f73;
 }
 
-#uc-berkeley {
-    padding-top: 10px;
-    font-family: 'Open Sans',sans-serif;
-    color: #333;
-    font-size: 18px;
-    font-weight: 400;
-    margin: 0px;
-    letter-spacing: 0;
-}
+.masthead-meta sup { font-size: 0.75em; margin-right: 1px; }
+.masthead-dot { color: #b7bcbf; }
 
 #equal-contrib {
     padding-top: 10px;
@@ -503,43 +515,34 @@ h1.tldr {
     margin-top: 5px;
 }
 
-.link-block {
-    min-width: 72px;
-    display: grid;
-    justify-items: center;
-    gap: 4px;
-    padding: 8px 10px;
-    border-radius: 6px;
-    color: #333;
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 34px;
+    padding: 0 15px 0 12px;
+    border: 1px solid #dfe2e4;
+    border-radius: 999px;
+    background: #fff;
+    color: #2c2f31;
+    font-size: 14px;
+    font-weight: 600;
     text-decoration: none;
-    transition: background-color 0.15s ease, color 0.15s ease;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
-.link-block:hover {
-    background: #f3f4f5;
-    color: #000;
-}
+.project-link i { font-size: 18px; line-height: 1; }
+.project-link:hover { background: #f4f5f6; border-color: #cfd4d7; }
 
-.link-block:focus-visible {
+.project-link:focus-visible {
     outline: 2px solid #151719;
     outline-offset: 2px;
-}
-
-.project-links {
-    gap: 34px;
-    align-items: start;
-}
-
-.project-link-icon {
-    color: inherit;
-    font-size: 34px;
-    line-height: 1;
-}
-
-.link-labels-text {
-    font-family: 'Open Sans',sans-serif;
-    color: inherit;
-    font-size: 14px;
 }
 
 .viewer-cta-wrap {
@@ -1289,7 +1292,6 @@ h1.tldr {
     height: auto;
     aspect-ratio: 16 / 9;
     margin: 0;
-    border-radius: 10px;
 }
 
 /* Desktop: the title block and teaser fill the first screen, and the teaser is as
@@ -1314,7 +1316,14 @@ h1.tldr {
         max-width: none;
     }
     .page-hero .teaser-section::after { display: none; }
-    .page-hero h1.tldr { max-width: var(--content-width); }
+    /* One line, overflowing the column evenly; hero-snap.js sets its size. */
+    .page-hero h1.tldr {
+        display: flex;
+        justify-content: center;
+        max-width: var(--content-width);
+        white-space: nowrap;
+        letter-spacing: -0.01em;
+    }
     .page-hero .teaser-stage {
         position: relative;
         display: flex;
@@ -1950,6 +1959,13 @@ input:checked + .slider:before {
     margin-left: 20px;
 }
 
+/* The margins above would otherwise push these past the box's right edge. */
+.section.citation > h1,
+.section.citation > p {
+    box-sizing: border-box;
+    width: auto;
+}
+
 #codecell0 {
     margin-bottom: 10px;
     margin-left: 10px;
@@ -1961,11 +1977,8 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width: 750px) {
-    .title {
-        font-size: 30px;
-        line-height: 42px;
-        letter-spacing: 0;
-    }
+    .title { font-size: 26px; }
+    .masthead-dot { display: none; }
 
     .results-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1983,12 +1996,6 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width: 550px) {
-    .title {
-        font-size: 23px;
-        line-height: 32px;
-        letter-spacing: 0;
-    }
-
     .viewer-cta {
         grid-template-columns: auto minmax(0, 1fr);
         gap: 12px;
