@@ -59,7 +59,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link href="style.css?v=mobile-gutters1" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=token-density1" rel="stylesheet" type="text/css" />
     <link href="gaze-transformer.css?v=gutters1" rel="stylesheet" />
     <script src="gaze-transformer.js" defer></script>
     <link href="simulated-gaze.css" rel="stylesheet" />
@@ -241,7 +241,7 @@
                 <h1>How should robots see the world?</h1>
                 <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        Precise manipulation requires high acuity vision. But how should we achieve this? With only ego-centric views this is non-trivial, a single HD image requires 7500 tokens to represent!
+                        Precise manipulation requires high acuity vision. But how do we achieve this? With only ego-centric views this is non-trivial, a single HD image requires 7500 tokens to represent!
                         If we use more tractable image sizes, it's difficult to see what's going on in the scene.
                     </p>
 
@@ -252,6 +252,7 @@
                                 <source data-src="data/intro-resolution/wrench-resolution-sweep-web.mp4?v=435c50ea789f" type="video/mp4" />
                             </video>
                                 <svg class="intro-token-grid" data-token-view="overview" viewBox="0 0 1600 1200" aria-hidden="true"></svg>
+                                <p class="intro-token-density">Too many tokens!</p>
                             </div>
                             <div class="intro-resolution-panel intro-resolution-detail-panel">
                                 <div class="intro-token-title">Visual tokens <span>16 × 16 pixel patches</span></div>
@@ -277,6 +278,7 @@
 
                     </figure>
 
+                    <h3>Why wrist cameras aren’t ideal</h3>
                     <p class="paragraph">
                         The most popular approach is wrist cameras, which give high-res inputs right where manipulation is happening.
                         But colocating vision with action has a number of problems:
@@ -307,7 +309,12 @@
                         </li>
                         <li>
                             <p class="paragraph">
-                                <strong class="intro-problem-heading">It complicates transfer from human ego data,</strong> the most abundant and easiest form of data to scale. Imagine picking up something with a camera on your hand!
+                                <strong class="intro-problem-heading">It complicates transfer from human ego data,</strong> the easiest form of manipulation data to scale. Imagine picking up something with a camera on your hand!
+                            </p>
+                        </li>
+                        <li>
+                            <p class="paragraph">
+                                <strong class="intro-problem-heading">It prohibits decoupling vision and action.</strong> Many times, you want to look somewhere different from your grippers to achieve a task, wrist cams don't allow this.
                             </p>
                         </li>
                     </ol>
@@ -339,7 +346,7 @@
                             <div class="intro-answer-text">
                                 <p class="paragraph">
                                     Inspired by human vision, EyeRobot 2.0 uses <b>active gaze</b> to look at what matters,
-                                    carrying out precise, multi-step tasks from an ego-centric view.
+                                    carrying out precise, multi-step tasks from an ego-centric stereo view.
                                 </p>
                                 <p class="paragraph">It <b>matches wrist cameras</b> and <b>beats them under tool occlusions</b>.</p>
                                 <p class="takeaway-detail"><a href="#experiments">See experiments and full results →</a></p>
@@ -1814,7 +1821,7 @@
     </div>
 
     <script src="carousels.js?v=results-gaze1" defer></script>
-    <script src="intro-resolution.js?v=loop-drift1" defer></script>
+    <script src="intro-resolution.js?v=token-density1" defer></script>
 
 </body>
 

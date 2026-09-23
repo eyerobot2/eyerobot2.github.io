@@ -2964,6 +2964,7 @@ input:checked + .slider:before {
 .intro-token-title { position: absolute; bottom: calc(100% + 9px); left: 0; width: 100%; text-align: center; color: #455762; font: 500 14px/1.25 'Avenir Next', Avenir, sans-serif; }
 .intro-token-title span { display: block; margin-top: 2px; color: #77838b; font-size: 11px; font-weight: 400; }
 .intro-token-note { position: absolute; top: calc(100% + 8px); left: 8%; width: 92%; margin: 0; color: #536672; text-align: center; font: italic 15px/1.35 'Avenir Next', Avenir, sans-serif; transform: rotate(-2deg); }
+.intro-token-density { position: absolute; top: calc(100% + 8px); left: 0; width: 100%; margin: 0; color: #c26722; text-align: center; font: italic 16px/1.35 'Avenir Next', Avenir, sans-serif; transform: rotate(-2deg); opacity: 0; pointer-events: none; }
 .intro-token-callout { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; transition: opacity 120ms ease; }
 @media (max-width: 550px) {
     .intro-resolution-detail-panel { margin-top: 36px; margin-bottom: 40px; }

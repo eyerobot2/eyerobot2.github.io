@@ -23,9 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
         ${svg.dataset.tokenView === 'overview' ? '<rect x="720" y="500" width="320" height="240" fill="none" stroke="#7f8e98" stroke-width="1" stroke-dasharray="3 4" vector-effect="non-scaling-stroke"/>' : ''}`;
         return {high: svg.querySelector('.token-high'), low: svg.querySelector('.token-low')};
     });
+    const densityLabel = composition.querySelector('.intro-token-density');
     const updateGrids = time => {
         const frame = Math.floor((time % 8) * 30 + .001);
         const edge = Math.round(1600 * (1 - Math.cos(2 * Math.PI * frame / 240)) / 2);
+        // Fade the annotation in as the dense grid takes over, in video time
+        // so pausing and seeking keep the label aligned with the sweep.
+        if (densityLabel) densityLabel.style.opacity = Math.max(0, Math.min(1, (edge / 1600 - .4) / .25));
         gridViews.forEach(({high, low}) => {
             high.setAttribute('width', edge);
             low.setAttribute('x', edge);
