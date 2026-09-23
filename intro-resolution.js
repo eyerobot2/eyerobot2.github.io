@@ -45,11 +45,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     overview.addEventListener('seeked', () => updateGrids(overview.currentTime));
     // Correct decoder drift twice a second, without a per-frame drawing loop.
+    // Drift is measured around the loop, so the overview wrapping to 0 while the
+    // detail finishes its last frames isn't mistaken for an 8s gap. Small drift is
+    // absorbed by nudging the detail's rate; only a large gap seeks, since each
+    // seek stalls a phone decoder for a moment.
+    const baseRate = Number(videos[1]?.dataset.playbackRate) || 1;
     setInterval(() => {
         const [overview, detail] = videos;
-        if (!document.hidden && !overview.paused && detail.readyState >= 2 &&
-                Math.abs(overview.currentTime - detail.currentTime) > .08) {
+        if (document.hidden || overview.paused || detail.paused || detail.readyState < 2) return;
+        const duration = overview.duration;
+        if (!Number.isFinite(duration) || duration <= 0) return;
+        let drift = (overview.currentTime - detail.currentTime) % duration;
+        if (drift > duration / 2) drift -= duration;
+        if (drift < -duration / 2) drift += duration;
+        if (Math.abs(drift) > .5) {
             detail.currentTime = overview.currentTime;
+            detail.playbackRate = baseRate;
+        } else {
+            // Behind: run up to 10% faster; ahead: slower. Back to base when close.
+            const nudge = Math.abs(drift) < .04 ? 0 : Math.max(-.1, Math.min(.1, drift));
+            detail.playbackRate = baseRate * (1 + nudge);
         }
     }, 500);
 });
