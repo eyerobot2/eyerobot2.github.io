@@ -17,7 +17,7 @@
     -->
 
     <meta charset="utf-8" />
-    <title>EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras</title>
+    <title>EyeRobot 2.0: Active Stereo Gaze for Precise Manipulation without Wrist Cameras</title>
 
     <!-- ===================================================================
          Website Metadata. og:image must stay an absolute URL: scrapers do
@@ -25,18 +25,18 @@
          since the crawlers cache it aggressively.
     ==================================================================== -->
     <meta content="Policies with active stereo gaze match or exceed wrist camera setups in performance." name="description" />
-    <meta content="EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras" property="og:title" />
+    <meta content="EyeRobot 2.0: Active Stereo Gaze for Precise Manipulation without Wrist Cameras" property="og:title" />
     <meta content="Policies with active stereo gaze match or exceed wrist camera setups in performance." property="og:description" />
     <meta content="https://eyerobot2.github.io/data/social-card.jpg?v=8858a7782834" property="og:image" />
     <meta content="1200" property="og:image:width" />
     <meta content="630" property="og:image:height" />
-    <meta content="EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras. Policies with active stereo gaze match or exceed wrist camera setups in performance. Toaster rollout at 15 seconds, showing the robot manipulating the toaster." property="og:image:alt" />
+    <meta content="EyeRobot 2.0: Active Stereo Gaze for Precise Manipulation without Wrist Cameras. Policies with active stereo gaze match or exceed wrist camera setups in performance. Toaster rollout at 15 seconds, showing the robot manipulating the toaster." property="og:image:alt" />
     <meta content="https://eyerobot2.github.io/" property="og:url" />
     <meta content="EyeRobot 2.0" property="og:site_name" />
-    <meta content="EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras" name="twitter:title" />
+    <meta content="EyeRobot 2.0: Active Stereo Gaze for Precise Manipulation without Wrist Cameras" name="twitter:title" />
     <meta content="Policies with active stereo gaze match or exceed wrist camera setups in performance." name="twitter:description" />
     <meta content="https://eyerobot2.github.io/data/social-card.jpg?v=8858a7782834" name="twitter:image" />
-    <meta content="EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras. Policies with active stereo gaze match or exceed wrist camera setups in performance. Toaster rollout at 15 seconds, showing the robot manipulating the toaster." name="twitter:image:alt" />
+    <meta content="EyeRobot 2.0: Active Stereo Gaze for Precise Manipulation without Wrist Cameras. Policies with active stereo gaze match or exceed wrist camera setups in performance. Toaster rollout at 15 seconds, showing the robot manipulating the toaster." name="twitter:image:alt" />
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <link rel="canonical" href="https://eyerobot2.github.io/" />
@@ -181,7 +181,7 @@
         ============================================================ -->
         <div class="masthead">
             <h1 class="title">
-                <span class="title-name">EyeRobot 2.0</span>: Active Gaze for Precise Manipulation without Wrist Cameras
+                <span class="title-name">EyeRobot 2.0</span>: Active Stereo Gaze for Precise Manipulation without Wrist Cameras
                 <!-- via Active Visual Fixation -->
             </h1>
 
@@ -329,7 +329,7 @@
                         </figure>
                     </aside>
 
-                    <p class="paragraph intro-question">
+                    <p class="paragraph">
                         So how could we get the benefits of wrist cameras -- resolution, spatial understanding, and gripper-centricity -- purely from an ego view, while preserving the ability to search the scene independently of manipulation?
                     </p>
 
@@ -547,13 +547,124 @@
 
 
         <!-- ===========================================================
-             "How it works" — manipulation architecture, then learned gaze
+             "How it works" — fixation, manipulation architecture, then learned gaze
         ============================================================ -->
         <div class="section base-row add-top-padding">
 
 
             <div class="separator"></div>
             <h1>How it works</h1>
+            <h2>Compacting the data manifold with fixation</h2>
+            <div class="paragraph-with-sidenote">
+                <p class="paragraph">
+                    Loosely speaking, there's a few main ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
+                    3) increase data manifold coverage by making the manifold itself more compact. Much of EyeRobot 2.0's design follows the third approach, reducing the complexity
+                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">2</a></sup>.
+                    This shares a motivation with equivariant learning: reducing variation by expressing observations and actions in a common frame, here defined by gaze.
+                </p>
+
+                <aside class="sidenote" id="fixation-relative-note" role="note">
+                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">2</a> Wrist cameras are an example of this too.
+                     Think about how easy it is to move left and right from an aligned wrist view, vs left and right from a distal fixed view.
+                     Gripper-centric viewpoints make the servoing data manifold more compact.
+                </aside>
+            </div>
+
+            <h3>Fixation-centric observations</h3>
+            <div class="paragraph-with-sidenote">
+                <p class="paragraph">
+                    By gazing at a point, EyeRobot 2.0 compacts the input image manifold by centering views on regions of interest. This is particularly noticable in
+                    pick and place tasks shown below.
+                </p>
+            </div>
+
+            <figure id="fixation-observations" class="fixation-panels" aria-label="Fixation observation comparison" aria-roledescription="carousel">
+                <div class="fixation-carousel-viewport">
+                    <div class="carousel-track fixation-carousel-track">
+                <div class="fixation-slide" role="group" aria-roledescription="slide" aria-label="1 of 2: Tape" aria-hidden="false">
+                    <div class="fixation-panels-grid">
+                        <section class="fixation-stage" aria-label="Pick tape">
+                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Pick tape</h4></div>
+                            <video muted loop playsinline preload="none" width="464" height="192" aria-label="Pick tape: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/pick-tape.mp4" data-poster="data/fixation-panels/rows/pick-tape.webp"></video>
+                            <div class="fixation-view-labels"><span>Static view</span><span>Fixated view</span></div>
+                        </section>
+                        <section class="fixation-stage" aria-label="Place tape">
+                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Place tape</h4></div>
+                            <video muted loop playsinline preload="none" width="464" height="192" aria-label="Place tape: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/place-tape.mp4" data-poster="data/fixation-panels/rows/place-tape.webp"></video>
+                            <div class="fixation-view-labels"><span>Static view</span><span>Fixated view</span></div>
+                        </section>
+                    </div>
+                </div>
+                <div class="fixation-slide" role="group" aria-roledescription="slide" aria-label="2 of 2: Tea" aria-hidden="true" inert>
+                    <div class="fixation-panels-grid">
+                        <section class="fixation-stage" aria-label="Pick tea">
+                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Pick tea</h4></div>
+                            <video muted loop playsinline preload="none" width="464" height="192" aria-label="Pick tea: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/pick-tea.mp4" data-poster="data/fixation-panels/rows/pick-tea.webp"></video>
+                            <div class="fixation-view-labels"><span>Static view</span><span>Fixated view</span></div>
+                        </section>
+                        <section class="fixation-stage" aria-label="Place tea">
+                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Place tea</h4></div>
+                            <video muted loop playsinline preload="none" width="464" height="192" aria-label="Place tea: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/place-tea.mp4" data-poster="data/fixation-panels/rows/place-tea.webp"></video>
+                            <div class="fixation-view-labels"><span>Static view</span><span>Fixated view</span></div>
+                        </section>
+                    </div>
+                </div>
+                    </div>
+                </div>
+                <figcaption class="results-gallery-footer">
+                    <span class="carousel-caption">Randomly sampled frames from the passive stereo policy and fixated policy during selected task stages. Fixation
+                        makes the space of input images more compact by centering on objects of interest. </span>
+                    <div class="results-gallery-arrows">
+                        <button type="button" class="carousel-button carousel-button--left fixation-prev" aria-label="Previous task" hidden>←</button>
+                        <button type="button" class="carousel-button carousel-button--right fixation-next" aria-label="Next task" hidden>→</button>
+                    </div>
+                </figcaption>
+                <div class="carousel-nav fixation-carousel-nav" role="group" aria-label="Choose task" hidden>
+                    <button type="button" class="carousel-indicator current-slide" data-task="0" aria-label="Show tape" aria-pressed="true"></button>
+                    <button type="button" class="carousel-indicator" data-task="1" aria-label="Show tea" aria-pressed="false"></button>
+                </div>
+
+            </figure>
+
+            <h3>Fixation-centric action frame</h3>
+            <p class="paragraph">
+                The same idea applies to the action space. In world coordinates, reaching for the same object at different
+                locations produces different gripper trajectories. Expressing proprioception and actions relative to fixation
+                brings these reaches into a more compact manifold, reducing the variation the policy needs to learn.
+                This lets the same data more densely cover the relevant motions, rather than spreading it across
+                different object locations. <a href="#action-frame-ablation">See action-frame ablation →</a>
+            </p>
+            <figure id="fixation-actions" class="fixation-actions" data-fixation-actions data-src="data/fixation-actions/tape-pick-widget.json" aria-label="Interactive comparison of world and fixation coordinates">
+                <p data-load-status role="alert" hidden></p>
+                <div class="views">
+                    <section class="view">
+                        <h4>World frame</h4><p class="view-note">Relative to the robot</p>
+                        <canvas id="world-view" tabindex="0" aria-label="World-frame gripper trajectories. Drag or use arrow keys to rotate both views; plus and minus to zoom."></canvas>
+                    </section>
+                    <section class="view">
+                        <h4>Fixation frame</h4><p class="view-note">Relative to the gaze direction</p>
+                        <canvas id="fixation-view" tabindex="0" aria-label="The same gripper trajectories in fixation coordinates. Drag or use arrow keys to rotate both views; plus and minus to zoom."></canvas>
+                    </section>
+                </div>
+                <div class="rgb-context">
+                    <p class="rgb-heading">Point to a frame to locate the pose above</p>
+                    <div class="rgb-strip">
+                        <button class="rgb-frame" type="button" data-example="0" aria-label="Locate the reach pose in both plots">
+                            <img src="data/fixation-actions/reach-0.webp" width="480" height="360" loading="lazy" decoding="async" alt="Robot gripper beside the yellow tape roll at the start of the reach">
+                        </button>
+                        <button class="rgb-frame" type="button" data-example="1" aria-label="Locate the approach pose in both plots">
+                            <img src="data/fixation-actions/reach-1.webp" width="480" height="360" loading="lazy" decoding="async" alt="Robot gripper approaching the yellow tape roll from above">
+                        </button>
+                        <button class="rgb-frame" type="button" data-example="2" aria-label="Locate the pre-grasp pose in both plots">
+                            <img src="data/fixation-actions/reach-2.webp" width="480" height="360" loading="lazy" decoding="async" alt="Robot gripper positioned around the yellow tape roll before grasping">
+                        </button>
+                    </div>
+                </div>
+                <figcaption class="figure-footer">
+                    <span>Recorded gripper poses during tape picking, shown in world and fixation coordinates at the same scale. Expressing motion relative to fixation brings reaches to different object locations into a more compact representation.</span>
+                </figcaption>
+            </figure>
+
             <h2 id="policy-architecture">A stereo policy centered on fixation</h2>
             <p class="paragraph">
                 Our gripper policy combines foveated stereo views with the robot's state to predict a chunk of bimanual actions.
@@ -1037,116 +1148,7 @@
 
             </div>
 
-            <h2>Compacting the data manifold with fixation</h2>
-            <div class="paragraph-with-sidenote">
-                <p class="paragraph">
-                    Loosely speaking, there's a few main ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
-                    3) increase data manifold coverage by making the manifold itself more compact. Much of EyeRobot 2.0's design follows the third approach, reducing the complexity
-                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">2</a></sup>.
-                    This shares a motivation with equivariant learning: reducing variation by expressing observations and actions in a common frame, here defined by gaze.
-                </p>
 
-                <aside class="sidenote" id="fixation-relative-note" role="note">
-                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">2</a> Wrist cameras are an example of this too.
-                     Think about how easy it is to move left and right from an aligned wrist view, vs left and right from a distal fixed view.
-                     Gripper-centric viewpoints make the servoing data manifold more compact.
-                </aside>
-            </div>
-
-            <h3>Fixation-centric observations</h3>
-            <div class="paragraph-with-sidenote">
-                <p class="paragraph">
-                    By gazing at a point, EyeRobot 2.0 compacts the input image manifold by centering views on regions of interest. This is particularly noticable in
-                    pick and place tasks shown below.
-                </p>
-            </div>
-
-            <figure id="fixation-observations" class="fixation-panels" aria-label="Fixation observation comparison" aria-roledescription="carousel">
-                <div class="fixation-carousel-viewport">
-                    <div class="carousel-track fixation-carousel-track">
-                <div class="fixation-slide" role="group" aria-roledescription="slide" aria-label="1 of 2: Tape" aria-hidden="false">
-                    <div class="fixation-panels-grid">
-                        <section class="fixation-stage" aria-label="Pick tape">
-                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Pick tape</h4></div>
-                            <video muted loop playsinline preload="none" width="464" height="192" aria-label="Pick tape: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/pick-tape.mp4" data-poster="data/fixation-panels/rows/pick-tape.webp"></video>
-                            <div class="fixation-view-labels"><span>Static view</span><span>Fixated view</span></div>
-                        </section>
-                        <section class="fixation-stage" aria-label="Place tape">
-                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Place tape</h4></div>
-                            <video muted loop playsinline preload="none" width="464" height="192" aria-label="Place tape: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/place-tape.mp4" data-poster="data/fixation-panels/rows/place-tape.webp"></video>
-                            <div class="fixation-view-labels"><span>Static view</span><span>Fixated view</span></div>
-                        </section>
-                    </div>
-                </div>
-                <div class="fixation-slide" role="group" aria-roledescription="slide" aria-label="2 of 2: Tea" aria-hidden="true" inert>
-                    <div class="fixation-panels-grid">
-                        <section class="fixation-stage" aria-label="Pick tea">
-                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Pick tea</h4></div>
-                            <video muted loop playsinline preload="none" width="464" height="192" aria-label="Pick tea: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/pick-tea.mp4" data-poster="data/fixation-panels/rows/pick-tea.webp"></video>
-                            <div class="fixation-view-labels"><span>Static view</span><span>Fixated view</span></div>
-                        </section>
-                        <section class="fixation-stage" aria-label="Place tea">
-                            <div class="fixation-stage-heading"><h4 class="fixation-panels-title">Place tea</h4></div>
-                            <video muted loop playsinline preload="none" width="464" height="192" aria-label="Place tea: static observations on the left, matching fixated observations on the right" data-src="data/fixation-panels/rows/place-tea.mp4" data-poster="data/fixation-panels/rows/place-tea.webp"></video>
-                            <div class="fixation-view-labels"><span>Static view</span><span>Fixated view</span></div>
-                        </section>
-                    </div>
-                </div>
-                    </div>
-                </div>
-                <figcaption class="results-gallery-footer">
-                    <span class="carousel-caption">Randomly sampled frames from the passive stereo policy and fixated policy during selected task stages. Fixation
-                        makes the space of input images more compact by centering on objects of interest. </span>
-                    <div class="results-gallery-arrows">
-                        <button type="button" class="carousel-button carousel-button--left fixation-prev" aria-label="Previous task" hidden>←</button>
-                        <button type="button" class="carousel-button carousel-button--right fixation-next" aria-label="Next task" hidden>→</button>
-                    </div>
-                </figcaption>
-                <div class="carousel-nav fixation-carousel-nav" role="group" aria-label="Choose task" hidden>
-                    <button type="button" class="carousel-indicator current-slide" data-task="0" aria-label="Show tape" aria-pressed="true"></button>
-                    <button type="button" class="carousel-indicator" data-task="1" aria-label="Show tea" aria-pressed="false"></button>
-                </div>
-
-            </figure>
-
-            <h3>Fixation-centric action frame</h3>
-            <p class="paragraph">
-                The same idea applies to the action space. In world coordinates, reaching for the same object at different
-                locations produces different gripper trajectories. Expressing proprioception and actions relative to fixation
-                brings these reaches into a more compact manifold, reducing the variation the policy needs to learn.
-                This lets the same data more densely cover the relevant motions, rather than spreading it across
-                different object locations. <a href="#action-frame-ablation">See action-frame ablation →</a>
-            </p>
-            <figure id="fixation-actions" class="fixation-actions" data-fixation-actions data-src="data/fixation-actions/tape-pick-widget.json" aria-label="Interactive comparison of world and fixation coordinates">
-                <p data-load-status role="alert" hidden></p>
-                <div class="views">
-                    <section class="view">
-                        <h4>World frame</h4><p class="view-note">Relative to the robot</p>
-                        <canvas id="world-view" tabindex="0" aria-label="World-frame gripper trajectories. Drag or use arrow keys to rotate both views; plus and minus to zoom."></canvas>
-                    </section>
-                    <section class="view">
-                        <h4>Fixation frame</h4><p class="view-note">Relative to the gaze direction</p>
-                        <canvas id="fixation-view" tabindex="0" aria-label="The same gripper trajectories in fixation coordinates. Drag or use arrow keys to rotate both views; plus and minus to zoom."></canvas>
-                    </section>
-                </div>
-                <div class="rgb-context">
-                    <p class="rgb-heading">Point to a frame to locate the pose above</p>
-                    <div class="rgb-strip">
-                        <button class="rgb-frame" type="button" data-example="0" aria-label="Locate the reach pose in both plots">
-                            <img src="data/fixation-actions/reach-0.webp" width="480" height="360" loading="lazy" decoding="async" alt="Robot gripper beside the yellow tape roll at the start of the reach">
-                        </button>
-                        <button class="rgb-frame" type="button" data-example="1" aria-label="Locate the approach pose in both plots">
-                            <img src="data/fixation-actions/reach-1.webp" width="480" height="360" loading="lazy" decoding="async" alt="Robot gripper approaching the yellow tape roll from above">
-                        </button>
-                        <button class="rgb-frame" type="button" data-example="2" aria-label="Locate the pre-grasp pose in both plots">
-                            <img src="data/fixation-actions/reach-2.webp" width="480" height="360" loading="lazy" decoding="async" alt="Robot gripper positioned around the yellow tape roll before grasping">
-                        </button>
-                    </div>
-                </div>
-                <figcaption class="figure-footer">
-                    <span>Recorded gripper poses during tape picking, shown in world and fixation coordinates at the same scale. Expressing motion relative to fixation brings reaches to different object locations into a more compact representation.</span>
-                </figcaption>
-            </figure>
         </div>
 
 
@@ -1802,7 +1804,7 @@
             <h1 id="abstract">Citation</h1>
             <p class="paragraph"> If you use this work or find it helpful, please consider citing: (bibtex) </p>
             <pre id="codecell0" style="white-space: pre-wrap; word-wrap: break-word; max-width: 100%; overflow-x: auto; padding: 1em; background: #f5f5f5; border-radius: 4px;">@article{2026eyerobot2,
-  title={{EyeRobot 2.0}: Active Gaze for Precise Manipulation without Wrist Cameras},
+  title={{EyeRobot 2.0}: Active Stereo Gaze for Precise Manipulation without Wrist Cameras},
   author={Hari, Kush* and Kerr, Justin* and Shivakumar, Nidhya and Mahapatra, Samarth and Sferrazza, Carmelo and Lei, Jiahui and Malik, Jitendra and Liu, C. Karen and Goldberg, Ken and Kanazawa, Angjoo},
   journal={arXiv preprint arXiv:[ARXIV_ID]},
   year={2026},
