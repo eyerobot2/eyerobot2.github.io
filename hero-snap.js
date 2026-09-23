@@ -88,6 +88,7 @@
   // Trackpads keep sending momentum wheel events for ~1s; swallow them so the page
   // doesn't coast past the intro once the snap lands. Momentum only decays, so a
   // delta that grows (or reverses) is a fresh gesture and scrolls normally.
+  hero.querySelector('.hero-scroll-cue')?.addEventListener('click', snap);
   addEventListener('wheel', event => {
     if (event.ctrlKey) return;
     const now = performance.now();

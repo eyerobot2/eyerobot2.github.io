@@ -1323,21 +1323,44 @@ h1.tldr {
         max-width: var(--content-width);
         white-space: nowrap;
         letter-spacing: -0.01em;
+        margin-bottom: 16px;
     }
     .page-hero .teaser-stage {
         position: relative;
         display: flex;
         flex: 1 1 0;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         width: 100%;
         min-height: 260px;
         container-type: size;
     }
-    .page-hero #main-video { flex: none; width: min(100cqw, 200cqh); }
+    .page-hero #main-video { flex: none; width: min(100cqw, calc(200cqh - 88px)); }
+    .page-hero .hero-scroll-cue {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: auto;
+        white-space: nowrap;
+        height: 36px;
+        color: #7d858a;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        font: 400 12px/1.4 'Avenir Next', Avenir, sans-serif;
+    }
+    .page-hero .hero-scroll-cue span { font-size: 16px; }
+    .page-hero .hero-scroll-cue:hover { color: #333; }
     /* The loading/Play line would otherwise reserve a row under the teaser. */
     .page-hero .teaser-stage > .media-feedback { position: absolute; right: 0; bottom: 8px; left: 0; justify-content: center; }
 }
+
+.hero-scroll-cue { display: none; }
 
 .teaser-section::after {
     width: 100%;
