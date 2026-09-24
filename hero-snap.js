@@ -17,7 +17,7 @@
   measureTop();
   addEventListener('resize', measureTop);
 
-  // Size the TL;DR line to span almost the teaser's width. A bigger line leaves
+  // Size the TL;DR line to span most of the teaser's width. A bigger line leaves
   // less height for the teaser, which narrows it, so iterate until they agree.
   const tldr = hero.querySelector('h1.tldr');
   const video = document.getElementById('main-video');
@@ -34,8 +34,8 @@
     let size = 20;
     for (let i = 0; i < 6; i++) {
       tldr.style.fontSize = `${size}px`;
-      const target = Math.max(0.94 * video.getBoundingClientRect().width, floor);
-      const next = Math.min(44, 20 * target / widthAt20);
+      const target = Math.max(0.82 * video.getBoundingClientRect().width, floor);
+      const next = Math.min(36, 20 * target / widthAt20);
       if (Math.abs(next - size) < 0.2) break;
       size = next;
     }

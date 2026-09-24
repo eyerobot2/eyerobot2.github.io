@@ -121,11 +121,11 @@
   {
     "source": "data/teaser.mp4",
     "output": "data/web-video/teaser.mp4",
-    "source_sha256": "feda60e24f2f9adccd5e89715d26400a09cc7ae068d62b179a30e1ba38385d76",
+    "source_sha256": "d0fdd5e9de546b80be42a5bc4e619490cd104cf3048e9aab577f2eb8eddebb99",
     "settings": "1080-high-quality-30fps-v1",
     "trim_start_seconds": 0.0,
-    "original_bytes": 9453497,
-    "web_bytes": 5162962
+    "original_bytes": 32332342,
+    "web_bytes": 21849467
   },
   {
     "source": "data/er2_success_scroll.mp4",

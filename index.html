@@ -59,7 +59,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link href="style.css?v=hero-spacing1" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=hero-soft1" rel="stylesheet" type="text/css" />
     <link href="gaze-transformer.css?v=gutters1" rel="stylesheet" />
     <script src="gaze-transformer.js" defer></script>
     <link href="simulated-gaze.css" rel="stylesheet" />
@@ -74,7 +74,7 @@
     <link href="fixation-panels.css" rel="stylesheet" type="text/css" />
     <link href="media.css?v=1" rel="stylesheet" />
     <script src="media.js?v=gesture-recovery3" defer></script>
-    <script src="hero-snap.js?v=5" defer></script>
+    <script src="hero-snap.js?v=6" defer></script>
     <script src="camera-comparisons.js?v=mobile-intro2" defer></script>
     <script src="fixation-panels.js?v=media1" defer></script>
 
@@ -224,8 +224,8 @@
             <!-- On desktop, hero-snap.js sizes this line to span almost the teaser's width. -->
             <h1 class="tldr">Policies with active stereo gaze match or exceed wrist camera setups in performance</h1>
             <div class="teaser-stage">
-            <video id="main-video" controls muted loop playsinline preload="none" width="1080" height="540" style="aspect-ratio: 1080 / 540; height: auto;" poster="data/web-posters/teaser.webp?v=3ccf034893e4">
-                <source id="mp4" type="video/mp4" data-src="data/web-video/teaser.mp4?v=354407681082">
+            <video id="main-video" controls muted loop playsinline preload="none" width="1920" height="960" style="aspect-ratio: 1920 / 960; height: auto;" poster="data/web-posters/teaser.webp?v=e868d763fb2f">
+                <source id="mp4" type="video/mp4" data-src="data/web-video/teaser.mp4?v=d9a608055bfa">
                 Your browser does not support the video tag.
             </video>
             <button class="hero-scroll-cue" type="button" aria-label="Scroll to introduction"><span aria-hidden="true">↓</span> Scroll to learn more <span aria-hidden="true">↓</span></button>
@@ -1168,6 +1168,20 @@
                 <h1>Experiments</h1>
             </div>
 
+            <div class="paragraph-with-sidenote">
+                <p class="paragraph">
+                    We compare against two baselines that use the same policy architecture as EyeRobot 2.0 and are trained on the exact same demonstrations<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
+                    The first baseline uses the RGB stereo inputs directly ("No Gaze"), and the second uses one stereo image along with two wrist-mounted cameras ("Ego + Wrist").
+                    Note that <i>both baselines have a significant observability advantage</i>, since EyeRobot 2.0 cannot see the entire stereo image at once.
+                    Both baselines receive a full view of the table, while the wrist-camera baseline also receives two additional high-resolution views of the gripper.
+                </p>
+
+                <aside class="sidenote" id="demonstrations-note" role="note">
+                    <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">3</a> We collect all data with wrist cameras for a fair comparison.
+                    For the main video results, we removed the wrist cameras, and EyeRobot 2.0 handled the visual difference.
+                </aside>
+            </div>
+
             <div class="success-scroll-wrap">
                 <video class="success-scroll-video" loop muted playsinline preload="none" data-playback-rate="1.5" aria-label="Grid of successful EyeRobot 2.0 evaluation trials" width="1920" height="1080" style="aspect-ratio: 1920 / 1080; height: auto;" data-poster="data/web-posters/posters/er2_success_scroll.webp">
                     <source data-src="data/web-video/er2_success_scroll.mp4" type="video/mp4">
@@ -1182,16 +1196,10 @@
 
             <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        In total we evaluated <b>over 1,000 real-world rollouts</b> across all baselines and ablations for EyeRobot 2.0. We compare against two strong baselines that use the same policy architecture as EyeRobot 2.0 and are trained on the exact same demonstrations<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
-                        The first baseline uses the RGB stereo inputs directly ("No Gaze"), and the second uses one stereo image along with two wrist-mounted cameras ("Ego + Wrist").
-                        Note that <i>both baselines have a significant observability advantage</i>, since EyeRobot 2.0's field of view is such that it cannot see the entire stereo image at once.
-                        Both baselines are provided a full coverage view of the table, and with wrist cameras two additional high-resolution viewpoints of the gripper.
-
+                        In total, we evaluated <b>over 1,000 real-world rollouts</b> across all baselines and ablations for EyeRobot 2.0. We controlled evaluation conditions as tightly as possible, running 25 trials per
+                        policy-task pair with the same initial object positions across policies (shown below).
                     </p>
-                    <aside class="sidenote" id="demonstrations-note" role="note">
-                        <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">3</a> We collect all data with wrist cameras for even comparison,
-                         for the main video results we actually took off the wrist cameras and EyeRobot 2.0 could handle the visual difference.
-                    </aside>
+
             </div>
 
             <div class="experiment-figures">

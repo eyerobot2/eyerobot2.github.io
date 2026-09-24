@@ -431,6 +431,8 @@ display: none;
 
 h1.tldr {
     font-family: 'Avenir Next', Avenir, 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: #454545;
 }
 
 .title-row {
