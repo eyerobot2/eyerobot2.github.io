@@ -2992,6 +2992,8 @@ input:checked + .slider:before {
 .intro-token-density { position: absolute; top: calc(100% + 8px); left: 0; width: 100%; margin: 0; color: #c26722; text-align: center; font: italic 16px/1.35 'Avenir Next', Avenir, sans-serif; transform: rotate(-2deg); opacity: 0; pointer-events: none; }
 .intro-token-callout { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; transition: opacity 120ms ease; }
 @media (max-width: 550px) {
+    /* Reserve space for the overview callout before the detail view's heading. */
+    .intro-resolution-overview-panel { margin-bottom: 32px; }
     .intro-resolution-detail-panel { margin-top: 36px; margin-bottom: 40px; }
     .intro-token-title { font-size: 15px; }
     .intro-token-note { font-size: 15px; }
