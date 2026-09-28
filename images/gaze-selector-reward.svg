@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="530" viewBox="0 0 980 530" role="img" aria-labelledby="diagram-title diagram-desc">
+<title id="diagram-title">Learning target selection from action prediction accuracy</title>
+<desc id="diagram-desc">The target selector chooses an object. A shared input block containing that target and the current fixated stereo views feeds two parallel policies in the same column. The gripper policy also takes robot state and predicts an action chunk, compared against the demonstration to produce the selector's RL reward. The gaze policy also takes gaze state and updates fixation for the next observation. Its output does not directly feed the gripper policy.</desc>
+<style>
+text { font-family: 'Avenir Next', Avenir, sans-serif; text-anchor: middle; fill: #53616a; }
+.label { font-size: 17px; }
+.small { font-size: 15px; fill: #899197 !important; }
+.module { font-size: 17px; font-weight: 500; }
+.policy-box { fill: #f8f9f9; stroke: #d6dcdf; stroke-width: 1.4; }
+.focus-box { fill: #faf2eb; stroke: #cfb09b; stroke-width: 1.5; }
+.wire { fill: none; stroke: #9ba4aa; stroke-width: 1.6; stroke-linecap: butt; stroke-linejoin: round; marker-end: url(#arrow); }
+.reward-wire { fill: none; stroke: #a9785e; stroke-width: 2.2; stroke-linejoin: round; marker-end: url(#reward-arrow); }
+.reward-label { font-size: 18px; font-weight: 500; fill: #a9785e !important; }
+
+.next-view-wire { fill: none; stroke: #a8b1b5; stroke-width: 1.5; stroke-dasharray: 4 5; stroke-linejoin: round; marker-end: url(#arrow); }
+
+</style>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#9ba4aa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></marker>
+<marker id="reward-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#a9785e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></marker>
+<g id="eyes" fill="white" stroke="#727f88" stroke-width="2.4"><ellipse cx="-20" cy="0" rx="16" ry="20" /><ellipse cx="20" cy="0" rx="16" ry="20" /><g fill="#536672" stroke="none"><ellipse cx="-16" cy="1" rx="7" ry="10" /><ellipse cx="24" cy="1" rx="7" ry="10" /></g></g>
+<g id="gripper"><rect x="-9" y="-16" width="18" height="17" rx="3" fill="currentColor" /><path d="M-10 4V21H-4M10 4V21H4" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></g>
+<g id="chunk"><use href="#gripper" transform="translate(8 0) scale(.6) rotate(-16)" opacity=".45" /><use href="#gripper" transform="translate(30 4) scale(.6) rotate(-8)" opacity=".7" /><use href="#gripper" transform="translate(52 8) scale(.6)" /></g>
+<g id="view"><rect x="0" y="0" width="42" height="42" rx="5" fill="#e8eeea" /><ellipse cx="21" cy="22" rx="10" ry="8" fill="#d5c48f" /><ellipse cx="21" cy="22" rx="5" ry="4" fill="#fff" /></g>
+</defs>
+
+<rect x="210" y="115" width="205" height="280" rx="12" fill="#fcfcfb" stroke="#e0e5e2" />
+<text x="312" y="100" class="label">Shared inputs</text>
+<text x="312" y="154" class="small">selected target</text>
+<rect x="232" y="166" width="161" height="47" rx="7" fill="#fcf7f2" stroke="#e2cdbd" />
+<text x="312" y="195" class="label">“yellow tape”</text>
+<use href="#view" transform="translate(256 253) scale(1.2)" />
+<use href="#view" transform="translate(319 253) scale(1.2)" />
+<text x="312" y="338" class="label">Fixated views</text>
+<text x="110" y="126" class="label">Robot state</text>
+<path class="wire" d="M110 141V164" />
+<rect class="focus-box" x="35" y="166" width="150" height="106" rx="10" />
+<g fill="#d7b59e"><rect x="80" y="186" width="12" height="30" rx="3" /><rect x="104" y="186" width="12" height="30" rx="3" /><rect x="128" y="186" width="12" height="30" rx="3" /></g>
+<text x="110" y="247" class="module">Target selector</text>
+<path class="wire" d="M186 190H231" />
+
+
+<path d="M416 252H433" fill="none" stroke="#9ba4aa" stroke-width="1.6" />
+<circle cx="433" cy="252" r="3" fill="#9ba4aa" />
+<path class="wire" d="M433 252V190H459" />
+<path class="wire" d="M433 252V370H459" />
+
+<text x="545" y="100" class="label">Robot state</text>
+<path class="wire" d="M545 112V134" />
+<rect class="policy-box" x="460" y="136" width="170" height="108" rx="10" />
+<use href="#gripper" transform="translate(545 170)" color="#899dab" />
+<text x="545" y="222" class="module">Gripper policy</text>
+<path class="wire" d="M631 190H652" />
+<use href="#chunk" transform="translate(662 180) scale(1.2)" color="#7d9db5" />
+<text x="696" y="248" class="small">Predicted chunk</text>
+<path class="wire" d="M745 190H819" />
+
+<rect class="policy-box" x="460" y="316" width="170" height="108" rx="10" />
+<use href="#eyes" transform="translate(545 351)" />
+<text x="545" y="402" class="module">Gaze policy</text>
+<text x="545" y="280" class="label">Gaze state</text>
+<path class="wire" d="M545 292V314" />
+<path class="wire" d="M631 370H667" />
+<circle cx="715" cy="370" r="7" fill="#c89789" />
+<path d="M695 356A26 26 0 0 1 737 356M731 353L738 357L740 349" fill="none" stroke="#9ba4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<text x="715" y="414" class="label">Update fixation</text>
+
+<path class="next-view-wire" d="M715 428V473H312V397" />
+<rect x="368" y="458" width="240" height="29" fill="white" />
+<text x="488" y="478" class="small">Views at the next timestep</text>
+
+<use href="#chunk" transform="translate(844 87) scale(1.2)" color="#9aaa9e" />
+<text x="880" y="66" class="label">Demonstration</text>
+<path class="wire" d="M880 114V134" />
+<rect class="focus-box" x="820" y="136" width="120" height="108" rx="10" />
+<path d="M858 164h44m-44 10h30" stroke="#b68b72" stroke-width="3" stroke-linecap="round" />
+<text x="880" y="222" class="module">Error</text>
+
+<path class="reward-wire" d="M942 190H960V28H12V219H33" />
+<rect x="255.22" y="12" width="405" height="33" fill="white" />
+<text x="457.72" y="34" class="reward-label">RL reward from prediction accuracy</text>
+</svg>

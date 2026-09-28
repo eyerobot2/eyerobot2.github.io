@@ -2998,3 +2998,32 @@ input:checked + .slider:before {
     .intro-token-title { font-size: 15px; }
     .intro-token-note { font-size: 15px; }
 }
+
+/* A lightweight overview of the three policy modules. */
+.method-overview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; width: 100%; margin: 8px 0 16px; }
+.method-mini { position: relative; display: flex; flex-direction: column; min-width: 0; color: #444; text-decoration: none; padding: 8px 0; }
+.method-mini:not(:last-child)::after { content: '→'; position: absolute; right: -25px; top: 44px; color: #a2aaae; font-size: 20px; }
+.method-mini svg { width: 100%; height: auto; fill: none; stroke: #89959c; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.method-mini strong { font: 600 16px/1.4 'Avenir Next', Avenir, sans-serif; margin: 8px 0 6px; }
+.method-mini strong span { color: #9aa3a9; font-size: 13px; }
+.method-mini-description { margin-top: 0; }
+.method-mini:hover strong, .method-mini:focus-visible strong { color: #355e7d; }
+.method-mini:focus-visible { outline: 2px solid #a2bfd7; outline-offset: 5px; border-radius: 4px; }
+@media (max-width: 640px) {
+    .method-overview { grid-template-columns: 1fr; gap: 20px; }
+    .method-mini { display: grid; grid-template-columns: minmax(110px, 36%) 1fr; column-gap: 16px; align-items: center; }
+    .method-mini svg { grid-row: 1 / 3; }
+    .method-mini strong { margin: 0 0 4px; align-self: end; }
+    .method-mini-description { margin-top: 0; }
+    .method-mini:not(:last-child)::after { content: '↓'; top: auto; bottom: -22px; left: 17%; right: auto; }
+}
+
+/* Light emphasis for the two fixation-relative policy representations. */
+.policy-emphasis { font-weight: 600; }
+
+/* Static target-selection and reward overview. */
+.gaze-sequencing-static { width: 100%; margin: 20px 0 26px; }
+.gaze-sequencing-static img { display: block; width: 100%; height: auto; }
+@media (max-width: 700px) {
+    .gaze-sequencing-static { width: calc(100vw - 8px); margin-left: calc((100% - 100vw) / 2 + 4px); }
+}
