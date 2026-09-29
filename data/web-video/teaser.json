@@ -1,9 +1,9 @@
 {
   "source": "data/teaser.mp4",
   "output": "data/web-video/teaser.mp4",
-  "source_sha256": "431d0f8a088a27802a872bceb85b783110b0a47015d5e73e9ec5a1ab96cc05e4",
+  "source_sha256": "05d8791a4138a838971a3137b4afa254f16c6fc496a64f83c9dea6bf0aac8e8f",
   "settings": "1080-high-quality-30fps-v1",
   "trim_start_seconds": 0.0,
-  "original_bytes": 37708882,
-  "web_bytes": 25312884
+  "original_bytes": 37745244,
+  "web_bytes": 25478368
 }
