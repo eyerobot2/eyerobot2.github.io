@@ -1,0 +1,81 @@
+[
+  {
+    "target": "yellow",
+    "inputs": [
+      {
+        "path": "/Users/jgkerr/Downloads/gaze/yellow_only/eyeball_view_L.mp4",
+        "sha256": "73efd483f0412429191ea2dbc857351bf2c12df140470b27d11ec2e101b9d225"
+      },
+      {
+        "path": "/Users/jgkerr/Downloads/gaze/yellow_only/eyeball_view_R.mp4",
+        "sha256": "7c1dc89774cc0fecf090f162132afc91a661ac8049f5eedaaf23a0239b1e3b11"
+      }
+    ],
+    "trim_start_seconds": 19,
+    "trim_end_seconds": 29,
+    "eye_order": [
+      "left",
+      "right"
+    ],
+    "width": 1440,
+    "height": 720,
+    "fps": 30,
+    "encoding": {
+      "codec": "libx264",
+      "preset": "slow",
+      "crf": 20,
+      "gop": 30,
+      "faststart": true
+    },
+    "output": "data/goal-conditioned-gaze/yellow-stereo.mp4",
+    "output_sha256": "d2683646320d49ebaf9c878ab95255ebf862da886ebe544062ae00bc6e276e8b"
+  },
+  {
+    "target": "switch-yellow-gray",
+    "inputs": [
+      {
+        "path": "/Users/jgkerr/Downloads/gaze/gray_yellow/eyeball_view_L.mp4",
+        "sha256": "208be295d71fad8127773b990335046f240e9e8d55842bc3b8fb5a4cd85093cf"
+      },
+      {
+        "path": "/Users/jgkerr/Downloads/gaze/gray_yellow/eyeball_view_R.mp4",
+        "sha256": "1dd8b863580f12b72e78e3809e78306256348e78b23e2fc956cbf942065c4d04"
+      }
+    ],
+    "trim_start_seconds": 23,
+    "trim_end_seconds": 33,
+    "eye_order": [
+      "left",
+      "right"
+    ],
+    "width": 1440,
+    "height": 720,
+    "fps": 30,
+    "encoding": {
+      "codec": "libx264",
+      "preset": "slow",
+      "crf": 20,
+      "gop": 30,
+      "faststart": true
+    },
+    "output": "data/goal-conditioned-gaze/switch-yellow-gray-stereo.mp4",
+    "output_sha256": "e2f99f85b5e5b86547c64dd04d13d3fe874d93eac77dc2474a2e80ec47bd9185",
+    "source_intervals_seconds": [
+      [
+        23,
+        26
+      ],
+      [
+        28,
+        33
+      ]
+    ],
+    "excluded_source_intervals_seconds": [
+      [
+        26,
+        28
+      ]
+    ],
+    "output_duration_seconds": 8
+  }
+]

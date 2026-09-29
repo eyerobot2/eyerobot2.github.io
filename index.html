@@ -59,7 +59,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link href="style.css?v=selector-reward1" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=gaze-updates1" rel="stylesheet" type="text/css" />
     <link href="gaze-transformer.css?v=gutters1" rel="stylesheet" />
     <script src="gaze-transformer.js" defer></script>
     <link href="simulated-gaze.css" rel="stylesheet" />
@@ -709,25 +709,32 @@
 
 
             <h2 id="learning-goal-conditioned-gaze">Goal-conditioned gaze</h2>
-            <div class="gaze-trajectory-comparison">
-                <div class="gaze-trajectory-item">
-                    <video loop muted playsinline preload="none" aria-label="Gaze policy trajectory rollout for yellow tape" width="610" height="648" style="aspect-ratio: 610 / 648; height: auto;">
-                        <source type="video/mp4" data-src="images/yellow_scene.mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <span class="gaze-trajectory-label">Conditioned on yellow tape</span>
+            <div class="carousel-container gaze-live-carousel" role="region" aria-label="Goal-conditioned gaze examples">
+                <div class="carousel-nav gaze-behavior-tabs results-controls" role="group" aria-label="Choose gaze behavior">
+                    <button type="button" class="current-slide" aria-pressed="true" aria-controls="gaze-track-yellow" aria-label="Track yellow">Track yellow</button>
+                    <button type="button" aria-pressed="false" aria-controls="gaze-switch-yellow-gray" aria-label="Switch yellow to gray">Switch yellow → gray</button>
                 </div>
-                <div class="gaze-trajectory-item">
-                    <video loop muted playsinline preload="none" aria-label="Gaze policy trajectory rollout for gray tape" width="610" height="648" style="aspect-ratio: 610 / 648; height: auto;">
-                        <source type="video/mp4" data-src="images/gray_scene.mp4">
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="goal-gaze-carousel">
+                        <div id="gaze-track-yellow" class="carousel-slide current-slide" aria-hidden="false" role="group" aria-label="Track yellow">
+                            <video loop muted playsinline preload="none" aria-label="Real-world gaze tracking yellow tape: left and right eye views" width="1440" height="720" data-poster="data/goal-conditioned-gaze/yellow-stereo.webp?v=35724afd222e">
+                        <source type="video/mp4" data-src="data/goal-conditioned-gaze/yellow-stereo.mp4?v=d2683646320d">
                         Your browser does not support the video tag.
                     </video>
-                    <span class="gaze-trajectory-label">Conditioned on gray tape</span>
+                            <span class="gaze-speed-label">1× speed</span>
+                        </div>
+                        <div id="gaze-switch-yellow-gray" class="carousel-slide" aria-hidden="true" inert role="group" aria-label="Switch yellow to gray">
+                            <video loop muted playsinline preload="none" aria-label="Real-world gaze switching from yellow to gray tape: left and right eye views" width="1440" height="720" data-poster="data/goal-conditioned-gaze/switch-yellow-gray-stereo.webp?v=847737b3e6b5">
+                        <source type="video/mp4" data-src="data/goal-conditioned-gaze/switch-yellow-gray-stereo.mp4?v=e2f99f85b5e5">
+                        Your browser does not support the video tag.
+                    </video>
+                            <span class="gaze-speed-label">1× speed</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p class="carousel-caption gaze-trajectory-caption">Gaze induced by conditioning on yellow vs gray tape.
-                3D visualization done with simulated data, but the policy is trained on real data. The red dot represents the current fixation point,
-                which is controlled by the RL agent in 3D. Foveated viewpoints are rendered centered on this point.
+            <p class="carousel-caption gaze-trajectory-caption">The gaze policy rapidly tracks objects through motion. It takes in a per-task target object, and outputs 3D delta actions on the
+                binocular 3D fixation point. The views you see are the exact input observations it gets.
             </p>
             <div class="goal-conditioned-intro">
                 <figure id="gaze-transformer" class="gaze-policy-wrap-figure">

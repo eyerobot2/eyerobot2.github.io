@@ -788,9 +788,12 @@ h1.tldr {
     margin: 0;
 }
 
-.carousel-container.sim-carousel-container,
-.carousel-container.gaze-probs-carousel-container {
+.carousel-container.sim-carousel-container {
     width: 80%;
+}
+
+.carousel-container.gaze-probs-carousel-container {
+    width: 100%;
 }
 
 .carousel-container.policy-carousel-container {
@@ -1074,7 +1077,8 @@ h1.tldr {
     margin: 0;
 }
 
-.distractor-video::after {
+.distractor-video::after,
+.gaze-live-carousel .gaze-speed-label {
     position: absolute;
     bottom: 8px;
     left: 8px;
@@ -1090,8 +1094,9 @@ h1.tldr {
     pointer-events: none;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    content: "1x speed, autonomous";
 }
+
+.distractor-video::after { content: "1x speed, autonomous"; }
 
 .distractor-policy-labels {
     display: grid;
@@ -1363,6 +1368,18 @@ h1.tldr {
 }
 
 .hero-scroll-cue { display: none; }
+
+@keyframes hero-scroll-tug {
+    0%, 72%, 100% { transform: translate(-50%, 0); }
+    81% { transform: translate(-50%, 3px); }
+    91% { transform: translate(-50%, 0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .page-hero .hero-scroll-cue { animation: hero-scroll-tug 2s ease-in-out infinite; }
+    .page-hero .hero-scroll-cue:hover,
+    .page-hero .hero-scroll-cue:focus-visible { animation: none; }
+}
+
 
 .teaser-section::after {
     width: 100%;
@@ -3026,4 +3043,13 @@ input:checked + .slider:before {
 .gaze-sequencing-static img { display: block; width: 100%; height: auto; }
 @media (max-width: 700px) {
     .gaze-sequencing-static { width: calc(100vw - 8px); margin-left: calc((100% - 100vw) / 2 + 4px); }
+}
+
+/* Real-world stereo gaze examples, using the site's shared carousel player. */
+.gaze-live-carousel .gaze-behavior-tabs { justify-content: center; gap: 5px; margin: 0 auto 16px; }
+.gaze-live-carousel .carousel-track-container { border-radius: 8px; }
+.gaze-live-carousel .carousel-slide { position: relative; flex: 0 0 100%; min-width: 0; }
+.gaze-live-carousel video { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; box-sizing: border-box; border: 1px solid #e3e3e3; border-radius: 8px; }
+@media (prefers-reduced-motion: reduce) {
+    .gaze-live-carousel .carousel-track { transition: none; }
 }
