@@ -335,9 +335,15 @@
 
 
 
-                    <p class="paragraph">
-                        So how could we get the benefits of wrist cameras purely from an ego view, while preserving the ability to search the scene independently of manipulation?
-                    </p>
+                    <div class="paragraph-with-sidenote">
+                        <p class="paragraph">
+                            So how could we get the benefits of wrist cameras purely from an ego view, while preserving the ability to search the scene independently of manipulation?<sup class="footnote-marker"><a class="footnote-ref" id="ego-benefits-ref" href="#ego-benefits-note" aria-label="Footnote">1</a></sup>
+                        </p>
+                        <aside class="sidenote" id="ego-benefits-note" role="note">
+                            <a class="sidenote-number" href="#ego-benefits-ref" aria-label="Back to footnote">1</a>
+                            Wrist cams also enable UMI-style data because of their embodiment-agnostic views. Mitigating this gap from ego views with gaze is an interesting future direction!
+                        </aside>
+                    </div>
 
                     <section class="intro-answer-card" aria-label="EyeRobot 2.0 answer and key result">
                         <p class="intro-answer-line">Robots should <em>look around</em>.</p>
@@ -537,12 +543,12 @@
                 <div class="paragraph-with-sidenote policy-rollout-intro">
                     <p class="paragraph">
                         The robot learns to coordinate its gaze with a two-stage reinforcement learning pipeline, <b>no gaze demonstrations required</b>!
-                        We first train a semantic gaze module, then use it to learn a gaze sequencing policy which directly optimizes BC accuracy as its reward. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">1</a></sup> image processing, which allocates
+                        We first train a semantic gaze module, then use it to learn a gaze sequencing policy which directly optimizes BC accuracy as its reward. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">2</a></sup> image processing, which allocates
                         high resolution image tokens towards the center.
                          <!-- This behavior was <i>never supervised</i> and emerged through RL. -->
                     </p>
                     <aside class="sidenote" id="foveation-note" role="note">
-                        <a class="sidenote-number" href="#foveation-ref" aria-label="Back to footnote">1</a> Foveation is a property prevalant in biological vision where organisms' retinas have very high
+                        <a class="sidenote-number" href="#foveation-ref" aria-label="Back to footnote">2</a> Foveation is a property prevalant in biological vision where organisms' retinas have very high
                         angular resolution in the center, and very poor resolution in the periphery.
                     </aside>
                 </div>
@@ -1008,12 +1014,12 @@
                 <p class="paragraph">
                     Loosely speaking, there's a few main ways to make a neural net better: 1) improve the architecture or optimization dynamics to better interpolate your data, 2) increase data manifold coverage by using more data, or
                     3) increase data manifold coverage by making the manifold itself more compact. Much of EyeRobot 2.0's design follows the third approach, reducing the complexity
-                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">2</a></sup>.
+                    of the learning problem by representing manipulation relative to fixation<sup class="footnote-marker"><a class="footnote-ref" id="fixation-relative-ref" href="#fixation-relative-note" aria-label="Footnote">3</a></sup>.
                     This shares a motivation with equivariant learning: reducing variation by expressing observations and actions in a common frame, here defined by gaze.
                 </p>
 
                 <aside class="sidenote" id="fixation-relative-note" role="note">
-                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">2</a> Wrist cameras are an example of this too.
+                    <a class="sidenote-number" href="#fixation-relative-ref" aria-label="Back to footnote">3</a> Wrist cameras are an example of this too.
                      Think about how easy it is to move left and right from an aligned wrist view, vs left and right from a distal fixed view.
                      Gripper-centric viewpoints make the servoing data manifold more compact.
                 </aside>
@@ -1126,14 +1132,14 @@
 
             <div class="paragraph-with-sidenote">
                 <p class="paragraph">
-                    We compare against two baselines that use the same policy architecture as EyeRobot 2.0 and are trained on the exact same demonstrations<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">3</a></sup>.
+                    We compare against two baselines that use the same policy architecture as EyeRobot 2.0 and are trained on the exact same demonstrations<sup class="footnote-marker"><a class="footnote-ref" id="demonstrations-ref" href="#demonstrations-note" aria-label="Footnote">4</a></sup>.
                     The first baseline uses the RGB stereo inputs directly ("No Gaze"), and the second uses one stereo image along with two wrist-mounted cameras ("Ego + Wrist").
                     Note that <i>both baselines have a significant observability advantage</i>, since EyeRobot 2.0 cannot see the entire stereo image at once.
                     Both baselines receive a full view of the table, while the wrist-camera baseline also receives two additional high-resolution views of the gripper.
                 </p>
 
                 <aside class="sidenote" id="demonstrations-note" role="note">
-                    <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">3</a> We collect all data with wrist cameras for a fair comparison.
+                    <a class="sidenote-number" href="#demonstrations-ref" aria-label="Back to footnote">4</a> We collect all data with wrist cameras for a fair comparison.
                     For the main video results, we removed the wrist cameras, and EyeRobot 2.0 handled the visual difference.
                 </aside>
             </div>
