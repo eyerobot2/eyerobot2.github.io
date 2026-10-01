@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-goal-switch-time]').forEach(label => {
+        const video = label.parentElement.querySelector('video');
+        if (!video) return;
+        const switchTime = Number(label.dataset.goalSwitchTime);
+        const updateGoal = (time = video.currentTime) => {
+            const text = time >= switchTime ? 'goal: gray tape' : 'goal: yellow tape';
+            if (label.textContent !== text) label.textContent = text;
+        };
+        ['timeupdate', 'seeking', 'seeked', 'loadedmetadata', 'emptied'].forEach(event => {
+            video.addEventListener(event, () => updateGoal());
+        });
+        if ('requestVideoFrameCallback' in video) {
+            const onFrame = (_, metadata) => {
+                updateGoal(metadata.mediaTime);
+                video.requestVideoFrameCallback(onFrame);
+            };
+            video.requestVideoFrameCallback(onFrame);
+        }
+        updateGoal();
+    });
     document.querySelectorAll('.carousel-container').forEach(container => {
         const track = container.querySelector('.carousel-track');
         if (!track) return;

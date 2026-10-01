@@ -1,0 +1,81 @@
+{
+  "source": "/home/eyeballisticmissile/eyeball/recordings/exo+wrist/exo_wrist_ee_wrench_eval [FINAL]/episode_000",
+  "reference": {
+    "source": "/home/eyeballisticmissile/eyeball/recordings/supp_vid_wrench/episode_014/left.mp4",
+    "frame": 491,
+    "time": 16.366666666666667
+  },
+  "selection": {
+    "left": 363,
+    "time": 12.102886574008153,
+    "wrist_left": 363,
+    "wrist_left_delta_ms": -7.663053009309806,
+    "wrist_right": 364,
+    "wrist_right_delta_ms": 16.421952997916378
+  },
+  "illustration": {
+    "input_dimensions": [
+      256,
+      192
+    ],
+    "patch_dimensions": [
+      16,
+      16
+    ],
+    "grid_dimensions": [
+      16,
+      12
+    ],
+    "tokens_per_view": 192,
+    "note": "Illustrative input size matching the low-resolution introductory graphic; not a claim about model preprocessing. Regions and crops are manually chosen for explanation."
+  },
+  "highlighted_tokens": {
+    "selected_by": "user",
+    "indexing": "zero-based, row-major, 16 columns",
+    "wrist_left": [
+      122,
+      123,
+      124,
+      138,
+      139,
+      140,
+      154,
+      155,
+      156
+    ],
+    "wrist_right": [
+      38,
+      39,
+      40,
+      41,
+      54,
+      55,
+      56,
+      57,
+      70,
+      71,
+      72,
+      73,
+      86,
+      87,
+      88,
+      89,
+      102,
+      103,
+      104,
+      105,
+      118,
+      119,
+      120,
+      121,
+      134,
+      135,
+      136,
+      137,
+      150,
+      151,
+      152,
+      153
+    ]
+  }
+}

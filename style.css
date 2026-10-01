@@ -35,6 +35,21 @@ body {
     line-height: 1.45;
 }
 
+.editorial-note {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 16px 0 24px;
+    padding: 12px 16px;
+    border-left: 3px solid #c7b874;
+    border-radius: 4px;
+    background: #fffbea;
+    color: #655d42;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+}
+.teaser-section > .editorial-note { max-width: var(--content-width, 1000px); flex: 0 0 auto; }
+
 :root {
     --content-width: 800px;
 }
@@ -2975,6 +2990,39 @@ input:checked + .slider:before {
 
 .intro-baseline-callout { margin: 24px 0 32px; }
 
+.carousel-container.wrist-design-carousel { width: 80%; max-width: none; margin: 24px auto 32px; }
+.wrist-design-carousel .carousel-track-container { border-radius: 6px; }
+.wrist-design-placeholder { display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 16 / 9; padding: 24px; box-sizing: border-box; background: #e6e6e6; color: #666; text-align: center; font-size: clamp(14px, 1.5vw, 20px); line-height: 1.5; }
+.wrist-design-placeholder span { max-width: 420px; }
+.wrist-design-controls { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 12px; }
+.wrist-design-controls [data-carousel-counter] { font-size: 12px; color: #777; min-width: 155px; text-align: center; }
+.wrist-design-carousel .carousel-nav { margin-top: 4px; }
+.wrist-occlusion-video { position: relative; width: 100%; aspect-ratio: 8 / 3; }
+.wrist-occlusion-video video { display: block; width: 100%; height: 100%; object-fit: contain; background: #eee; }
+.wrist-occlusion-labels { position: absolute; top: 6px; left: 0; right: 0; display: grid; grid-template-columns: 1fr 1fr; text-align: center; pointer-events: none; }
+.wrist-occlusion-labels span { justify-self: center; padding: 2px 7px; border-radius: 3px; color: white; background: #0008; font-size: 11px; }
+.wrist-occlusion-carousel .wrist-design-placeholder { aspect-ratio: 8 / 3; }
+@media (max-width: 650px) {
+    .carousel-container.wrist-design-carousel { width: 100%; }
+    .wrist-design-placeholder { padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .wrist-design-carousel .carousel-track { transition: none; }
+}
+
+/* Static wrist-camera comparison; selected patches match exo frame 363. */
+.intro-wrist-tokens { width: 80%; margin: 24px auto 32px; font-family: 'Avenir Next', Avenir, sans-serif; }
+.intro-wrist-frame img { display: block; width: 100%; height: auto; border-radius: 4px; }
+.intro-wrist-frame svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.intro-wrist-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.intro-wrist-frame { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 4px; }
+.intro-wrist-tokens figcaption { margin: 16px 0 0; padding: 0; color: #c26722; text-align: center; font-size: 17px; font-style: italic; line-height: 1.4; }
+@media (max-width: 650px) {
+    .intro-wrist-tokens { width: 100%; }
+    .intro-wrist-pair { gap: 15px; }
+    .intro-wrist-tokens figcaption { font-size: 14px; }
+}
+
 /* The problem callout recedes so the answer card below carries the emphasis. */
 .intro-baseline-callout { background: #fff; border-color: #ececec; }
 .intro-baseline-callout .takeaway-statement { color: #444; font-weight: 600; font-size: 17px; }
@@ -3049,6 +3097,20 @@ input:checked + .slider:before {
 .gaze-live-carousel .gaze-behavior-tabs { justify-content: center; gap: 5px; margin: 0 auto 16px; }
 .gaze-live-carousel .carousel-track-container { border-radius: 8px; }
 .gaze-live-carousel .carousel-slide { position: relative; flex: 0 0 100%; min-width: 0; }
+.gaze-live-carousel .gaze-goal-label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 1;
+    padding: 6px 10px;
+    border-radius: 5px;
+    background: rgba(35, 35, 35, 0.8);
+    color: #fff;
+    font-size: clamp(12px, 2vw, 16px);
+    font-weight: 600;
+    line-height: 1.3;
+    pointer-events: none;
+}
 .gaze-live-carousel video { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; box-sizing: border-box; border: 1px solid #e3e3e3; border-radius: 8px; }
 @media (prefers-reduced-motion: reduce) {
     .gaze-live-carousel .carousel-track { transition: none; }
