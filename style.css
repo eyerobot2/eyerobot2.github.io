@@ -3115,3 +3115,42 @@ input:checked + .slider:before {
 @media (prefers-reduced-motion: reduce) {
     .gaze-live-carousel .carousel-track { transition: none; }
 }
+
+/* Synchronized task instructions. The active underline stays fully solid. */
+.results-subtasks {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    width: 90%;
+    display: flex;
+    gap: 26px;
+    box-sizing: border-box;
+    padding: 75px 28px 25px;
+    border-radius: 0 0 8px 8px;
+    background: linear-gradient(transparent, rgba(16, 26, 36, .91));
+    pointer-events: none;
+}
+.results-subtasks button {
+    pointer-events: auto;
+    min-width: 0;
+    padding: 0 0 12px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    background: none;
+    color: #c0c8cd;
+    font-family: 'Avenir Next', Avenir, sans-serif;
+    text-align: left;
+    cursor: pointer;
+}
+.results-subtask-number { display: block; font-size: 10px; margin-bottom: 9px; opacity: .65; }
+.results-subtask-label { display: block; font-size: 16px; line-height: 1.3; }
+.results-subtasks button[aria-current="step"] { color: #fff; border-bottom-color: #fff; font-weight: 700; }
+.results-subtasks button:focus-visible { outline: 2px solid #fff; outline-offset: 5px; }
+@media (max-width: 650px) {
+    .results-subtasks { gap: 12px; padding: 40px 14px 12px; }
+    .results-subtasks button { padding-bottom: 7px; }
+    .results-subtask-number { font-size: 8px; margin-bottom: 5px; }
+    .results-subtask-label { font-size: 11px; }
+}

@@ -59,7 +59,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link href="style.css?v=gaze-goal1" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=subtask-strip1" rel="stylesheet" type="text/css" />
     <link href="gaze-transformer.css?v=gutters1" rel="stylesheet" />
     <script src="gaze-transformer.js" defer></script>
     <link href="simulated-gaze.css" rel="stylesheet" />
@@ -485,7 +485,7 @@
                 </div>
             </div>
 
-            <h3>See what EyeRobot 2.0 sees</h3>
+            <h3 id="see-eyerobot">See what EyeRobot 2.0 sees</h3>
             <div class="carousel-container real-results-carousel-container" role="region" aria-label="Seven autonomous manipulation results">
                 <div class="carousel-track-container">
                     <div class="carousel-track" id="real-results-carousel">
@@ -501,6 +501,11 @@
                                             <source data-src="data/results-gaze/marker-stereo.mp4?v=0a2a22cc013f" type="video/mp4">
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
+                                    </div>
+                                    <div class="results-subtasks" role="group" aria-label="Task stages">
+                                        <button type="button" data-stage-start="0" aria-label="Step 1: Cap the marker" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Cap the marker</span></button>
+                                        <button type="button" data-stage-start="10" aria-label="Step 2: Place in bag"><span class="results-subtask-number">02</span><span class="results-subtask-label">Place in bag</span></button>
+                                        <button type="button" data-stage-start="17" aria-label="Step 3: Zip the bag"><span class="results-subtask-number">03</span><span class="results-subtask-label">Zip the bag</span></button>
                                     </div>
                                 </div>
                                 <figcaption>Cap marker, place in bag, zip bag</figcaption>
@@ -519,6 +524,11 @@
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
                                     </div>
+                                    <div class="results-subtasks" role="group" aria-label="Task stages">
+                                        <button type="button" data-stage-start="0" aria-label="Step 1: Open the door" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Open the door</span></button>
+                                        <button type="button" data-stage-start="7" aria-label="Step 2: Extract the pan"><span class="results-subtask-number">02</span><span class="results-subtask-label">Extract the pan</span></button>
+                                        <button type="button" data-stage-start="20" aria-label="Step 3: Close the door"><span class="results-subtask-number">03</span><span class="results-subtask-label">Close the door</span></button>
+                                    </div>
                                 </div>
                                 <figcaption>Open toaster, extract pan, close toaster</figcaption>
                             </figure>
@@ -535,6 +545,10 @@
                                             <source data-src="data/results-gaze/wrench-stereo.mp4?v=91b7e23dfd35" type="video/mp4">
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
+                                    </div>
+                                    <div class="results-subtasks" role="group" aria-label="Task stages">
+                                        <button type="button" data-stage-start="0" aria-label="Step 1: Open toolbox" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Open toolbox</span></button>
+                                        <button type="button" data-stage-start="10" aria-label="Step 2: Lift out"><span class="results-subtask-number">02</span><span class="results-subtask-label">Lift out</span></button>
                                     </div>
                                 </div>
                                 <figcaption>Open toolbox, extract wrench</figcaption>
@@ -553,6 +567,10 @@
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
                                     </div>
+                                    <div class="results-subtasks" role="group" aria-label="Task stages">
+                                        <button type="button" data-stage-start="0" aria-label="Step 1: Insert straw in cup" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Insert straw in cup</span></button>
+                                        <button type="button" data-stage-start="10.8" aria-label="Step 2: Place on coaster"><span class="results-subtask-number">02</span><span class="results-subtask-label">Place on coaster</span></button>
+                                    </div>
                                 </div>
                                 <figcaption>Insert boba straw, place on coaster</figcaption>
                             </figure>
@@ -569,6 +587,10 @@
                                             <source data-src="data/results-gaze/tea-stereo.mp4?v=625637113fab" type="video/mp4">
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
+                                    </div>
+                                    <div class="results-subtasks" role="group" aria-label="Task stages">
+                                        <button type="button" data-stage-start="0" aria-label="Step 1: Pick up teabag" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Pick up teabag</span></button>
+                                        <button type="button" data-stage-start="3.6" aria-label="Step 2: Put in cup"><span class="results-subtask-number">02</span><span class="results-subtask-label">Put in cup</span></button>
                                     </div>
                                 </div>
                                 <figcaption>Pick up teabag, put in cup</figcaption>
@@ -587,6 +609,11 @@
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
                                     </div>
+                                    <div class="results-subtasks" role="group" aria-label="Task stages">
+                                        <button type="button" data-stage-start="0" aria-label="Step 1: Pick up tape" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Pick up tape</span></button>
+                                        <button type="button" data-stage-start="2.5" aria-label="Step 2: Hand over tape"><span class="results-subtask-number">02</span><span class="results-subtask-label">Hand over tape</span></button>
+                                        <button type="button" data-stage-start="5.8" aria-label="Step 3: Place the tape"><span class="results-subtask-number">03</span><span class="results-subtask-label">Place the tape</span></button>
+                                    </div>
                                 </div>
                                 <figcaption>Pick tape, handover, place tape</figcaption>
                             </figure>
@@ -603,6 +630,10 @@
                                             <source data-src="data/results-gaze/pot-stereo.mp4?v=8e95239124ad" type="video/mp4">
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
+                                    </div>
+                                    <div class="results-subtasks" role="group" aria-label="Task stages">
+                                        <button type="button" data-stage-start="0" aria-label="Step 1: Pick up the lid" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Pick up the lid</span></button>
+                                        <button type="button" data-stage-start="2.3" aria-label="Step 2: Place on pot"><span class="results-subtask-number">02</span><span class="results-subtask-label">Place on pot</span></button>
                                     </div>
                                 </div>
                                 <figcaption>Pick pot lid, place on pot</figcaption>
@@ -1913,7 +1944,7 @@
         </div>
     </div>
 
-    <script src="carousels.js?v=gaze-goal1" defer></script>
+    <script src="carousels.js?v=subtask-strip1" defer></script>
     <script src="intro-resolution.js?v=token-density1" defer></script>
 
 </body>

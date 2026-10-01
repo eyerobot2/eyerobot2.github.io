@@ -67,6 +67,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const robot = slide.querySelector('.results-robot-view video');
             const gaze = slide.querySelector('.results-gaze-inset video');
             if (!robot || !gaze) return;
+            // Editorial stage boundaries follow the robot video, including seeks and loops.
+            const stages = [...slide.querySelectorAll('[data-stage-start]')];
+            const updateStage = () => {
+                const active = stages.reduce((current, stage, index) =>
+                    robot.currentTime >= Number(stage.dataset.stageStart) ? index : current, 0);
+                stages.forEach((stage, index) => {
+                    if (index === active) stage.setAttribute('aria-current', 'step');
+                    else stage.removeAttribute('aria-current');
+                });
+            };
+            stages.forEach(stage => stage.addEventListener('click', () => {
+                if (robot.readyState < 1) return;
+                robot.currentTime = Number(stage.dataset.stageStart);
+                updateStage();
+            }));
+            ['timeupdate', 'seeking', 'loadedmetadata', 'emptied'].forEach(event =>
+                robot.addEventListener(event, updateStage));
+            updateStage();
             const followRobot = () => {
                 if (gaze.readyState < 2 || !Number.isFinite(gaze.duration)) return;
                 const time = Math.min(robot.currentTime, gaze.duration);

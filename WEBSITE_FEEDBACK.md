@@ -16,7 +16,7 @@ Last updated: 2026-10-01. Initial status assessment refers to branch `intro-wris
 
 Statuses: **Open**, **Partial**, **Addressed**, **Unverified**, **Deferred**, **In progress**. Addressed means an implementation exists, not that every reviewer has accepted it.
 
-Current item in progress: none. Next item: not yet selected.
+Current item in progress: none. F039 approved by the user for commit and push.
 
 ## Main concern
 
@@ -281,6 +281,18 @@ Possible wording for discussion, not approved or applied: “During manipulation
 
 When addressing this item, distinguish the behaviors: a supplied yellow-to-gray goal switch demonstrates the goal-conditioned gaze policy responding to a new target; it does not by itself demonstrate the learned target selector deciding what to look at. Choose selector footage that shows its actual target choices or probabilities. Identify an appropriate gripper-policy example if all three cards receive a video. The exact clips and whether to move or repeat them are not yet decided. No videos moved yet.
 
+### F039 Add synchronized subtask instructions to the results videos
+
+> For the See What EyeRobot Sees section, can we have maybe subtask instructions similar to how we do in the toaster part of this video, iterate with a couple diff versions of this style @toaster_wrench.mp4
+
+**In progress.** Related to F003 (short task-stage captions). Created a local preview at `subtask-styles.html` with three switchable styles: a numbered overlay following the supplied reference, a blue chapter rail below the footage, and a compact active-instruction card. Uses the existing aligned toaster and wrench robot/gaze videos. Instructions follow playback and scrubbing; clicking a stage seeks to its start. Stage boundaries are approximate editorial annotations, not model predictions. The main results section has not been changed; awaiting a style choice before integration.
+
+**Follow-up:** User selected the film-strip style, requested no text at the top left, and asked to preview all seven tasks. Updated `subtask-styles.html` to show marker, toaster, toolbox, boba, tea, tape, and pot lid with bottom stage instructions and the existing gaze inset. Removed the top-left title and gradient. Stage timing was visually estimated from each clip; two-stage tasks retain two stages. Validated all seven tasks for stage seeking, playback, gaze synchronization, and mobile overflow; no browser JavaScript errors. Local preview only; main results section unchanged.
+
+**Further refinement:** Removed the animated progress line; only the active instruction has a fully solid, static underline. Simplified wrench to “Open toolbox” → “Lift out” and boba to “Insert straw in cup” → “Place on coaster,” retaining the corresponding transition times (10s and 10.8s). Local preview updated.
+
+**Main-site integration:** Added the approved film strip to all seven videos in the main “See what EyeRobot 2.0 sees” carousel on `intro-wrist-camera-updates`. No top-left task title; the active step has a static solid underline. Stage highlighting follows playback, seeking, and looping. Stage buttons seek within the existing synchronized player. The strip stays on the large view when gaze is enlarged. Checked all seven tasks and stage buttons, gaze enlargement, and mobile carousel sizing in Chromium. External font/jQuery scripts were blocked during the isolated browser check. User reviewed the main-site integration and approved committing and pushing it to `intro-wrist-camera-updates`. F039 is addressed; earlier F030/F031 edits and visual-study files remain outside this commit.
+
 ## Accepted implementation decisions
 
 - Use exo frame 363 to select the wrench moment. Timestamp matching gives left wrist frame 363 and right wrist frame 364.
@@ -292,6 +304,8 @@ When addressing this item, distinguish the behaviors: a supplied yellow-to-gray 
 - Keep rejected visual studies local and out of the main-site commit.
 
 ## Change history
+
+- 2026-10-01: Logged F039 and built three local subtask instruction previews using the supplied toaster/wrench reference. Main-site integration pending selection.
 
 - 2026-10-01: Logged F038: move illustrative tape demonstrations earlier, potentially beneath the corresponding three-part method overview modules. No website edit.
 - 2026-10-01: Logged F035–F037: project-site succinctness, direct click-to-enlarge on the gaze inset, and stronger emphasis on decoupling looking and acting. Confirmed a separate enlargement button exists already. No website edits for these items yet.
