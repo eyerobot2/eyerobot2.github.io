@@ -3064,3 +3064,17 @@ input:checked + .slider:before {
     .intro-wrist-tokens { width: 100%; }
     .intro-wrist-pair { gap: 15px; }
 }
+
+/* A quiet cue for the requested object in the gaze examples. */
+.gaze-live-carousel .gaze-goal-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    padding: 5px 9px;
+    border-radius: 5px;
+    background: rgba(35, 35, 35, .78);
+    color: #fff;
+    font: 500 clamp(11px, 1.5vw, 14px)/1.4 'Avenir Next', Avenir, sans-serif;
+    pointer-events: none;
+}

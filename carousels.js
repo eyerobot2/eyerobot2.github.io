@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Goal cues follow video time, including seeks, loops, and source resets.
+    document.querySelectorAll('.gaze-goal-label[data-goal-switch-time]').forEach(label => {
+        const video = label.parentElement.querySelector('video');
+        const text = label.querySelector('[data-goal-text]');
+        const switchTime = Number(label.dataset.goalSwitchTime);
+        if (!video || !text || !Number.isFinite(switchTime)) return;
+        const initialGoal = text.textContent;
+        const update = time => {
+            const goal = time >= switchTime ? label.dataset.goalAfter : initialGoal;
+            if (text.textContent !== goal) text.textContent = goal;
+        };
+        ['timeupdate', 'seeking', 'seeked', 'loadedmetadata', 'emptied'].forEach(event => {
+            video.addEventListener(event, () => update(video.currentTime));
+        });
+        // This callback sleeps when decoding stops; no timer or page animation loop.
+        if ('requestVideoFrameCallback' in video) {
+            const onFrame = (_, metadata) => {
+                update(metadata.mediaTime);
+                video.requestVideoFrameCallback(onFrame);
+            };
+            video.requestVideoFrameCallback(onFrame);
+        }
+        update(video.currentTime);
+    });
     document.querySelectorAll('.carousel-container').forEach(container => {
         const track = container.querySelector('.carousel-track');
         if (!track) return;
