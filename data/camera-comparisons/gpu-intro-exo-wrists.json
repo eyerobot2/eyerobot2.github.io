@@ -9,9 +9,10 @@
   "fps": 30,
   "frames": 124,
   "dimensions": [
-    800,
-    600
+    960,
+    360
   ],
+  "task": "GPU Insertion",
   "task_label": "GPU Insertion",
   "aligned_clip_range_seconds": null,
   "exo_crop": {
@@ -20,5 +21,5 @@
     "width": 1320,
     "height": 990
   },
-  "layout": "Exo background; Wrist L/R cards top right; task bottom left; preserve source aspect ratios."
+  "layout": "Large left/right wrist views; exo inset bottom left; camera labels; task name inside exo inset; preserve source aspect ratios."
 }
