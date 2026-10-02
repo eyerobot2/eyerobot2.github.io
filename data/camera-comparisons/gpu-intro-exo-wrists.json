@@ -1,0 +1,23 @@
+{
+  "source_directory": "/home/eyeballisticmissile/eyerobot2-website/gpu_insertion_trimmed_4_11s",
+  "inputs": {
+    "left": "main_full_frame_reversed.mp4",
+    "wrist_left": "wrist_left_reversed.mp4",
+    "wrist_right": "wrist_right_reversed.mp4"
+  },
+  "alignment": "Shared elapsed time in supplied trimmed clips; no extra reversal.",
+  "fps": 30,
+  "frames": 124,
+  "dimensions": [
+    800,
+    600
+  ],
+  "task_label": "GPU Insertion",
+  "exo_crop": {
+    "x": 0,
+    "y": 170,
+    "width": 1960,
+    "height": 1470
+  },
+  "layout": "Exo background; Wrist L/R cards top right; task bottom left; preserve source aspect ratios."
+}

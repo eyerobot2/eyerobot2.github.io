@@ -53,13 +53,13 @@
 
     <!-- JQuery, scripts etc -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="script.js?v=media1" type="text/javascript"></script>
+    <script src="script.js?v=native-scroll1" type="text/javascript"></script>
 
     <!-- Stylesheets; tabler icons, font-awesome, fonts, ...-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link href="style.css?v=subtask-strip1" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=no-scroll-cue1" rel="stylesheet" type="text/css" />
     <link href="gaze-transformer.css?v=gutters1" rel="stylesheet" />
     <script src="gaze-transformer.js" defer></script>
     <link href="simulated-gaze.css" rel="stylesheet" />
@@ -67,12 +67,12 @@
     <link href="fixation-actions.css" rel="stylesheet" type="text/css" />
     <script src="fixation-actions.js" defer></script>
     <link href="results-charts.css" rel="stylesheet" />
-    <link href="camera-comparisons.css?v=boba-center1" rel="stylesheet" />
+    <link href="camera-comparisons.css?v=ego-triples1" rel="stylesheet" />
     <script src="results-charts.js" defer></script>
     <link href="fixation-panels.css" rel="stylesheet" type="text/css" />
     <link href="media.css?v=1" rel="stylesheet" />
     <script src="media.js?v=gesture-recovery3" defer></script>
-    <script src="hero-snap.js?v=6" defer></script>
+    <script src="hero-snap.js?v=no-scroll-cue1" defer></script>
     <script src="camera-comparisons.js?v=mobile-intro2" defer></script>
     <script src="fixation-panels.js?v=media1" defer></script>
 
@@ -171,8 +171,7 @@
 
 <body>
     <div>
-        <!-- Title through teaser. On desktop this fills the first screen and the
-             first scroll down snaps to the intro (hero-snap.js). -->
+        <!-- Title through teaser. The video scales with page width; short screens scroll. -->
         <header class="page-hero">
         <!-- ===========================================================
              Title, authors, affiliations, and Paper / Code / Data / Evals links
@@ -208,7 +207,7 @@
                 </p>
                 <!-- TODO: update every href. -->
                 <nav class="project-links" aria-label="Paper, code, data, and evals">
-                    <a href="#" target="_blank" class="project-link"><i class="ti ti-file-text" aria-hidden="true"></i>Paper</a>
+                    <a href="eyerobot2.pdf" target="_blank" class="project-link"><i class="ti ti-file-text" aria-hidden="true"></i>Paper</a>
                     <a href="https://github.com/kerrj/eyerobot2" target="_blank" class="project-link"><i class="ti ti-brand-github" aria-hidden="true"></i>Code</a>
                     <a href="https://github.com/kerrj/eyerobot2" target="_blank" class="project-link"><i class="ti ti-database" aria-hidden="true"></i>Data</a>
                     <a href="viewer/" class="project-link"><i class="ti ti-player-play" aria-hidden="true"></i>Evals</a>
@@ -227,9 +226,7 @@
                 <source id="mp4" type="video/mp4" data-src="data/web-video/teaser.mp4?v=a7a3d4975b8b">
                 Your browser does not support the video tag.
             </video>
-            <button class="hero-scroll-cue" type="button" aria-label="Scroll to introduction"><span aria-hidden="true">↓</span> Scroll to learn more <span aria-hidden="true">↓</span></button>
             </div>
-            <aside class="editorial-note" role="note" aria-label="KH comment"><strong>KH:</strong> Ik the Claude orange color is cringe, but a little confusing we highlight everything in blue and then for the graph we have our method in orange.</aside>
         </div>
         </header>
         <!-- ===========================================================
@@ -242,7 +239,7 @@
                 <h1>How should robots see the world?</h1>
                 <div class="paragraph-with-sidenote">
                     <p class="paragraph">
-                        Precise manipulation requires high acuity vision. But how do we achieve this? With only ego-centric views this is non-trivial, a single HD image requires 7500 tokens to represent!
+                        Precise manipulation requires high acuity vision. But how do we achieve this? With only ego-centric views, this is non-trivial (a single HD image requires 7500 tokens to represent!).
                         If we use more tractable image sizes, it's difficult to see what's going on in the scene.
                     </p>
 
@@ -287,69 +284,23 @@
                         <div class="intro-wrist-pair">
                             <div class="intro-wrist-camera">
                                 <div class="intro-wrist-frame">
-                                    <img src="data/intro-wrists/wrist_left.webp" alt="Left wrist view of the wrench and gripper, with 9 selected visual tokens highlighted" width="640" height="480" loading="lazy" decoding="async" />
+                                    <img src="data/intro-wrists/wrist_left.webp" alt="Left wrist view of the wrench and gripper, with a visual-token grid" width="640" height="480" loading="lazy" decoding="async" />
                                     <svg viewBox="0 0 640 480" aria-hidden="true">
-                                        <defs><pattern id="intro-wrist_left-patches" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.2"/><path d="M40 0H0V40" fill="none" stroke="#263640" stroke-opacity=".75" stroke-width=".72"/></pattern></defs>
+                                        <defs><pattern id="intro-wrist_left-patches" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="3"/><path d="M40 0H0V40" fill="none" stroke="#263640" stroke-opacity=".75" stroke-width="1.8"/></pattern></defs>
                                         <rect width="640" height="480" fill="url(#intro-wrist_left-patches)" />
-                                        <g class="intro-wrist-selected" fill="#ef9a4f" fill-opacity=".12" stroke="#c26722" stroke-width="1.6" style="filter:drop-shadow(0 0 1px white)">
-                                        <rect x="400" y="280" width="40" height="40" />
-                                        <rect x="440" y="280" width="40" height="40" />
-                                        <rect x="480" y="280" width="40" height="40" />
-                                        <rect x="400" y="320" width="40" height="40" />
-                                        <rect x="440" y="320" width="40" height="40" />
-                                        <rect x="480" y="320" width="40" height="40" />
-                                        <rect x="400" y="360" width="40" height="40" />
-                                        <rect x="440" y="360" width="40" height="40" />
-                                        <rect x="480" y="360" width="40" height="40" />
-                                        </g>
                                     </svg>
                                 </div>
                             </div>
                             <div class="intro-wrist-camera">
                                 <div class="intro-wrist-frame">
-                                    <img src="data/intro-wrists/wrist_right.webp" alt="Right wrist view of the wrench and gripper, with 32 selected visual tokens highlighted" width="640" height="480" loading="lazy" decoding="async" />
+                                    <img src="data/intro-wrists/wrist_right.webp" alt="Right wrist view of the wrench and gripper, with a visual-token grid" width="640" height="480" loading="lazy" decoding="async" />
                                     <svg viewBox="0 0 640 480" aria-hidden="true">
-                                        <defs><pattern id="intro-wrist_right-patches" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.2"/><path d="M40 0H0V40" fill="none" stroke="#263640" stroke-opacity=".75" stroke-width=".72"/></pattern></defs>
+                                        <defs><pattern id="intro-wrist_right-patches" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="3"/><path d="M40 0H0V40" fill="none" stroke="#263640" stroke-opacity=".75" stroke-width="1.8"/></pattern></defs>
                                         <rect width="640" height="480" fill="url(#intro-wrist_right-patches)" />
-                                        <g class="intro-wrist-selected" fill="#ef9a4f" fill-opacity=".12" stroke="#c26722" stroke-width="1.6" style="filter:drop-shadow(0 0 1px white)">
-                                        <rect x="240" y="80" width="40" height="40" />
-                                        <rect x="280" y="80" width="40" height="40" />
-                                        <rect x="320" y="80" width="40" height="40" />
-                                        <rect x="360" y="80" width="40" height="40" />
-                                        <rect x="240" y="120" width="40" height="40" />
-                                        <rect x="280" y="120" width="40" height="40" />
-                                        <rect x="320" y="120" width="40" height="40" />
-                                        <rect x="360" y="120" width="40" height="40" />
-                                        <rect x="240" y="160" width="40" height="40" />
-                                        <rect x="280" y="160" width="40" height="40" />
-                                        <rect x="320" y="160" width="40" height="40" />
-                                        <rect x="360" y="160" width="40" height="40" />
-                                        <rect x="240" y="200" width="40" height="40" />
-                                        <rect x="280" y="200" width="40" height="40" />
-                                        <rect x="320" y="200" width="40" height="40" />
-                                        <rect x="360" y="200" width="40" height="40" />
-                                        <rect x="240" y="240" width="40" height="40" />
-                                        <rect x="280" y="240" width="40" height="40" />
-                                        <rect x="320" y="240" width="40" height="40" />
-                                        <rect x="360" y="240" width="40" height="40" />
-                                        <rect x="240" y="280" width="40" height="40" />
-                                        <rect x="280" y="280" width="40" height="40" />
-                                        <rect x="320" y="280" width="40" height="40" />
-                                        <rect x="360" y="280" width="40" height="40" />
-                                        <rect x="240" y="320" width="40" height="40" />
-                                        <rect x="280" y="320" width="40" height="40" />
-                                        <rect x="320" y="320" width="40" height="40" />
-                                        <rect x="360" y="320" width="40" height="40" />
-                                        <rect x="240" y="360" width="40" height="40" />
-                                        <rect x="280" y="360" width="40" height="40" />
-                                        <rect x="320" y="360" width="40" height="40" />
-                                        <rect x="360" y="360" width="40" height="40" />
-                                        </g>
                                     </svg>
                                 </div>
                             </div>
                         </div>
-                        <figcaption>multiple visual tokens</figcaption>
                     </figure>
 
                     <aside class="takeaway-callout intro-baseline-callout" aria-label="Wrist camera baseline comparison">
@@ -362,104 +313,76 @@
                         </figure>
                     </aside>
 
-                    <h3>But wrist cameras limit what you can do</h3>
-                    <p class="paragraph">
-                        While wrist cameras so far have been necessary for manipulation, they introduce their own set of problems.
-                    </p>
-                    <p class="paragraph">
-                        Wrist cameras can get easily occluded by manipulation of large objects, which eliminates its original benefit of providing high res inputs where manipulation is happening. We saw these occlusions for simple tasks like putting a boba straw in a cup or placing a pot lid on a pot. However, these occlusiosn exist for other tasks such as tool use and large object manipulation.
-                    </p>
-                    <div class="carousel-container wrist-design-carousel wrist-occlusion-carousel" role="region" aria-roledescription="carousel" aria-label="Examples of wrist camera occlusion">
-                        <div class="carousel-track-container">
-                            <div class="carousel-track" id="wrist-occlusion-examples">
-                                <div class="carousel-slide current-slide" data-example-label="Boba straw" role="group" aria-roledescription="slide" aria-label="1 of 5">
-                                    <div class="wrist-occlusion-video">
-                                        <video controls loop muted playsinline preload="none" width="960" height="360" aria-label="Putting a boba straw in a cup: left and right wrist camera views with synchronized exo view in the bottom-left corner" data-poster="data/camera-comparisons/boba-intro-wrists-context.webp?v=task-label1">
-                                            <source data-src="data/camera-comparisons/boba-intro-wrists-context.mp4?v=task-label1" type="video/mp4">
-                                        </video>
-                                        <div class="wrist-occlusion-labels"><span>Left wrist</span><span>Right wrist</span></div>
+                    <h3>But wrist cameras have their own issues</h3>
+
+                    <ol class="intro-problems">
+                        <li>
+                            <p class="paragraph">
+                                <strong class="intro-problem-heading">Manipulation necessarily occludes objects in wrist cameras,</strong> especially when using tools, manipulating large objects, or doing whole-body manipulation.
+                            </p>
+
+                            <div class="carousel-container wrist-design-carousel wrist-occlusion-carousel wrist-occlusion-exo-layout" role="region" aria-roledescription="carousel" aria-label="Examples of wrist camera occlusion">
+                                <div class="carousel-track-container">
+                                    <div class="carousel-track" id="wrist-occlusion-examples">
+                                        <div class="carousel-slide current-slide" data-example-label="Boba straw" role="group" aria-roledescription="slide" aria-label="1 of 4">
+                                            <div class="wrist-occlusion-video">
+                                                <video controls loop muted playsinline preload="none" width="800" height="600" aria-label="Putting a boba straw in a cup: exo view with synchronized left and right wrist views in the top-right corner" data-poster="data/camera-comparisons/boba-intro-exo-wrists.webp?v=insertion2">
+                                                    <source data-src="data/camera-comparisons/boba-intro-exo-wrists.mp4?v=insertion2" type="video/mp4">
+                                                </video>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-slide" data-example-label="Pot lid" role="group" aria-roledescription="slide" aria-label="2 of 4" aria-hidden="true" inert>
+                                            <div class="wrist-occlusion-video">
+                                                <video controls loop muted playsinline preload="none" width="800" height="600" aria-label="Placing a pot lid on a pot: exo view with synchronized left and right wrist views in the top-right corner" data-poster="data/camera-comparisons/pot-intro-exo-wrists.webp?v=placement2">
+                                                    <source data-src="data/camera-comparisons/pot-intro-exo-wrists.mp4?v=placement2" type="video/mp4">
+                                                </video>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-slide" data-example-label="GPU Insertion" role="group" aria-roledescription="slide" aria-label="3 of 4" aria-hidden="true" inert>
+                                            <div class="wrist-occlusion-video">
+                                                <video controls loop muted playsinline preload="none" width="800" height="600" aria-label="GPU Insertion: exo view with left and right wrist views in the top-right corner" data-poster="data/camera-comparisons/gpu-intro-exo-wrists.webp?v=2">
+                                                    <source data-src="data/camera-comparisons/gpu-intro-exo-wrists.mp4?v=2" type="video/mp4">
+                                                </video>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-slide" data-example-label="Soldering" role="group" aria-roledescription="slide" aria-label="4 of 4" aria-hidden="true" inert>
+                                            <div class="wrist-occlusion-video">
+                                                <video controls loop muted playsinline preload="none" width="800" height="600" aria-label="Soldering: exo view with aligned left and right wrist views in the top-right corner" data-poster="data/camera-comparisons/soldering-intro-exo-wrists.webp?v=1">
+                                                    <source data-src="data/camera-comparisons/soldering-intro-exo-wrists.mp4?v=1" type="video/mp4">
+                                                </video>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="carousel-slide" data-example-label="Pot lid" role="group" aria-roledescription="slide" aria-label="2 of 5" aria-hidden="true" inert>
-                                    <div class="wrist-occlusion-video">
-                                        <video controls loop muted playsinline preload="none" width="960" height="360" aria-label="Placing a pot lid on a pot: left and right wrist camera views with synchronized exo view in the bottom-left corner" data-poster="data/camera-comparisons/pot-intro-wrists-context.webp?v=task-label1">
-                                            <source data-src="data/camera-comparisons/pot-intro-wrists-context.mp4?v=task-label1" type="video/mp4">
-                                        </video>
-                                        <div class="wrist-occlusion-labels"><span>Left wrist</span><span>Right wrist</span></div>
-                                    </div>
+                                <div class="wrist-design-controls">
+                                    <button class="carousel-button carousel-button--left" type="button" aria-label="Previous occlusion example" aria-controls="wrist-occlusion-examples">←</button>
+                                    <span data-carousel-counter aria-live="polite">Boba straw · 1 / 4</span>
+                                    <button class="carousel-button carousel-button--right" type="button" aria-label="Next occlusion example" aria-controls="wrist-occlusion-examples">→</button>
                                 </div>
-                                <div class="carousel-slide" data-example-label="Using a drill" role="group" aria-roledescription="slide" aria-label="3 of 5" aria-hidden="true" inert>
-                                    <div class="wrist-design-placeholder" role="img" aria-label="Video placeholder: Using a drill"><span>Using a drill</span></div>
-                                </div>
-                                <div class="carousel-slide" data-example-label="Lifting a box" role="group" aria-roledescription="slide" aria-label="4 of 5" aria-hidden="true" inert>
-                                    <div class="wrist-design-placeholder" role="img" aria-label="Video placeholder: Lifting a box"><span>Lifting a box</span></div>
-                                </div>
-                                <div class="carousel-slide" data-example-label="Using a screwdriver" role="group" aria-roledescription="slide" aria-label="5 of 5" aria-hidden="true" inert>
-                                    <div class="wrist-design-placeholder" role="img" aria-label="Video placeholder: Using a screwdriver to screw something in"><span>Using a screwdriver to screw something in</span></div>
+                                <div class="carousel-nav" role="group" aria-label="Choose a wrist occlusion example">
+                                    <button class="carousel-indicator current-slide" type="button" aria-label="Putting a boba straw in a cup" aria-pressed="true" aria-controls="wrist-occlusion-examples"></button>
+                                    <button class="carousel-indicator" type="button" aria-label="Placing a pot lid on a pot" aria-pressed="false" aria-controls="wrist-occlusion-examples"></button>
+                                    <button class="carousel-indicator" type="button" aria-label="GPU Insertion" aria-pressed="false" aria-controls="wrist-occlusion-examples"></button>
+                                    <button class="carousel-indicator" type="button" aria-label="Soldering" aria-pressed="false" aria-controls="wrist-occlusion-examples"></button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="wrist-design-controls">
-                            <button class="carousel-button carousel-button--left" type="button" aria-label="Previous occlusion example" aria-controls="wrist-occlusion-examples">←</button>
-                            <span data-carousel-counter aria-live="polite">Boba straw · 1 / 5</span>
-                            <button class="carousel-button carousel-button--right" type="button" aria-label="Next occlusion example" aria-controls="wrist-occlusion-examples">→</button>
-                        </div>
-                        <div class="carousel-nav" role="group" aria-label="Choose a wrist occlusion example">
-                            <button class="carousel-indicator current-slide" type="button" aria-label="Putting a boba straw in a cup" aria-pressed="true" aria-controls="wrist-occlusion-examples"></button>
-                            <button class="carousel-indicator" type="button" aria-label="Placing a pot lid on a pot" aria-pressed="false" aria-controls="wrist-occlusion-examples"></button>
-                            <button class="carousel-indicator" type="button" aria-label="Using a drill" aria-pressed="false" aria-controls="wrist-occlusion-examples"></button>
-                            <button class="carousel-indicator" type="button" aria-label="Lifting a box" aria-pressed="false" aria-controls="wrist-occlusion-examples"></button>
-                            <button class="carousel-indicator" type="button" aria-label="Using a screwdriver to screw something in" aria-pressed="false" aria-controls="wrist-occlusion-examples"></button>
-                        </div>
-                    </div>
-
-                    <p class="paragraph">
-                        They restrict gripper designs by making manipulators bulkier, which makes it more challenging to perform tasks with tight tolerances.
-                    </p>
-
-                    <div class="carousel-container wrist-design-carousel" role="region" aria-roledescription="carousel" aria-label="Wrist camera gripper design examples">
-                        <div class="carousel-track-container">
-                            <div class="carousel-track" id="wrist-design-examples">
-                                <div class="carousel-slide current-slide" data-example-label="Object handover" role="group" aria-roledescription="slide" aria-label="1 of 4">
-                                    <div class="wrist-design-placeholder" role="img" aria-label="Video placeholder: Some type of object handover where the wrist cameras will bump into each otherl">
-                                        <span>Some type of object handover where the wrist cameras will bump into each otherl</span>
-                                    </div>
-                                </div>
-                                <div class="carousel-slide" data-example-label="Pill bottle grasp" role="group" aria-roledescription="slide" aria-label="2 of 4" aria-hidden="true" inert>
-                                    <div class="wrist-design-placeholder" role="img" aria-label="Video placeholder: Grabbing Advil out of a pill bottle">
-                                        <span>Grabbing Advil out of a pill bottle</span>
-                                    </div>
-                                </div>
-                                <div class="carousel-slide" data-example-label="Shelf grasp" role="group" aria-roledescription="slide" aria-label="3 of 4" aria-hidden="true" inert>
-                                    <div class="wrist-design-placeholder" role="img" aria-label="Video placeholder: Grabbing something from a shelf">
-                                        <span>Grabbing something from a shelf</span>
-                                    </div>
-                                </div>
-                                <div class="carousel-slide" data-example-label="Opening a box" role="group" aria-roledescription="slide" aria-label="4 of 4" aria-hidden="true" inert>
-                                    <div class="wrist-design-placeholder" role="img" aria-label="Video placeholder: Opening a box, but the wrist camera sticks out too much">
-                                        <span>Opening a box, but the wrist camera sticks out too much</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wrist-design-controls">
-                            <button class="carousel-button carousel-button--left" type="button" aria-label="Previous gripper design example" aria-controls="wrist-design-examples">←</button>
-                            <span data-carousel-counter aria-live="polite">Object handover · 1 / 4</span>
-                            <button class="carousel-button carousel-button--right" type="button" aria-label="Next gripper design example" aria-controls="wrist-design-examples">→</button>
-                        </div>
-                        <div class="carousel-nav" role="group" aria-label="Choose a gripper design example">
-                            <button class="carousel-indicator current-slide" type="button" aria-label="Object handover" aria-pressed="true" aria-controls="wrist-design-examples"></button>
-                            <button class="carousel-indicator" type="button" aria-label="Pill bottle grasp" aria-pressed="false" aria-controls="wrist-design-examples"></button>
-                            <button class="carousel-indicator" type="button" aria-label="Shelf grasp" aria-pressed="false" aria-controls="wrist-design-examples"></button>
-                            <button class="carousel-indicator" type="button" aria-label="Opening a box" aria-pressed="false" aria-controls="wrist-design-examples"></button>
-                        </div>
-                    </div>
+                        </li>
+                        <li>
+                            <p class="paragraph">
+                                <strong class="intro-problem-heading">It prohibits decoupling vision and action.</strong> Many times, you want to look somewhere different from your grippers to achieve a task, wrist cams don't allow this.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="paragraph">
+                                <strong class="intro-problem-heading">It restricts gripper designs.</strong> Introducing wrist cameras makes manipulators bulkier and prone to motion blur and collisions.
+                            </p>
+                        </li>
+                    </ol>
 
                     <div class="paragraph-with-sidenote">
                         <p class="paragraph">
-                            So how can we see where manipulation is happening without the drawbacks of wrist cameras?<sup class="footnote-marker"><a class="footnote-ref" id="ego-benefits-ref" href="#ego-benefits-note" aria-label="Footnote">1</a></sup>
+                            So how could we get the benefits of wrist cameras purely from an ego view, while preserving the ability to search the scene independently of manipulation?<sup class="footnote-marker"><a class="footnote-ref" id="ego-benefits-ref" href="#ego-benefits-note" aria-label="Footnote">1</a></sup>
                         </p>
-                        <aside class="editorial-note" role="note" aria-label="KH comment"><strong>KH:</strong> I think we should talk about the decoupling vision/action and human data too but we need some visual examples of it, or else I don't think the reason will hit as hard</aside>
                         <aside class="sidenote" id="ego-benefits-note" role="note">
                             <a class="sidenote-number" href="#ego-benefits-ref" aria-label="Back to footnote">1</a>
                             Wrist cams also enable UMI-style data because of their embodiment-agnostic views. Mitigating this gap from ego views with gaze is an interesting future direction!
@@ -694,8 +617,9 @@
 
                 <div class="paragraph-with-sidenote policy-rollout-intro">
                     <p class="paragraph">
-                        The robot learns to coordinate its gaze with a two-stage reinforcement learning pipeline, <b>no gaze demonstrations required</b>!
-                        We first train a semantic gaze module, then use it to learn a gaze sequencing policy which directly optimizes BC accuracy as its reward. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">2</a></sup> image processing, which allocates
+                        The robot learns to coordinate its gaze with a two-stage reinforcement learning (RL) pipeline. RL trains a policy to maximize reward, with <b>no gaze demonstrations required</b> here.
+                        The gripper policy learns through behavior cloning (BC): predicting actions from demonstrations.
+                        We first train a semantic gaze module, then use it to learn a gaze sequencing policy which directly optimizes the BC policy's prediction accuracy as its reward. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">2</a></sup> image processing, which allocates
                         high resolution image tokens towards the center.
                          <!-- This behavior was <i>never supervised</i> and emerged through RL. -->
                     </p>
@@ -718,7 +642,7 @@
 
             <div class="separator"></div>
             <h1>How it works</h1>
-            <p class="paragraph method-summary">EyeRobot 2.0 separates where to look from how to act. A target selector chooses an object, a gaze policy looks at it, and a gripper policy predicts actions from the resulting fixated stereo views. The target selector and gripper policy learn together, favoring gaze choices that make actions easier to predict.</p>
+            <p class="paragraph method-summary">EyeRobot 2.0 <strong>separates where to look from how to act</strong>. A target selector chooses an object, a gaze policy looks at it, and a gripper policy predicts actions from the resulting fixated stereo views. The target selector and gripper policy learn together, favoring gaze choices that make actions easier to predict.</p>
             <nav class="method-overview" aria-label="Policy modules: select, look, act">
                 <a class="method-mini" href="#sequencing-gaze-for-manipulation">
                     <svg viewBox="0 0 300 100" aria-hidden="true" focusable="false"><g fill="#e7eaec" stroke="none"><rect x="38" y="18" width="82" height="14" rx="4"/><rect x="38" y="42" width="54" height="14" rx="4"/><rect x="38" y="66" width="32" height="14" rx="4"/></g><rect x="38" y="18" width="82" height="14" rx="4" fill="#efc8af" stroke="none"/><path d="M136 25H165Q177 25 177 37V49H196"/><path d="M190 43L196 49L190 55"/><circle cx="228" cy="49" r="23" fill="#e3d7a7" stroke="none"/><circle cx="228" cy="49" r="12" fill="white" stroke="none"/></svg>
@@ -774,7 +698,7 @@
                 We can do this from real-world stereo video by synthesizing gaze using calibrated image geometry, treating each eye as a partial 360 image to look around in.
                 This reproduces how the scene would look as the eyes rotate, within the original cameras’ field of view.
             </p>
-            <h2 id="sequencing-gaze-for-manipulation" class="gaze-sequencing-heading">Sequencing gaze</h2>
+            <h2 data-nav-label="Target Selector" id="sequencing-gaze-for-manipulation" class="gaze-sequencing-heading">Sequencing gaze</h2>
             <p class="paragraph">
                 We train a tiny RL agent target selector to choose <i>what</i> object to look at during each stage of the task,
                 then pass this choice to the goal-conditioned gaze policy described below.
@@ -866,7 +790,7 @@
 
 
 
-            <h2 id="learning-goal-conditioned-gaze">Goal-conditioned gaze</h2>
+            <h2 data-nav-label="Gaze Policy" id="learning-goal-conditioned-gaze">Goal-conditioned gaze</h2>
             <div class="carousel-container gaze-live-carousel" role="region" aria-label="Goal-conditioned gaze examples">
                 <div class="carousel-nav gaze-behavior-tabs results-controls" role="group" aria-label="Choose gaze behavior">
                     <button type="button" class="current-slide" aria-pressed="true" aria-controls="gaze-track-yellow" aria-label="Track yellow">Track yellow</button>
@@ -875,6 +799,7 @@
                 <div class="carousel-track-container">
                     <div class="carousel-track" id="goal-gaze-carousel">
                         <div id="gaze-track-yellow" class="carousel-slide current-slide" aria-hidden="false" role="group" aria-label="Track yellow">
+                            <span class="gaze-goal-label">yellow tape</span>
                             <video loop muted playsinline preload="none" aria-label="Real-world gaze tracking yellow tape: left and right eye views" width="1440" height="720" data-poster="data/goal-conditioned-gaze/yellow-stereo.webp?v=35724afd222e">
                         <source type="video/mp4" data-src="data/goal-conditioned-gaze/yellow-stereo.mp4?v=d2683646320d">
                         Your browser does not support the video tag.
@@ -1094,7 +1019,7 @@
                 Your browser does not support the video tag.
             </video>
 
-            <h2 id="policy-architecture">Fixation-centric gripper policy</h2>
+            <h2 data-nav-label="Gripper Policy" id="policy-architecture">Fixation-centric gripper policy</h2>
             <p class="paragraph">
                 The gripper policy combines stereo image views with the robot's state to predict a chunk of bimanual actions.
                 It's similar to an ACT policy where both and robot state are represented relative to fixation. First, images are passed in as <strong class="policy-emphasis">fixation-centric multi-resolution crops</strong>, preserving detail
@@ -1393,23 +1318,22 @@
 </figure>
 <div class="camera-samples" data-camera-group="occluded"><div class="results-controls camera-task-buttons" role="group" aria-label="Occluded task examples"><button type="button" data-camera-index="0" aria-controls="camera-occluded-boba" aria-pressed="true">Boba</button><button type="button" data-camera-index="1" aria-controls="camera-occluded-pot-place" aria-pressed="false">Pot lid</button></div>
 <div class="camera-trial" id="camera-occluded-boba" data-camera-task="boba"><div class="camera-video-pair">
-<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Boba: Ego + Wrist, left and right wrist cameras, episode-001" data-poster="data/camera-comparisons/boba-wrists.webp?v=a3c69335720a"><source data-src="data/camera-comparisons/boba-wrists.mp4?v=c95cfedbed5c" type="video/mp4"></video>
-<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
+<figure><div class="camera-video-frame camera-video-frame--ego-wrists"><video controls loop muted playsinline preload="none" width="1440" height="360" aria-label="Boba: Ego + Wrist, ego, left wrist, and right wrist views, episode-001" data-poster="data/camera-comparisons/boba-ego-wrists.webp?v=1"><source data-src="data/camera-comparisons/boba-ego-wrists.mp4?v=1" type="video/mp4"></video>
+<div class="camera-wrist-labels" aria-hidden="true"><span>Ego</span><span>Left wrist</span><span>Right wrist</span></div>
 </div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
+<p class="camera-view-note">Archived failure example: the straw misses the cup.</p>
 </figure>
 <figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Boba: EyeRobot 2.0, stereo gaze replay, episode-001" data-poster="data/camera-comparisons/boba-er.webp?v=32cf55288fcf"><source data-src="data/camera-comparisons/boba-er.mp4?v=96b88a1990ff" type="video/mp4"></video>
 </div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
-<p class="camera-view-note">Stereo gaze replay</p>
 </figure>
 </div><p class="carousel-caption">Autonomous · 1× speed</p></div>
 <div class="camera-trial" id="camera-occluded-pot-place" data-camera-task="pot-place" hidden inert><div class="camera-video-pair">
-<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Pot lid: Ego + Wrist, left and right wrist cameras, episode-004" data-poster="data/camera-comparisons/pot-place-wrists.webp?v=177ceef7d7b7"><source data-src="data/camera-comparisons/pot-place-wrists.mp4?v=51120914fdc5" type="video/mp4"></video>
-<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
+<figure><div class="camera-video-frame camera-video-frame--ego-wrists"><video controls loop muted playsinline preload="none" width="1440" height="360" aria-label="Pot lid: Ego + Wrist, ego, left wrist, and right wrist views, episode-004" data-poster="data/camera-comparisons/pot-place-ego-wrists.webp?v=1"><source data-src="data/camera-comparisons/pot-place-ego-wrists.mp4?v=1" type="video/mp4"></video>
+<div class="camera-wrist-labels" aria-hidden="true"><span>Ego</span><span>Left wrist</span><span>Right wrist</span></div>
 </div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
 </figure>
 <figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Pot lid: EyeRobot 2.0, stereo gaze replay, episode-004" data-poster="data/camera-comparisons/pot-place-er.webp?v=fc8abdd64ec8"><source data-src="data/camera-comparisons/pot-place-er.mp4?v=ff844721e550" type="video/mp4"></video>
 </div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
-<p class="camera-view-note">Stereo gaze replay</p>
 </figure>
 </div><p class="carousel-caption">Autonomous · 1× speed</p></div>
 </div>
@@ -1424,48 +1348,45 @@
 </figure>
 <div class="camera-samples" data-camera-group="clear"><div class="results-controls camera-task-buttons" role="group" aria-label="Clear task examples"><button type="button" data-camera-index="0" aria-controls="camera-clear-toaster" aria-pressed="true">Toaster</button><button type="button" data-camera-index="1" aria-controls="camera-clear-wrench" aria-pressed="false">Wrench</button><button type="button" data-camera-index="2" aria-controls="camera-clear-marker" aria-pressed="false">Marker</button><button type="button" data-camera-index="3" aria-controls="camera-clear-tea" aria-pressed="false">Tea</button></div>
 <div class="camera-trial" id="camera-clear-toaster" data-camera-task="toaster"><div class="camera-video-pair">
-<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Toaster: Ego + Wrist, left and right wrist cameras, episode-000" data-poster="data/camera-comparisons/toaster-wrists.webp?v=20e4dd851fc0"><source data-src="data/camera-comparisons/toaster-wrists.mp4?v=873d53b08e62" type="video/mp4"></video>
-<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
+<figure><div class="camera-video-frame camera-video-frame--ego-wrists"><video controls loop muted playsinline preload="none" width="1440" height="360" aria-label="Toaster: Ego + Wrist, ego, left wrist, and right wrist views, episode-000" data-poster="data/camera-comparisons/toaster-ego-wrists.webp?v=1"><source data-src="data/camera-comparisons/toaster-ego-wrists.mp4?v=1" type="video/mp4"></video>
+<div class="camera-wrist-labels" aria-hidden="true"><span>Ego</span><span>Left wrist</span><span>Right wrist</span></div>
 </div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
 </figure>
 <figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Toaster: EyeRobot 2.0, stereo gaze replay, episode-000" data-poster="data/camera-comparisons/toaster-er.webp?v=a6afc0940f03"><source data-src="data/camera-comparisons/toaster-er.mp4?v=124204f86637" type="video/mp4"></video>
 </div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
-<p class="camera-view-note">Stereo gaze replay</p>
 </figure>
 </div><p class="carousel-caption">Autonomous · 1× speed</p></div>
 <div class="camera-trial" id="camera-clear-wrench" data-camera-task="wrench" hidden inert><div class="camera-video-pair">
-<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Wrench: Ego + Wrist, left and right wrist cameras, episode-000" data-poster="data/camera-comparisons/wrench-wrists.webp?v=d99eab0b7fa0"><source data-src="data/camera-comparisons/wrench-wrists.mp4?v=39ba07e69c18" type="video/mp4"></video>
-<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
+<figure><div class="camera-video-frame camera-video-frame--ego-wrists"><video controls loop muted playsinline preload="none" width="1440" height="360" aria-label="Wrench: Ego + Wrist, ego, left wrist, and right wrist views, episode-000" data-poster="data/camera-comparisons/wrench-ego-wrists.webp?v=1"><source data-src="data/camera-comparisons/wrench-ego-wrists.mp4?v=1" type="video/mp4"></video>
+<div class="camera-wrist-labels" aria-hidden="true"><span>Ego</span><span>Left wrist</span><span>Right wrist</span></div>
 </div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
 </figure>
 <figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Wrench: EyeRobot 2.0, stereo gaze replay, episode-000" data-poster="data/camera-comparisons/wrench-er.webp?v=5665b562fd4d"><source data-src="data/camera-comparisons/wrench-er.mp4?v=6c2143d03e4b" type="video/mp4"></video>
 </div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
-<p class="camera-view-note">Stereo gaze replay</p>
 </figure>
 </div><p class="carousel-caption">Autonomous · 1× speed</p></div>
 <div class="camera-trial" id="camera-clear-marker" data-camera-task="marker" hidden inert><div class="camera-video-pair">
-<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Marker: Ego + Wrist, left and right wrist cameras, episode-000" data-poster="data/camera-comparisons/marker-wrists.webp?v=07322beb1a6c"><source data-src="data/camera-comparisons/marker-wrists.mp4?v=6db5855b06ec" type="video/mp4"></video>
-<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
+<figure><div class="camera-video-frame camera-video-frame--ego-wrists"><video controls loop muted playsinline preload="none" width="1440" height="360" aria-label="Marker: Ego + Wrist, ego, left wrist, and right wrist views, episode-000" data-poster="data/camera-comparisons/marker-ego-wrists.webp?v=1"><source data-src="data/camera-comparisons/marker-ego-wrists.mp4?v=1" type="video/mp4"></video>
+<div class="camera-wrist-labels" aria-hidden="true"><span>Ego</span><span>Left wrist</span><span>Right wrist</span></div>
 </div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
 </figure>
 <figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Marker: EyeRobot 2.0, stereo gaze replay, episode-000" data-poster="data/camera-comparisons/marker-er.webp?v=0d265be4b014"><source data-src="data/camera-comparisons/marker-er.mp4?v=efc5f31b2c37" type="video/mp4"></video>
 </div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
-<p class="camera-view-note">Stereo gaze replay</p>
 </figure>
 </div><p class="carousel-caption">Autonomous · 1× speed</p></div>
 <div class="camera-trial" id="camera-clear-tea" data-camera-task="tea" hidden inert><div class="camera-video-pair">
-<figure><div class="camera-video-frame camera-video-frame--wrists"><video controls loop muted playsinline preload="none" width="1280" height="480" aria-label="Tea: Ego + Wrist, left and right wrist cameras, episode-002" data-poster="data/camera-comparisons/tea-wrists.webp?v=ce13b05aee03"><source data-src="data/camera-comparisons/tea-wrists.mp4?v=33dc527fca6d" type="video/mp4"></video>
-<div class="camera-wrist-labels" aria-hidden="true"><span>Left wrist</span><span>Right wrist</span></div>
-</div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
+<figure><div class="camera-video-frame camera-video-frame--ego-wrists"><video controls loop muted playsinline preload="none" width="1440" height="360" aria-label="Tea: successful ego-only policy, ego, left wrist, and right wrist views, episode-000" data-poster="data/camera-comparisons/tea-ego-wrists.webp?v=success2"><source data-src="data/camera-comparisons/tea-ego-wrists.mp4?v=success2" type="video/mp4"></video>
+<div class="camera-wrist-labels" aria-hidden="true"><span>Ego</span><span>Left wrist</span><span>Right wrist</span></div>
+</div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego-only policy</figcaption>
 </figure>
 <figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Tea: EyeRobot 2.0, stereo gaze replay, episode-002" data-poster="data/camera-comparisons/tea-er.webp?v=21d7a6feb64e"><source data-src="data/camera-comparisons/tea-er.mp4?v=66acecb43008" type="video/mp4"></video>
 </div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
-<p class="camera-view-note">Stereo gaze replay</p>
 </figure>
 </div><p class="carousel-caption">Autonomous · 1× speed</p></div>
 </div>
 </section>
 </div>
+<p class="editorial-note">KH: Couldn't find tea rollout with exo and wrist camera policy but found successful exo rollout when we recorded wrist cameras too, does this work?</p>
             <h2>Robustness to visual clutter</h2>
             <p class="paragraph">
                 We evaluated 3 tasks with unseen distractor objects scattered throughout the workspace. All comparisons use the <i>exact same object positions</i> to ensure comparability.
@@ -1944,7 +1865,7 @@
         </div>
     </div>
 
-    <script src="carousels.js?v=subtask-strip1" defer></script>
+    <script src="carousels.js?v=inset-click1" defer></script>
     <script src="intro-resolution.js?v=token-density1" defer></script>
 
 </body>

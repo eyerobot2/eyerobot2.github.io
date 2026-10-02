@@ -1,0 +1,22 @@
+{
+  "source_directory": "/home/eyeballisticmissile/eyeball/recordings/exo+wrist/exo_wrist_pot_reeval/episode_004",
+  "inputs": {
+    "left": "left.mp4",
+    "wrist_left": "wrist_left.mp4",
+    "wrist_right": "wrist_right.mp4"
+  },
+  "alignment": "Capture timestamp mappings from pot-intro-wrists-context.json",
+  "fps": 30,
+  "frames": 120,
+  "dimensions": [
+    800,
+    600
+  ],
+  "task_label": "Place lid on pot",
+  "aligned_clip_range_seconds": [
+    3.5,
+    7.5
+  ],
+  "exo_crop": null,
+  "layout": "Exo background; Wrist L/R cards top right; task bottom left; preserve source aspect ratios."
+}

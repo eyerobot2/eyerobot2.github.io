@@ -3,10 +3,10 @@
 .camera-comparisons .camera-samples { position: relative; margin: 22px 0; }
 .camera-task-buttons { margin: 0 auto 14px; }
 .camera-trial[hidden] { display: none; }
-.camera-video-pair { display: grid; grid-template-columns: minmax(0,4fr) minmax(0,3fr); gap: 16px; align-items: start; }
+.camera-video-pair { display: grid; grid-template-columns: minmax(0,2fr) minmax(0,1fr); gap: 16px; align-items: start; }
 .camera-video-pair figure { min-width: 0; margin: 0; }
 .camera-video-frame { position: relative; overflow: hidden; border-radius: 4px; background: #f2f3f4; }
-.camera-video-frame--wrists { aspect-ratio: 8 / 3; }
+.camera-video-frame--ego-wrists { aspect-ratio: 4 / 1; }
 .camera-video-frame--stereo { aspect-ratio: 2 / 1; }
 .camera-video-frame video { display: block; width: 100%; height: 100%; object-fit: contain; }
 .camera-wrist-labels { position: absolute; inset: 6px 0 auto; display: grid; grid-template-columns: 1fr 1fr; pointer-events: none; }
@@ -27,3 +27,7 @@
 .intro-boba-view { aspect-ratio: 8 / 3; }
 .intro-boba-view .camera-wrist-labels { grid-template-columns: 1fr 1fr; }
 .intro-boba-row > .media-feedback { grid-column: 1 / -1; }
+
+.camera-video-frame--ego-wrists .camera-wrist-labels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.camera-view-note { white-space: normal; overflow-wrap: anywhere; text-align: left; }

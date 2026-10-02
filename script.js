@@ -179,7 +179,7 @@ function setupSectionIndex() {
     const item = document.createElement('li');
     const link = document.createElement('a');
     link.href = `#${heading.id}`;
-    link.textContent = heading.textContent.trim();
+    link.textContent = heading.dataset.navLabel || heading.textContent.trim();
     link.dataset.headingLevel = heading.tagName.slice(1);
     item.appendChild(link);
     list.appendChild(item);
@@ -218,29 +218,8 @@ function setupSectionIndex() {
     window.requestAnimationFrame(updateIndex);
   };
 
-  let scrollAnimationFrame = null;
   const scrollToHeading = heading => {
-    if (scrollAnimationFrame !== null) {
-      window.cancelAnimationFrame(scrollAnimationFrame);
-    }
-
-    const startY = window.scrollY;
-    const targetY = startY + heading.getBoundingClientRect().top;
-    const distance = targetY - startY;
-    const duration = Math.min(300, Math.max(180, Math.abs(distance) * 0.12));
-    const startTime = performance.now();
-
-    const step = currentTime => {
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-      const easedProgress = 1 - Math.pow(1 - progress, 3);
-      window.scrollTo(0, startY + distance * easedProgress);
-      if (progress < 1) {
-        scrollAnimationFrame = window.requestAnimationFrame(step);
-      } else {
-        scrollAnimationFrame = null;
-      }
-    };
-    scrollAnimationFrame = window.requestAnimationFrame(step);
+    heading.scrollIntoView({ behavior: 'instant', block: 'start' });
   };
 
   links.forEach((link, index) => {

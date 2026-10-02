@@ -568,6 +568,7 @@ h1.tldr {
 }
 
 .viewer-cta {
+    box-sizing: border-box;
     width: 100%;
     min-height: 68px;
     display: grid;
@@ -1304,8 +1305,8 @@ h1.tldr {
 }
 
 .teaser-stage {
-    flex: 0 0 104%;
-    width: 104%;
+    flex: 0 0 100%;
+    width: 100%;
 }
 
 #main-video {
@@ -1316,21 +1317,18 @@ h1.tldr {
     margin: 0;
 }
 
-/* Desktop: the title block and teaser fill the first screen, and the teaser is as
-   tall as the leftover space (2:1, so often wider than the column). Touch devices
-   and narrow windows keep the layout above. Matches the gate in hero-snap.js. */
+/* Desktop teaser size follows page width, not the height left below the title.
+   Short windows scroll naturally to reveal the rest of the hero. */
 @media (min-width: 751px) and (pointer: fine) {
     .page-hero {
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
-        min-height: calc(100vh - var(--hero-top, 44px));
-        min-height: calc(100svh - var(--hero-top, 44px));
         padding-bottom: 12px;
     }
     .page-hero > * { flex-shrink: 0; }
     .page-hero .teaser-section {
-        flex: 1 0 auto;
+        flex: none;
         flex-direction: column;
         flex-wrap: nowrap;
         align-items: center;
@@ -1349,52 +1347,13 @@ h1.tldr {
     }
     .page-hero .teaser-stage {
         position: relative;
-        display: flex;
-        flex: 1 1 0;
-        align-items: flex-start;
-        justify-content: center;
+        flex: none;
         width: 100%;
-        min-height: 260px;
-        container-type: size;
+        max-width: 1100px;
+        padding-bottom: 0;
     }
-    .page-hero #main-video { flex: none; width: min(100cqw, calc(200cqh - 88px)); }
-    .page-hero .hero-scroll-cue {
-        display: flex;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        width: auto;
-        white-space: nowrap;
-        height: 36px;
-        color: #7d858a;
-        border: 0;
-        background: none;
-        cursor: pointer;
-        font: 400 12px/1.4 'Avenir Next', Avenir, sans-serif;
-    }
-    .page-hero .hero-scroll-cue span { font-size: 16px; }
-    .page-hero .hero-scroll-cue:hover { color: #333; }
-    /* The loading/Play line would otherwise reserve a row under the teaser. */
-    .page-hero .teaser-stage > .media-feedback { position: absolute; right: 0; bottom: 8px; left: 0; justify-content: center; }
+    .page-hero #main-video { width: 100%; }
 }
-
-.hero-scroll-cue { display: none; }
-
-@keyframes hero-scroll-tug {
-    0%, 72%, 100% { transform: translate(-50%, 0); }
-    81% { transform: translate(-50%, 3px); }
-    91% { transform: translate(-50%, 0); }
-}
-@media (prefers-reduced-motion: no-preference) {
-    .page-hero .hero-scroll-cue { animation: hero-scroll-tug 2s ease-in-out infinite; }
-    .page-hero .hero-scroll-cue:hover,
-    .page-hero .hero-scroll-cue:focus-visible { animation: none; }
-}
-
 
 .teaser-section::after {
     width: 100%;
@@ -3154,3 +3113,37 @@ input:checked + .slider:before {
     .results-subtask-number { font-size: 8px; margin-bottom: 5px; }
     .results-subtask-label { font-size: 11px; }
 }
+
+/* Alternate intro composition: exo context with the distractor-style wrist cards. */
+.wrist-occlusion-exo-layout .wrist-occlusion-video,
+.wrist-occlusion-exo-layout .wrist-design-placeholder { aspect-ratio: 4 / 3; }
+
+/* Direct enlargement of the small results view; playback controls remain below. */
+.results-inset-expand {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+    cursor: zoom-in;
+}
+.results-inset-expand[hidden] { display: none; }
+.results-inset-expand span {
+    position: absolute;
+    right: 7px;
+    bottom: 7px;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+    color: white;
+    background: rgba(37, 48, 57, .8);
+    font: 20px system-ui, sans-serif;
+}
+.results-inset-expand:hover { box-shadow: inset 0 0 0 2px #b9d9ed; }
+.results-inset-expand:focus-visible { outline: 3px solid #73b7e0; outline-offset: -3px; }
