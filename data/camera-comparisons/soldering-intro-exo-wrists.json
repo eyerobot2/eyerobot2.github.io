@@ -13,11 +13,12 @@
     600
   ],
   "task_label": "Soldering",
+  "aligned_clip_range_seconds": null,
   "exo_crop": {
-    "x": 0,
-    "y": 170,
-    "width": 1960,
-    "height": 1470
+    "x": 550,
+    "y": 800,
+    "width": 800,
+    "height": 600
   },
   "layout": "Exo background; Wrist L/R cards top right; task bottom left; preserve source aspect ratios."
 }
