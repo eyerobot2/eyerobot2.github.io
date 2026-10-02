@@ -59,7 +59,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link href="style.css?v=no-scroll-cue1" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=stages-gray1" rel="stylesheet" type="text/css" />
     <link href="gaze-transformer.css?v=gutters1" rel="stylesheet" />
     <script src="gaze-transformer.js" defer></script>
     <link href="simulated-gaze.css" rel="stylesheet" />
@@ -318,7 +318,7 @@
                     <ol class="intro-problems">
                         <li>
                             <p class="paragraph">
-                                <strong class="intro-problem-heading">Manipulation necessarily occludes objects in wrist cameras,</strong> especially when using tools, manipulating large objects, or doing whole-body manipulation.
+                                <strong class="intro-problem-heading">Manipulation necessarily occludes wrist cameras,</strong> especially when using tools, manipulating large objects, or doing whole-body manipulation.
                             </p>
 
                             <div class="carousel-container wrist-design-carousel wrist-occlusion-carousel wrist-occlusion-exo-layout" role="region" aria-roledescription="carousel" aria-label="Examples of wrist camera occlusion">
@@ -377,6 +377,11 @@
                                 <strong class="intro-problem-heading">It restricts gripper designs.</strong> Introducing wrist cameras makes manipulators bulkier and prone to motion blur and collisions.
                             </p>
                         </li>
+                        <li>
+                            <p class="paragraph">
+                                <strong class="intro-problem-heading">It complicates transfer from human ego data,</strong> the easiest form of manipulation data to scale. Imagine picking up something with a camera on your hand!
+                            </p>
+                        </li>
                     </ol>
 
                     <div class="paragraph-with-sidenote">
@@ -425,12 +430,12 @@
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
                                     </div>
+                                </div>
                                     <div class="results-subtasks" role="group" aria-label="Task stages">
                                         <button type="button" data-stage-start="0" aria-label="Step 1: Cap the marker" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Cap the marker</span></button>
                                         <button type="button" data-stage-start="10" aria-label="Step 2: Place in bag"><span class="results-subtask-number">02</span><span class="results-subtask-label">Place in bag</span></button>
                                         <button type="button" data-stage-start="17" aria-label="Step 3: Zip the bag"><span class="results-subtask-number">03</span><span class="results-subtask-label">Zip the bag</span></button>
                                     </div>
-                                </div>
                                 <figcaption>Cap marker, place in bag, zip bag</figcaption>
                             </figure>
                         </div>
@@ -447,12 +452,12 @@
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
                                     </div>
+                                </div>
                                     <div class="results-subtasks" role="group" aria-label="Task stages">
                                         <button type="button" data-stage-start="0" aria-label="Step 1: Open the door" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Open the door</span></button>
                                         <button type="button" data-stage-start="7" aria-label="Step 2: Extract the pan"><span class="results-subtask-number">02</span><span class="results-subtask-label">Extract the pan</span></button>
                                         <button type="button" data-stage-start="20" aria-label="Step 3: Close the door"><span class="results-subtask-number">03</span><span class="results-subtask-label">Close the door</span></button>
                                     </div>
-                                </div>
                                 <figcaption>Open toaster, extract pan, close toaster</figcaption>
                             </figure>
                         </div>
@@ -469,11 +474,11 @@
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
                                     </div>
+                                </div>
                                     <div class="results-subtasks" role="group" aria-label="Task stages">
                                         <button type="button" data-stage-start="0" aria-label="Step 1: Open toolbox" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Open toolbox</span></button>
                                         <button type="button" data-stage-start="10" aria-label="Step 2: Lift out"><span class="results-subtask-number">02</span><span class="results-subtask-label">Lift out</span></button>
                                     </div>
-                                </div>
                                 <figcaption>Open toolbox, extract wrench</figcaption>
                             </figure>
                         </div>
@@ -490,11 +495,11 @@
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
                                     </div>
+                                </div>
                                     <div class="results-subtasks" role="group" aria-label="Task stages">
                                         <button type="button" data-stage-start="0" aria-label="Step 1: Insert straw in cup" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Insert straw in cup</span></button>
                                         <button type="button" data-stage-start="10.8" aria-label="Step 2: Place on coaster"><span class="results-subtask-number">02</span><span class="results-subtask-label">Place on coaster</span></button>
                                     </div>
-                                </div>
                                 <figcaption>Insert boba straw, place on coaster</figcaption>
                             </figure>
                         </div>
@@ -511,11 +516,11 @@
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
                                     </div>
+                                </div>
                                     <div class="results-subtasks" role="group" aria-label="Task stages">
                                         <button type="button" data-stage-start="0" aria-label="Step 1: Pick up teabag" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Pick up teabag</span></button>
                                         <button type="button" data-stage-start="3.6" aria-label="Step 2: Put in cup"><span class="results-subtask-number">02</span><span class="results-subtask-label">Put in cup</span></button>
                                     </div>
-                                </div>
                                 <figcaption>Pick up teabag, put in cup</figcaption>
                             </figure>
                         </div>
@@ -532,12 +537,12 @@
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
                                     </div>
+                                </div>
                                     <div class="results-subtasks" role="group" aria-label="Task stages">
                                         <button type="button" data-stage-start="0" aria-label="Step 1: Pick up tape" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Pick up tape</span></button>
                                         <button type="button" data-stage-start="2.5" aria-label="Step 2: Hand over tape"><span class="results-subtask-number">02</span><span class="results-subtask-label">Hand over tape</span></button>
                                         <button type="button" data-stage-start="5.8" aria-label="Step 3: Place the tape"><span class="results-subtask-number">03</span><span class="results-subtask-label">Place the tape</span></button>
                                     </div>
-                                </div>
                                 <figcaption>Pick tape, handover, place tape</figcaption>
                             </figure>
                         </div>
@@ -554,11 +559,11 @@
                                         </video>
                                         <span class="results-gaze-label">Policy gaze</span>
                                     </div>
+                                </div>
                                     <div class="results-subtasks" role="group" aria-label="Task stages">
                                         <button type="button" data-stage-start="0" aria-label="Step 1: Pick up the lid" aria-current="step"><span class="results-subtask-number">01</span><span class="results-subtask-label">Pick up the lid</span></button>
                                         <button type="button" data-stage-start="2.3" aria-label="Step 2: Place on pot"><span class="results-subtask-number">02</span><span class="results-subtask-label">Place on pot</span></button>
                                     </div>
-                                </div>
                                 <figcaption>Pick pot lid, place on pot</figcaption>
                             </figure>
                         </div>
@@ -611,22 +616,25 @@
                         When most people think of active vision, they think of <b>information seeking</b> behaviors like moving your neck to get a better viewpoint.
                         In this work we study a type of active vision more akin to <b>information filtering</b>.
                         Given an already well-observable workspace, can active vision improve manipulation performance by focusing compute, attention, and representation capacity towards important parts of the scene?
-                         We borrow the biological term for this type of active vision: <i>fixation</i>.
-                    </p>
-                </div>
-
-                <div class="paragraph-with-sidenote policy-rollout-intro">
-                    <p class="paragraph">
-                        The robot learns to coordinate its gaze with a two-stage reinforcement learning (RL) pipeline. RL trains a policy to maximize reward, with <b>no gaze demonstrations required</b> here.
-                        The gripper policy learns through behavior cloning (BC): predicting actions from demonstrations.
-                        We first train a semantic gaze module, then use it to learn a gaze sequencing policy which directly optimizes the BC policy's prediction accuracy as its reward. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">2</a></sup> image processing, which allocates
+                         We borrow the biological term for this type of active vision: <i>fixation</i>. Concentric rectangles illustrate the model's <i>foveated</i><sup class="footnote-marker"><a class="footnote-ref" id="foveation-ref" href="#foveation-note" aria-label="Footnote">2</a></sup> image processing, which allocates
                         high resolution image tokens towards the center.
-                         <!-- This behavior was <i>never supervised</i> and emerged through RL. -->
                     </p>
                     <aside class="sidenote" id="foveation-note" role="note">
                         <a class="sidenote-number" href="#foveation-ref" aria-label="Back to footnote">2</a> Foveation is a property prevalant in biological vision where organisms' retinas have very high
                         angular resolution in the center, and very poor resolution in the periphery.
                     </aside>
+                </div>
+
+                <div class="paragraph-with-sidenote policy-rollout-intro">
+                    <p class="paragraph">
+                        The robot learns to coordinate its gaze with a two-stage reinforcement learning (RL) pipeline, with <b>no gaze demonstrations required</b>.
+                        We first train a gaze controller which can look at each per-task object, then learn a gaze sequencing policy which figures out when to look at each object.
+                        Like in our <a href="https://www.eyerobot.net" target="_blank" rel="noopener noreferrer">prior EyeRobot work</a>, the gripper policy co-trains with the gaze sequencing policy in a behavior cloning (BC) - RL loop. The gripper is trained
+                        to mimic demonstrations while the gaze sequencing policy optimizes the gripper policy's prediction accuracy as its reward.
+
+                         <!-- This behavior was <i>never supervised</i> and emerged through RL. -->
+                    </p>
+
                 </div>
 
 
@@ -698,98 +706,6 @@
                 We can do this from real-world stereo video by synthesizing gaze using calibrated image geometry, treating each eye as a partial 360 image to look around in.
                 This reproduces how the scene would look as the eyes rotate, within the original cameras’ field of view.
             </p>
-            <h2 data-nav-label="Target Selector" id="sequencing-gaze-for-manipulation" class="gaze-sequencing-heading">Sequencing gaze</h2>
-            <p class="paragraph">
-                We train a tiny RL agent target selector to choose <i>what</i> object to look at during each stage of the task,
-                then pass this choice to the goal-conditioned gaze policy described below.
-                It learns in parallel with the BC gripper policy, using the BC-RL framework we proposed in <a href="https://www.eyerobot.net/">EyeRobot 1.0</a>
-                where gaze gets rewarded with the BC policy's prediction accuracy.
-            </p>
-            <figure class="gaze-sequencing-static" id="gaze-sequencing">
-                <img src="images/gaze-selector-reward.svg?v=yam-gripper1" width="980" height="530" loading="lazy" decoding="async" alt="The target selector chooses an object. The selected target and the same fixated views feed parallel gripper and gaze policies. The gripper predicts an action chunk, whose error against the demonstration rewards the selector. The gaze policy updates fixation for the next observation." />
-            </figure>
-
-            <p class="paragraph">
-                Take a look at the output probabilities from the target selector during execution here!
-            </p>
-
-
-            <!-- Carousel: policy rollouts w/ target-selector (gaze) probability strip -->
-            <div class="carousel-container gaze-probs-carousel-container" style="margin-top: 12px;">
-                <div class="carousel-track-container">
-                    <div class="carousel-track" id="gaze-probs-carousel">
-                        <!-- Tea -->
-                        <div class="carousel-slide current-slide">
-                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_tea.webp">
-                                <source data-src="data/web-video/gaze_probs_tea.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Marker -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_marker.webp">
-                                <source data-src="data/web-video/gaze_probs_marker.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Boba -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_boba.webp">
-                                <source data-src="data/web-video/gaze_probs_boba.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Tape -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_tape.webp">
-                                <source data-src="data/web-video/gaze_probs_tape.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Toaster -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_toaster.webp">
-                                <source data-src="data/web-video/gaze_probs_toaster.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Wrench -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_wrench.webp">
-                                <source data-src="data/web-video/gaze_probs_wrench.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <!-- Pot -->
-                        <div class="carousel-slide">
-                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_pot.webp">
-                                <source data-src="data/web-video/gaze_probs_pot.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-                <div class="results-gallery-footer">
-                    <p class="carousel-caption">Policy rollouts for each task with target probabilities (the raw output of the RL agent)</p>
-                    <div class="results-gallery-arrows">
-                        <button type="button" class="carousel-button carousel-button--left" data-carousel="gaze-probs-carousel" aria-label="Previous slide">←</button>
-                        <button type="button" class="carousel-button carousel-button--right" data-carousel="gaze-probs-carousel" aria-label="Next slide">→</button>
-                    </div>
-                </div>
-                <div class="carousel-nav">
-                    <button class="carousel-indicator current-slide" data-slide="0"></button>
-                    <button class="carousel-indicator" data-slide="1"></button>
-                    <button class="carousel-indicator" data-slide="2"></button>
-                    <button class="carousel-indicator" data-slide="3"></button>
-                    <button class="carousel-indicator" data-slide="4"></button>
-                    <button class="carousel-indicator" data-slide="5"></button>
-                    <button class="carousel-indicator" data-slide="6"></button>
-                </div>
-
-            </div>
-
-
-
             <h2 data-nav-label="Gaze Policy" id="learning-goal-conditioned-gaze">Goal-conditioned gaze</h2>
             <div class="carousel-container gaze-live-carousel" role="region" aria-label="Goal-conditioned gaze examples">
                 <div class="carousel-nav gaze-behavior-tabs results-controls" role="group" aria-label="Choose gaze behavior">
@@ -1019,11 +935,103 @@
                 Your browser does not support the video tag.
             </video>
 
+            <h2 data-nav-label="Target Selector" id="sequencing-gaze-for-manipulation" class="gaze-sequencing-heading">Sequencing gaze</h2>
+            <p class="paragraph">
+                We train a tiny RL agent target selector to choose <i>what</i> object to look at during each stage of the task,
+                then pass this choice to the goal-conditioned gaze policy described above.
+                It learns in parallel with the BC gripper policy, using the BC-RL framework we proposed in <a href="https://www.eyerobot.net/">EyeRobot 1.0</a>
+                where gaze gets rewarded with the BC policy's prediction accuracy.
+            </p>
+            <figure class="gaze-sequencing-static" id="gaze-sequencing">
+                <img src="images/gaze-selector-reward.svg?v=yam-gripper1" width="980" height="530" loading="lazy" decoding="async" alt="The target selector chooses an object. The selected target and the same fixated views feed parallel gripper and gaze policies. The gripper predicts an action chunk, whose error against the demonstration rewards the selector. The gaze policy updates fixation for the next observation." />
+            </figure>
+
+            <p class="paragraph">
+                Take a look at the output probabilities from the target selector during execution here!
+            </p>
+
+
+            <!-- Carousel: policy rollouts w/ target-selector (gaze) probability strip -->
+            <div class="carousel-container gaze-probs-carousel-container" style="margin-top: 12px;">
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="gaze-probs-carousel">
+                        <!-- Tea -->
+                        <div class="carousel-slide current-slide">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_tea.webp">
+                                <source data-src="data/web-video/gaze_probs_tea.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Marker -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_marker.webp">
+                                <source data-src="data/web-video/gaze_probs_marker.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Boba -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_boba.webp">
+                                <source data-src="data/web-video/gaze_probs_boba.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Tape -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_tape.webp">
+                                <source data-src="data/web-video/gaze_probs_tape.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Toaster -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_toaster.webp">
+                                <source data-src="data/web-video/gaze_probs_toaster.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Wrench -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_wrench.webp">
+                                <source data-src="data/web-video/gaze_probs_wrench.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Pot -->
+                        <div class="carousel-slide">
+                            <video loop muted playsinline style="width: 100%; aspect-ratio: 1440 / 1080; height: auto;" preload="none" width="1440" height="1080" data-poster="data/web-posters/posters/gaze_probs_pot.webp">
+                                <source data-src="data/web-video/gaze_probs_pot.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="results-gallery-footer">
+                    <p class="carousel-caption">Policy rollouts for each task with target probabilities (the raw output of the RL agent)</p>
+                    <div class="results-gallery-arrows">
+                        <button type="button" class="carousel-button carousel-button--left" data-carousel="gaze-probs-carousel" aria-label="Previous slide">←</button>
+                        <button type="button" class="carousel-button carousel-button--right" data-carousel="gaze-probs-carousel" aria-label="Next slide">→</button>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-indicator current-slide" data-slide="0"></button>
+                    <button class="carousel-indicator" data-slide="1"></button>
+                    <button class="carousel-indicator" data-slide="2"></button>
+                    <button class="carousel-indicator" data-slide="3"></button>
+                    <button class="carousel-indicator" data-slide="4"></button>
+                    <button class="carousel-indicator" data-slide="5"></button>
+                    <button class="carousel-indicator" data-slide="6"></button>
+                </div>
+
+            </div>
+
+
+
             <h2 data-nav-label="Gripper Policy" id="policy-architecture">Fixation-centric gripper policy</h2>
             <p class="paragraph">
                 The gripper policy combines stereo image views with the robot's state to predict a chunk of bimanual actions.
-                It's similar to an ACT policy where both and robot state are represented relative to fixation. First, images are passed in as <strong class="policy-emphasis">fixation-centric multi-resolution crops</strong>, preserving detail
-                at the center and providing larger context at the periphery. Second, we prepresent <strong class="policy-emphasis">end effector proprioception and actions relative to a moving gaze reference frame</strong>,
+                It uses an ACT-style transformer decoder, except all input observations are expressed relative to fixation. First, images are passed in as <strong class="policy-emphasis">fixation-centric multi-resolution crops</strong>, preserving detail
+                at the center and providing larger context at the periphery. Second, we represent <strong class="policy-emphasis">end effector proprioception and actions relative to a moving gaze reference frame</strong>,
                 which canonicalizes them into a more compact input space.
             </p>
 
@@ -1321,7 +1329,6 @@
 <figure><div class="camera-video-frame camera-video-frame--ego-wrists"><video controls loop muted playsinline preload="none" width="1440" height="360" aria-label="Boba: Ego + Wrist, ego, left wrist, and right wrist views, episode-001" data-poster="data/camera-comparisons/boba-ego-wrists.webp?v=1"><source data-src="data/camera-comparisons/boba-ego-wrists.mp4?v=1" type="video/mp4"></video>
 <div class="camera-wrist-labels" aria-hidden="true"><span>Ego</span><span>Left wrist</span><span>Right wrist</span></div>
 </div><figcaption class="camera-video-label"><i class="results-swatch" style="--series-color:#5c8fc5" aria-hidden="true"></i>Ego + Wrist</figcaption>
-<p class="camera-view-note">Archived failure example: the straw misses the cup.</p>
 </figure>
 <figure><div class="camera-video-frame camera-video-frame--stereo"><video controls loop muted playsinline preload="none" width="640" height="320" aria-label="Boba: EyeRobot 2.0, stereo gaze replay, episode-001" data-poster="data/camera-comparisons/boba-er.webp?v=32cf55288fcf"><source data-src="data/camera-comparisons/boba-er.mp4?v=96b88a1990ff" type="video/mp4"></video>
 </div><figcaption class="camera-video-label"><i class="results-swatch results-swatch--hatched" style="--series-color:#f2986f" aria-hidden="true"></i>EyeRobot 2.0</figcaption>
@@ -1386,7 +1393,6 @@
 </div>
 </section>
 </div>
-<p class="editorial-note">KH: Couldn't find tea rollout with exo and wrist camera policy but found successful exo rollout when we recorded wrist cameras too, does this work?</p>
             <h2>Robustness to visual clutter</h2>
             <p class="paragraph">
                 We evaluated 3 tasks with unseen distractor objects scattered throughout the workspace. All comparisons use the <i>exact same object positions</i> to ensure comparability.
@@ -1620,8 +1626,8 @@
 
             <div class="paragraph-with-sidenote">
                 <p class="paragraph">
-                    We train models on these simulated-only tasks with the exact same method, hyperparameters, camera parameters, and robot positions as real; the method does not leverage
-                    any simulated information besides what is available in real.
+                    We train models on these simulated-only tasks with the same method, hyperparameters, camera parameters, and robot positions as in our real-world experiments.
+                    The method uses no information that would be unavailable to the real robot.
             </div>
 
             <div class="carousel-container sim-carousel-container sim-autonomous-carousel-container">

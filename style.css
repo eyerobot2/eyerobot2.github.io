@@ -3075,42 +3075,41 @@ input:checked + .slider:before {
     .gaze-live-carousel .carousel-track { transition: none; }
 }
 
-/* Synchronized task instructions. The active underline stays fully solid. */
+/* Task stages sit below the footage, aligned with the large view. */
 .results-subtasks {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
     width: 90%;
     display: flex;
-    gap: 26px;
+    gap: 16px;
     box-sizing: border-box;
-    padding: 75px 28px 25px;
-    border-radius: 0 0 8px 8px;
-    background: linear-gradient(transparent, rgba(16, 26, 36, .91));
-    pointer-events: none;
+    margin-top: 8px;
 }
 .results-subtasks button {
-    pointer-events: auto;
+    display: flex;
+    flex: 1;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
     min-width: 0;
-    padding: 0 0 12px;
+    padding: 8px 2px;
     border: 0;
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid #ededed;
     border-radius: 0;
     background: none;
-    color: #c0c8cd;
+    color: #777;
     font-family: 'Avenir Next', Avenir, sans-serif;
-    text-align: left;
+    font-weight: 500;
+    text-align: center;
     cursor: pointer;
 }
-.results-subtask-number { display: block; font-size: 10px; margin-bottom: 9px; opacity: .65; }
-.results-subtask-label { display: block; font-size: 16px; line-height: 1.3; }
-.results-subtasks button[aria-current="step"] { color: #fff; border-bottom-color: #fff; font-weight: 700; }
-.results-subtasks button:focus-visible { outline: 2px solid #fff; outline-offset: 5px; }
+.results-subtask-number { font-size: 9px; opacity: .65; }
+.results-subtask-label { font-size: 12px; line-height: 1.4; }
+.results-subtasks button[aria-current="step"] { color: #444; border-bottom-color: #888; font-weight: 600; }
+.results-subtasks button:hover { color: #444; background: #f7f7f7; }
+.results-subtasks button:focus-visible { outline: 2px solid #888; outline-offset: 2px; }
 @media (max-width: 650px) {
-    .results-subtasks { gap: 12px; padding: 40px 14px 12px; }
-    .results-subtasks button { padding-bottom: 7px; }
-    .results-subtask-number { font-size: 8px; margin-bottom: 5px; }
+    .results-subtasks { gap: 8px; margin-top: 5px; }
+    .results-subtasks button { gap: 4px; padding: 8px 0; }
+    .results-subtask-number { font-size: 8px; }
     .results-subtask-label { font-size: 11px; }
 }
 
