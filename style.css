@@ -2949,12 +2949,12 @@ input:checked + .slider:before {
 
 .intro-baseline-callout { margin: 24px 0 32px; }
 
-.carousel-container.wrist-design-carousel { width: 80%; max-width: none; margin: 24px auto 32px; }
+.carousel-container.wrist-design-carousel { width: 80%; max-width: none; margin: 20px auto 16px; }
 .wrist-design-carousel .carousel-track-container { border-radius: 6px; }
 .wrist-design-placeholder { display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 16 / 9; padding: 24px; box-sizing: border-box; background: #e6e6e6; color: #666; text-align: center; font-size: clamp(14px, 1.5vw, 20px); line-height: 1.5; }
 .wrist-design-placeholder span { max-width: 420px; }
-.wrist-design-controls { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 12px; }
-.wrist-design-controls [data-carousel-counter] { font-size: 12px; color: #777; min-width: 155px; text-align: center; }
+.wrist-design-carousel .results-gallery-footer { margin: 10px 0 0; }
+.wrist-design-carousel > .media-feedback:not(.is-visible) { display: none; }
 .wrist-design-carousel .carousel-nav { margin-top: 4px; }
 .wrist-occlusion-video { position: relative; width: 100%; aspect-ratio: 8 / 3; }
 .wrist-occlusion-video video { display: block; width: 100%; height: 100%; object-fit: contain; background: #eee; }
