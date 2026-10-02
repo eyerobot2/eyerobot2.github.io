@@ -19,19 +19,19 @@
          not resolve relative paths. Bump the ?v= when the card is replaced,
          since the crawlers cache it aggressively.
     ==================================================================== -->
-    <meta content="Policies with active stereo gaze match or exceed wrist camera setups in performance." name="description" />
+    <meta content="Decoupling physical attention from wrist cameras with active gaze." name="description" />
     <meta content="EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras" property="og:title" />
-    <meta content="Policies with active stereo gaze match or exceed wrist camera setups in performance." property="og:description" />
-    <meta content="https://eyerobot2.github.io/data/social-card.jpg?v=b3f8b08be8c4" property="og:image" />
+    <meta content="Decoupling physical attention from wrist cameras with active gaze." property="og:description" />
+    <meta content="https://eyerobot2.github.io/data/social-card.jpg?v=686b251858e1" property="og:image" />
     <meta content="1200" property="og:image:width" />
     <meta content="630" property="og:image:height" />
-    <meta content="EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras. Policies with active stereo gaze match or exceed wrist camera setups in performance. Toaster rollout at 15 seconds, showing the robot manipulating the toaster." property="og:image:alt" />
+    <meta content="EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras. Decoupling physical attention from wrist cameras with active gaze. Toaster rollout at 15 seconds, showing the robot manipulating the toaster." property="og:image:alt" />
     <meta content="https://eyerobot2.github.io/" property="og:url" />
     <meta content="EyeRobot 2.0" property="og:site_name" />
     <meta content="EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras" name="twitter:title" />
-    <meta content="Policies with active stereo gaze match or exceed wrist camera setups in performance." name="twitter:description" />
-    <meta content="https://eyerobot2.github.io/data/social-card.jpg?v=b3f8b08be8c4" name="twitter:image" />
-    <meta content="EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras. Policies with active stereo gaze match or exceed wrist camera setups in performance. Toaster rollout at 15 seconds, showing the robot manipulating the toaster." name="twitter:image:alt" />
+    <meta content="Decoupling physical attention from wrist cameras with active gaze." name="twitter:description" />
+    <meta content="https://eyerobot2.github.io/data/social-card.jpg?v=686b251858e1" name="twitter:image" />
+    <meta content="EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras. Decoupling physical attention from wrist cameras with active gaze. Toaster rollout at 15 seconds, showing the robot manipulating the toaster." name="twitter:image:alt" />
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <link rel="canonical" href="https://eyerobot2.github.io/" />
@@ -646,16 +646,16 @@
             <div class="separator"></div>
             <h1>How it works</h1>
             <p class="paragraph method-summary">EyeRobot 2.0 <strong>separates where to look from how to act</strong>. A target selector chooses an object, a gaze policy looks at it, and a gripper policy predicts actions from the resulting fixated stereo views. The target selector and gripper policy learn together, favoring gaze choices that make actions easier to predict.</p>
-            <nav class="method-overview" aria-label="Policy modules: select, look, act">
-                <a class="method-mini" href="#sequencing-gaze-for-manipulation">
-                    <svg viewBox="0 0 300 100" aria-hidden="true" focusable="false"><g fill="#e7eaec" stroke="none"><rect x="38" y="18" width="82" height="14" rx="4"/><rect x="38" y="42" width="54" height="14" rx="4"/><rect x="38" y="66" width="32" height="14" rx="4"/></g><rect x="38" y="18" width="82" height="14" rx="4" fill="#efc8af" stroke="none"/><path d="M136 25H165Q177 25 177 37V49H196"/><path d="M190 43L196 49L190 55"/><circle cx="228" cy="49" r="23" fill="#e3d7a7" stroke="none"/><circle cx="228" cy="49" r="12" fill="white" stroke="none"/></svg>
-                    <strong>Target selector <span aria-hidden="true">↗</span></strong>
-                    <span class="method-mini-description carousel-caption">Uses robot state to choose which object to look at next.</span>
-                </a>
+            <nav class="method-overview" aria-label="Policy modules: gaze policy, target selector, gripper policy">
                 <a class="method-mini" href="#learning-goal-conditioned-gaze">
                     <svg viewBox="0 0 300 100" aria-hidden="true" focusable="false"><path d="M144 38L223 49L144 72" fill="#edf3ef" stroke="none"/><g fill="white"><ellipse cx="81" cy="50" rx="23" ry="28"/><ellipse cx="133" cy="50" rx="23" ry="28"/></g><g fill="#536672" stroke="none"><ellipse cx="89" cy="50" rx="10" ry="14"/><ellipse cx="141" cy="50" rx="10" ry="14"/></g><circle cx="233" cy="49" r="23" fill="#e3d7a7" stroke="none"/><circle cx="233" cy="49" r="12" fill="white" stroke="none"/></svg>
                     <strong>Gaze policy <span aria-hidden="true">↗</span></strong>
                     <span class="method-mini-description carousel-caption">Uses stereo views and the selected object to control gaze depth and direction.</span>
+                </a>
+                <a class="method-mini" href="#sequencing-gaze-for-manipulation">
+                    <svg viewBox="0 0 300 100" aria-hidden="true" focusable="false"><g fill="#e7eaec" stroke="none"><rect x="38" y="18" width="82" height="14" rx="4"/><rect x="38" y="42" width="54" height="14" rx="4"/><rect x="38" y="66" width="32" height="14" rx="4"/></g><rect x="38" y="18" width="82" height="14" rx="4" fill="#efc8af" stroke="none"/><path d="M136 25H165Q177 25 177 37V49H196"/><path d="M190 43L196 49L190 55"/><circle cx="228" cy="49" r="23" fill="#e3d7a7" stroke="none"/><circle cx="228" cy="49" r="12" fill="white" stroke="none"/></svg>
+                    <strong>Target selector <span aria-hidden="true">↗</span></strong>
+                    <span class="method-mini-description carousel-caption">Uses robot state to choose which object to look at next.</span>
                 </a>
                 <a class="method-mini" href="#policy-architecture">
                     <svg viewBox="0 0 300 100" aria-hidden="true" focusable="false"><g fill="#e7efe9" stroke="none"><rect x="22" y="28" width="49" height="43" rx="6"/><rect x="81" y="28" width="49" height="43" rx="6"/></g><g fill="#c4b274" stroke="none"><circle cx="46" cy="49" r="10"/><circle cx="105" cy="49" r="10"/></g><g fill="white" stroke="none"><circle cx="46" cy="49" r="5"/><circle cx="105" cy="49" r="5"/></g><path d="M148 49H181M175 43L181 49L175 55"/><g transform="translate(208 35) rotate(-16)" opacity=".5"><path d="M-5-14H5Q7-14 7-12V-2H-7V-12Q-7-14-5-14Z" fill="#a2bfd7" stroke="none"/><path d="M-12-2H12V2H-12Z M-12 2H-5V19H-8Z M-9 5L-7 13V5Z M12 2H5V19H8Z M9 5L7 13V5Z" fill="#6e92af" fill-rule="evenodd" stroke="none"/></g><g transform="translate(242 43) rotate(-8)" opacity=".75"><path d="M-5-14H5Q7-14 7-12V-2H-7V-12Q-7-14-5-14Z" fill="#a2bfd7" stroke="none"/><path d="M-12-2H12V2H-12Z M-12 2H-5V19H-8Z M-9 5L-7 13V5Z M12 2H5V19H8Z M9 5L7 13V5Z" fill="#6e92af" fill-rule="evenodd" stroke="none"/></g><g transform="translate(276 51) rotate(0)" opacity="1"><path d="M-5-14H5Q7-14 7-12V-2H-7V-12Q-7-14-5-14Z" fill="#a2bfd7" stroke="none"/><path d="M-12-2H12V2H-12Z M-12 2H-5V19H-8Z M-9 5L-7 13V5Z M12 2H5V19H8Z M9 5L7 13V5Z" fill="#6e92af" fill-rule="evenodd" stroke="none"/></g></svg>
@@ -1859,9 +1859,8 @@
             <pre id="codecell0" style="white-space: pre-wrap; word-wrap: break-word; max-width: 100%; overflow-x: auto; padding: 1em; background: #f5f5f5; border-radius: 4px;">@article{2026eyerobot2,
   title={{EyeRobot 2.0}: Active Gaze for Precise Manipulation without Wrist Cameras},
   author={Hari, Kush* and Kerr, Justin* and Shivakumar, Nidhya and Mahapatra, Samarth and Sferrazza, Carmelo and Lei, Jiahui and Malik, Jitendra and Liu, C. Karen and Goldberg, Ken and Kanazawa, Angjoo},
-  journal={arXiv preprint arXiv:[ARXIV_ID]},
-  year={2026},
-  url={https://arxiv.org/abs/[ARXIV_ID]}
+  journal={arXiv preprint},
+  year={2026}
 }</pre>
         </div>
     </div>
