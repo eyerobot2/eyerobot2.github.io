@@ -368,12 +368,51 @@ function setupVideoPlaybackControls() {
   });
 }
 
+// On touch/narrow screens, expose playback controls only after interacting
+// with the video. Keep custom-control space reserved to avoid layout jumps.
+function setupTapToRevealVideoControls() {
+  const mobile = matchMedia('(max-width: 750px), (pointer: coarse)');
+  const entries = [];
+  document.querySelectorAll('.video-playback-controls').forEach(controls => {
+    const videos = [...controls.parentElement.querySelectorAll('video')];
+    entries.push({ controls, videos, revealed: false });
+  });
+  document.querySelectorAll('video[controls]').forEach(video => {
+    entries.push({ videos: [video], revealed: false });
+  });
+  entries.forEach(entry => {
+    const originalTabIndexes = entry.videos.map(video => video.getAttribute('tabindex'));
+    const update = () => {
+      const concealed = mobile.matches && !entry.revealed;
+      if (entry.controls) entry.controls.classList.toggle('video-controls-concealed', concealed);
+      else entry.videos[0].controls = !concealed;
+      entry.videos.forEach((video, index) => {
+        if (mobile.matches) video.tabIndex = 0;
+        else if (originalTabIndexes[index] === null) video.removeAttribute('tabindex');
+        else video.setAttribute('tabindex', originalTabIndexes[index]);
+      });
+    };
+    const reveal = () => {
+      if (!mobile.matches || entry.revealed) return;
+      entry.revealed = true;
+      update();
+    };
+    entry.videos.forEach(video => {
+      video.addEventListener('click', reveal);
+      video.addEventListener('focus', reveal);
+    });
+    mobile.addEventListener('change', update);
+    update();
+  });
+}
+
 // Initialize the page
 function initializePage() {
   randomizeCoFirstAuthors();
   setupRealResultsMetricToggle();
   setupSectionIndex();
   setupVideoPlaybackControls();
+  setupTapToRevealVideoControls();
   setupThumbnailClickEvents();
 
   // Show the first iframe by default
