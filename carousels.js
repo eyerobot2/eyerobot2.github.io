@@ -44,11 +44,36 @@ document.addEventListener('DOMContentLoaded', () => {
             focusToggle.textContent = 'Enlarge gaze ↗';
             focusToggle.setAttribute('aria-pressed', 'false');
             container.querySelector('.results-gallery-arrows').prepend(focusToggle);
+            const insetButtons = [];
+            slides.forEach(slide => {
+                ['.results-gaze-inset', '.results-robot-view'].forEach(selector => {
+                    const view = slide.querySelector(selector);
+                    if (!view) return;
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'results-inset-expand';
+                    const isGaze = selector === '.results-gaze-inset';
+                    button.setAttribute('aria-label', isGaze ? 'Enlarge policy gaze view' : 'Enlarge robot view');
+                    button.title = button.getAttribute('aria-label');
+                    button.innerHTML = '<span aria-hidden="true">↗</span>';
+                    button.hidden = !isGaze;
+                    button.addEventListener('click', () => {
+                        focusToggle.click();
+                        // The activated inset becomes large, so its button is hidden.
+                        focusToggle.focus({ preventScroll: true });
+                    });
+                    view.append(button);
+                    insetButtons.push({ button, isGaze });
+                });
+            });
             focusToggle.addEventListener('click', () => {
                 const views = [...container.querySelectorAll('.current-slide .results-robot-view, .current-slide .results-gaze-inset')];
                 views.forEach(view => view.getAnimations().forEach(animation => animation.cancel()));
                 const before = views.map(view => view.getBoundingClientRect());
                 const gazeIsLarge = container.classList.toggle('results-gaze-focused');
+                insetButtons.forEach(({ button, isGaze }) => {
+                    button.hidden = isGaze === gazeIsLarge;
+                });
                 container.querySelectorAll('.results-gaze-label').forEach(label => {
                     label.textContent = gazeIsLarge ? 'Policy gaze · left / right' : 'Policy gaze';
                 });
@@ -71,6 +96,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const robot = slide.querySelector('.results-robot-view video');
             const gaze = slide.querySelector('.results-gaze-inset video');
             if (!robot || !gaze) return;
+            // Editorial stage boundaries follow the robot video, including seeks and loops.
+            const stages = [...slide.querySelectorAll('[data-stage-start]')];
+            const updateStage = () => {
+                const active = stages.reduce((current, stage, index) =>
+                    robot.currentTime >= Number(stage.dataset.stageStart) ? index : current, 0);
+                stages.forEach((stage, index) => {
+                    if (index === active) stage.setAttribute('aria-current', 'step');
+                    else stage.removeAttribute('aria-current');
+                });
+            };
+            stages.forEach(stage => stage.addEventListener('click', () => {
+                if (robot.readyState < 1) return;
+                robot.currentTime = Number(stage.dataset.stageStart);
+                updateStage();
+            }));
+            ['timeupdate', 'seeking', 'loadedmetadata', 'emptied'].forEach(event =>
+                robot.addEventListener(event, updateStage));
+            updateStage();
             const followRobot = () => {
                 if (gaze.readyState < 2 || !Number.isFinite(gaze.duration)) return;
                 const time = Math.min(robot.currentTime, gaze.duration);

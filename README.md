@@ -79,3 +79,7 @@ It's a self-contained static site (relative paths + hash routing), so it just wo
 
 This repo is initialized locally but **not committed** — commits and pushes are done by the
 repo owner only.
+
+## Website feedback
+
+Track incoming review comments, decisions, and resolution status in [WEBSITE_FEEDBACK.md](WEBSITE_FEEDBACK.md). Add feedback to the log before acting on it; choose and address items one at a time.

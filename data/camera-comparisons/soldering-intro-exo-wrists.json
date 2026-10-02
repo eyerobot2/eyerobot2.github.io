@@ -1,0 +1,23 @@
+{
+  "source_directory": "/home/eyeballisticmissile/eyerobot2-website/soldering_example",
+  "inputs": {
+    "left": "main_camera_fixed_start.mp4",
+    "wrist_left": "wrist_left_aligned.mp4",
+    "wrist_right": "wrist_right_aligned.mp4"
+  },
+  "alignment": "Matching frame indices in supplied aligned 50fps exports; no capture timestamps supplied.",
+  "fps": 50,
+  "frames": 293,
+  "dimensions": [
+    800,
+    600
+  ],
+  "task_label": "Soldering",
+  "exo_crop": {
+    "x": 0,
+    "y": 170,
+    "width": 1960,
+    "height": 1470
+  },
+  "layout": "Exo background; Wrist L/R cards top right; task bottom left; preserve source aspect ratios."
+}
