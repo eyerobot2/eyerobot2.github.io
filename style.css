@@ -555,6 +555,7 @@ h1.tldr {
 }
 
 .project-link i { font-size: 18px; line-height: 1; }
+.project-link-svg { width: 14px; height: 14px; flex-shrink: 0; }
 .project-link:hover { background: #f4f5f6; border-color: #cfd4d7; }
 
 .project-link:focus-visible {
